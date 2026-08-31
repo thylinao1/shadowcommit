@@ -8,7 +8,7 @@ This document is the whole project: what it is, how it works, what was built and
 what has been measured, and what it cannot do. Every figure names the command that reproduces it.
 Where something is unproven, it says so.
 
-TikTok TechJam 2026, Track C, "The Kill Switch".
+TikTok TechJam 2026, Track 1. Middleware story: threat modeling and safety.
 
 ---
 

@@ -363,8 +363,8 @@ answer is `npm run check`. Add, after the "No key, and you still want to see it 
 > starts a mock model provider in a container beside the platform and points the runtime at it. The
 > provider is the only thing standing in for something real: the Codex CLI, the runtime container,
 > the shell commands it runs, the files it writes, the transaction, the policy, the journal and the
-> panel are all the shipped ones. Then open http://localhost:3000, or drive the whole of the track's
-> required demo automatically:
+> panel are all the shipped ones. Then open http://localhost:3000, or drive the whole recorded demo
+> automatically:
 >
 > ```bash
 > npm run demo:drive          # five turns: one commits, one is discarded, three are held

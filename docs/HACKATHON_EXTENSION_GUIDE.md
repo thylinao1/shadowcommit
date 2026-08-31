@@ -1,6 +1,6 @@
 # Three-day hackathon guide
 
-Teams receive a working Agent platform and build exactly one middleware track.
+Teams receive a working Agent platform and build one coherent middleware story.
 Rebuilding the UI, control plane, local Runtime, or ECS setup is out of scope.
 
 ## Provided baseline
@@ -13,9 +13,9 @@ Rebuilding the UI, control plane, local Runtime, or ECS setup is out of scope.
 
 Local execution is the default judging path. Cloud deployment is optional.
 
-## Choose one track
+## Choose a middleware story
 
-### Glass Box: trace and audit
+### Trace, audit, and observability
 
 Make a Run diagnosable.
 
@@ -26,7 +26,7 @@ Required demo:
 - Redact secrets.
 - Run one successful task and identify the failing step in one failed task.
 
-### Bouncer: identity and authorization
+### Identity and authorization
 
 Separate the human user from the Agent acting for that user.
 
@@ -39,7 +39,7 @@ Required demo:
 
 A login screen without server-side authorization does not qualify.
 
-### Kill Switch: safety and sandboxing
+### Threat modeling and safety
 
 Contain one explicit dangerous action.
 

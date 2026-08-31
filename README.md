@@ -4,7 +4,8 @@ Shadow Commit makes every agent turn a transaction. The agent works on a sealed 
 workspace, the complete set of effects it produced is judged after it runs, and nothing reaches
 the real workspace until a policy or a person says so.
 
-- **Submission:** TikTok TechJam 2026, Track C, The Kill Switch, safety and sandboxing.
+- **Submission:** TikTok TechJam 2026, Track 1. Middleware story: threat modeling and safety.
+- **Showcase site:** https://thylinao1.github.io/shadowcommit-site-zff3/
 - **Built on:** the [CodeJam Agent Launchpad](https://github.com/RrankPyramid/CodeJam) starter kit.
   Its agent CRUD, playground, control plane and runtime are kept unchanged. The transaction layer
   around them is this project.
@@ -59,15 +60,18 @@ presenter script in [`evidence/demo-run/STORYBOARD.md`](evidence/demo-run/STORYB
 | Verification and robustness | "The tests" and "Evidence" below: the corpus, the blind sets, the fuzz jobs, the receipt. "What CI proves" for what runs on every push. |
 | Demo and reproducibility | The ten-minute path above. One command per claim, no credential required, recorded output committed beside the commands that regenerate it. |
 
-## Selected track: C, The Kill Switch
+## The middleware story: threat modeling and safety
 
-This repository selects exactly one middleware track: Track C, The Kill Switch, safety and
-sandboxing. Nothing here is submitted for Track A or Track B, and the section "What this is not"
-states where the build falls short of those tracks' own bullets.
+The rules recommend middleware directions as examples rather than prescribing them: identity and
+authorization, trace and audit, layered architecture, threat modeling and safety, and multi-agent
+coordination. This repository builds one coherent story, threat modeling and safety, and claims
+nothing under the other examples. The section "What this is not" states where the build falls
+short of two neighbouring examples' own bars.
 
-The track's success test, quoted from the rules:
+The evidence this story owes, quoted from the rules' checklist:
 
-> the protected asset remains unchanged and the judge can see which control stopped the action.
+> a defined threat is blocked or contained, the protected asset remains unchanged, and cleanup or
+> recovery is demonstrated.
 
 The artifact that meets it is committed at
 [`evidence/demo-run/steps/05-turn-2-abuse.json`](evidence/demo-run/steps/05-turn-2-abuse.json):
@@ -92,21 +96,19 @@ after the containment:
 shows five turns settled `held`, `rejected`, `approved`, `discarded`, `committed`, a journal chain
 check that returns ok with zero problems, and `customers.jsonl` still present at 70 bytes.
 
-**One gap in that track, stated here rather than left to be found.** The track asks for blocked,
-terminated and cleaned-up states. Blocked and cleaned-up are both in the recording above.
-Terminated, meaning an operator killing a live turn mid-flight, is real code: the cancellation
+**One gap, stated here rather than left to be found.** Blocking and cleanup are both in the
+recording above. Termination, meaning an operator killing a live turn mid-flight, is real code: the cancellation
 branch of `apps/server/src/transactional-runner.ts` discards under the rule name
 `cancelled-by-operator`. No turn in the committed evidence pack was cancelled, so the recording
 does not show it. Read it as shipped and untested by the demo, not as demonstrated.
 
-**The track's five minimum-implementation bullets, in the organizers' order.** They are quoted
-from the organizers' challenge brief, and each answer is one place to look.
+**Five checks a reviewer can make, each with one place to look.**
 
 | The bullet | Where it is met |
 |---|---|
 | Define one explicit threat scenario and the asset being protected | The turn above: a `.git/hooks/pre-commit` that pipes a fetch into a shell, plus the deletion of the customer export. The protected set is `SHADOW_PROTECTED_FILES=customers.jsonl,.env` in `.env.example`. |
 | Harden the supplied local Runtime with an explicit isolation or policy adapter | `transactional-runner.ts` is a decorator on the kit's own `AgentRunner`, composed once in `createRunner()`, plus the per-run sealed workspace, sealed agent memory and `--internal` network the seal brings up. |
-| Enforce at least two bounded controls | Control one, filesystem scope: the `protected-asset-delete` rule in `rules/protected-identity.ts`, demonstrated at `steps/05`. Control two, network destination: the exact host-and-port allowlist in `broker/broker-core.mjs` on a per-run `--internal` network, demonstrated at `steps/06`. Both are new and threat-specific, which the track's closing note demands and which the kit's baseline cgroup limits do not satisfy. |
+| Enforce at least two bounded controls | Control one, filesystem scope: the `protected-asset-delete` rule in `rules/protected-identity.ts`, demonstrated at `steps/05`. Control two, network destination: the exact host-and-port allowlist in `broker/broker-core.mjs` on a per-run `--internal` network, demonstrated at `steps/06`. Both are new and threat-specific, which the kit's baseline cgroup limits do not satisfy. |
 | Expose blocked, terminated and cleaned-up states | Blocked and cleaned-up are in the recording and the browser capture. Terminated is shipped and not demonstrated, as stated above. |
 | Prove that a later safe Run can proceed after the malicious Run is contained | [`evidence/demo-run/steps/10-platform-after.json`](evidence/demo-run/steps/10-platform-after.json), described above. |
 
@@ -331,15 +333,15 @@ read-only, and the runner's rewritten evidence pack is thrown away.
 
 ## What this is not
 
-Track C is the claim. These are the two nearby tracks and where this build falls short of their
-own bullets, so a reader does not have to discover it.
+Threat modeling and safety is the claim. These are two neighbouring recommended examples and
+where this build falls short of their own bars, so a reader does not have to discover it.
 
-- **Not Track A, The Glass Box.** The journal correlates by run id, a monotonic sequence number
-  and a hash chain. A grep for `traceId` or `spanId` under `apps/server/src` and `apps/web/src`
-  returns nothing, and that track names those fields. Its required demo is a task that fails at
+- **Not trace, audit, and observability.** The journal correlates by run id, a monotonic sequence
+  number and a hash chain. A grep for `traceId` or `spanId` under `apps/server/src` and
+  `apps/web/src` returns nothing, and that example names those fields. Its required demo is a task that fails at
   the runtime level, and the committed evidence pack has no such turn: every turn in it succeeded
   and was then contained by policy.
-- **Not Track B, The Bouncer.** There is no human user model. A grep for `userId` or `ownerId` in
+- **Not identity and authorization.** There is no human user model. A grep for `userId` or `ownerId` in
   `apps/server/src/agent-service.ts`, `types.ts` and `app.ts` returns nothing, so there is no
   User A and User B to cross between. `journal-format.ts` does distinguish a non-human principal
   from a human one, `agent` against `operator:<actor>`, but no agent is linked to an owning user.
@@ -826,20 +828,20 @@ same oracle as this effect capture, used for evaluation rather than for control.
 
 ## Acceptance checklist
 
-The organizers' general checklist, in their order, then the gate for the selected track.
+The organizers' checklist, in their order, then the threat-evidence bullet.
 
 | Checklist item | Where it is answered |
 |---|---|
-| 1. The repository names exactly one selected track | The top of this file: Track C, The Kill Switch. Nothing else is claimed, and "What this is not" says where the neighbouring tracks fall short here. |
+| 1. The submission identifies and demonstrates one or more meaningful middleware capabilities selected, adapted, combined, or designed by the team | The top of this file: one capability, threat modeling and safety, demonstrated end to end. "What this is not" says where the neighbouring examples are not claimed. |
 | 2. A reviewer can create or select an Agent and run a task from the browser | `npm run poc:mock` with no credential, or `npm run poc` with an Ark key, then http://localhost:3000. Agent CRUD, lifecycle, playground and persistence are the kit's and are untouched. The recorded keyless run is [`evidence/demo-run/BEATS.md`](evidence/demo-run/BEATS.md), and the captured browser screens are in [`evidence/demo-run/browser/`](evidence/demo-run/browser/). |
 | 3. The selected middleware executes in a real backend or runtime path | `transactional-runner.ts` wraps every runner in `createRunner()`, which `index.ts` calls at startup; the network sealer and the broker are container and infrastructure; the journal is the data path. Nothing decides anything in the UI, and the CI demo job is configured to run this path end to end in a real docker container. |
 | 4. The demo includes both a positive case and a failure, denial or malicious case | The same recorded run carries all five outcomes: `committed`, `discarded`, `approved`, `rejected`, `held`, and the CI gate asserts all five are present by name. The malicious case is the containment quoted near the top of this file, denied once by policy and twice more at the network layer. |
 | 5. No secret appears in source, browser state, screenshots, logs, traces or demo output | On the sealed path, the provider key never enters the runtime: a one-turn token is minted per turn in `network-sealer.ts` and swapped in at the broker. The unconfined path hands the container the real key, which is exactly why it refuses to start without `SHADOW_ALLOW_UNCONFINED=1`. Rule hits carry a four-character prefix and a length, never a credential. `.env.example` carries names and placeholders, no credential. |
 | 6. The README contains deployment steps and known limitations | "Run it" and "Setup detail" above, then [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md); "Limitations" above, then [`docs/STRUCTURAL-LIMITS.md`](docs/STRUCTURAL-LIMITS.md). |
-| Track C gate: a malicious action is contained, the protected asset survives, and execution cleanup is visible | [`evidence/demo-run/steps/05-turn-2-abuse.json`](evidence/demo-run/steps/05-turn-2-abuse.json): status `contained` under `protected-asset-delete`; the workspace digest identical either side of the turn; cleanup recorded as `seal.release`. The table near the top of this file reads that file line by line. |
+| Threat evidence, the rules' optional-evidence bullet: a defined threat is contained, the protected asset remains unchanged, and cleanup is demonstrated | [`evidence/demo-run/steps/05-turn-2-abuse.json`](evidence/demo-run/steps/05-turn-2-abuse.json): status `contained` under `protected-asset-delete`; the workspace digest identical either side of the turn; cleanup recorded as `seal.release`. The table near the top of this file reads that file line by line. |
 
-**The one middleware capability, and the mechanisms under it.** The rules put completing more
-than one middleware track out of scope, so this is one capability rather than a list. The
+**The one middleware capability, and the mechanisms under it.** The rules reward one coherent
+story rather than breadth, so this is one capability rather than a list. The
 capability: an agent turn is a transaction, judged on its complete effect set after it runs, and
 settled as commit, discard or hold. Its mechanisms are the sealed workspace copy and the sealed
 agent memory that make the turn reversible; the per-run internal-only network and the exact
