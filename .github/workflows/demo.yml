@@ -1,0 +1,344 @@
+name: demo
+
+# Nothing green stood behind the demo until this file existed. CI ran `npm run check` and nothing
+# else, so `main` could be green while `npm run poc:mock` did not start and `npm run demo:drive`
+# did not finish. Twice the committed evidence at HEAD was a failed run, and a person found it both
+# times rather than a gate.
+#
+# This job starts the whole platform with no provider key, drives the demo through it, and fails if
+# the demo does not reach the end. It runs on the same triggers as check.yml for the reason stated
+# there: a gate that only runs on one branch discovers problems after the merge that introduced
+# them.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: demo-${{ github.ref }}
+  cancel-in-progress: true
+
+# This job proves the demo runs. It does not publish. A read-only token is the enforceable form of
+# that sentence rather than a promise in a comment: a step that tried to push the re-recorded
+# evidence pack back to the repository could not, and `persist-credentials: false` on the checkout
+# leaves no credential in `.git/config` for a later step to pick up. There is no `git commit`, no
+# `git push` and no committing action anywhere below.
+permissions:
+  contents: read
+
+# WHY THESE PATHS ARE LITERALS AND NOT ${{ runner.temp }}.
+#
+# They were `${{ runner.temp }}`, and this workflow had never once started. Every run came back
+# `completed/failure` with ZERO jobs and no log, which reads like an infrastructure problem and is
+# not one: **the `runner` context does not exist at job-level `env`.** It is available from
+# `jobs.<id>.steps.*` onward, so an expression referring to it in `jobs.<id>.env` is rejected when
+# the workflow is parsed, before any job is scheduled.
+#
+# The tell was that `check.yml` runs green on the same triggers and never uses `runner.*` anywhere.
+# Inside a step the shell variable $RUNNER_TEMP still works; it is only the job-level expression
+# that cannot resolve. A literal needs no context at all, which is why it is used here.
+jobs:
+  demo:
+    name: poc:mock, then demo:drive
+    runs-on: ubuntu-latest
+
+    # The backstop, not the control. Every step that can hang carries its own `timeout`, so the
+    # job should always fail through a step that says what went wrong rather than through a job
+    # cancellation that says only that an hour passed. 60 is above the sum of the two step caps
+    # below (20 minutes waiting for readiness, 28 driving) plus install, checkout and teardown.
+    timeout-minutes: 60
+
+    env:
+      # One port, read by both sides. `scripts/start-local-poc.sh` exports PORT (default 3000) and
+      # HOST 127.0.0.1; `scripts/demo-drive.mjs` reads DEMO_BASE_URL (line 39). Setting both from
+      # the same literal is what stops the driver from politely talking to nothing.
+      PORT: "3000"
+      DEMO_BASE_URL: "http://127.0.0.1:3000"
+
+      # Where the platform keeps its state, and where the driver looks for the journal.
+      # `start-local-poc.sh` turns LOCAL_POC_DATA_ROOT into APP_DATA_DIR=<root>/data (line 93).
+      # `demo-drive.mjs` resolves DEMO_DATA_ROOT to <root>/data/journal.jsonl first (line 234).
+      # They must name the same root: the driver used to guess from three fixed locations, and a
+      # platform started anywhere else left it reading a different journal than the server it was
+      # driving and reporting a confident failure about evidence that was never going to be there.
+      # Under RUNNER_TEMP rather than the repository, so the run does not scatter state into the
+      # checkout it is testing.
+      LOCAL_POC_DATA_ROOT: /tmp/shadow-demo-ci/shadow-demo
+      DEMO_DATA_ROOT: /tmp/shadow-demo-ci/shadow-demo
+
+      # Read by `start-mock-poc.sh` (line 27) when it starts the mock provider and by
+      # `demo-drive.mjs` (line 61) when it writes the playbook that provider serves. Same reasoning
+      # as above: two processes, one directory, stated once.
+      MOCK_PROVIDER_STATE: /tmp/shadow-demo-ci/shadow-demo/mock-provider
+
+      POC_LOG: /tmp/shadow-demo-ci/poc.log
+      DRIVE_LOG: /tmp/shadow-demo-ci/drive.log
+      PGID_FILE: /tmp/shadow-demo-ci/poc.pgid
+
+      # Readiness cap. A cold runner has no docker layer cache, so `start-local-poc.sh` builds
+      # Dockerfile.runtime from scratch every time: apt-get update plus ca-certificates, git and
+      # ripgrep, plus the pinned Codex CLI, then `npm run build` for the web and the server. That is
+      # minutes, and it is normal. The wait below is keyed on the control plane answering, not on
+      # this number, so a fast build proceeds immediately; the number only bounds a build that has
+      # stopped making progress.
+      READY_TIMEOUT_SECONDS: "1200"
+
+      # Drive cap. The driver's own per-turn wait is 300s (`sendAndWait`, demo-drive.mjs line 281)
+      # and a turn that exceeds it throws rather than hanging, so the first stuck turn ends the run
+      # on its own. This cap is for the case the driver's own timeout cannot cover: a `fetch` that
+      # never settles, which has no timeout in that script. A recorded successful drive takes about
+      # 7 seconds of wall clock once the platform is up (`elapsed 6.7s`, the last line of
+      # evidence/demo-run/transcript.txt), so 25 minutes is not a budget, it is a ceiling.
+      DRIVE_TIMEOUT_SECONDS: "1500"
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # The gate below this job's whole result rests on is `scripts/demo-smoke.mjs`, and fixing this
+      # workflow so it RUNS said nothing about whether that gate can FAIL. It runs first, before
+      # anything is installed or started, because a gate that cannot go red is worse than no gate:
+      # it is read as evidence. The sweep needs nothing but node and a committed fixture log, so it
+      # answers in under a second and it answers even on a runner where npm ci would not.
+      - name: the gate that decides this job can actually fail
+        run: node scripts/demo-smoke.selftest.mjs
+
+      # Installed here rather than left to `start-local-poc.sh` (which runs `npm ci` only when
+      # node_modules is missing, line 86) so that a dependency failure is a failure of this step and
+      # is never reported as the demo not starting.
+      - run: npm ci
+
+      # Process control below depends on four programs. `timeout` bounds a hung driver, `setsid`
+      # puts the platform in its own process group so teardown can kill the group without killing
+      # this shell, `curl` is the readiness probe and `docker` is the runtime. All four are present
+      # on the GitHub-hosted ubuntu image. If one ever is not, this says so in one line instead of
+      # the job failing later in a way that reads like a product defect.
+      - name: the programs this job's process control depends on
+        run: |
+          set -uo pipefail
+          missing=""
+          for tool in timeout setsid curl docker; do
+            command -v "$tool" >/dev/null 2>&1 || missing="$missing $tool"
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::this job needs$missing and this runner does not have them"
+            exit 1
+          fi
+          echo "docker: $(docker --version)"
+          echo "node:   $(node --version)"
+          echo "npm:    $(npm --version)"
+
+      # A readiness probe that can be satisfied by a server this job did not start is a probe that
+      # cannot fail. If anything is already answering on the port, every step after this one would
+      # be measuring that thing. Check before starting, not after.
+      - name: nothing is already answering on the demo port
+        run: |
+          set -uo pipefail
+          if curl --silent --fail --max-time 3 "$DEMO_BASE_URL/api/health" >/dev/null 2>&1; then
+            echo "::error::something already answers $DEMO_BASE_URL/api/health; this job would then prove nothing about the platform it starts"
+            exit 1
+          fi
+          echo "$DEMO_BASE_URL is free"
+
+      # `npm run poc:mock` is a foreground pipeline that ends in `npm start` and never returns, so
+      # it goes to the background. `setsid` gives it a new session, which makes it a process group
+      # leader, which is what lets the teardown step signal the whole tree (npm, the two bash
+      # scripts, the server) with one `kill -- -PGID` without signalling this shell. The inner shell
+      # records its own pid and then `exec`s, so the recorded pid IS the group leader.
+      - name: start the platform with no provider key (npm run poc:mock)
+        run: |
+          set -uo pipefail
+          mkdir -p "$LOCAL_POC_DATA_ROOT" "$MOCK_PROVIDER_STATE"
+          rm -f "$PGID_FILE"
+          setsid bash -c 'echo $$ > "$PGID_FILE"; exec npm run poc:mock' > "$POC_LOG" 2>&1 &
+          for _ in $(seq 1 50); do
+            [ -s "$PGID_FILE" ] && break
+            sleep 0.2
+          done
+          if [ ! -s "$PGID_FILE" ]; then
+            echo "::error::the platform never recorded its process group, so nothing here could stop it later"
+            cat "$POC_LOG" || true
+            exit 1
+          fi
+          echo "process group $(cat "$PGID_FILE"), log at $POC_LOG"
+
+      # The real readiness signal, not a sleep. `/api/health` is one of the two routes the operator
+      # boundary leaves open (apps/server/src/app.ts line 95) and it answers `{"ok":true,...}` (line
+      # 348), so it is reachable with no token on a loopback host and it means the control plane is
+      # serving, which is exactly the condition the driver needs.
+      #
+      # Two ways out other than success, and neither of them is a sleep:
+      #   - the platform exited. `kill -0` on the group leader is false, so this fails immediately
+      #     with the tail of its log rather than waiting out the full timeout for a process that is
+      #     already gone. This is the common case for a real breakage: no engine, a Dockerfile that
+      #     does not build, a port collision, a build error.
+      #   - the platform is alive but not serving. That is bounded by READY_TIMEOUT_SECONDS above.
+      # Progress is printed every 30 seconds so that a slow cold image build looks different in the
+      # log from a wedged one.
+      #
+      # There is no retry loop around the platform start. A gate that retries until it passes is a
+      # gate that hides the flake it exists to report.
+      - name: wait for the control plane to answer /api/health
+        timeout-minutes: 22
+        run: |
+          set -uo pipefail
+          pgid="$(cat "$PGID_FILE")"
+          started="$(date +%s)"
+          deadline=$(( started + READY_TIMEOUT_SECONDS ))
+          attempt=0
+          ready=""
+          while [ -z "$ready" ]; do
+            # Captured, then matched, rather than piped into `grep -q`. `grep -q` exits at its first
+            # match and closes the pipe under curl, and with pipefail that can turn a healthy answer
+            # into a non-zero pipeline: a readiness probe that never notices readiness. Small body,
+            # so the race is unlikely rather than impossible, which is the worst kind of flake.
+            body="$(curl --silent --fail --max-time 5 "$DEMO_BASE_URL/api/health" 2>/dev/null || true)"
+            case "$body" in
+              *'"ok":true'*) ready=1; continue ;;
+            esac
+            if ! kill -0 "$pgid" 2>/dev/null; then
+              echo "::error::npm run poc:mock exited before the control plane came up"
+              echo "--- last 120 lines of $POC_LOG ---"
+              tail -n 120 "$POC_LOG" || true
+              exit 1
+            fi
+            if [ "$(date +%s)" -gt "$deadline" ]; then
+              echo "::error::the control plane did not answer $DEMO_BASE_URL/api/health within ${READY_TIMEOUT_SECONDS}s"
+              echo "--- last 120 lines of $POC_LOG ---"
+              tail -n 120 "$POC_LOG" || true
+              exit 1
+            fi
+            attempt=$(( attempt + 1 ))
+            if [ $(( attempt % 15 )) -eq 0 ]; then
+              echo "[$(( $(date +%s) - started ))s] still starting: $(tail -n 1 "$POC_LOG" 2>/dev/null)"
+            fi
+            sleep 2
+          done
+          echo "the control plane answered after $(( $(date +%s) - started ))s: $body"
+
+      # The demo itself. Stage 1 only: `demo:drive` defaults to `--stage drive`, which ends with one
+      # turn deliberately left held for a person in the browser. Stage 2 (`demo:after-browser`)
+      # reads back what a human did to that turn, so it is not automatable here and is not run; this
+      # job attests to the eleven beats that do not need hands, not to the browser beat.
+      #
+      # How this step behaves when the demo breaks:
+      #   - a failed assertion. Every check in the driver goes through `must()`, which throws
+      #     `DemoFailure`, which the top-level `try` catches into `failure`, and the script ends with
+      #     `process.exit(failure ? 1 : 0)` (demo-drive.mjs line 841). `npm run` exits with the
+      #     script's own status (measured: a script exiting 7 makes `npm run` exit 7 on npm 11.6.2),
+      #     so rc is 1 and the gate below fails the job.
+      #   - a hang. `timeout` sends TERM at DRIVE_TIMEOUT_SECONDS, KILL 30 seconds later if TERM was
+      #     ignored, and returns 124, which the gate treats as a failure and names as a hang. The
+      #     step's `timeout-minutes` is a second backstop and the job's is a third, and it is set to
+      #     28 rather than 25 on purpose: the inner `timeout` has to be the thing that fires, because
+      #     a step GitHub kills just stops, and then the gate never gets to say what happened.
+      #   - the driver never runs at all (missing binary, and so on). rc is non-zero for that too,
+      #     and an unset rc reaching the gate is itself a failure there.
+      #
+      # rc is recorded rather than thrown here so that the log is printed, the diagnostics run, and
+      # one step, the next one, is the single place that decides. `|| rc=$?` is what keeps the
+      # inherited `-e` from ending the step before the log is shown.
+      - name: drive the demo (npm run demo:drive)
+        timeout-minutes: 28
+        run: |
+          set -uo pipefail
+          rc=0
+          timeout --signal=TERM --kill-after=30s "$DRIVE_TIMEOUT_SECONDS" \
+            npm run demo:drive > "$DRIVE_LOG" 2>&1 || rc=$?
+          cat "$DRIVE_LOG"
+          echo "DRIVER_EXIT=$rc" >> "$GITHUB_ENV"
+          echo "npm run demo:drive exited $rc"
+
+      # The one place that decides whether this job is green, and the only step whose failure means
+      # the demo is broken. `scripts/demo-smoke.mjs` keys on the driver's exit status first and on
+      # its output second, refuses to assume an exit code it was not given, and requires every beat
+      # and all five settlement verdicts. Its own reasoning is in its header comment.
+      - name: the demo reached the end of the path
+        run: node scripts/demo-smoke.mjs "$DRIVE_LOG" "$DRIVER_EXIT"
+
+      - name: what the run left behind
+        if: always()
+        run: |
+          set -uo pipefail
+          {
+            echo "### platform log, last 60 lines"
+            echo '```'
+            tail -n 60 "$POC_LOG" 2>/dev/null || echo "(no log)"
+            echo '```'
+            echo "### containers this product labels as its own"
+            echo '```'
+            docker ps --all --filter "label=io.codejam.launchpad" \
+              --format '{{.Names}}  {{.Status}}  {{.Label "io.codejam.launchpad"}}' 2>/dev/null || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          # A successful drive rewrites evidence/demo-run/ in the checkout, because that is what the
+          # driver does on a machine. Printed here so a reader can see exactly what changed and see
+          # that this job does nothing with it. Nothing below commits, and the token is read-only.
+          echo "--- working tree after the run ---"
+          git status --porcelain || true
+
+      # Logs, not evidence. The two files are the driver's stdout and the platform's stdout, which
+      # are what a person needs to read a red run. The re-recorded evidence pack is deliberately not
+      # uploaded: publishing it from CI is the behaviour this job is not allowed to have.
+      - name: upload the two logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-logs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            /tmp/shadow-demo-ci/poc.log
+            /tmp/shadow-demo-ci/drive.log
+          if-no-files-found: warn
+          retention-days: 7
+
+      # Runs on success, on failure, and on cancellation, which is what `always()` buys over
+      # `success()` or `!cancelled()`.
+      #
+      # Three sweeps, because the scripts' own traps do not cover everything. `start-mock-poc.sh`
+      # removes only its own provider container, `start-local-poc.sh` removes only containers
+      # labelled `agent-runtime` for its instance id, and neither removes the per-turn brokers or
+      # the per-run networks: those are removed by the sealer when a turn settles, so a run killed
+      # mid-turn leaves them behind. On a hosted runner the VM is discarded anyway; this matters on
+      # a self-hosted one, and it is also what makes a second run on the same machine start clean.
+      - name: tear down everything this job started
+        if: always()
+        run: |
+          set -uo pipefail
+          if [ -s "$PGID_FILE" ]; then
+            pgid="$(cat "$PGID_FILE")"
+            echo "stopping process group $pgid"
+            # Negative pid is the whole group: npm, both bash scripts and the server. TERM first, so
+            # the scripts' EXIT traps get to run their own cleanup, then KILL for whatever ignored it.
+            kill -TERM -"$pgid" 2>/dev/null || true
+            for _ in $(seq 1 30); do
+              kill -0 "$pgid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL -"$pgid" 2>/dev/null || true
+          fi
+          for label in agent-runtime shadow-broker mock-provider; do
+            ids="$(docker ps --all --quiet --filter "label=io.codejam.launchpad=$label" 2>/dev/null || true)"
+            if [ -n "$ids" ]; then
+              echo "removing $label containers"
+              # shellcheck disable=SC2086
+              docker rm --force $ids >/dev/null 2>&1 || true
+            fi
+          done
+          # Per-run networks are `shadow-<runId>` and the shared one is `shadow-egress`
+          # (apps/server/src/network-sealer.ts lines 70 and 93). Both are this job's to remove once
+          # the run is over. A network with an endpoint still attached refuses to go, which is why
+          # the containers are removed first.
+          for net in $(docker network ls --format '{{.Name}}' 2>/dev/null | grep -E '^shadow-' || true); do
+            docker network rm "$net" >/dev/null 2>&1 || true
+          done
+          echo "--- containers still running ---"
+          docker ps --all --format '{{.Names}}  {{.Status}}' 2>/dev/null || true
+          echo "--- shadow networks still present ---"
+          docker network ls --format '{{.Name}}' 2>/dev/null | grep -E '^shadow-' || echo "(none)"

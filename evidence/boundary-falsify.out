@@ -1,0 +1,33 @@
+
+=== 1. egress bridge  (control shared by 4 tcp rows via nc, and the dns row via embedded-resolver forwarding) ===
+  control present: --internal bridge, nc 1.1.1.1:443 rc=1 (refused)
+  control removed: routed bridge, nc 1.1.1.1:443 rc=0 (reached)
+  RED WHEN REMOVED: egress reaches 1.1.1.1:443 once the no-route bridge is removed (refused -> reached); same mechanism for 9418, 22 and metadata 80
+  control present: --internal bridge, nslookup example.com -> unresolved (embedded resolver returns SERVFAIL, cannot forward)
+  control removed: routed bridge, nslookup example.com -> resolved
+  RED WHEN REMOVED: dns resolves once the no-route bridge is removed (unresolved -> resolved), which is what files the dns row under this control
+
+=== 2. cgroup-memory  (control: --memory=64m) ===
+  control present: --memory=64m, workload exit 137 (137 = OOM SIGKILL)
+  control removed: no limit, workload exit 0 (0 = ran to completion)
+  RED WHEN REMOVED: the 200 MiB workload is not killed once the memory limit is removed (137 -> 0)
+
+=== 3. cgroup-pids  (control: --pids-limit=16) ===
+  control present: --pids-limit=16, pids.max=16, 40-way fork: container pid-exhausted before it could count, which is the cap enforcing
+  control removed: no limit, pids.max=38148, 40-way fork: 40/40 survived
+  RED WHEN REMOVED: pids.max is uncapped and the fork count is not held once the pids limit is removed
+
+=== 4. tcpdump capture  (control: a live capture on the real bridge) ===
+  control present: real bridge br-09629af1b406 captured 3 packets
+  control removed: interface no-such-if-49770: tcpdump exit 1, 0 packets, and the committed pcap (present, 12 pkts) is NOT read
+  RED WHEN REMOVED: capture yields zero and the check cannot claim capturable once the real interface is removed
+
+=== 5. kill-mid-write  (control: container filesystem isolation) ===
+  control present: no mount, keep.txt hash unchanged (same)
+  control removed: bind-mount -v $ws:$ws, keep.txt hash CHANGED
+  RED WHEN REMOVED: the real workspace is clobbered once the bind-mount is added (untouched -> touched)
+
+=== falsification summary ===
+  cases that went red when the control was removed: 6
+  cases that did NOT flip (rows that lose measured:true): 0
+every measured control, removed, turns its check red. The measured:true rows are measurements.

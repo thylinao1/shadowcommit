@@ -1,0 +1,145 @@
+{
+  "prompt": "Add a release notes generator: a release script in the manifest and the tools/release-notes.js behind it.",
+  "run": {
+    "id": "a8ff1d57-759b-4969-8d70-ed3b4084ad6b",
+    "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "status": "contained",
+    "prompt": "Add a release notes generator: a release script in the manifest and the tools/release-notes.js behind it.",
+    "output": "Added a release script to package.json and created tools/release-notes.js.\n\n[held for review: manifest-script-change. 2 proposed change(s) are waiting for a human. Nothing has been applied.]",
+    "error": null,
+    "usage": {
+      "inputTokens": 768,
+      "cachedInputTokens": 0,
+      "outputTokens": 192
+    },
+    "containment": {
+      "runId": "a8ff1d57-759b-4969-8d70-ed3b4084ad6b",
+      "decision": "review",
+      "rule": "manifest-script-change",
+      "effects": 2,
+      "paths": [
+        "package.json",
+        "tools/release-notes.js"
+      ]
+    },
+    "startedAt": "2026-08-31T16:21:57.691Z",
+    "completedAt": "2026-08-31T16:21:59.104Z",
+    "createdAt": "2026-08-31T16:21:57.689Z"
+  },
+  "rejected": {
+    "runId": "a8ff1d57-759b-4969-8d70-ed3b4084ad6b",
+    "decision": "rejected",
+    "actor": "operator"
+  },
+  "workspaceDigestBefore": {
+    "digest": "3a656ee33e0f9534",
+    "files": 8
+  },
+  "workspaceDigestAfter": {
+    "digest": "3a656ee33e0f9534",
+    "files": 8
+  },
+  "manifestAfter": {
+    "name": "hello-cli",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+      "postinstall": "node ./tools/setup.js"
+    }
+  },
+  "timeline": {
+    "runId": "a8ff1d57-759b-4969-8d70-ed3b4084ad6b",
+    "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "verdict": "rejected",
+    "rule": "manifest-script-change",
+    "principal": "operator",
+    "seq": 374,
+    "at": "2026-08-31T16:21:59.269Z",
+    "mechanism": "copy",
+    "effectCount": 2,
+    "truncated": 0,
+    "effects": [
+      {
+        "path": "package.json",
+        "kind": "modify",
+        "class": "dependency",
+        "bytes": 179
+      },
+      {
+        "path": "tools/release-notes.js",
+        "kind": "create",
+        "class": "source",
+        "bytes": 30
+      }
+    ],
+    "conflictPaths": [],
+    "appliedPaths": [],
+    "workspaceDigestBefore": "dd9edbb01fcc9965e365cfc669e35dc7ae94da8877fa859a9c74ddb2c9b62449",
+    "workspaceDigestAfter": "dd9edbb01fcc9965e365cfc669e35dc7ae94da8877fa859a9c74ddb2c9b62449",
+    "workspaceDigestReason": null,
+    "workspaceFilesBefore": 10,
+    "workspaceFilesAfter": 10,
+    "workspaceUnreadableBefore": 0,
+    "workspaceUnreadableAfter": 0,
+    "beginRecorded": true,
+    "confinement": "container+sealed-network",
+    "confinementReason": null,
+    "network": "shadow-a8ff1d57-759b-4969-8d70-ed3b4084ad6b",
+    "egressAllowlistSize": 5,
+    "modelChannel": "terminated-at-broker",
+    "codexHomeFiles": 31,
+    "egress": null,
+    "outboundDropped": 0,
+    "outboundReplayed": null,
+    "outboundFailed": null,
+    "outboundHeldForReview": null,
+    "codexHomeRestored": false,
+    "codexHomeVerifiedUnchanged": true,
+    "codexHomeDroppedAfterReview": true,
+    "codexHomeChanged": null,
+    "networkLeaked": null,
+    "confinementStateLost": false,
+    "records": [
+      {
+        "seq": 367,
+        "kind": "seal.fallback",
+        "hash": "afcdf2878d04"
+      },
+      {
+        "seq": 368,
+        "kind": "turn.begin",
+        "hash": "7c752af9a5f8"
+      },
+      {
+        "seq": 369,
+        "kind": "turn.executed",
+        "hash": "920d375231e4"
+      },
+      {
+        "seq": 370,
+        "kind": "effects.captured",
+        "hash": "dd5dbe0bde3f"
+      },
+      {
+        "seq": 371,
+        "kind": "policy.decision",
+        "hash": "5ed8cda03ef9"
+      },
+      {
+        "seq": 372,
+        "kind": "turn.held",
+        "hash": "ebfb8d80740c"
+      },
+      {
+        "seq": 373,
+        "kind": "turn.rejected",
+        "hash": "647ab0307619"
+      },
+      {
+        "seq": 374,
+        "kind": "seal.release",
+        "hash": "673a6fb315b9"
+      }
+    ]
+  }
+}

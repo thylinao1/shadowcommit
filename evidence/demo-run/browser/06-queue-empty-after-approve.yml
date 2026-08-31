@@ -1,0 +1,48 @@
+- generic [ref=f8e3]:
+  - complementary [ref=f8e4]:
+    - generic [ref=f8e5]:
+      - generic [ref=f8e6]: A
+      - generic [ref=f8e7]:
+        - strong [ref=f8e8]: Agent Launchpad
+        - generic [ref=f8e9]: "Shadow Commit: preview and undo on every turn"
+    - button "＋ Create Agent" [ref=f8e10] [cursor=pointer]:
+      - generic [ref=f8e11]: ＋
+      - text: Create Agent
+    - button "Review queue Nothing waiting 0" [ref=f8e256] [cursor=pointer]:
+      - generic [ref=f8e13]:
+        - strong [ref=f8e14]: Review queue
+        - generic [ref=f8e15]: Nothing waiting
+      - generic [ref=f8e16]: "0"
+    - generic [ref=f8e17]:
+      - generic [ref=f8e18]: Your Agents
+      - generic [ref=f8e19]: "1"
+    - navigation [ref=f8e20]:
+      - 'button "R Release Helper Keeps the release tooling of this project in order. Transactions: ON (default) TX" [ref=f8e39] [cursor=pointer]':
+        - generic [ref=f8e40]: R
+        - generic [ref=f8e41]:
+          - strong [ref=f8e42]: Release Helper
+          - generic [ref=f8e43]: Keeps the release tooling of this project in order.
+        - 'generic "Transactions: ON (default)" [ref=f8e44]': TX
+    - generic [ref=f8e23]:
+      - text: Runtime
+      - strong [ref=f8e24]: Codex CLI in docker Runtime
+      - generic [ref=f8e25]: ep-mock-endpoint · docker · local container
+  - main [ref=f8e26]:
+    - generic [ref=f8e151]:
+      - generic [ref=f8e152]:
+        - generic [ref=f8e153]:
+          - text: Review queue
+          - heading "Proposed changes waiting for a human" [level=2] [ref=f8e154]
+          - paragraph [ref=f8e155]: Each of these turns has already run against a sealed copy of its workspace. Nothing below has touched the real workspace, and nothing will until it is approved here.
+        - generic [ref=f8e156]:
+          - generic [ref=f8e157]:
+            - text: "0"
+            - generic [ref=f8e158]: waiting
+          - paragraph [ref=f8e159]:
+            - text: Decisions are recorded against the principal the server authenticated, not a name typed here. On loopback that is
+            - code [ref=f8e160]: operator
+            - text: ; behind a token it is a stable name derived from the token that was actually presented.
+      - generic [ref=f8e161]:
+        - generic [ref=f8e257]: ◇
+        - heading "No proposed changes waiting" [level=3] [ref=f8e258]
+        - paragraph [ref=f8e259]: Clean turns commit on their own and violating turns are discarded on their own. A turn arrives here only when a rule asks for a person, which is meant to be rare.

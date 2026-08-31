@@ -1,0 +1,683 @@
+{
+  "runId": "4116265b-837e-4f24-95a1-9ea30ae6afbd",
+  "agentId": "25809de4-59ad-44b8-b07d-981a4343a963",
+  "verdict": "held",
+  "rule": "dependency-added",
+  "principal": null,
+  "seq": 215,
+  "at": "2026-08-31T10:13:11.162Z",
+  "mechanism": "copy",
+  "effectCount": 739,
+  "truncated": 639,
+  "effects": [
+    {
+      "path": "node_modules/.bin/esbuild",
+      "kind": "symlink",
+      "class": "dependency",
+      "bytes": 0,
+      "target": "../esbuild/bin/esbuild",
+      "escapes": false
+    },
+    {
+      "path": "node_modules/.bin/tsc",
+      "kind": "symlink",
+      "class": "dependency",
+      "bytes": 0,
+      "target": "../typescript/bin/tsc",
+      "escapes": false
+    },
+    {
+      "path": "node_modules/.bin/tsx",
+      "kind": "symlink",
+      "class": "dependency",
+      "bytes": 0,
+      "target": "../tsx/dist/cli.mjs",
+      "escapes": false
+    },
+    {
+      "path": "node_modules/.package-lock.json",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 5490
+    },
+    {
+      "path": "node_modules/@esbuild/linux-arm64/README.md",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 145
+    },
+    {
+      "path": "node_modules/@esbuild/linux-arm64/bin/esbuild",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 10289264
+    },
+    {
+      "path": "node_modules/@esbuild/linux-arm64/package.json",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 380
+    },
+    {
+      "path": "node_modules/@types/node/LICENSE",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 1141
+    },
+    {
+      "path": "node_modules/@types/node/README.md",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 1582
+    },
+    {
+      "path": "node_modules/@types/node/assert/strict.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 1652
+    },
+    {
+      "path": "node_modules/@types/node/assert.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 42891
+    },
+    {
+      "path": "node_modules/@types/node/async_hooks.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 29929
+    },
+    {
+      "path": "node_modules/@types/node/buffer.buffer.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 22956
+    },
+    {
+      "path": "node_modules/@types/node/buffer.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 81152
+    },
+    {
+      "path": "node_modules/@types/node/child_process.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 59905
+    },
+    {
+      "path": "node_modules/@types/node/cluster.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 19527
+    },
+    {
+      "path": "node_modules/@types/node/console.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 4250
+    },
+    {
+      "path": "node_modules/@types/node/constants.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 491
+    },
+    {
+      "path": "node_modules/@types/node/crypto.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 168236
+    },
+    {
+      "path": "node_modules/@types/node/dgram.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 31107
+    },
+    {
+      "path": "node_modules/@types/node/diagnostics_channel.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 34577
+    },
+    {
+      "path": "node_modules/@types/node/dns/promises.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 20815
+    },
+    {
+      "path": "node_modules/@types/node/dns.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 34353
+    },
+    {
+      "path": "node_modules/@types/node/domain.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 6597
+    },
+    {
+      "path": "node_modules/@types/node/events.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 47375
+    },
+    {
+      "path": "node_modules/@types/node/ffi.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 20013
+    },
+    {
+      "path": "node_modules/@types/node/fs/promises.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 63652
+    },
+    {
+      "path": "node_modules/@types/node/fs.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 202247
+    },
+    {
+      "path": "node_modules/@types/node/globals.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 5084
+    },
+    {
+      "path": "node_modules/@types/node/globals.typedarray.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 4864
+    },
+    {
+      "path": "node_modules/@types/node/http.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 99275
+    },
+    {
+      "path": "node_modules/@types/node/http2.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 119374
+    },
+    {
+      "path": "node_modules/@types/node/https.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 16812
+    },
+    {
+      "path": "node_modules/@types/node/index.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 5053
+    },
+    {
+      "path": "node_modules/@types/node/inspector/promises.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 1471
+    },
+    {
+      "path": "node_modules/@types/node/inspector.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 12276
+    },
+    {
+      "path": "node_modules/@types/node/inspector.generated.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 228362
+    },
+    {
+      "path": "node_modules/@types/node/module.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 32983
+    },
+    {
+      "path": "node_modules/@types/node/net.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 47292
+    },
+    {
+      "path": "node_modules/@types/node/os.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 19278
+    },
+    {
+      "path": "node_modules/@types/node/package.json",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 4508
+    },
+    {
+      "path": "node_modules/@types/node/path/posix.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 194
+    },
+    {
+      "path": "node_modules/@types/node/path/win32.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 194
+    },
+    {
+      "path": "node_modules/@types/node/path.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 7639
+    },
+    {
+      "path": "node_modules/@types/node/perf_hooks.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 23015
+    },
+    {
+      "path": "node_modules/@types/node/process.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 115066
+    },
+    {
+      "path": "node_modules/@types/node/punycode.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 3780
+    },
+    {
+      "path": "node_modules/@types/node/querystring.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 6642
+    },
+    {
+      "path": "node_modules/@types/node/quic.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 92303
+    },
+    {
+      "path": "node_modules/@types/node/readline/promises.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 6418
+    },
+    {
+      "path": "node_modules/@types/node/readline.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 21216
+    },
+    {
+      "path": "node_modules/@types/node/repl.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 19023
+    },
+    {
+      "path": "node_modules/@types/node/sea.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 2045
+    },
+    {
+      "path": "node_modules/@types/node/sqlite.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 55651
+    },
+    {
+      "path": "node_modules/@types/node/stream/consumers.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 4272
+    },
+    {
+      "path": "node_modules/@types/node/stream/iter.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 17428
+    },
+    {
+      "path": "node_modules/@types/node/stream/promises.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 7347
+    },
+    {
+      "path": "node_modules/@types/node/stream/web.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 12122
+    },
+    {
+      "path": "node_modules/@types/node/stream.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 90588
+    },
+    {
+      "path": "node_modules/@types/node/string_decoder.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 1318
+    },
+    {
+      "path": "node_modules/@types/node/test/reporters.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 2779
+    },
+    {
+      "path": "node_modules/@types/node/test.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 117229
+    },
+    {
+      "path": "node_modules/@types/node/timers/promises.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 3383
+    },
+    {
+      "path": "node_modules/@types/node/timers.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 7351
+    },
+    {
+      "path": "node_modules/@types/node/tls.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 59265
+    },
+    {
+      "path": "node_modules/@types/node/trace_events.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 3842
+    },
+    {
+      "path": "node_modules/@types/node/ts5.6/buffer.buffer.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 22092
+    },
+    {
+      "path": "node_modules/@types/node/ts5.6/compatibility/float16array.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 3811
+    },
+    {
+      "path": "node_modules/@types/node/ts5.6/globals.typedarray.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 1238
+    },
+    {
+      "path": "node_modules/@types/node/ts5.6/index.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 5381
+    },
+    {
+      "path": "node_modules/@types/node/ts5.7/compatibility/float16array.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 3872
+    },
+    {
+      "path": "node_modules/@types/node/ts5.7/index.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 5380
+    },
+    {
+      "path": "node_modules/@types/node/tty.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 11270
+    },
+    {
+      "path": "node_modules/@types/node/url.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 25457
+    },
+    {
+      "path": "node_modules/@types/node/util/types.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 23832
+    },
+    {
+      "path": "node_modules/@types/node/util.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 65409
+    },
+    {
+      "path": "node_modules/@types/node/v8.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 42889
+    },
+    {
+      "path": "node_modules/@types/node/vfs.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 6533
+    },
+    {
+      "path": "node_modules/@types/node/vm.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 53141
+    },
+    {
+      "path": "node_modules/@types/node/wasi.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 6250
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/abortcontroller.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 1989
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/blob.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 902
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/console.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 149
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/crypto.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 1449
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/domexception.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 3052
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/encoding.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 414
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/events.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 3367
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/fetch.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 3524
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/importmeta.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 259
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/messaging.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 1113
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/navigator.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 891
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/performance.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 2551
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/storage.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 724
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/streams.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 6707
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/timers.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 1557
+    },
+    {
+      "path": "node_modules/@types/node/web-globals/url.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 800
+    },
+    {
+      "path": "node_modules/@types/node/worker_threads.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 29736
+    },
+    {
+      "path": "node_modules/@types/node/zlib/iter.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 5077
+    },
+    {
+      "path": "node_modules/@types/node/zlib.d.ts",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 22874
+    },
+    {
+      "path": "node_modules/@typescript/typescript-linux-arm64/LICENSE",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 9197
+    }
+  ],
+  "conflictPaths": [],
+  "appliedPaths": [],
+  "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+  "workspaceDigestAfter": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+  "workspaceDigestReason": null,
+  "workspaceFilesBefore": 3,
+  "workspaceFilesAfter": 3,
+  "workspaceUnreadableBefore": 0,
+  "workspaceUnreadableAfter": 0,
+  "beginRecorded": true,
+  "confinement": "container+sealed-network",
+  "confinementReason": null,
+  "network": "shadow-4116265b-837e-4f24-95a1-9ea30ae6afbd",
+  "egressAllowlistSize": 5,
+  "modelChannel": "terminated-at-broker",
+  "codexHomeFiles": 1,
+  "egress": {
+    "allow": 9,
+    "deny": 1,
+    "live": 18
+  },
+  "outboundDropped": null,
+  "outboundReplayed": null,
+  "outboundFailed": null,
+  "outboundHeldForReview": 0,
+  "codexHomeRestored": false,
+  "codexHomeVerifiedUnchanged": true,
+  "codexHomeDroppedAfterReview": null,
+  "codexHomeChanged": null,
+  "networkLeaked": null,
+  "confinementStateLost": false,
+  "records": [
+    {
+      "seq": 210,
+      "kind": "seal.fallback",
+      "hash": "5b6f7c45c450"
+    },
+    {
+      "seq": 211,
+      "kind": "turn.begin",
+      "hash": "582e222b0b47"
+    },
+    {
+      "seq": 212,
+      "kind": "turn.executed",
+      "hash": "beed53d7c79d"
+    },
+    {
+      "seq": 213,
+      "kind": "effects.captured",
+      "hash": "46e869350b59"
+    },
+    {
+      "seq": 214,
+      "kind": "policy.decision",
+      "hash": "21b0396a7b8e"
+    },
+    {
+      "seq": 215,
+      "kind": "turn.held",
+      "hash": "c8edc6941c22"
+    }
+  ]
+}

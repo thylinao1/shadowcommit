@@ -1,0 +1,13 @@
+Shadow Commit
+Copyright (c) 2026 the Shadow Commit contributors
+
+This product is built on the TikTok TechJam 2026 Track 1 Agent Launchpad starter kit,
+https://github.com/RrankPyramid/CodeJam, Copyright (c) 2026 CodeJam Starter Kit Contributors,
+licensed under the MIT License. The starter kit contributes the agent CRUD API, the playground,
+the control plane, workspace persistence, the Codex CLI runtime and container launcher, the browser
+shell, and the AgentRunner interface this project's middleware composes onto. Its LICENSE is kept
+unchanged in LICENSE.
+
+The protected-path comparison includes derived data from Unicode 17.0.0 UTS #39 and the Unicode
+Character Database, Copyright (c) 1991-2025 Unicode, Inc. Distributed under the Unicode License v3,
+https://www.unicode.org/license.txt.

@@ -1,0 +1,11 @@
+# Everything this lane produces is derived and large: heldout-real.jsonl alone is 152 MB.
+# `out/*` rather than `out/`, because git will not re-include a file whose parent directory is
+# excluded, and the two negations below have to work.
+out/*
+
+# Two exceptions, both small, both needed to check a published number without regenerating 152 MB.
+# heldout-real.manifest.json records the exact head of each of the four source repositories the
+# held-out set was built from, which is how the `submission/main` drift was detectable at all.
+# analysis.json records the rates, the interval sweep and which added-lines function produced them.
+!out/heldout-real.manifest.json
+!out/analysis.json

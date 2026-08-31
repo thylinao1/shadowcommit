@@ -1,0 +1,17 @@
+{"kind":"host","host":"Maksims-MacBook-Air.local","platform":"darwin","release":"23.6.0","arch":"arm64","cpus":8,"cpuModel":"Apple M2","memMb":8192,"fs":"unknown","engine":"none (scripted inner runner, no Docker/Colima)","node":"v22.21.0","at":"2026-08-29T09:28:16.291Z"}
+{"kind":"measure","files":50,"component":"snapshotStats-baseline-stat-only","n":20,"min":1.7695,"p50":2.39,"p95":2.91,"p99":3.22,"max":3.297584,"mean":2.36}
+{"kind":"measure","files":50,"component":"snapshotStats-sealed-hashed","n":20,"min":5.0845,"p50":5.34,"p95":6.7,"p99":8.05,"max":8.392833,"mean":5.66}
+{"kind":"measure","files":50,"component":"cp-a","n":20,"min":19.579875,"p50":20.8,"p95":26.62,"p99":26.9,"max":26.964708,"mean":21.57}
+{"kind":"measure","files":50,"component":"shipped-turn-open-through-commit","n":15,"min":39.412167,"p50":40.38,"p95":45.09,"p99":45.93,"max":46.137208,"mean":40.99}
+{"kind":"measure","files":50,"component":"shipped-turn-open-through-turn-begin-approx","n":15,"min":23.3779296875,"p50":23.91,"p95":25.59,"p99":26.43,"max":26.64306640625,"mean":24.12}
+{"kind":"measure","files":8886,"component":"snapshotStats-baseline-stat-only","n":6,"min":132.866334,"p50":142.09,"p95":143.63,"p99":143.82,"max":143.862459,"mean":140.76}
+{"kind":"measure","files":8886,"component":"snapshotStats-sealed-hashed","n":6,"min":786.405584,"p50":826.44,"p95":1482.86,"p99":1584.4,"max":1609.782917,"mean":991.04}
+{"kind":"measure","files":8886,"component":"cp-a","n":6,"min":1501.444208,"p50":1546.87,"p95":1632.21,"p99":1632.71,"max":1632.831708,"mean":1560.13}
+{"kind":"measure","files":8886,"component":"shipped-turn-open-through-commit","n":5,"min":4435.197375,"p50":4557.97,"p95":5572.63,"p99":5579.91,"max":5581.730083,"mean":4932.1}
+{"kind":"measure","files":8886,"component":"shipped-turn-open-through-turn-begin-approx","n":5,"min":2104.197265625,"p50":2208.97,"p95":2565.03,"p99":2635.19,"max":2652.72998046875,"mean":2269.5}
+{"kind":"measure","files":30000,"component":"snapshotStats-baseline-stat-only","n":3,"min":499.306583,"p50":562.52,"p95":652.84,"p99":660.87,"max":662.877292,"mean":574.9}
+{"kind":"measure","files":30000,"component":"snapshotStats-sealed-hashed","n":3,"min":7517.095583,"p50":10037.97,"p95":17396.81,"p99":18050.93,"max":18214.460167,"mean":11923.17}
+{"kind":"measure","files":30000,"component":"cp-a","n":3,"min":12341.924375,"p50":15408.96,"p95":17084.52,"p99":17233.46,"max":17270.696625,"mean":15007.19}
+{"kind":"measure","files":30000,"component":"shipped-turn-open-through-commit","n":3,"min":21039.702708,"p50":25639.27,"p95":26324.1,"p99":26384.97,"max":26400.188375,"mean":24359.72}
+{"kind":"measure","files":30000,"component":"shipped-turn-open-through-turn-begin-approx","n":3,"min":9247.70263671875,"p50":9782.27,"p95":9918.1,"p99":9930.17,"max":9933.1884765625,"mean":9654.39}
+{"kind":"verdict","claim":"opening a transaction is O(1) in repo size","smallFiles":50,"smallP50Ms":40.38,"largeFiles":30000,"largeP50Ms":25639.27,"growthRatio":634.95,"fileCountRatio":600,"verdict":"NOT O(1): shipped turn-open p50 grew 634.9x from 50 to 30000 files (a 600x increase in file count), tracking file count rather than staying flat."}

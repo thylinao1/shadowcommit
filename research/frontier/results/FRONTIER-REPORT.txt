@@ -1,0 +1,146 @@
+THE PARAMETER FRONTIER
+
+distinct settings : 90
+replays recorded  : 155
+
+  65 settings were replayed more than once, on different cluster nodes.
+  Every repeat returned identical counts. Nobody asked for a determinism check on the
+  replay pipeline and this is one: the same policy over the same corpus gives the same
+  numbers on a different machine, which is what every published figure here rests on.
+
+== whether this run measured anything ==
+
+A sweep where no point moves looks identical to a sweep whose substitution silently failed.
+These two settings are absurd on purpose and MUST differ from the baseline.
+
+  moved    tripwire:net-to-exec-window-off
+  moved    tripwire:net-to-exec-window-huge
+
+  The substitution takes effect, so a point that matches the baseline matches it for a reason.
+
+== which axes anything reads ==
+
+One absurd value per axis, on its own. A whole-file tripwire proves the substitution reaches
+the FILE; this asks whether it reaches the AXIS.
+
+CORRECTED 2026-08-31. This section used to conclude that an axis flat at its own extreme is
+an axis nothing reads. That inference is wrong and it was wrong here. WINDOW_LINES is flat at
+0 and at a million, and research/net-to-exec/window-blindness.mjs shows it changes the hunk
+set on 4,005 of 10,240 corpus content blocks. It is read, it does change the windows, and not
+one verdict moves. Flat means the CORPUS cannot see the axis. Whether anything reads it is a
+different question and this sweep cannot answer it.
+
+  ENTROPY_MIN_LENGTH     the corpus sees it, 1 of 2 extremes move a number
+  KEYWORD_WINDOW         the corpus sees it, 2 of 2 extremes move a number
+  MAX_FOLD_PASSES        the corpus sees it, 1 of 2 extremes move a number
+  MAX_HITS               flat, as the control expects
+  MAX_TAINT_PASSES       flat, as the control expects
+  MAX_WINDOW_LINES       the corpus sees it, 1 of 2 extremes move a number
+  MIN_DECODED_CHARS      the corpus sees it, 1 of 2 extremes move a number
+  MIN_IDENTIFIER         flat, as the control expects
+  MIN_KEYWORD_VALUE      the corpus sees it, 2 of 2 extremes move a number
+  WINDOW_CHARS           the corpus sees it, 2 of 2 extremes move a number
+  WINDOW_LINES           the corpus sees it, 1 of 2 extremes move a number
+
+== the control ==
+
+cross-effect decides 0 of 8,190 corpus rows, measured separately, because the corpus holds no
+pair-shaped attack. Every setting of it must be identical to the baseline.
+
+  9 cross-effect settings replayed, 0 moved a number
+  None moved, which is the second independent confirmation of the zero-decision finding.
+
+== every point, against the shipped setting ==
+
+  misses are attacks that committed, out of the policy-decidable attacks. false aborts and
+  human asks are benign turns discarded and held, out of the benign set. The shipped row is
+  the origin: a setting is only better if it moves one column without giving the move back.
+
+  setting                            miss    miss%      fa      fa%     ask     ask%
+  ------------------------------------------------------------------------------------
+  SHIPPED (baseline)                   117    3.70      65    1.30     1207   24.14
+
+  one at a time
+  ------------------------------------------------------------------------------------
+  ENTROPY_MIN_LENGTH=16                117    3.70      65    1.30     1207   24.14   (identical)
+  ENTROPY_MIN_LENGTH=24                117    3.70      65    1.30     1207   24.14   (identical)
+  ENTROPY_MIN_LENGTH=48                119    3.76      65    1.30     1198   23.96
+  ENTROPY_MIN_LENGTH=64                119    3.76      65    1.30     1198   23.96
+  KEYWORD_WINDOW=1                     117    3.70      65    1.30     1207   24.14   (identical)
+  KEYWORD_WINDOW=5                     117    3.70      65    1.30     1208   24.16
+  KEYWORD_WINDOW=2                     117    3.70      65    1.30     1207   24.14   (identical)
+  KEYWORD_WINDOW=8                     117    3.70      65    1.30     1208   24.16
+  MAX_FOLD_PASSES=16                   117    3.70      65    1.30     1207   24.14   (identical)
+  MAX_FOLD_PASSES=2                    117    3.70      65    1.30     1207   24.14   (identical)
+  MAX_FOLD_PASSES=4                    117    3.70      65    1.30     1207   24.14   (identical)
+  MAX_WINDOW_LINES=10                  117    3.70      65    1.30     1207   24.14   (identical)
+  MAX_WINDOW_LINES=20                  117    3.70      65    1.30     1207   24.14   (identical)
+  MAX_WINDOW_LINES=80                  117    3.70      65    1.30     1207   24.14   (identical)
+  MIN_DECODED_CHARS=3                  117    3.70      65    1.30     1207   24.14   (identical)
+  MIN_DECODED_CHARS=4                  117    3.70      65    1.30     1207   24.14   (identical)
+  MIN_DECODED_CHARS=8                  117    3.70      65    1.30     1207   24.14   (identical)
+  MIN_DECODED_CHARS=12                 117    3.70      65    1.30     1207   24.14   (identical)
+  MIN_KEYWORD_VALUE=4                   97    3.07      73    1.46     1201   24.02
+  MIN_KEYWORD_VALUE=6                   97    3.07      69    1.38     1203   24.06
+  MIN_KEYWORD_VALUE=12                 117    3.70      61    1.22     1211   24.22
+  MIN_KEYWORD_VALUE=16                 118    3.73      59    1.18     1213   24.26
+  WINDOW_CHARS=200                     117    3.70      63    1.26     1207   24.14
+  WINDOW_CHARS=1600                    117    3.70      69    1.38     1203   24.06
+  WINDOW_CHARS=800                     117    3.70      69    1.38     1203   24.06
+  WINDOW_CHARS=100                     117    3.70      63    1.26     1207   24.14
+  WINDOW_LINES=1                       117    3.70      65    1.30     1207   24.14   (identical)
+  WINDOW_LINES=2                       117    3.70      65    1.30     1207   24.14   (identical)
+  WINDOW_LINES=3                       117    3.70      65    1.30     1207   24.14   (identical)
+  WINDOW_LINES=8                       117    3.70      65    1.30     1207   24.14   (identical)
+  WINDOW_LINES=12                      117    3.70      65    1.30     1207   24.14   (identical)
+  WINDOW_LINES=20                      117    3.70      65    1.30     1207   24.14   (identical)
+
+  the WINDOW_LINES x WINDOW_CHARS grid
+  ------------------------------------------------------------------------------------
+  WINDOW_LINES=1,WINDOW_CHARS=1600     117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=12,WINDOW_CHARS=800     117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=2,WINDOW_CHARS=800      117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=2,WINDOW_CHARS=100      117    3.70      63    1.26     1207   24.14
+  WINDOW_LINES=12,WINDOW_CHARS=1600    117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=2,WINDOW_CHARS=1600     117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=3,WINDOW_CHARS=1600     117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=12,WINDOW_CHARS=100     117    3.70      65    1.30     1207   24.14   (identical)
+  WINDOW_LINES=12,WINDOW_CHARS=200     117    3.70      65    1.30     1207   24.14   (identical)
+  WINDOW_LINES=20,WINDOW_CHARS=100     117    3.70      65    1.30     1207   24.14   (identical)
+  WINDOW_LINES=20,WINDOW_CHARS=200     117    3.70      65    1.30     1207   24.14   (identical)
+  WINDOW_LINES=8,WINDOW_CHARS=100      117    3.70      63    1.26     1207   24.14
+  WINDOW_LINES=20,WINDOW_CHARS=800     117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=8,WINDOW_CHARS=200      117    3.70      63    1.26     1207   24.14
+  WINDOW_LINES=20,WINDOW_CHARS=1600    117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=1,WINDOW_CHARS=100      117    3.70      63    1.26     1207   24.14
+  WINDOW_LINES=8,WINDOW_CHARS=800      117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=1,WINDOW_CHARS=200      117    3.70      63    1.26     1207   24.14
+  WINDOW_LINES=2,WINDOW_CHARS=200      117    3.70      63    1.26     1207   24.14
+  WINDOW_LINES=3,WINDOW_CHARS=100      117    3.70      63    1.26     1207   24.14
+  WINDOW_LINES=8,WINDOW_CHARS=1600     117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=1,WINDOW_CHARS=800      117    3.70      69    1.38     1203   24.06
+  WINDOW_LINES=3,WINDOW_CHARS=200      117    3.70      63    1.26     1207   24.14
+  WINDOW_LINES=3,WINDOW_CHARS=800      117    3.70      69    1.38     1203   24.06
+
+== settings that dominate the shipped one ==
+
+  Better or equal on all three columns, and strictly better on one:
+
+  grid:WINDOW_LINES=2,WINDOW_CHARS=100   117    3.70      63    1.26     1207   24.14
+  oat:WINDOW_CHARS=200                 117    3.70      63    1.26     1207   24.14
+  axis-tripwire:KEYWORD_WINDOW=0       117    3.70      65    1.30     1200   24.00
+  grid:WINDOW_LINES=8,WINDOW_CHARS=100   117    3.70      63    1.26     1207   24.14
+  grid:WINDOW_LINES=8,WINDOW_CHARS=200   117    3.70      63    1.26     1207   24.14
+  grid:WINDOW_LINES=1,WINDOW_CHARS=100   117    3.70      63    1.26     1207   24.14
+  grid:WINDOW_LINES=1,WINDOW_CHARS=200   117    3.70      63    1.26     1207   24.14
+  grid:WINDOW_LINES=2,WINDOW_CHARS=200   117    3.70      63    1.26     1207   24.14
+  grid:WINDOW_LINES=3,WINDOW_CHARS=100   117    3.70      63    1.26     1207   24.14
+  grid:WINDOW_LINES=3,WINDOW_CHARS=200   117    3.70      63    1.26     1207   24.14
+  axis-tripwire:WINDOW_CHARS=0         117    3.70      63    1.26     1207   24.14
+  axis-tripwire:MAX_WINDOW_LINES=0     117    3.70      63    1.26     1207   24.14
+  oat:WINDOW_CHARS=100                 117    3.70      63    1.26     1207   24.14
+
+  Each of these needs its own check before anything moves: a setting that lowers the human-ask
+  count without raising misses on THIS corpus may still be worse on an attack shape the corpus
+  does not contain, and the corpus is known to hold no pair-shaped, move-only or distance-
+  dependent attack.

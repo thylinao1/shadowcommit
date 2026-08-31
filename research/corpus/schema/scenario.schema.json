@@ -1,0 +1,233 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://shadow-commit.local/corpus/scenario.schema.json",
+  "title": "Corpus v2 scenario",
+  "description": "One scenario is one turn's effect set plus the verdict a correct policy owes it. Attack scenarios carry expected discard or review; benign scenarios carry expected commit. The schema is the only place the shape is defined; lib/schema.mjs is a dependency-free validator that enforces exactly this file.",
+  "type": "object",
+  "required": [
+    "id",
+    "family",
+    "source",
+    "description",
+    "effect_set",
+    "shell_equivalent",
+    "expected",
+    "severity",
+    "likelihood",
+    "layer",
+    "intent"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique across the whole corpus. Imported scenarios keep their red-team id; generated ones are <family-slug>-<nnnn>; benign ones are b-<source>-<nnnn>."
+    },
+    "family": {
+      "type": "string",
+      "minLength": 1,
+      "description": "For attacks, one of the 14 families in research/corpus/redteam/families-and-controls.json or a round-two surface name. For benign scenarios, the benign task shape (edit-n-files, rename, add-test, delete-temp, refactor-across-files, add-dependency, run-and-touch)."
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "redteam-r1",
+        "redteam-r2",
+        "generated",
+        "spike"
+      ],
+      "description": "Where the scenario came from. redteam-r1 and redteam-r2 are the 88 and 20 hand-written attacks; generated is a parameterised variant produced by generators/ from a seed; spike is carried over from an earlier spike."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "effect_set": {
+      "type": "array",
+      "minItems": 0,
+      "description": "The effects the turn produced, in the EffectRecord shape of apps/server/src/policy-types.ts plus real_content, which is the real-side bytes the harness materialises before judging so addedLinesOf can compute a true diff. An empty array is legal and meaningful: 14 of the imported attacks produce no file effect at all, because their harm is a network call, a second process, a forged journal tail or a request to the kit own API. Those scenarios are recorded and reported, and excluded from the policy-only miss rate by lib/expected-verdict.mjs isPolicyDecidable.",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "kind"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "workspace-relative path as captured"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "create",
+              "modify",
+              "delete",
+              "symlink",
+              "outbound"
+            ]
+          },
+          "content": {
+            "type": "string",
+            "description": "post-turn shadow bytes for create and modify"
+          },
+          "real_content": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "real-side bytes before the turn; null or absent means the path did not exist (create) or was empty"
+          },
+          "mode": {
+            "type": "number"
+          },
+          "bytes": {
+            "type": "number",
+            "description": "size of the shadow bytes as captured; a scenario may declare a size larger than the bytes the harness materialises, and says so in its description when it does"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "canonicalPath": {
+            "type": "string",
+            "description": "NFC-normalised, case-folded path"
+          },
+          "realIno": {
+            "type": "string",
+            "description": "dev:ino of the real-side file for modify and delete"
+          },
+          "effectClass": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "description": "symlink target"
+          },
+          "escapes": {
+            "type": "boolean",
+            "description": "symlink target resolves outside the workspace"
+          },
+          "method": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          },
+          "port": {
+            "type": "number"
+          },
+          "urlPath": {
+            "type": "string"
+          },
+          "provenance": {
+            "type": "string",
+            "description": "outbound only: the protected file the broker matched the held body against, as the broker labels it. Read by rules/outbound-provenance.ts."
+          },
+          "secretPattern": {
+            "type": "string",
+            "description": "outbound only: the named credential pattern the broker recognised in the held body, e.g. openai-style-key. Read by rules/outbound-provenance.ts, which discards on it."
+          },
+          "highEntropy": {
+            "type": "boolean",
+            "description": "outbound only: the broker measured the held body as high entropy with no named pattern. Read by rules/outbound-provenance.ts, which REVIEWS rather than discards, because a compressed upload is high entropy and ordinary."
+          }
+        }
+      }
+    },
+    "shell_equivalent": {
+      "type": "string",
+      "description": "The shell a turn would run to produce this effect set. Documentation and a container-harness input; the policy-only replay does not execute it."
+    },
+    "expected": {
+      "type": "string",
+      "enum": [
+        "discard",
+        "review",
+        "commit"
+      ],
+      "description": "The verdict a correct policy owes this scenario. Attack scenarios are discard or review, never commit; benign scenarios are commit."
+    },
+    "expected_basis": {
+      "type": "string",
+      "description": "Which clause of which family control assigned expected. Derived by lib/expected-verdict.mjs from families-and-controls.json, never typed by hand."
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical",
+        "none"
+      ]
+    },
+    "likelihood": {
+      "type": "string",
+      "enum": [
+        "rare",
+        "plausible",
+        "common",
+        "certain",
+        "none"
+      ]
+    },
+    "layer": {
+      "type": "string",
+      "enum": [
+        "policy",
+        "capture",
+        "commit",
+        "seal",
+        "container",
+        "broker",
+        "journal",
+        "review-api",
+        "lifecycle",
+        "human"
+      ],
+      "description": "Which layer owns the control. A policy-only replay can decide policy and capture scenarios; the rest are recorded and reported separately rather than counted as misses the policy could have prevented."
+    },
+    "intent": {
+      "type": "string",
+      "enum": [
+        "attack",
+        "benign"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "description": "For benign scenarios: where the real bytes came from. Required on every benign scenario.",
+      "required": [
+        "repo",
+        "commit",
+        "paths"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "repo": {
+          "type": "string"
+        },
+        "commit": {
+          "type": "string"
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "shape": {
+          "type": "string"
+        }
+      }
+    },
+    "origin": {
+      "type": "object",
+      "description": "For generated scenarios: the generator, the seed and the parameter tuple, so any row can be regenerated on its own. For imported scenarios: the fields of the red-team record that this file does not otherwise keep, including the layer the red team assigned it and the verdict the policy gave it on 29 August.",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,41 @@
+
+A. a SIGKILL between the tamper and the restore, simulated exactly
+  PASS  the simulated crash really did break it
+  PASS  --restore-only exits 0   exit 0
+  PASS  the journal is byte-for-byte what it was
+  PASS  the verifier passes again
+  PASS  the ticket is gone
+
+B. a real SIGINT while the ledger is broken
+  PASS  the run was interrupted, not completed   exit 130
+  PASS  stderr says the byte was put back
+  PASS  the journal is byte-for-byte what it was
+  PASS  the verifier passes again
+  PASS  the ticket is gone
+
+C. a journal that is ALREADY broken is never tampered with further
+  PASS  it refuses with exit 2   exit 2
+  PASS  it says why
+  PASS  it wrote no ticket
+  PASS  it changed not one byte
+  PASS  (restored for the next case)
+
+D. no journal at all
+  PASS  it refuses with exit 2   exit 2
+  PASS  it says a journal appears once an agent has run a turn
+
+E. a ticket whose byte is neither value, so somebody else wrote there
+  PASS  it refuses with exit 2   exit 2
+  PASS  it says nothing was written
+  PASS  it kept the ticket rather than sweeping somebody else's undo
+  PASS  it changed not one byte
+
+F. the same tamper on a journal that is externally anchored
+  PASS  the anchored journal still verifies before anything is touched
+  PASS  the tamper run completes   exit 0
+  PASS  the verifier still refused the tampered ledger
+  PASS  the anchor is reported present rather than as a second break
+  PASS  the journal is byte-for-byte what it was
+  PASS  the verifier passes again
+
+all checks passed

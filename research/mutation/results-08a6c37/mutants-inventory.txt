@@ -1,0 +1,20 @@
+1081 mutants across 19 rule modules; running 1081
+     16  rules/blast-radius.js
+    466  rules/cross-effect.js
+     90  rules/decode.js
+      8  rules/dependency-change.js
+      1  rules/dependency-tree.js
+     24  rules/exec-surface.js
+      9  rules/guard-file.js
+    145  rules/insecure-idiom.js
+      1  rules/instruction-file.js
+      5  rules/multi-file-delete.js
+    127  rules/net-to-exec.js
+      2  rules/normalise.js
+      4  rules/outbound-provenance.js
+     30  rules/platform-secrets.js
+      7  rules/protected-identity.js
+     10  rules/scan-targets.js
+     90  rules/secret-scan.js
+      1  rules/symlink-escape.js
+     45  rules/trojan-source.js

@@ -1,0 +1,17 @@
+diff --git a/research/ROUND-6-RECONCILE.md b/research/ROUND-6-RECONCILE.md
+index 65b279a..40f5611 100644
+--- a/research/ROUND-6-RECONCILE.md
++++ b/research/ROUND-6-RECONCILE.md
+@@ -1,5 +1,12 @@
+ # Round 6: are 42 committed attacks defects, or classes we never claimed
+ 
++> **Blind-set correction. Read [ROUND-7-BLIND.md](ROUND-7-BLIND.md) before quoting any figure on
++> this page.** The two rules written off these 42 misses were built by reading them, so round 6 is
++> seen data for those rules and its numbers do not generalise. On the blind round-7 set, Aman's
++> `insecure-idiom` contains 15 of 57 baseline misses, about a quarter, against 40 of 42 here.
++> Publish the blind figure, not this one. Nothing below is retracted; the reading it settles still
++> stands.
++
+ Subham's round-6 probe found 42 held-out attacks that all commit. Graded 42, misses 42, false
+ aborts 0. Every result row records decision "commit" with no rule hits at all, so nothing fired and
+ was outvoted. Nothing was close.

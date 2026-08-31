@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+#SBATCH --job-name=cj-mutation-v2
+#SBATCH --partition=long
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=64G
+#SBATCH --time=24:00:00
+# Rerun of job2 against CURRENT main rather than 08a6c37, and on `long` rather than `normal`.
+#
+# The first run was CANCELLED at the 3 hour wall clock of the `normal` partition with 930 of 1081
+# mutants graded, so the 23.4 percent that has been quoted since is a partial figure over 86 percent
+# of the run. 151 mutants were never graded at all. This one has 24 hours on a partition whose limit
+# is three days, so it finishes.
+#
+# It also grades a different policy. 08a6c37 predates the cross-effect distance fix, the Unicode
+# fold, the net-to-exec work and the protected-identity tests, and 42 percent of the first run
+# mutants were in cross-effect.js alone, whose CROSS_DISTANCE went from 40 to 4 in that window. The
+# survivors quoting "40" -> "41" are edits to code that no longer exists.
+set -euo pipefail
+
+OUTDIR="$HOME/codejam-results/02-mutation-v2"
+mkdir -p "$OUTDIR/workers"
+export LOCAL_TMP="/tmp/cj-mutation-$SLURM_JOB_ID"
+export KIT="$HOME/codejam-corpus"
+
+source "$HOME/codejam-results/bin/prep.sh"
+cd "$KIT"
+
+git rev-parse HEAD > "$OUTDIR/graded-revision.txt"
+echo "[mutation-v2] grading $(git rev-parse --short HEAD)"
+
+DIST="$KIT/apps/server/dist"
+WORKERS=24
+MAX_MUTANTS=${MAX_MUTANTS:-4000}
+
+if [ ! -f "$OUTDIR/baseline-decisions.json" ]; then
+  echo "[mutation-v2] baseline replay"
+  mkdir -p "$OUTDIR/baseline"
+  TMPDIR="$LOCAL_TMP/baseline" && mkdir -p "$TMPDIR" && export TMPDIR
+  node research/corpus/replay-v2.mjs --policy "$DIST/shadow-policy.js" --out "$OUTDIR/baseline/results.jsonl"
+  node -e '
+    const fs=require("fs"); const m={};
+    for (const l of fs.readFileSync(process.argv[1],"utf8").split("\n")) if(l.trim()){const r=JSON.parse(l); m[r.id]=r.decision;}
+    fs.writeFileSync(process.argv[2], JSON.stringify(m));
+    console.log("baseline decisions for "+Object.keys(m).length+" scenarios");
+  ' "$OUTDIR/baseline/results.jsonl" "$OUTDIR/baseline-decisions.json"
+fi
+
+node "$HOME/codejam-results/bin/gen-mutants.mjs" "$DIST" "$OUTDIR/mutants.json" --max "$MAX_MUTANTS" \
+  | tee "$OUTDIR/mutants-inventory.txt"
+
+echo "[mutation-v2] staging $WORKERS worker copies of dist"
+for w in $(seq 0 $((WORKERS - 1))); do
+  mkdir -p "$LOCAL_TMP/w$w/tmp"
+  cp -r "$DIST" "$LOCAL_TMP/w$w/dist"
+done
+
+echo "[mutation-v2] running"
+pids=()
+for w in $(seq 0 $((WORKERS - 1))); do
+  node "$HOME/codejam-results/bin/mutation-worker.mjs" \
+      "$OUTDIR/mutants.json" "$OUTDIR/baseline-decisions.json" \
+      "$w" "$WORKERS" "$LOCAL_TMP/w$w" "$OUTDIR/workers/w$w.jsonl" \
+      >> "$OUTDIR/workers/w$w.log" 2>&1 &
+  pids+=($!)
+done
+
+( while true; do
+    sleep 120
+    node "$HOME/codejam-results/bin/mutation-report.mjs" "$OUTDIR" > "$OUTDIR/MUTATION-REPORT.txt" 2>/dev/null || true
+  done ) &
+REPORTER=$!
+
+for p in "${pids[@]}"; do wait "$p" || true; done
+kill "$REPORTER" 2>/dev/null || true
+
+node "$HOME/codejam-results/bin/mutation-report.mjs" "$OUTDIR" > "$OUTDIR/MUTATION-REPORT.txt"
+tail -40 "$OUTDIR/MUTATION-REPORT.txt"
+rm -rf "$LOCAL_TMP"
+echo "[mutation-v2] job $SLURM_JOB_ID finished at $(date -Is)"

@@ -1,0 +1,1150 @@
+{
+  "providerRequests": [],
+  "toolOutput": "",
+  "journalTurn": {
+    "runId": "1b5b61e5-567f-4a07-8b11-150d0337d9d7",
+    "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+    "verdict": "discarded",
+    "rule": "execution-surface-write",
+    "principal": null,
+    "seq": 185,
+    "at": "2026-08-31T08:47:48.881Z",
+    "mechanism": "copy",
+    "effectCount": 23,
+    "truncated": 0,
+    "effects": [
+      {
+        "path": ".git/HEAD",
+        "kind": "create",
+        "class": "other",
+        "bytes": 23
+      },
+      {
+        "path": ".git/config",
+        "kind": "create",
+        "class": "config",
+        "bytes": 164
+      },
+      {
+        "path": ".git/description",
+        "kind": "create",
+        "class": "other",
+        "bytes": 73
+      },
+      {
+        "path": ".git/hooks/applypatch-msg.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 478
+      },
+      {
+        "path": ".git/hooks/commit-msg.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 896
+      },
+      {
+        "path": ".git/hooks/fsmonitor-watchman.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 4726
+      },
+      {
+        "path": ".git/hooks/post-update.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 189
+      },
+      {
+        "path": ".git/hooks/pre-applypatch.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 424
+      },
+      {
+        "path": ".git/hooks/pre-commit",
+        "kind": "create",
+        "class": "config",
+        "bytes": 1254
+      },
+      {
+        "path": ".git/hooks/pre-commit.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 1643
+      },
+      {
+        "path": ".git/hooks/pre-merge-commit.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 416
+      },
+      {
+        "path": ".git/hooks/pre-push.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 1374
+      },
+      {
+        "path": ".git/hooks/pre-rebase.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 4898
+      },
+      {
+        "path": ".git/hooks/pre-receive.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 544
+      },
+      {
+        "path": ".git/hooks/prepare-commit-msg.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 1492
+      },
+      {
+        "path": ".git/hooks/push-to-checkout.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 2783
+      },
+      {
+        "path": ".git/hooks/update.sample",
+        "kind": "create",
+        "class": "config",
+        "bytes": 3650
+      },
+      {
+        "path": ".git/index",
+        "kind": "create",
+        "class": "other",
+        "bytes": 336
+      },
+      {
+        "path": ".git/info/exclude",
+        "kind": "create",
+        "class": "other",
+        "bytes": 240
+      },
+      {
+        "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+        "kind": "create",
+        "class": "other",
+        "bytes": 353
+      },
+      {
+        "path": ".git/objects/c6/9e16228d84fa57208a790bf0fec16e4ec1f052",
+        "kind": "create",
+        "class": "other",
+        "bytes": 53
+      },
+      {
+        "path": ".git/objects/e1/fa5a83e6684b9f531212095565ec79974a93d7",
+        "kind": "create",
+        "class": "other",
+        "bytes": 61
+      },
+      {
+        "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+        "kind": "create",
+        "class": "other",
+        "bytes": 135
+      }
+    ],
+    "conflictPaths": [],
+    "appliedPaths": [],
+    "workspaceDigestBefore": "bdf5af844d5332c138e299810c2e29e5ea244f5d5eb0d9df8b700fd7bdd6d2d6",
+    "workspaceDigestAfter": "bdf5af844d5332c138e299810c2e29e5ea244f5d5eb0d9df8b700fd7bdd6d2d6",
+    "workspaceDigestReason": null,
+    "workspaceFilesBefore": 4,
+    "workspaceFilesAfter": 4,
+    "workspaceUnreadableBefore": 0,
+    "workspaceUnreadableAfter": 0,
+    "beginRecorded": true,
+    "confinement": "container+sealed-network",
+    "confinementReason": null,
+    "network": "shadow-1b5b61e5-567f-4a07-8b11-150d0337d9d7",
+    "egressAllowlistSize": 5,
+    "modelChannel": "terminated-at-broker",
+    "codexHomeFiles": 1,
+    "egress": {
+      "deny": 1,
+      "live": 10
+    },
+    "outboundDropped": 0,
+    "outboundReplayed": null,
+    "outboundFailed": null,
+    "outboundHeldForReview": null,
+    "codexHomeRestored": false,
+    "codexHomeVerifiedUnchanged": true,
+    "codexHomeDroppedAfterReview": null,
+    "codexHomeChanged": null,
+    "networkLeaked": null,
+    "confinementStateLost": false,
+    "records": [
+      {
+        "seq": 179,
+        "kind": "seal.fallback",
+        "hash": "f30fd2c00e0e"
+      },
+      {
+        "seq": 180,
+        "kind": "turn.begin",
+        "hash": "8da044cc0337"
+      },
+      {
+        "seq": 181,
+        "kind": "turn.executed",
+        "hash": "026e02a82690"
+      },
+      {
+        "seq": 182,
+        "kind": "effects.captured",
+        "hash": "a8d2e966996e"
+      },
+      {
+        "seq": 183,
+        "kind": "policy.decision",
+        "hash": "c92cb5f87ce6"
+      },
+      {
+        "seq": 184,
+        "kind": "turn.discarded",
+        "hash": "831a114b3fad"
+      },
+      {
+        "seq": 185,
+        "kind": "seal.release",
+        "hash": "eae82779bed0"
+      }
+    ]
+  },
+  "journalRecords": [
+    {
+      "hash": "f30fd2c00e0e3132dc0896cb1d20ca5a886a644f74c2d96fa96f35dbcc4e783d",
+      "hmac": "7bf2659ad278505d52eb2dbb861c836088a957be63c381857df67d6b5815276a",
+      "kind": "seal.fallback",
+      "mechanism": "copy",
+      "prev": "1b1e4df28caeff68819e5d92fb1222b96f3985bbcdaa93222abc654778e953bb",
+      "principal": "agent",
+      "reason": "not-linux",
+      "runId": "1b5b61e5-567f-4a07-8b11-150d0337d9d7",
+      "seq": 179,
+      "ts": "2026-08-31T08:47:16.224Z"
+    },
+    {
+      "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "at": "2026-08-31T08:47:16.667Z",
+      "codexHomeFiles": 1,
+      "confinement": "container+sealed-network",
+      "containerCodexHome": "/codex-home",
+      "containerWorkspacePath": "/workspace",
+      "decoyHost": "status.shadow-decoy.test",
+      "egressAllowlist": [
+        "registry.npmjs.org:443",
+        "registry.yarnpkg.com:443",
+        "pypi.org:443",
+        "files.pythonhosted.org:443",
+        "ark.ap-southeast.bytepluses.com:443"
+      ],
+      "hash": "8da044cc03379c86275a37e76f6b682c62d827768ef6b3d73e612dc9d71f2137",
+      "hmac": "dad0ab3d8a4d97a582e8e5be0fe1813232540275e24bf6afa96df298b146344e",
+      "kind": "turn.begin",
+      "mechanism": "copy",
+      "modelChannel": "terminated-at-broker",
+      "network": "shadow-1b5b61e5-567f-4a07-8b11-150d0337d9d7",
+      "prev": "f30fd2c00e0e3132dc0896cb1d20ca5a886a644f74c2d96fa96f35dbcc4e783d",
+      "principal": "agent",
+      "runId": "1b5b61e5-567f-4a07-8b11-150d0337d9d7",
+      "seq": 180,
+      "ts": "2026-08-31T08:47:16.667Z",
+      "workspaceDigestBefore": "bdf5af844d5332c138e299810c2e29e5ea244f5d5eb0d9df8b700fd7bdd6d2d6",
+      "workspaceFilesBefore": 4,
+      "workspaceUnreadableBefore": 0
+    },
+    {
+      "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "at": "2026-08-31T08:47:48.609Z",
+      "commands": 5,
+      "commandsFailed": 0,
+      "exit": "ok",
+      "hash": "026e02a8269046335eb5d689e5c116e43cdc118be14946996dba9f75d2413e90",
+      "hmac": "858a412374e41d0a87c6e7d3fa9f442c0a6579e3d68f5ea8efd38a15e51c1cdb",
+      "kind": "turn.executed",
+      "prev": "8da044cc03379c86275a37e76f6b682c62d827768ef6b3d73e612dc9d71f2137",
+      "principal": "agent",
+      "runId": "1b5b61e5-567f-4a07-8b11-150d0337d9d7",
+      "seq": 181,
+      "ts": "2026-08-31T08:47:48.610Z"
+    },
+    {
+      "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "at": "2026-08-31T08:47:48.617Z",
+      "bytes": 26205,
+      "count": 23,
+      "hash": "a8d2e966996e1b49cbedf67562c07b14e6650d801e3826f515b0e7a23e066b8f",
+      "hmac": "19d16623f78e57b19e4ef3f45b76ae7157726bf6ea5b2adb95a140c316df4061",
+      "kind": "effects.captured",
+      "oversize": 0,
+      "prev": "026e02a8269046335eb5d689e5c116e43cdc118be14946996dba9f75d2413e90",
+      "principal": "agent",
+      "protectedReads": 1,
+      "readPaths": [
+        "customers.jsonl",
+        ".gitignore",
+        "AGENTS.md",
+        "README.md"
+      ],
+      "readSelectivity": 1,
+      "readWitness": "armed",
+      "reads": 4,
+      "readsArmed": 4,
+      "readsBlind": 0,
+      "readsTampered": 0,
+      "runId": "1b5b61e5-567f-4a07-8b11-150d0337d9d7",
+      "seq": 182,
+      "ts": "2026-08-31T08:47:48.617Z"
+    },
+    {
+      "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "at": "2026-08-31T08:47:48.664Z",
+      "decision": "discard",
+      "hash": "c92cb5f87ce6eae1d93ce49820bb3f52484ca3c07d62fd74473495d1a298f765",
+      "hits": [
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/config",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/applypatch-msg.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/commit-msg.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/fsmonitor-watchman.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/post-update.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/pre-applypatch.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/pre-commit",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/pre-commit.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/pre-merge-commit.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/pre-push.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/pre-rebase.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/pre-receive.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/prepare-commit-msg.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/push-to-checkout.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "discard",
+          "detail": "exec-surface:vcs-hook",
+          "path": ".git/hooks/update.sample",
+          "rule": "execution-surface-write"
+        },
+        {
+          "decision": "review",
+          "detail": "entropy via entropy at line 15 (s/^\\...(33 chars))",
+          "path": ".git/hooks/commit-msg.sample",
+          "rule": "secret-suspected"
+        },
+        {
+          "decision": "discard",
+          "detail": "keyword:$last_update_token via keyword at line 91 (\\$la...(23 chars))",
+          "path": ".git/hooks/fsmonitor-watchman.sample",
+          "rule": "secret-written-into-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0000 (control-character) at line 1 column 5",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0002 (control-character) at line 1 column 8",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0004 (control-character) at line 1 column 12",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+001C (control-character) at line 1 column 25",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0006 (control-character) at line 1 column 34",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0001 (control-character) at line 1 column 43",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0014 (control-character) at line 1 column 48",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0016 (control-character) at line 1 column 54",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+000B (control-character) at line 1 column 63",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0000 (control-character) at line 2 column 11",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+001C (control-character) at line 2 column 31",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0006 (control-character) at line 2 column 40",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0001 (control-character) at line 2 column 49",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0014 (control-character) at line 2 column 54",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0002 (control-character) at line 2 column 57",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0007 (control-character) at line 2 column 69",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0005 (control-character) at line 2 column 114",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+000C (control-character) at line 2 column 172",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+001F (control-character) at line 2 column 174",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0012 (control-character) at line 2 column 209",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+000F (control-character) at line 2 column 221",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0010 (control-character) at line 2 column 248",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0016 (control-character) at line 2 column 251",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0018 (control-character) at line 2 column 256",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+007F (control-character) at line 2 column 259",
+          "path": ".git/index",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0001 (control-character) at line 1 column 2",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+001C (control-character) at line 1 column 7",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+000C (control-character) at line 1 column 9",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0014 (control-character) at line 1 column 23",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0012 (control-character) at line 1 column 25",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0002 (control-character) at line 1 column 26",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+001F (control-character) at line 1 column 52",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+007F (control-character) at line 1 column 55",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0015 (control-character) at line 1 column 63",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0008 (control-character) at line 1 column 85",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+001B (control-character) at line 1 column 111",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0006 (control-character) at line 1 column 122",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0007 (control-character) at line 1 column 128",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0000 (control-character) at line 1 column 134",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0004 (control-character) at line 1 column 140",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0003 (control-character) at line 1 column 144",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0017 (control-character) at line 1 column 166",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0019 (control-character) at line 1 column 171",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+000E (control-character) at line 1 column 191",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0013 (control-character) at line 1 column 213",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+000F (control-character) at line 1 column 219",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0018 (control-character) at line 1 column 235",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+000B (control-character) at line 1 column 262",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0011 (control-character) at line 1 column 265",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+001A (control-character) at line 1 column 281",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0014 (control-character) at line 2 column 9",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0015 (control-character) at line 2 column 31",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+001D (control-character) at line 2 column 35",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0017 (control-character) at line 2 column 37",
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0001 (control-character) at line 1 column 2",
+          "path": ".git/objects/c6/9e16228d84fa57208a790bf0fec16e4ec1f052",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0003 (control-character) at line 1 column 20",
+          "path": ".git/objects/c6/9e16228d84fa57208a790bf0fec16e4ec1f052",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0000 (control-character) at line 1 column 48",
+          "path": ".git/objects/c6/9e16228d84fa57208a790bf0fec16e4ec1f052",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+000E (control-character) at line 1 column 51",
+          "path": ".git/objects/c6/9e16228d84fa57208a790bf0fec16e4ec1f052",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0001 (control-character) at line 1 column 2",
+          "path": ".git/objects/e1/fa5a83e6684b9f531212095565ec79974a93d7",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0002 (control-character) at line 1 column 55",
+          "path": ".git/objects/e1/fa5a83e6684b9f531212095565ec79974a93d7",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0000 (control-character) at line 1 column 56",
+          "path": ".git/objects/e1/fa5a83e6684b9f531212095565ec79974a93d7",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0011 (control-character) at line 1 column 58",
+          "path": ".git/objects/e1/fa5a83e6684b9f531212095565ec79974a93d7",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0018 (control-character) at line 1 column 59",
+          "path": ".git/objects/e1/fa5a83e6684b9f531212095565ec79974a93d7",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0001 (control-character) at line 1 column 2",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+000E (control-character) at line 1 column 6",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0010 (control-character) at line 1 column 9",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0005 (control-character) at line 1 column 10",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0000 (control-character) at line 1 column 19",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0014 (control-character) at line 1 column 23",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0017 (control-character) at line 1 column 25",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+001C (control-character) at line 1 column 30",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+001E (control-character) at line 1 column 36",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0011 (control-character) at line 1 column 51",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0008 (control-character) at line 1 column 70",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0019 (control-character) at line 1 column 79",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0013 (control-character) at line 1 column 82",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0004 (control-character) at line 1 column 88",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "discard",
+          "detail": "U+0012 (control-character) at line 1 column 93",
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "rule": "trojan-source"
+        },
+        {
+          "decision": "review",
+          "detail": "23 path(s) this turn, 23 across the window",
+          "rule": "large-blast-radius"
+        }
+      ],
+      "hmac": "44da1512359d04587fa5ac1f6824abd19d96499de271ebcc63176234facd8ec1",
+      "kind": "policy.decision",
+      "prev": "a8d2e966996e1b49cbedf67562c07b14e6650d801e3826f515b0e7a23e066b8f",
+      "principal": "policy",
+      "rule": "execution-surface-write",
+      "runId": "1b5b61e5-567f-4a07-8b11-150d0337d9d7",
+      "seq": 183,
+      "ts": "2026-08-31T08:47:48.664Z"
+    },
+    {
+      "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "at": "2026-08-31T08:47:48.865Z",
+      "codexHome": {
+        "restored": false,
+        "verifiedUnchanged": true
+      },
+      "effects": [
+        {
+          "bytes": 23,
+          "canonicalPath": ".git/head",
+          "effectClass": "other",
+          "kind": "create",
+          "mode": 420,
+          "path": ".git/HEAD",
+          "sha256": "f6f2b945f6c411b02ba3da9c7ace88dcf71b6af65ba2e0d89aa82900042b5a10"
+        },
+        {
+          "bytes": 164,
+          "canonicalPath": ".git/config",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 420,
+          "path": ".git/config",
+          "sha256": "2f0bf9bf7d619c8d41fa524815fea4c6d70375296a17db2f3c81f5e4497f0ebd"
+        },
+        {
+          "bytes": 73,
+          "canonicalPath": ".git/description",
+          "effectClass": "other",
+          "kind": "create",
+          "mode": 420,
+          "path": ".git/description",
+          "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee"
+        },
+        {
+          "bytes": 478,
+          "canonicalPath": ".git/hooks/applypatch-msg.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/applypatch-msg.sample",
+          "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7"
+        },
+        {
+          "bytes": 896,
+          "canonicalPath": ".git/hooks/commit-msg.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/commit-msg.sample",
+          "sha256": "1f74d5e9292979b573ebd59741d46cb93ff391acdd083d340b94370753d92437"
+        },
+        {
+          "bytes": 4726,
+          "canonicalPath": ".git/hooks/fsmonitor-watchman.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/fsmonitor-watchman.sample",
+          "sha256": "e0549964e93897b519bd8e333c037e51fff0f88ba13e086a331592bf801fa1d0"
+        },
+        {
+          "bytes": 189,
+          "canonicalPath": ".git/hooks/post-update.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/post-update.sample",
+          "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5"
+        },
+        {
+          "bytes": 424,
+          "canonicalPath": ".git/hooks/pre-applypatch.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/pre-applypatch.sample",
+          "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475"
+        },
+        {
+          "bytes": 1254,
+          "canonicalPath": ".git/hooks/pre-commit",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/pre-commit",
+          "sha256": "918b8adc36fd7bf03924f53206e4472a006b096bad0698467819547bced7c356"
+        },
+        {
+          "bytes": 1643,
+          "canonicalPath": ".git/hooks/pre-commit.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/pre-commit.sample",
+          "sha256": "f9af7d95eb1231ecf2eba9770fedfa8d4797a12b02d7240e98d568201251244a"
+        },
+        {
+          "bytes": 416,
+          "canonicalPath": ".git/hooks/pre-merge-commit.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/pre-merge-commit.sample",
+          "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53"
+        },
+        {
+          "bytes": 1374,
+          "canonicalPath": ".git/hooks/pre-push.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/pre-push.sample",
+          "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a"
+        },
+        {
+          "bytes": 4898,
+          "canonicalPath": ".git/hooks/pre-rebase.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/pre-rebase.sample",
+          "sha256": "4febce867790052338076f4e66cc47efb14879d18097d1d61c8261859eaaa7b3"
+        },
+        {
+          "bytes": 544,
+          "canonicalPath": ".git/hooks/pre-receive.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/pre-receive.sample",
+          "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989"
+        },
+        {
+          "bytes": 1492,
+          "canonicalPath": ".git/hooks/prepare-commit-msg.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/prepare-commit-msg.sample",
+          "sha256": "e9ddcaa4189fddd25ed97fc8c789eca7b6ca16390b2392ae3276f0c8e1aa4619"
+        },
+        {
+          "bytes": 2783,
+          "canonicalPath": ".git/hooks/push-to-checkout.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/push-to-checkout.sample",
+          "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f"
+        },
+        {
+          "bytes": 3650,
+          "canonicalPath": ".git/hooks/update.sample",
+          "effectClass": "exec-surface:vcs-hook",
+          "kind": "create",
+          "mode": 493,
+          "path": ".git/hooks/update.sample",
+          "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106"
+        },
+        {
+          "bytes": 336,
+          "canonicalPath": ".git/index",
+          "effectClass": "other",
+          "kind": "create",
+          "mode": 420,
+          "path": ".git/index",
+          "sha256": "753ab0c11194ec6525667c0bd999f32164b64c9db45d3fd15da2dda9eaccb0c1"
+        },
+        {
+          "bytes": 240,
+          "canonicalPath": ".git/info/exclude",
+          "effectClass": "other",
+          "kind": "create",
+          "mode": 420,
+          "path": ".git/info/exclude",
+          "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1"
+        },
+        {
+          "bytes": 353,
+          "canonicalPath": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "effectClass": "other",
+          "kind": "create",
+          "mode": 292,
+          "path": ".git/objects/65/f6ad874f224fbae8e807f526b6bcec3fe5db79",
+          "sha256": "e5311d91844ad2d24ee8a95109d1117c7672682204a1bf4a66feff2a4301a0d6"
+        },
+        {
+          "bytes": 53,
+          "canonicalPath": ".git/objects/c6/9e16228d84fa57208a790bf0fec16e4ec1f052",
+          "effectClass": "other",
+          "kind": "create",
+          "mode": 292,
+          "path": ".git/objects/c6/9e16228d84fa57208a790bf0fec16e4ec1f052",
+          "sha256": "6083701295f969670baabffc3797f4881be880f24bbe408037d3880f66d1ac64"
+        },
+        {
+          "bytes": 61,
+          "canonicalPath": ".git/objects/e1/fa5a83e6684b9f531212095565ec79974a93d7",
+          "effectClass": "other",
+          "kind": "create",
+          "mode": 292,
+          "path": ".git/objects/e1/fa5a83e6684b9f531212095565ec79974a93d7",
+          "sha256": "1a21469853299823a84a05add7cf0c2df58ec707e964ebe9f8304925b0984e57"
+        },
+        {
+          "bytes": 135,
+          "canonicalPath": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "effectClass": "other",
+          "kind": "create",
+          "mode": 292,
+          "path": ".git/objects/f1/9325cff1b148e980e73a7b34adb9d9538e32a1",
+          "sha256": "71131024e895e6f2f1aec04e876484cd74a26776f4ec57c05f3ab1d287e92e52"
+        }
+      ],
+      "egress": {
+        "deny": 1,
+        "live": 10
+      },
+      "hash": "831a114b3fad26a2715edda1bdfe156d1b7fd2d4309473149f432f9cc9a6f899",
+      "hmac": "ee243dd9fa42c7d368e0ee9a545bc8ba343b474e0674965a171b70c42ecca918",
+      "kind": "turn.discarded",
+      "outboundDropped": 0,
+      "prev": "c92cb5f87ce6eae1d93ce49820bb3f52484ca3c07d62fd74473495d1a298f765",
+      "principal": "policy",
+      "rule": "execution-surface-write",
+      "runId": "1b5b61e5-567f-4a07-8b11-150d0337d9d7",
+      "seq": 184,
+      "ts": "2026-08-31T08:47:48.865Z",
+      "workspaceDigestAfter": "bdf5af844d5332c138e299810c2e29e5ea244f5d5eb0d9df8b700fd7bdd6d2d6",
+      "workspaceFilesAfter": 4,
+      "workspaceUnreadableAfter": 0
+    },
+    {
+      "hash": "eae82779bed04d51f70bc8f093dd99374d11eb5791e427c9e52c4cbbeeb5cd44",
+      "hmac": "32af915a3e36788db9621c799bfa31d7b2c0f667792e516402c3cdd3152cb719",
+      "kind": "seal.release",
+      "prev": "831a114b3fad26a2715edda1bdfe156d1b7fd2d4309473149f432f9cc9a6f899",
+      "principal": "agent",
+      "removed": true,
+      "runId": "1b5b61e5-567f-4a07-8b11-150d0337d9d7",
+      "seq": 185,
+      "ts": "2026-08-31T08:47:48.881Z"
+    }
+  ],
+  "egressSummary": {
+    "deny": 1,
+    "live": 10
+  }
+}

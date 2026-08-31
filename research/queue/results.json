@@ -1,0 +1,42 @@
+{
+  "totals": {
+    "before": {
+      "benignHumanAsks": 1207,
+      "attackMisses": 117,
+      "benignFalseAborts": 63,
+      "attacksContained": 3051
+    },
+    "after": {
+      "benignHumanAsks": 190,
+      "attackMisses": 117,
+      "benignFalseAborts": 63,
+      "attacksContained": 3051
+    }
+  },
+  "nowCommits": [],
+  "downgraded": [],
+  "perModule": {
+    "dependency-change": {
+      "asksBefore": 566,
+      "asksAfter": 39,
+      "catchesBefore": 147,
+      "catchesAfter": 147,
+      "lostCatchIds": []
+    },
+    "exec-surface": {
+      "asksBefore": 273,
+      "asksAfter": 30,
+      "catchesBefore": 98,
+      "catchesAfter": 98,
+      "lostCatchIds": []
+    },
+    "guard-file-removed": {
+      "asksBefore": 119,
+      "asksAfter": 60,
+      "catchesBefore": 16,
+      "catchesAfter": 16,
+      "lostCatchIds": []
+    }
+  },
+  "generated_at": "2026-08-30"
+}

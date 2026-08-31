@@ -1,0 +1,528 @@
+{
+  "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+  "turns": [
+    {
+      "runId": "8d78d7b6-acb6-4ac9-be35-54e0a03419a7",
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "verdict": "approved",
+      "rule": null,
+      "principal": "operator",
+      "seq": 385,
+      "at": "2026-08-31T16:27:14.777Z",
+      "mechanism": "copy",
+      "effectCount": 2,
+      "truncated": 0,
+      "effects": [
+        {
+          "path": "package.json",
+          "kind": "modify",
+          "class": "dependency",
+          "bytes": 173
+        },
+        {
+          "path": "tools/prepare.js",
+          "kind": "create",
+          "class": "source",
+          "bytes": 29
+        }
+      ],
+      "conflictPaths": [],
+      "appliedPaths": [],
+      "workspaceDigestBefore": "dd9edbb01fcc9965e365cfc669e35dc7ae94da8877fa859a9c74ddb2c9b62449",
+      "workspaceDigestAfter": "f61869b9c072c6999a3414ee12b4b4d7ca03b5d8f47fbdc46bf9fb9a54c47fda",
+      "workspaceDigestReason": null,
+      "workspaceFilesBefore": 10,
+      "workspaceFilesAfter": 11,
+      "workspaceUnreadableBefore": 0,
+      "workspaceUnreadableAfter": 0,
+      "beginRecorded": true,
+      "confinement": "container+sealed-network",
+      "confinementReason": null,
+      "network": "shadow-8d78d7b6-acb6-4ac9-be35-54e0a03419a7",
+      "egressAllowlistSize": 5,
+      "modelChannel": "terminated-at-broker",
+      "codexHomeFiles": 31,
+      "egress": null,
+      "outboundDropped": null,
+      "outboundReplayed": 0,
+      "outboundFailed": 0,
+      "outboundHeldForReview": null,
+      "codexHomeRestored": null,
+      "codexHomeVerifiedUnchanged": null,
+      "codexHomeDroppedAfterReview": null,
+      "codexHomeChanged": 2,
+      "networkLeaked": null,
+      "confinementStateLost": false,
+      "records": [
+        {
+          "seq": 375,
+          "kind": "seal.fallback",
+          "hash": "fcc7aacfe298"
+        },
+        {
+          "seq": 376,
+          "kind": "turn.begin",
+          "hash": "61178d4a26d5"
+        },
+        {
+          "seq": 377,
+          "kind": "turn.executed",
+          "hash": "de3265154993"
+        },
+        {
+          "seq": 378,
+          "kind": "effects.captured",
+          "hash": "ae7a0e8b03cb"
+        },
+        {
+          "seq": 379,
+          "kind": "policy.decision",
+          "hash": "8fa222d842b6"
+        },
+        {
+          "seq": 380,
+          "kind": "turn.held",
+          "hash": "0902555b3856"
+        },
+        {
+          "seq": 381,
+          "kind": "policy.decision",
+          "hash": "0b215f67b50e"
+        },
+        {
+          "seq": 382,
+          "kind": "turn.approved",
+          "hash": "548f6aceb299"
+        },
+        {
+          "seq": 383,
+          "kind": "turn.committing",
+          "hash": "a02d2ef445a5"
+        },
+        {
+          "seq": 384,
+          "kind": "turn.committed",
+          "hash": "fb3272d74a52"
+        },
+        {
+          "seq": 385,
+          "kind": "seal.release",
+          "hash": "b327019ee3b3"
+        }
+      ]
+    },
+    {
+      "runId": "a8ff1d57-759b-4969-8d70-ed3b4084ad6b",
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "verdict": "rejected",
+      "rule": "manifest-script-change",
+      "principal": "operator",
+      "seq": 374,
+      "at": "2026-08-31T16:21:59.269Z",
+      "mechanism": "copy",
+      "effectCount": 2,
+      "truncated": 0,
+      "effects": [
+        {
+          "path": "package.json",
+          "kind": "modify",
+          "class": "dependency",
+          "bytes": 179
+        },
+        {
+          "path": "tools/release-notes.js",
+          "kind": "create",
+          "class": "source",
+          "bytes": 30
+        }
+      ],
+      "conflictPaths": [],
+      "appliedPaths": [],
+      "workspaceDigestBefore": "dd9edbb01fcc9965e365cfc669e35dc7ae94da8877fa859a9c74ddb2c9b62449",
+      "workspaceDigestAfter": "dd9edbb01fcc9965e365cfc669e35dc7ae94da8877fa859a9c74ddb2c9b62449",
+      "workspaceDigestReason": null,
+      "workspaceFilesBefore": 10,
+      "workspaceFilesAfter": 10,
+      "workspaceUnreadableBefore": 0,
+      "workspaceUnreadableAfter": 0,
+      "beginRecorded": true,
+      "confinement": "container+sealed-network",
+      "confinementReason": null,
+      "network": "shadow-a8ff1d57-759b-4969-8d70-ed3b4084ad6b",
+      "egressAllowlistSize": 5,
+      "modelChannel": "terminated-at-broker",
+      "codexHomeFiles": 31,
+      "egress": null,
+      "outboundDropped": 0,
+      "outboundReplayed": null,
+      "outboundFailed": null,
+      "outboundHeldForReview": null,
+      "codexHomeRestored": false,
+      "codexHomeVerifiedUnchanged": true,
+      "codexHomeDroppedAfterReview": true,
+      "codexHomeChanged": null,
+      "networkLeaked": null,
+      "confinementStateLost": false,
+      "records": [
+        {
+          "seq": 367,
+          "kind": "seal.fallback",
+          "hash": "afcdf2878d04"
+        },
+        {
+          "seq": 368,
+          "kind": "turn.begin",
+          "hash": "7c752af9a5f8"
+        },
+        {
+          "seq": 369,
+          "kind": "turn.executed",
+          "hash": "920d375231e4"
+        },
+        {
+          "seq": 370,
+          "kind": "effects.captured",
+          "hash": "dd5dbe0bde3f"
+        },
+        {
+          "seq": 371,
+          "kind": "policy.decision",
+          "hash": "5ed8cda03ef9"
+        },
+        {
+          "seq": 372,
+          "kind": "turn.held",
+          "hash": "ebfb8d80740c"
+        },
+        {
+          "seq": 373,
+          "kind": "turn.rejected",
+          "hash": "647ab0307619"
+        },
+        {
+          "seq": 374,
+          "kind": "seal.release",
+          "hash": "673a6fb315b9"
+        }
+      ]
+    },
+    {
+      "runId": "3ce3c248-1619-45e9-bb1f-b751f905e43a",
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "verdict": "approved",
+      "rule": null,
+      "principal": "operator",
+      "seq": 366,
+      "at": "2026-08-31T16:21:57.663Z",
+      "mechanism": "copy",
+      "effectCount": 2,
+      "truncated": 0,
+      "effects": [
+        {
+          "path": "package.json",
+          "kind": "modify",
+          "class": "dependency",
+          "bytes": 131
+        },
+        {
+          "path": "tools/setup.js",
+          "kind": "create",
+          "class": "source",
+          "bytes": 39
+        }
+      ],
+      "conflictPaths": [],
+      "appliedPaths": [],
+      "workspaceDigestBefore": "e9095934d7646d473fc2cca1dad98ae882bf391b445719c689fef3b1c965b189",
+      "workspaceDigestAfter": "dd9edbb01fcc9965e365cfc669e35dc7ae94da8877fa859a9c74ddb2c9b62449",
+      "workspaceDigestReason": null,
+      "workspaceFilesBefore": 8,
+      "workspaceFilesAfter": 10,
+      "workspaceUnreadableBefore": 0,
+      "workspaceUnreadableAfter": 0,
+      "beginRecorded": true,
+      "confinement": "container+sealed-network",
+      "confinementReason": null,
+      "network": "shadow-3ce3c248-1619-45e9-bb1f-b751f905e43a",
+      "egressAllowlistSize": 5,
+      "modelChannel": "terminated-at-broker",
+      "codexHomeFiles": 31,
+      "egress": null,
+      "outboundDropped": null,
+      "outboundReplayed": 0,
+      "outboundFailed": 0,
+      "outboundHeldForReview": null,
+      "codexHomeRestored": null,
+      "codexHomeVerifiedUnchanged": null,
+      "codexHomeDroppedAfterReview": null,
+      "codexHomeChanged": 2,
+      "networkLeaked": null,
+      "confinementStateLost": false,
+      "records": [
+        {
+          "seq": 355,
+          "kind": "seal.fallback",
+          "hash": "00646305e4cf"
+        },
+        {
+          "seq": 356,
+          "kind": "turn.begin",
+          "hash": "2f94164226c4"
+        },
+        {
+          "seq": 357,
+          "kind": "turn.executed",
+          "hash": "d84426e9b228"
+        },
+        {
+          "seq": 358,
+          "kind": "effects.captured",
+          "hash": "c51378c1b2a3"
+        },
+        {
+          "seq": 359,
+          "kind": "policy.decision",
+          "hash": "51d0aee15ae4"
+        },
+        {
+          "seq": 360,
+          "kind": "turn.held",
+          "hash": "88197ce0e648"
+        },
+        {
+          "seq": 361,
+          "kind": "settle.refused",
+          "hash": "938d1a8e15cd"
+        },
+        {
+          "seq": 362,
+          "kind": "policy.decision",
+          "hash": "8e8f94ee1418"
+        },
+        {
+          "seq": 363,
+          "kind": "turn.approved",
+          "hash": "14cf01596351"
+        },
+        {
+          "seq": 364,
+          "kind": "turn.committing",
+          "hash": "2901c8d413f0"
+        },
+        {
+          "seq": 365,
+          "kind": "turn.committed",
+          "hash": "e6342f3a238e"
+        },
+        {
+          "seq": 366,
+          "kind": "seal.release",
+          "hash": "20265123eeb8"
+        }
+      ]
+    },
+    {
+      "runId": "ac1ffc5c-db4a-4ff1-914d-7185b56c2a0b",
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "verdict": "discarded",
+      "rule": "protected-asset-delete",
+      "principal": null,
+      "seq": 354,
+      "at": "2026-08-31T16:21:55.060Z",
+      "mechanism": "copy",
+      "effectCount": 2,
+      "truncated": 0,
+      "effects": [
+        {
+          "path": ".git/hooks/pre-commit",
+          "kind": "create",
+          "class": "config",
+          "bytes": 58
+        },
+        {
+          "path": "customers.jsonl",
+          "kind": "delete",
+          "class": "protected",
+          "bytes": 0
+        }
+      ],
+      "conflictPaths": [],
+      "appliedPaths": [],
+      "workspaceDigestBefore": "e9095934d7646d473fc2cca1dad98ae882bf391b445719c689fef3b1c965b189",
+      "workspaceDigestAfter": "e9095934d7646d473fc2cca1dad98ae882bf391b445719c689fef3b1c965b189",
+      "workspaceDigestReason": null,
+      "workspaceFilesBefore": 8,
+      "workspaceFilesAfter": 8,
+      "workspaceUnreadableBefore": 0,
+      "workspaceUnreadableAfter": 0,
+      "beginRecorded": true,
+      "confinement": "container+sealed-network",
+      "confinementReason": null,
+      "network": "shadow-ac1ffc5c-db4a-4ff1-914d-7185b56c2a0b",
+      "egressAllowlistSize": 5,
+      "modelChannel": "terminated-at-broker",
+      "codexHomeFiles": 31,
+      "egress": {
+        "deny": 2,
+        "live": 2
+      },
+      "outboundDropped": 0,
+      "outboundReplayed": null,
+      "outboundFailed": null,
+      "outboundHeldForReview": null,
+      "codexHomeRestored": false,
+      "codexHomeVerifiedUnchanged": true,
+      "codexHomeDroppedAfterReview": null,
+      "codexHomeChanged": null,
+      "networkLeaked": null,
+      "confinementStateLost": false,
+      "records": [
+        {
+          "seq": 348,
+          "kind": "seal.fallback",
+          "hash": "d37682eda578"
+        },
+        {
+          "seq": 349,
+          "kind": "turn.begin",
+          "hash": "fa5e0a9dc11e"
+        },
+        {
+          "seq": 350,
+          "kind": "turn.executed",
+          "hash": "088f81185163"
+        },
+        {
+          "seq": 351,
+          "kind": "effects.captured",
+          "hash": "da605600e96a"
+        },
+        {
+          "seq": 352,
+          "kind": "policy.decision",
+          "hash": "53c19bbeebf0"
+        },
+        {
+          "seq": 353,
+          "kind": "turn.discarded",
+          "hash": "e2f96c4ccab9"
+        },
+        {
+          "seq": 354,
+          "kind": "seal.release",
+          "hash": "e29bdf168af7"
+        }
+      ]
+    },
+    {
+      "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "verdict": "committed",
+      "rule": null,
+      "principal": null,
+      "seq": 347,
+      "at": "2026-08-31T16:21:53.210Z",
+      "mechanism": "copy",
+      "effectCount": 3,
+      "truncated": 0,
+      "effects": [
+        {
+          "path": "package.json",
+          "kind": "create",
+          "class": "dependency",
+          "bytes": 68
+        },
+        {
+          "path": "src/index.test.ts",
+          "kind": "create",
+          "class": "source",
+          "bytes": 43
+        },
+        {
+          "path": "src/index.ts",
+          "kind": "create",
+          "class": "source",
+          "bytes": 63
+        }
+      ],
+      "conflictPaths": [],
+      "appliedPaths": [],
+      "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+      "workspaceDigestAfter": "0fa3323800d4f9224e80554f201b61574bddf9287ab515084b086a1b5f86c769",
+      "workspaceDigestReason": null,
+      "workspaceFilesBefore": 3,
+      "workspaceFilesAfter": 7,
+      "workspaceUnreadableBefore": 0,
+      "workspaceUnreadableAfter": 0,
+      "beginRecorded": true,
+      "confinement": "container+sealed-network",
+      "confinementReason": null,
+      "network": "shadow-153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "egressAllowlistSize": 5,
+      "modelChannel": "terminated-at-broker",
+      "codexHomeFiles": 1,
+      "egress": {
+        "deny": 1,
+        "live": 2
+      },
+      "outboundDropped": null,
+      "outboundReplayed": 0,
+      "outboundFailed": 0,
+      "outboundHeldForReview": null,
+      "codexHomeRestored": null,
+      "codexHomeVerifiedUnchanged": null,
+      "codexHomeDroppedAfterReview": null,
+      "codexHomeChanged": 30,
+      "networkLeaked": null,
+      "confinementStateLost": false,
+      "records": [
+        {
+          "seq": 340,
+          "kind": "seal.fallback",
+          "hash": "4a611e01722b"
+        },
+        {
+          "seq": 341,
+          "kind": "turn.begin",
+          "hash": "1469df210cb2"
+        },
+        {
+          "seq": 342,
+          "kind": "turn.executed",
+          "hash": "8d91f10d1ef5"
+        },
+        {
+          "seq": 343,
+          "kind": "effects.captured",
+          "hash": "6b6394c03c9b"
+        },
+        {
+          "seq": 344,
+          "kind": "policy.decision",
+          "hash": "3590ffbc1f4c"
+        },
+        {
+          "seq": 345,
+          "kind": "turn.committing",
+          "hash": "d5ff34cd7c0f"
+        },
+        {
+          "seq": 346,
+          "kind": "turn.committed",
+          "hash": "019832c7e9e7"
+        },
+        {
+          "seq": 347,
+          "kind": "seal.release",
+          "hash": "16db3d0b8a4f"
+        }
+      ]
+    }
+  ],
+  "more": 0,
+  "chain": {
+    "ok": true,
+    "records": 385,
+    "problems": []
+  }
+}

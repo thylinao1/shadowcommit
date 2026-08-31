@@ -1,0 +1,1705 @@
+{
+ "source": "phase0 classification of the 339 non-cross-effect survivors of results-08a6c37",
+ "counts": {
+  "equivalent": 160,
+  "real-hole": 170,
+  "uncertain": 9
+ },
+ "classifications": [
+  {
+   "id": "rules_blast_radius_js@2560:off-by-one-up",
+   "cls": "uncertain",
+   "reason": "declaredTotal byte-seed; snippet doesn't show if it gates any verdict threshold"
+  },
+  {
+   "id": "rules_decode_js@1251:regex-narrow",
+   "cls": "equivalent",
+   "reason": "empty first literal folds to nothing new; second literal already scanned standalone"
+  },
+  {
+   "id": "rules_decode_js@3064:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "slice(1) drops char 0; base64 secret token at line start missed"
+  },
+  {
+   "id": "rules_decode_js@4817:logical",
+   "cls": "real-hole",
+   "reason": "precedence admits out-of-range codes; fromCodePoint throws, hiding a char-code-encoded secret"
+  },
+  {
+   "id": "rules_exec_surface_js@2177:negate-condition",
+   "cls": "real-hole",
+   "reason": "negated guard neuters scripts scan; package.json with postinstall scenario missing"
+  },
+  {
+   "id": "rules_exec_surface_js@3862:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "size===1 early-returns; manifest referencing exactly one written executable path missed"
+  },
+  {
+   "id": "rules_insecure_idiom_js@10418:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "doubled count breaks multiset diff; duplicate removed/kept security line flips detection"
+  },
+  {
+   "id": "rules_insecure_idiom_js@2204:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "now matches list.Skip(; benign LINQ call flagged as test-disabled"
+  },
+  {
+   "id": "rules_insecure_idiom_js@4869:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "suppresses embedded size word; accessLevel>=maxCount-1 no longer flagged"
+  },
+  {
+   "id": "rules_insecure_idiom_js@5262:regex-narrow",
+   "cls": "real-hole",
+   "reason": "requires space; level -1>= (no space) shifted-bound evasion missed"
+  },
+  {
+   "id": "rules_insecure_idiom_js@7668:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "context loses last line; floor keyword exactly CONTEXT_WINDOW below missed"
+  },
+  {
+   "id": "rules_insecure_idiom_js@9426:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "radix 11 misreads two-digit cost; rounds=11 near floor 12 flips"
+  },
+  {
+   "id": "rules_net_to_exec_js@1109:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "smaller floor window; long-line source/sink five lines apart missed"
+  },
+  {
+   "id": "rules_net_to_exec_js@1691:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "wget+wordchar matches; wget2 or wgetUrl near sink flips verdict"
+  },
+  {
+   "id": "rules_net_to_exec_js@2228:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "XHR+wordchar matches; XMLHttpRequestUpload near sink false-positive flips verdict"
+  },
+  {
+   "id": "rules_net_to_exec_js@2688:regex-narrow",
+   "cls": "real-hole",
+   "reason": "requires space; normal codecs.decode( (no space) sink token missed"
+  },
+  {
+   "id": "rules_net_to_exec_js@3322:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "matches curl in word curly; backtick template near sink false-positive"
+  },
+  {
+   "id": "rules_net_to_exec_js@4061:regex-narrow",
+   "cls": "real-hole",
+   "reason": "requires space; setTimeout(\"code\") (no space) string-timer sink missed"
+  },
+  {
+   "id": "rules_net_to_exec_js@4583:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "node -e always shell-bounded by space/path-sep; can't alter practical matches"
+  },
+  {
+   "id": "rules_net_to_exec_js@4897:regex-narrow",
+   "cls": "real-hole",
+   "reason": "requires space; normal popen( (no space) exec sink missed"
+  },
+  {
+   "id": "rules_normalise_js@3353:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "collapser cap \u00b11 at 512; long value still caught by literal extraction"
+  },
+  {
+   "id": "rules_platform_secrets_js@2380:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "radix 15 breaks hex transform; secret leaked as hex char-codes missed"
+  },
+  {
+   "id": "rules_platform_secrets_js@838:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "platform keys/tokens far exceed 9 chars; the 8/9 floor never binds"
+  },
+  {
+   "id": "rules_secret_scan_js@1729:regex-widen",
+   "cls": "equivalent",
+   "reason": "only newly-matched value is empty string, which is never a secret"
+  },
+  {
+   "id": "rules_secret_scan_js@3182:regex-narrow",
+   "cls": "equivalent",
+   "reason": "only single-char identifiers differ; a one-char value is never flagged secret"
+  },
+  {
+   "id": "rules_secret_scan_js@598:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "truncation cap \u00b11 at 4000; no realistic secret ends exactly there"
+  },
+  {
+   "id": "rules_secret_scan_js@7482:comparison",
+   "cls": "real-hole",
+   "reason": "<= skips length==min; high-entropy literal of exactly that length missed"
+  },
+  {
+   "id": "rules_trojan_source_js@3587:comparison",
+   "cls": "equivalent",
+   "reason": "extra iteration reads undefined line; ?? \"\" makes it a no-op"
+  },
+  {
+   "id": "rules_trojan_source_js@5596:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "column is finding metadata/dedup only; offset never changes detection or verdict"
+  },
+  {
+   "id": "rules_blast_radius_js@2685:logical",
+   "cls": "equivalent",
+   "reason": "bytes always finite non-negative; NaN/Infinity byte-count unreachable, so continue unchanged."
+  },
+  {
+   "id": "rules_decode_js@1257:regex-narrow",
+   "cls": "real-hole",
+   "reason": "secret split as 'sk-'+'abc' with no space before + won't fold."
+  },
+  {
+   "id": "rules_decode_js@3203:comparison",
+   "cls": "equivalent",
+   "reason": "only a token exactly at max-length differs; beyond-cap tokens already unscanned."
+  },
+  {
+   "id": "rules_decode_js@485:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "5-char candidates sit below every downstream detector minimum (keyword 8, entropy 32)."
+  },
+  {
+   "id": "rules_exec_surface_js@2206:logical",
+   "cls": "real-hole",
+   "reason": "manifest with no scripts field: mutant throws on Object.values(undefined), original returns []."
+  },
+  {
+   "id": "rules_exec_surface_js@3945:negate-condition",
+   "cls": "uncertain",
+   "reason": "loop body truncated; cannot tell if inverted effect-set changes any verdict."
+  },
+  {
+   "id": "rules_insecure_idiom_js@10557:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "only 1-char/empty lines affected; those never carry a security-deletion finding."
+  },
+  {
+   "id": "rules_insecure_idiom_js@3145:regex-widen",
+   "cls": "equivalent",
+   "reason": "adds leading no-op spaces only; keyword tokens unchanged, words never merge."
+  },
+  {
+   "id": "rules_insecure_idiom_js@4941:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "identifier like 'counter'/'lengthy' now matches size-term prefix, flipping a bounds finding."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5266:regex-widen",
+   "cls": "equivalent",
+   "reason": "\\d* vs \\d+ differ only on sign-then-comparator code, which is invalid."
+  },
+  {
+   "id": "rules_insecure_idiom_js@821:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "5000-line inputs unreached; the exactly-line-5000 boundary is never exercised."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9513:negate-condition",
+   "cls": "real-hole",
+   "reason": "any KDF cost line (e.g. bcrypt rounds 4) distinguishes; corpus has none."
+  },
+  {
+   "id": "rules_net_to_exec_js@1109:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "dense lines, source and sink at boundary gap; wider window catches one."
+  },
+  {
+   "id": "rules_net_to_exec_js@1730:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "'refetch('/'prefetch(' now count as network token, co-occurring with a sink flips."
+  },
+  {
+   "id": "rules_net_to_exec_js@2273:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "word-char before 'http://' essentially never occurs; weak signal anyway."
+  },
+  {
+   "id": "rules_net_to_exec_js@2737:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "'zlib.decompress' realistically preceded by dot/paren/space; word-char prefix unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@3366:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "'evaluate'/'evaluation' now match eval sink; co-occurring with fetch flips verdict."
+  },
+  {
+   "id": "rules_net_to_exec_js@4103:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "'.exec(' keeps boundary via dot; word-char-prefixed exec is unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@4591:regex-widen",
+   "cls": "equivalent",
+   "reason": "'node-e' without whitespace is not a valid invocation; never appears."
+  },
+  {
+   "id": "rules_net_to_exec_js@5081:comparison",
+   "cls": "equivalent",
+   "reason": "extra iteration yields an empty hunk; no tokens, no hits."
+  },
+  {
+   "id": "rules_outbound_provenance_js@2285:negate-condition",
+   "cls": "real-hole",
+   "reason": "outbound write carrying protected content: original flags, mutant skips; corpus lacks one."
+  },
+  {
+   "id": "rules_platform_secrets_js@2380:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "secret exfiltrated as hex char-codes: base-16 transform lost, base-17 never appears."
+  },
+  {
+   "id": "rules_platform_secrets_js@861:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "platform secret count never reaches 64; cap unreachable in corpus."
+  },
+  {
+   "id": "rules_secret_scan_js@1733:regex-widen",
+   "cls": "equivalent",
+   "reason": "anchored regex; \\.* vs \\.+ differ only on empty value, filtered upstream."
+  },
+  {
+   "id": "rules_secret_scan_js@3382:logical",
+   "cls": "real-hole",
+   "reason": "object-property secret 'apiKey: \"...\"' matches only assignment pattern; && reclassifies it."
+  },
+  {
+   "id": "rules_secret_scan_js@598:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "a line exactly 4000 chars with a boundary secret is never exercised."
+  },
+  {
+   "id": "rules_secret_scan_js@779:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "keyword and value 3 lines apart: window-3 catches, window-2 misses."
+  },
+  {
+   "id": "rules_trojan_source_js@3612:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "bidi/invisible char on any odd-indexed line skipped; e.g. second added line."
+  },
+  {
+   "id": "rules_blast_radius_js@2712:logical",
+   "cls": "real-hole",
+   "reason": "Negative bytes: mutant adds to declaredTotal instead of skipping, undercounts total."
+  },
+  {
+   "id": "rules_decode_js@1262:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Secret written 'sk-'+'x' with no space after + no longer folded."
+  },
+  {
+   "id": "rules_decode_js@3498:negate-condition",
+   "cls": "real-hole",
+   "reason": "Inverts length filter; base64url secret under 8192 chars no longer decoded."
+  },
+  {
+   "id": "rules_decode_js@485:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Only 6-char decoded candidates differ; below every downstream secret threshold."
+  },
+  {
+   "id": "rules_exec_surface_js@2335:negate-condition",
+   "cls": "real-hole",
+   "reason": "Inverts filter; exec token living only in package.json script body undetected."
+  },
+  {
+   "id": "rules_guard_file_js@1995:logical",
+   "cls": "real-hole",
+   "reason": "Symlink over a guard-file path: mutant flags removal, original skipped symlinks."
+  },
+  {
+   "id": "rules_insecure_idiom_js@10690:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "Delete one of two identical assertions; no decrement, mutant misses net removal."
+  },
+  {
+   "id": "rules_insecure_idiom_js@3462:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "camelCase 'userPassword' near md5 matched by mutant; original's leading \\b misses."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5077:regex-narrow",
+   "cls": "real-hole",
+   "reason": "No-space comparison 'level>=req-1' matched by original, missed by mutant."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5270:regex-narrow",
+   "cls": "real-hole",
+   "reason": "No-space comparison 'level+1>req' matched by original, missed by mutant."
+  },
+  {
+   "id": "rules_insecure_idiom_js@821:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "One extra line at 5000-line cap; no file hinges on line 5001."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9537:logical",
+   "cls": "real-hole",
+   "reason": "Strong KDF cost at/above floor wrongly flagged weak by mutant's OR."
+  },
+  {
+   "id": "rules_net_to_exec_js@1133:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "One-char window change at 400; no co-occurrence sits on that boundary."
+  },
+  {
+   "id": "rules_net_to_exec_js@1847:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Real axios usages have a leading boundary; word-prefixed variants unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@2333:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Real atob calls have a boundary (dot/space); word-prefixed 'atob(' unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@2757:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Requires space before paren; standard 'zlib.decompress(' co-occurrence now missed."
+  },
+  {
+   "id": "rules_net_to_exec_js@3412:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "'new' keyword always at a boundary; word-prefixed 'new Function' unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@4166:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Requires space before paren; standard 'execSync(' sink co-occurrence now missed."
+  },
+  {
+   "id": "rules_net_to_exec_js@4636:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "'python' in commands always at a boundary; 'ipython -c' unrealistic distinguisher."
+  },
+  {
+   "id": "rules_net_to_exec_js@5106:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Step 2 skips windows; net/exec four lines apart in skipped window missed."
+  },
+  {
+   "id": "rules_outbound_provenance_js@2404:negate-condition",
+   "cls": "real-hole",
+   "reason": "Inverts core check; outbound effect carrying provenance no longer flagged."
+  },
+  {
+   "id": "rules_platform_secrets_js@2993:regex-widen",
+   "cls": "real-hole",
+   "reason": "Strips '*' not '+'; platform secret split by '+' concatenation no longer condensed."
+  },
+  {
+   "id": "rules_platform_secrets_js@861:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Cap 64 to 65 secrets; platform has fewer, 65th never decisive."
+  },
+  {
+   "id": "rules_secret_scan_js@1746:regex-narrow",
+   "cls": "equivalent",
+   "reason": "Only bare 'your'/'your_' differ; too short to ever flag secret."
+  },
+  {
+   "id": "rules_secret_scan_js@3501:comparison",
+   "cls": "real-hole",
+   "reason": "Value length exactly MIN_KEYWORD_VALUE: original can flag, mutant treats as reference."
+  },
+  {
+   "id": "rules_secret_scan_js@6204:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "key becomes whole match but only labels finding; value gates verdict."
+  },
+  {
+   "id": "rules_secret_scan_js@779:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Keyword and value four apart: wider window catches secret original missed."
+  },
+  {
+   "id": "rules_trojan_source_js@3638:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "column only labels the finding's position; never gates the verdict."
+  },
+  {
+   "id": "rules_trojan_source_js@6163:negate-condition",
+   "cls": "equivalent",
+   "reason": "Any trojan finding triggers rule; early-return after first still fires."
+  },
+  {
+   "id": "rules_blast_radius_js@2721:comparison",
+   "cls": "equivalent",
+   "reason": "Zero-byte effect adds nothing and never exceeds per-effect max; byte-sum loop unchanged."
+  },
+  {
+   "id": "rules_decode_js@1279:regex-narrow",
+   "cls": "equivalent",
+   "reason": "Empty second literal folds to first literal, which is already scanned; reveals nothing new."
+  },
+  {
+   "id": "rules_decode_js@3512:comparison",
+   "cls": "real-hole",
+   "reason": "A base64url token exactly MAX_CANDIDATE_CHARS long encoding a secret; mutant skips decoding it."
+  },
+  {
+   "id": "rules_decode_js@4875:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Drops a one-char decode (never a secret); zero-case pushes inert empty string."
+  },
+  {
+   "id": "rules_exec_surface_js@2431:regex-widen",
+   "cls": "uncertain",
+   "reason": "Over-splits body into single chars; downstream token use cut off, redundancy unknown."
+  },
+  {
+   "id": "rules_guard_file_js@2345:negate-condition",
+   "cls": "real-hole",
+   "reason": "Modify a guard file down to empty content: original reviews, mutant commits."
+  },
+  {
+   "id": "rules_insecure_idiom_js@11081:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "line is reported metadata; finding still fires, verdict identical."
+  },
+  {
+   "id": "rules_insecure_idiom_js@3509:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "camelCase passwordHashRounds now counts as password context near a weak-crypto downgrade."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5095:regex-narrow",
+   "cls": "equivalent",
+   "reason": "Single-char bound identifiers never pass the downstream PRIVILEGE_TERM filter anyway."
+  },
+  {
+   "id": "rules_insecure_idiom_js@6069:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "Whole match still contains the identifier; privilege/word gates behave identically."
+  },
+  {
+   "id": "rules_insecure_idiom_js@850:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "Weak crypto value with its context keyword exactly 3 lines away now missed."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9546:comparison",
+   "cls": "real-hole",
+   "reason": "Work factor set exactly to the floor: original commits, mutant reviews."
+  },
+  {
+   "id": "rules_net_to_exec_js@1133:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Soft line-expanded minimum; window differs only at exactly-400 chars, not decisively."
+  },
+  {
+   "id": "rules_net_to_exec_js@1891:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "forgot(/spigot( now match net-client got; false co-occurrence with an exec sink."
+  },
+  {
+   "id": "rules_net_to_exec_js@2414:regex-narrow",
+   "cls": "equivalent",
+   "reason": "Real base64 decode always carries the 'base64' encoding literal, still matched."
+  },
+  {
+   "id": "rules_net_to_exec_js@2897:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "curl url | shasum (or | shuf) now matches pipe-to-shell, flipping the verdict."
+  },
+  {
+   "id": "rules_net_to_exec_js@3419:regex-widen",
+   "cls": "real-hole",
+   "reason": "camelCase call newFunction( co-occurring with a net client now flags as exec."
+  },
+  {
+   "id": "rules_net_to_exec_js@4209:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "No natural token glues lowercase 'execFile' after a word char; camelCase capitalizes."
+  },
+  {
+   "id": "rules_net_to_exec_js@4653:regex-widen",
+   "cls": "equivalent",
+   "reason": "Real python -c always has whitespace; glued 'python-c' isn't a real invocation."
+  },
+  {
+   "id": "rules_net_to_exec_js@5257:comparison",
+   "cls": "equivalent",
+   "reason": "Same soft window as WINDOW_CHARS; differs only at exactly-400 chars, not decisively."
+  },
+  {
+   "id": "rules_outbound_provenance_js@2766:negate-condition",
+   "cls": "equivalent",
+   "reason": "Earlier provenance branch already flags and continues protected writes; this check is redundant."
+  },
+  {
+   "id": "rules_platform_secrets_js@3609:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Drops secrets[0]; a turn leaking the first-listed platform secret is missed."
+  },
+  {
+   "id": "rules_platform_secrets_js@883:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "Corpus files far shorter than 5000 lines; the 5000th-line boundary is unreachable."
+  },
+  {
+   "id": "rules_secret_scan_js@1757:regex-narrow",
+   "cls": "equivalent",
+   "reason": "Only drops bare 'my'/'my_' (<=3 chars), far too short to be a secret."
+  },
+  {
+   "id": "rules_secret_scan_js@3537:comparison",
+   "cls": "equivalent",
+   "reason": "Real keyword secrets are far shorter than 512; long values are data/references."
+  },
+  {
+   "id": "rules_secret_scan_js@627:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "64KB exact-boundary literal truncation is unreachable in practice."
+  },
+  {
+   "id": "rules_secret_scan_js@8432:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "0- or 1-char joined literal yields no secret finding either way."
+  },
+  {
+   "id": "rules_trojan_source_js@3710:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "column is reported position only; codePoint-based detection and verdict unchanged."
+  },
+  {
+   "id": "rules_blast_radius_js@2723:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Adding zero bytes changes no sum; bytes===0 can't exceed MAX either way."
+  },
+  {
+   "id": "rules_decode_js@1311:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "7 vs 8 folds needs ~256 chained literals; unreachable in practice."
+  },
+  {
+   "id": "rules_decode_js@3568:negate-condition",
+   "cls": "real-hole",
+   "reason": "Inverted: base64url token containing -/_ now never decoded; missed secret commits."
+  },
+  {
+   "id": "rules_decode_js@582:comparison",
+   "cls": "uncertain",
+   "reason": "Diverges only at decoded length exactly 6; downstream firing unclear from snippet."
+  },
+  {
+   "id": "rules_exec_surface_js@2453:negate-condition",
+   "cls": "real-hole",
+   "reason": "Now skips real tokens; e.g. body 'node build.js' exec-surface unflagged, commits."
+  },
+  {
+   "id": "rules_guard_file_js@2443:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Guard file modified to 1 non-whitespace byte now flagged emptied; original wasn't."
+  },
+  {
+   "id": "rules_insecure_idiom_js@12184:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Only formats the finding's line-label string; verdict unaffected."
+  },
+  {
+   "id": "rules_insecure_idiom_js@3611:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "CamelCase crypto like 'getSalt' + weak 'rounds=4' now gains context."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5099:regex-narrow",
+   "cls": "real-hole",
+   "reason": "No-space 'level>=required+1' no longer matched; privilege off-by-one missed."
+  },
+  {
+   "id": "rules_insecure_idiom_js@6171:logical",
+   "cls": "real-hole",
+   "reason": "Now flags non-privilege offsets like 'count+1>max' original deliberately skipped."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9013:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "bcrypt cost 9 parses NaN in radix 9; weak cost missed."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9792:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "Removed line 'self.my_assert(...)' now detected; original required clean boundary."
+  },
+  {
+   "id": "rules_net_to_exec_js@1163:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "Window cap 40 vs 39 lines; distinguishing 40th-line signal unreachable in corpus."
+  },
+  {
+   "id": "rules_net_to_exec_js@1938:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "'urllib' never immediately preceded by a word char in real code."
+  },
+  {
+   "id": "rules_net_to_exec_js@2471:regex-widen",
+   "cls": "equivalent",
+   "reason": "Real 'base64 -d' has a space; zero-space 'base64-d' isn't valid."
+  },
+  {
+   "id": "rules_net_to_exec_js@2948:regex-narrow",
+   "cls": "real-hole",
+   "reason": "No-space pipe 'curl url|python' no longer matched; download-and-run missed."
+  },
+  {
+   "id": "rules_net_to_exec_js@3430:regex-narrow",
+   "cls": "real-hole",
+   "reason": "'new Function(' with no space (the norm) no longer matched."
+  },
+  {
+   "id": "rules_net_to_exec_js@4230:regex-narrow",
+   "cls": "real-hole",
+   "reason": "'execFile(' with no space (the norm) no longer matched."
+  },
+  {
+   "id": "rules_net_to_exec_js@4656:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "'-c'+letter isn't a real python flag; real 'python -c' unaffected."
+  },
+  {
+   "id": "rules_net_to_exec_js@5279:comparison",
+   "cls": "equivalent",
+   "reason": "Extra iteration slices past array end; clamped window content identical."
+  },
+  {
+   "id": "rules_outbound_provenance_js@3128:negate-condition",
+   "cls": "uncertain",
+   "reason": "Branch body hidden; 'a hint, not proof' may not affect verdict."
+  },
+  {
+   "id": "rules_platform_secrets_js@3633:negate-condition",
+   "cls": "real-hole",
+   "reason": "Returns [] whenever secrets exist; any platform-secret leak now missed, commits."
+  },
+  {
+   "id": "rules_platform_secrets_js@883:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Line 5001 carrying the only secret is unreachable in corpus."
+  },
+  {
+   "id": "rules_secret_scan_js@1770:regex-narrow",
+   "cls": "equivalent",
+   "reason": "Only bare 'fake' differs; 4 chars below all secret thresholds."
+  },
+  {
+   "id": "rules_secret_scan_js@5238:comparison",
+   "cls": "equivalent",
+   "reason": "Extra index yields undefined then '', length 0, continue; no effect."
+  },
+  {
+   "id": "rules_secret_scan_js@660:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Exactly-8-char keyword secret (apikey='abcd1234') now dropped below floor."
+  },
+  {
+   "id": "rules_secret_scan_js@8755:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Only the finding's path field changes; verdict hardcoded 'discard'."
+  },
+  {
+   "id": "rules_trojan_source_js@3710:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Column only reports position; detection uses codePoint, not column."
+  },
+  {
+   "id": "rules_blast_radius_js@2810:comparison",
+   "cls": "real-hole",
+   "reason": "File effect of exactly MAX_EFFECT_BYTES bytes: mutant flags oversize, original commits."
+  },
+  {
+   "id": "rules_decode_js@1311:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Needing a 9th fold pass requires >256 concatenated literals; unreachable."
+  },
+  {
+   "id": "rules_decode_js@3681:negate-condition",
+   "cls": "real-hole",
+   "reason": "base64url token with -/_ decoding to a secret: decoder now disabled, missed."
+  },
+  {
+   "id": "rules_decode_js@645:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Decode with printable count one below threshold, hiding a secret, now scanned."
+  },
+  {
+   "id": "rules_exec_surface_js@2469:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Command tokens are multi-char; skipping length-1 and processing empty tokens harmless."
+  },
+  {
+   "id": "rules_guard_file_js@2445:logical",
+   "cls": "real-hole",
+   "reason": "Guard file rewritten to whitespace-only with bytes>0: mutant misses the emptying."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1389:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "`ssl_verify=False` matches mutant only; underscore blocks original's leading boundary."
+  },
+  {
+   "id": "rules_insecure_idiom_js@3692:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "Plural `passwords`/`hashes` with Math.random: mutant gains crypto context, original misses."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5103:regex-widen",
+   "cls": "real-hole",
+   "reason": "`x > requiredLevel + 1` offset idiom lost; class now matches -/* only."
+  },
+  {
+   "id": "rules_insecure_idiom_js@6439:regex-narrow",
+   "cls": "real-hole",
+   "reason": "`rounds=4` with no space around = no longer matches weak-cost."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9013:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "bcrypt cost 11 with floor 12: radix-11 reads 12, unflagged."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9800:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "Removed `assertEquals(...)` line now matched; xUnit assertion deletions caught."
+  },
+  {
+   "id": "rules_net_to_exec_js@1163:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "400-char window cap binds before 40 lines for realistic line lengths."
+  },
+  {
+   "id": "rules_net_to_exec_js@1962:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "`urllib3` download indicator now matched; original's boundary excludes it."
+  },
+  {
+   "id": "rules_net_to_exec_js@2488:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "`--decode` never immediately followed by a word char in practice."
+  },
+  {
+   "id": "rules_net_to_exec_js@2961:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Bare `curl | python` (no version digit) no longer matches pipe-to-python."
+  },
+  {
+   "id": "rules_net_to_exec_js@3473:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "Benign `renderFunction(` near a fetch: mutant false-flags net-to-exec."
+  },
+  {
+   "id": "rules_net_to_exec_js@4270:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "Benign `respawn(` near a network call: mutant false-flags exec surface."
+  },
+  {
+   "id": "rules_net_to_exec_js@4697:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "`fish -c payload` with a download: fish now matched, original missed."
+  },
+  {
+   "id": "rules_net_to_exec_js@5309:comparison",
+   "cls": "equivalent",
+   "reason": "Same window; 400-char cap binds before the one extra line."
+  },
+  {
+   "id": "rules_platform_secrets_js@1006:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Secret written as decimal char-codes: transform zeroed for BMP chars, match lost."
+  },
+  {
+   "id": "rules_platform_secrets_js@3652:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Exactly one platform secret in scope, then leaked: mutant skips scanning it."
+  },
+  {
+   "id": "rules_protected_identity_js@716:logical",
+   "cls": "real-hole",
+   "reason": "Normal existing file with resolved realIno now wrongly treated as protected."
+  },
+  {
+   "id": "rules_secret_scan_js@2278:regex-narrow",
+   "cls": "real-hole",
+   "reason": "sha1 integrity line, no space before colon, wrongly entropy-scanned as secret."
+  },
+  {
+   "id": "rules_secret_scan_js@5339:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "1-char lines below min secret length; empty-line processing finds nothing."
+  },
+  {
+   "id": "rules_secret_scan_js@6869:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "Decoded `key=SECRET`: mutant checks key not value, misses secret."
+  },
+  {
+   "id": "rules_secret_scan_js@8847:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Line-number is finding metadata; verdict hardcoded discard regardless of value."
+  },
+  {
+   "id": "rules_trojan_source_js@3764:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "`ch` from string iteration always non-empty; codePointAt(0) fallback unreachable."
+  },
+  {
+   "id": "rules_blast_radius_js@3158:comparison",
+   "cls": "real-hole",
+   "reason": "Turn moving exactly MAX_TURN_BYTES: original commits, >= now reviews."
+  },
+  {
+   "id": "rules_decode_js@1601:off-by-one-up",
+   "cls": "uncertain",
+   "reason": "One fewer fold pass; matters only if MAX_FOLD_PASSES tight, unknown."
+  },
+  {
+   "id": "rules_decode_js@383:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "1-char cut on 8KB cap; no candidate hinges on exactly 8192."
+  },
+  {
+   "id": "rules_decode_js@732:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Doubled printable ratio admits ~50%-printable decode carrying a secret."
+  },
+  {
+   "id": "rules_exec_surface_js@2471:logical",
+   "cls": "equivalent",
+   "reason": "AND never true (empty can't start '-'); skipped tokens match no path."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1007:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "argon2 cost exactly 1: original flags downgrade, mutant commits."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1543:regex-narrow",
+   "cls": "real-hole",
+   "reason": "InsecureSkipVerify:true with no space after colon evades mutant."
+  },
+  {
+   "id": "rules_insecure_idiom_js@3798:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Math.random always at word boundary; dropped \\b matches nothing new."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5108:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Offset like requiredLevel+1 (no space before digit) evades mutant."
+  },
+  {
+   "id": "rules_insecure_idiom_js@6571:regex-narrow",
+   "cls": "real-hole",
+   "reason": "bcrypt.hash(pw,4), no space after comma, weak cost, evades mutant."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9057:logical",
+   "cls": "real-hole",
+   "reason": "Any finite bcrypt cost (e.g. 12) now falsely flagged."
+  },
+  {
+   "id": "rules_insecure_idiom_js@980:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "bcrypt cost exactly 9: original flags, mutant commits."
+  },
+  {
+   "id": "rules_net_to_exec_js@1185:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "Exactly-5000-line file contrived; adversary overshoots cap anyway."
+  },
+  {
+   "id": "rules_net_to_exec_js@2003:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "'requests.' always at boundary; realistic calls match both."
+  },
+  {
+   "id": "rules_net_to_exec_js@2493:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "'base64 -D' always a standalone flag; no '-Dxxx' occurs."
+  },
+  {
+   "id": "rules_net_to_exec_js@2962:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Real pipe targets (python3) end at boundary; 'pythonX' contrived."
+  },
+  {
+   "id": "rules_net_to_exec_js@3485:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Function('code')() with no space before paren evades mutant."
+  },
+  {
+   "id": "rules_net_to_exec_js@4288:regex-narrow",
+   "cls": "real-hole",
+   "reason": "spawn('sh') no space before paren (normal form) evades mutant."
+  },
+  {
+   "id": "rules_net_to_exec_js@4717:regex-widen",
+   "cls": "equivalent",
+   "reason": "'sh -c' always spaced; 'sh-c' token never occurs."
+  },
+  {
+   "id": "rules_net_to_exec_js@5350:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "+2 window shifts hunk boundary, merging a straddling network+exec pair."
+  },
+  {
+   "id": "rules_platform_secrets_js@1012:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "codePointAt(0) on non-empty char never undefined; default unreachable."
+  },
+  {
+   "id": "rules_platform_secrets_js@4341:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Secret on first line (findIndex 0) skipped by >=1."
+  },
+  {
+   "id": "rules_scan_targets_js@1907:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Turn adding exactly one line with a secret goes unscanned."
+  },
+  {
+   "id": "rules_secret_scan_js@2332:regex-widen",
+   "cls": "equivalent",
+   "reason": "Data URIs always have nonempty subtype; * matches nothing new."
+  },
+  {
+   "id": "rules_secret_scan_js@5399:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "Line number is reporting only; 0-based shift doesn't alter decision."
+  },
+  {
+   "id": "rules_secret_scan_js@689:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "512-char credential value contrived; boundary never realistically hit."
+  },
+  {
+   "id": "rules_secret_scan_js@8949:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "'where' is a display label only; verdict unaffected."
+  },
+  {
+   "id": "rules_trojan_source_js@3823:off-by-one-up",
+   "cls": "uncertain",
+   "reason": "Effect depends on classify's use of first-position flag; unclear."
+  },
+  {
+   "id": "rules_blast_radius_js@3489:logical",
+   "cls": "real-hole",
+   "reason": "npm install from allowed registry; dep-tree effects now counted, trips review."
+  },
+  {
+   "id": "rules_decode_js@1609:comparison",
+   "cls": "uncertain",
+   "reason": "Extra fold pass matters only at unknown MAX_FOLD_PASSES boundary depth."
+  },
+  {
+   "id": "rules_decode_js@3878:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "Hex secret plus one trailing digit (odd length) now decoded."
+  },
+  {
+   "id": "rules_dependency_change_js@2795:logical",
+   "cls": "equivalent",
+   "reason": "Delete/symlink effects carry no manifest delta; processing them finds nothing."
+  },
+  {
+   "id": "rules_exec_surface_js@2634:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Empty token yields no finding; 1-char token never looksLocal."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1007:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "argon2 with time cost 2 now flagged below floor."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1649:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "curl practically always word-bounded; prefix word-char case unrealistic."
+  },
+  {
+   "id": "rules_insecure_idiom_js@3839:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "Identifier like password_md5 now matches, flagged as weak-hash."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5112:regex-widen",
+   "cls": "equivalent",
+   "reason": "Empty offset matches common a>b+c; survived so downstream discards non-numeric."
+  },
+  {
+   "id": "rules_insecure_idiom_js@6623:negate-condition",
+   "cls": "real-hole",
+   "reason": "Non-argon KDF (scrypt/pbkdf2) gets wrong floor 2, weakness missed."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9066:comparison",
+   "cls": "real-hole",
+   "reason": "bcrypt cost exactly 10 now flagged below floor."
+  },
+  {
+   "id": "rules_insecure_idiom_js@980:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "bcrypt floor 11 flags common cost-10 genSalt."
+  },
+  {
+   "id": "rules_net_to_exec_js@1185:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Needs exec pattern exactly on line 5001; unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@2088:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Invoke-WebRequest always word-bounded; word-char prefix unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@2536:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "base64.b64decode always dot/space preceded; word-char prefix unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@3016:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "curl piped to 'nodejs' now matched; original missed it."
+  },
+  {
+   "id": "rules_net_to_exec_js@3525:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "vm.run always dot-preceded; word-char prefix unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@4332:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "os.system always dot/space preceded; word-char prefix unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@4720:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "sh -c always space/quote after; -c-wordchar unrealistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@5453:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "Hunk line number is reporting metadata; scanned text unchanged."
+  },
+  {
+   "id": "rules_platform_secrets_js@1040:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "Secret leaked as decimal codepoints; decimal transform no longer computed."
+  },
+  {
+   "id": "rules_platform_secrets_js@4428:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Finding line number is reporting metadata; detection unchanged."
+  },
+  {
+   "id": "rules_scan_targets_js@1957:comparison",
+   "cls": "equivalent",
+   "reason": "At exactly MAX, sliced content identical; only truncated flag differs."
+  },
+  {
+   "id": "rules_secret_scan_js@2354:regex-narrow",
+   "cls": "real-hole",
+   "reason": "package-lock '\"resolved\":' line no longer skipped; high-entropy URL flagged."
+  },
+  {
+   "id": "rules_secret_scan_js@5399:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Line number is reporting metadata; proximity uses index differences."
+  },
+  {
+   "id": "rules_secret_scan_js@689:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Only a 513-char keyword value differs; no realistic secret."
+  },
+  {
+   "id": "rules_trojan_source_js@2213:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "Findings cap; verdict is presence-based, still flagged at 31."
+  },
+  {
+   "id": "rules_trojan_source_js@3839:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "File starting with BOM: first-char flag now always false, flagged."
+  },
+  {
+   "id": "rules_blast_radius_js@4075:comparison",
+   "cls": "equivalent",
+   "reason": "Hit pushed regardless; ternary only picks blast-radius label, verdict unchanged."
+  },
+  {
+   "id": "rules_decode_js@1636:off-by-one-down",
+   "cls": "uncertain",
+   "reason": "Removes fold-pass cap; verdict flip needs fragmentation exceeding unseen MAX_FOLD_PASSES."
+  },
+  {
+   "id": "rules_decode_js@421:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "Cap off-by-one; real secret not uniquely in the 24th speculative candidate."
+  },
+  {
+   "id": "rules_dependency_change_js@2824:logical",
+   "cls": "real-hole",
+   "reason": "&& stops skipping symlink/outbound; such effect in dependency-tree now triggers verdict."
+  },
+  {
+   "id": "rules_exec_surface_js@2636:logical",
+   "cls": "real-hole",
+   "reason": "&& disables URL skip; https://x/y.sh token misflagged as local exec surface."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1018:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "pbkdf2 iterations exactly 99999: original flags downgrade, mutant allows; boundary untested."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1671:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "Dropping \\b matches bundled `curl -kL`; corpus lacks bundled-flag insecure curl."
+  },
+  {
+   "id": "rules_insecure_idiom_js@3873:regex-narrow",
+   "cls": "equivalent",
+   "reason": "First alternative \\b(md5|sha1)\\b already matches quoted name; createHash branch redundant."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5114:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Offset number always followed by non-word char in comparisons; trailing \\b redundant."
+  },
+  {
+   "id": "rules_insecure_idiom_js@6717:negate-condition",
+   "cls": "real-hole",
+   "reason": "Negation returns scrypt floor for non-scrypt contexts; pbkdf2 downgrade now unflagged."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9234:negate-condition",
+   "cls": "real-hole",
+   "reason": "Negated crypto guard; below-floor bcrypt in real crypto file no longer flagged."
+  },
+  {
+   "id": "rules_insecure_idiom_js@992:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "scrypt N is always a power of two; 16383 never occurs."
+  },
+  {
+   "id": "rules_net_to_exec_js@1449:regex-narrow",
+   "cls": "real-hole",
+   "reason": "\\s+ misses unindented comments; column-0 `# curl|sh` comment now scanned, flagged."
+  },
+  {
+   "id": "rules_net_to_exec_js@2122:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Cmdlet always followed by non-word; trailing \\b redundant, no realistic extra match."
+  },
+  {
+   "id": "rules_net_to_exec_js@2557:regex-narrow",
+   "cls": "real-hole",
+   "reason": "\\s+ needs space; standard base64.b64decode( (no space) no longer matches."
+  },
+  {
+   "id": "rules_net_to_exec_js@3072:regex-narrow",
+   "cls": "real-hole",
+   "reason": "\\s+ needs space; no-space |ruby valid shell pipe no longer matches."
+  },
+  {
+   "id": "rules_net_to_exec_js@3542:regex-narrow",
+   "cls": "equivalent",
+   "reason": "No bare vm.run( API exists; real vm.runIn* calls still match."
+  },
+  {
+   "id": "rules_net_to_exec_js@4391:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Leading \\b drop only adds Xsubprocess. suffix matches; not realistic."
+  },
+  {
+   "id": "rules_net_to_exec_js@4770:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Leading \\b drop adds only word-ending-in-IEX matches; contrived, verdict unchanged."
+  },
+  {
+   "id": "rules_net_to_exec_js@5453:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Reported hunk line is metadata; uniform +1 shift preserves proximity, verdict unchanged."
+  },
+  {
+   "id": "rules_platform_secrets_js@1040:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "radix===11 never true; decimal transform emits hex, missing decimal-codepoint secret leak."
+  },
+  {
+   "id": "rules_platform_secrets_js@4671:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Reported line for cross-line finding is metadata; dedup and verdict use key."
+  },
+  {
+   "id": "rules_scan_targets_js@2043:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Overflow branch slice(1,...) drops first added char; secret at position 0 missed."
+  },
+  {
+   "id": "rules_secret_scan_js@2469:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Length-1 entropy is 0 anyway; empty also computes 0; output identical."
+  },
+  {
+   "id": "rules_secret_scan_js@5668:negate-condition",
+   "cls": "real-hole",
+   "reason": "Inverted guard skips collapsed rescan; whitespace-obfuscated secret (A K I A) missed."
+  },
+  {
+   "id": "rules_secret_scan_js@7129:logical",
+   "cls": "real-hole",
+   "reason": "&& stops skipping entropy on skip-paths; high-entropy lockfile hash now false-flagged."
+  },
+  {
+   "id": "rules_trojan_source_js@2213:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Verdict set by first finding; 33rd versus 32nd finding never changes it."
+  },
+  {
+   "id": "rules_trojan_source_js@3839:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Never-true column===2 disables first-char exception; leading BOM now flagged, flips verdict."
+  },
+  {
+   "id": "rules_decode_js@1132:logical",
+   "cls": "equivalent",
+   "reason": "Body never undefined; only empty-body candidates differ, and rescanning empty yields nothing."
+  },
+  {
+   "id": "rules_decode_js@1636:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Secret split across many adjacent literals needs more passes than halved cap."
+  },
+  {
+   "id": "rules_decode_js@421:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Raising candidate cap; no realistic line's 25th decode alone holds secret."
+  },
+  {
+   "id": "rules_dependency_change_js@3219:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Empty or one-char manifest yields no dependency-source delta either way."
+  },
+  {
+   "id": "rules_exec_surface_js@2739:logical",
+   "cls": "real-hole",
+   "reason": "Bare deploy.sh (extension, no slash) now skipped, flipping its verdict."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1018:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "pbkdf2 at exactly 100000 iterations now flagged as below floor."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1686:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "No real curl fuses --insecure to a following word char."
+  },
+  {
+   "id": "rules_insecure_idiom_js@4099:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "No real Python identifier extends MODE_ECB with more word chars."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5249:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Single-char identifier like n-1>=x no longer matches offset-bound pattern."
+  },
+  {
+   "id": "rules_insecure_idiom_js@7395:comparison",
+   "cls": "equivalent",
+   "reason": "Extra iteration yields undefined-to-empty line, skipped by length===0 guard."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9246:logical",
+   "cls": "real-hole",
+   "reason": "Weak cost in non-crypto-path file with crypto context now unflagged."
+  },
+  {
+   "id": "rules_insecure_idiom_js@992:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "scrypt N of exactly 16384 now flagged as below floor."
+  },
+  {
+   "id": "rules_net_to_exec_js@1642:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "pycurl/libcurl plus an exec sink now false-flags download-run."
+  },
+  {
+   "id": "rules_net_to_exec_js@2159:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "No realistic token carries iwr as a boundary-suffix substring."
+  },
+  {
+   "id": "rules_net_to_exec_js@2600:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "binascii module always standalone; no word extends it leftward."
+  },
+  {
+   "id": "rules_net_to_exec_js@3098:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "No real pipe target glues word chars after interpreter name."
+  },
+  {
+   "id": "rules_net_to_exec_js@3971:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "reimport(/preimport( reintroduce the noted import() false-abort beside a source."
+  },
+  {
+   "id": "rules_net_to_exec_js@4449:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "No realistic identifier extends child_process leftward with word chars."
+  },
+  {
+   "id": "rules_net_to_exec_js@4797:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "iexplore beside a URL now false-flags Invoke-Expression download-run."
+  },
+  {
+   "id": "rules_net_to_exec_js@5606:logical",
+   "cls": "real-hole",
+   "reason": "Strong token only in a comment matched via text, not codeOnly."
+  },
+  {
+   "id": "rules_platform_secrets_js@1827:regex-widen",
+   "cls": "equivalent",
+   "reason": "Both strip trailing padding; empty match replaces nothing."
+  },
+  {
+   "id": "rules_platform_secrets_js@4858:negate-condition",
+   "cls": "real-hole",
+   "reason": "Inverts guard, disabling rule; any real platform-secret leak distinguishes."
+  },
+  {
+   "id": "rules_secret_scan_js@10211:negate-condition",
+   "cls": "real-hole",
+   "reason": "Confirmable review finding no longer verified; verdict stays review not discard."
+  },
+  {
+   "id": "rules_secret_scan_js@2487:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Empty string fails 32-char min-length gate; entropy value never used."
+  },
+  {
+   "id": "rules_secret_scan_js@569:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "Secret on the 5000th added line scanned by original, dropped by mutant."
+  },
+  {
+   "id": "rules_secret_scan_js@721:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "A 31-char high-entropy token now flagged; original skipped it."
+  },
+  {
+   "id": "rules_trojan_source_js@2925:comparison",
+   "cls": "equivalent",
+   "reason": "Space 0x20 fails CONTROL_OR_FORMAT guard earlier; never reaches this line."
+  },
+  {
+   "id": "rules_trojan_source_js@4160:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "line is finding metadata; reported line number doesn't affect verdict."
+  },
+  {
+   "id": "rules_decode_js@1147:comparison",
+   "cls": "equivalent",
+   "reason": "Empty-string candidate would be rescanned; matches nothing, no finding changes."
+  },
+  {
+   "id": "rules_decode_js@1980:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Hex tokens delimited in practice; hex-glued-to-letter case never occurs."
+  },
+  {
+   "id": "rules_decode_js@4803:logical",
+   "cls": "equivalent",
+   "reason": "Real payloads use valid code points; out-of-range only breaks decode."
+  },
+  {
+   "id": "rules_exec_surface_js@2067:negate-condition",
+   "cls": "real-hole",
+   "reason": "Negation returns [] for valid manifests; a package.json postinstall script undetected."
+  },
+  {
+   "id": "rules_exec_surface_js@2807:negate-condition",
+   "cls": "real-hole",
+   "reason": "Inverts selection; a local script path like ./install.sh no longer added."
+  },
+  {
+   "id": "rules_insecure_idiom_js@10338:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Only empty/one-char lines affected; assertions and idioms unchanged."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1796:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "Drops boundary; @unittest.skip('...') now matches, flipping test-disabled verdict."
+  },
+  {
+   "id": "rules_insecure_idiom_js@4401:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "Drops boundary; snake_case access_level/user_role now qualifies as privilege term."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5253:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Requires space; auth bound written role-1>= (no space) now missed."
+  },
+  {
+   "id": "rules_insecure_idiom_js@7554:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "Reported line number is display metadata; finding still fires."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9416:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "Parses name group not value; bcrypt rounds:4 under floor missed."
+  },
+  {
+   "id": "rules_multi_file_delete_js@400:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Threshold raised; a turn deleting exactly two files no longer flagged."
+  },
+  {
+   "id": "rules_net_to_exec_js@1648:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "Drops boundary; word 'curly'/'curled' plus an exec sink falsely co-occurs."
+  },
+  {
+   "id": "rules_net_to_exec_js@2164:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "No realistic token has 'iwr' immediately followed by a letter."
+  },
+  {
+   "id": "rules_net_to_exec_js@2623:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Requires space; normal binascii.unhexlify( call without space now missed."
+  },
+  {
+   "id": "rules_net_to_exec_js@3157:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Requires space; normal $(curl ...) substitution without space now missed."
+  },
+  {
+   "id": "rules_net_to_exec_js@4029:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "setTimeout preceded by space/dot/paren in practice; leading boundary redundant."
+  },
+  {
+   "id": "rules_net_to_exec_js@4464:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "child_process always followed by dot/quote; trailing boundary redundant."
+  },
+  {
+   "id": "rules_net_to_exec_js@4838:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "system( calls preceded by non-word; subsystem(/filesystem( call not practical."
+  },
+  {
+   "id": "rules_net_to_exec_js@6282:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Single decoded char is space-separated; forms no scannable token."
+  },
+  {
+   "id": "rules_platform_secrets_js@2313:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "Base-9 breaks decimal transform; secret exfiltrated as decimal char-codes missed."
+  },
+  {
+   "id": "rules_platform_secrets_js@4890:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Skips when exactly one platform secret configured; that lone secret's leak missed."
+  },
+  {
+   "id": "rules_secret_scan_js@1379:regex-widen",
+   "cls": "equivalent",
+   "reason": "Empty value fails MIN_KEYWORD_VALUE length check; non-empty match identical."
+  },
+  {
+   "id": "rules_secret_scan_js@2984:regex-widen",
+   "cls": "real-hole",
+   "reason": "'+' no longer escaped; base64 secret containing '+' fails literal regex match."
+  },
+  {
+   "id": "rules_secret_scan_js@569:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Needs 5000+ added lines with secret on line 5001; impractical."
+  },
+  {
+   "id": "rules_secret_scan_js@721:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Raises floor; a 32-char high-entropy token (MD5/API key) now missed."
+  },
+  {
+   "id": "rules_trojan_source_js@2932:logical",
+   "cls": "equivalent",
+   "reason": "AND always false; char still flagged, only control/format label changes."
+  },
+  {
+   "id": "rules_trojan_source_js@4160:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Reported line number is display metadata; finding still fires."
+  },
+  {
+   "id": "rules_decode_js@1149:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Only drops length-1 literal bodies; a single char isn't a secret."
+  },
+  {
+   "id": "rules_decode_js@2661:comparison",
+   "cls": "real-hole",
+   "reason": "Token decoding to exactly MIN_DECODED_CHARS chars: original scans, mutant returns null."
+  },
+  {
+   "id": "rules_decode_js@4815:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Only excludes code point 0 (NUL); no real payload needs NUL."
+  },
+  {
+   "id": "rules_exec_surface_js@2095:logical",
+   "cls": "equivalent",
+   "reason": "Mutated guard only differs on literal-null manifest (deref vs []); unrealistic, error-caught."
+  },
+  {
+   "id": "rules_exec_surface_js@3841:negate-condition",
+   "cls": "real-hole",
+   "reason": "Manifest referencing a written path (size>0): mutant skips the detection loop."
+  },
+  {
+   "id": "rules_insecure_idiom_js@10413:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Removing one of two identical trimmed assertion lines goes undetected."
+  },
+  {
+   "id": "rules_insecure_idiom_js@1965:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Canonical no-space `xit(` no longer matches disabled-test pattern."
+  },
+  {
+   "id": "rules_insecure_idiom_js@4546:regex-drop-word-boundary",
+   "cls": "real-hole",
+   "reason": "camelCase like `adminUsers.length-1` now matches privilege words as prefix."
+  },
+  {
+   "id": "rules_insecure_idiom_js@5257:regex-widen",
+   "cls": "real-hole",
+   "reason": "`level + 1 >= N` plus-offset authorization bound no longer flagged."
+  },
+  {
+   "id": "rules_insecure_idiom_js@7554:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "Reported line number is finding metadata, not a verdict input."
+  },
+  {
+   "id": "rules_insecure_idiom_js@9426:off-by-one-down",
+   "cls": "real-hole",
+   "reason": "Work factor `9` parses NaN under radix 9; weak factor unflagged."
+  },
+  {
+   "id": "rules_multi_file_delete_js@633:comparison",
+   "cls": "real-hole",
+   "reason": "Exactly two non-dependency deletes: original flags, mutant misses the defining case."
+  },
+  {
+   "id": "rules_net_to_exec_js@1685:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "wget always preceded by non-word char; leading boundary redundant."
+  },
+  {
+   "id": "rules_net_to_exec_js@2212:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "Genuine XMLHttpRequest usage is boundary-preceded; glued prefixes aren't real sources."
+  },
+  {
+   "id": "rules_net_to_exec_js@2670:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "codecs.decode preceded by import/whitespace in real code; boundary redundant."
+  },
+  {
+   "id": "rules_net_to_exec_js@3285:regex-drop-word-boundary",
+   "cls": "equivalent",
+   "reason": "curl/wget inside backticks are boundary-preceded commands; boundary redundant."
+  },
+  {
+   "id": "rules_net_to_exec_js@4056:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Canonical no-space `setTimeout(\"...\")` string-eval sink no longer matches."
+  },
+  {
+   "id": "rules_net_to_exec_js@4540:regex-widen",
+   "cls": "equivalent",
+   "reason": "No-space `source<(`/`.<(` isn't valid shell; extra matches unreachable."
+  },
+  {
+   "id": "rules_net_to_exec_js@4848:regex-narrow",
+   "cls": "real-hole",
+   "reason": "Canonical no-space `system(\"...\")` exec sink no longer matches."
+  },
+  {
+   "id": "rules_normalise_js@3353:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "One-char trim of 512 cap; no value sits exactly at boundary."
+  },
+  {
+   "id": "rules_platform_secrets_js@2313:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Secret leaked as base-10 char codes; mutant computes base-11 instead."
+  },
+  {
+   "id": "rules_platform_secrets_js@838:off-by-one-down",
+   "cls": "equivalent",
+   "reason": "Real platform secrets exceed 8 chars; 7-length boundary never populated."
+  },
+  {
+   "id": "rules_secret_scan_js@1512:regex-widen",
+   "cls": "equivalent",
+   "reason": "Widening adds only degenerate `%%` match; real secrets lack `%`."
+  },
+  {
+   "id": "rules_secret_scan_js@3155:negate-condition",
+   "cls": "real-hole",
+   "reason": "Candidate identifier declared via const in added text: mutant wrongly flags."
+  },
+  {
+   "id": "rules_secret_scan_js@5886:negate-condition",
+   "cls": "real-hole",
+   "reason": "Secret split across adjacent literals `\"a\"+\"b\"`: mutant skips concatenated rescan."
+  },
+  {
+   "id": "rules_secret_scan_js@7296:off-by-one-up",
+   "cls": "real-hole",
+   "reason": "Value exactly KEYWORD_WINDOW+1 lines from keyword: mutant sees, original misses."
+  },
+  {
+   "id": "rules_trojan_source_js@2954:logical",
+   "cls": "equivalent",
+   "reason": "Relabels format chars as control; same trojan verdict (survival confirms)."
+  },
+  {
+   "id": "rules_trojan_source_js@4207:negate-condition",
+   "cls": "equivalent",
+   "reason": "Caps finding count; verdict depends on presence/type, not count."
+  },
+  {
+   "id": "rules_trojan_source_js@5702:off-by-one-up",
+   "cls": "equivalent",
+   "reason": "fallback unreachable; codePointAt(0) on a for-of char is always defined (hand-audited)"
+  }
+ ]
+}

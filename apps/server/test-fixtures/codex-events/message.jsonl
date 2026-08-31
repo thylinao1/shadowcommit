@@ -1,0 +1,5 @@
+{"type":"thread.started","thread_id":"01a050ca-4f25-7f53-9d18-e5895b635bf0"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Model metadata for `mock-model` not found. Defaulting to fallback metadata; this can degrade performance and cause issues."}}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"MOCK-OK turn=1 scenario=message"}}
+{"type":"turn.completed","usage":{"input_tokens":42,"cached_input_tokens":0,"output_tokens":17}}

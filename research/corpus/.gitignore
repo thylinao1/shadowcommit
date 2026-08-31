@@ -1,0 +1,32 @@
+# Generated, never committed. Every scenario regenerates byte-identically from its seeds, so the
+# harness and the seeds are the artifact and the 64 MB of scenarios are not.
+#
+# `scenarios/*` and not `scenarios/`, because git cannot re-include a file whose PARENT DIRECTORY
+# is excluded. Written as `scenarios/` the negation below is inert: it reads as an exception and
+# grants nothing, so every probe still needs `git add -f` and the stated rule is one nobody can
+# rely on.
+scenarios/*
+
+# Except a hand-written probe set, which has no seed to regenerate from.
+#
+# The rule above assumes every scenario is generated, and for the 8,190 in the corpus that holds.
+# It does not hold for a small probe set somebody wrote by hand to ask one question, where the
+# scenarios ARE the artifact and there is nothing to regenerate them from. The first of those was
+# committed with `git add -f`, which works and leaves no trace of the decision, and a rule quietly
+# bypassed is one nobody can reason about later.
+#
+# So the exception is stated. A `probe-*.jsonl` here is hand-written, is expected to be committed,
+# and is expected to be SMALL: if a probe set grows past a few dozen scenarios it wants a generator
+# and a seed like everything else, and it should move to probes/ rather than growing here.
+!scenarios/probe-*.jsonl
+# ...except the marker probe's two arms. They are 5.7 MB each, and unlike the other probe sets they
+# are not hand-written: build-marker-probe.mjs derives every byte of them from scenarios/benign.jsonl,
+# which itself regenerates byte-identically from its seeds. Shipping 11 MB a judge has to clone, to
+# save one command, is the wrong trade. PROBE-COMMENT-MARKERS.md records what they measured.
+scenarios/probe-marker-broken.jsonl
+scenarios/probe-marker-fixed.jsonl
+results/
+repos/
+# report.mjs writes this from results/results.jsonl on every run; the copies a reader is meant to
+# read are docs/CORPUS-REPORT.md and docs/CORPUS-REPORT-BEFORE.md.
+REPORT.md

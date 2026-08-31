@@ -1,0 +1,24 @@
+node_modules/
+# the lane worktrees symlink node_modules at the root; the trailing-slash form above
+# does not match a symlink, so an absolute path to one machine gets committed without this
+node_modules
+dist/
+.env
+.env.production
+.data/
+.local/
+data/
+workspaces/
+codex-home/
+coverage/
+*.log
+*.tsbuildinfo
+.DS_Store
+.intel-reminders
+deploy/volcengine/.terraform/
+deploy/volcengine/*.tfstate*
+deploy/volcengine/terraform.tfvars
+.intel-reminders
+
+# agent tooling state, including isolated worktrees that are full checkouts of this repo
+.claude/

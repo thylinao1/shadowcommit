@@ -1,0 +1,30 @@
+{
+  "created": {
+    "agent": {
+      "id": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "name": "Release Helper",
+      "description": "Keeps the release tooling of this project in order.",
+      "instructions": "Help me build and test software in this workspace. Keep changes small and explain the result.",
+      "status": "ready",
+      "workspacePath": "~/.volc-agent-launchpad/workspaces/7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "codexThreadId": null,
+      "lastError": null,
+      "createdAt": "2026-08-31T16:21:51.497Z",
+      "updatedAt": "2026-08-31T16:21:51.497Z"
+    }
+  },
+  "fetched": {
+    "agent": {
+      "id": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "name": "Release Helper",
+      "description": "Keeps the release tooling of this project in order.",
+      "instructions": "Help me build and test software in this workspace. Keep changes small and explain the result.",
+      "status": "ready",
+      "workspacePath": "~/.volc-agent-launchpad/workspaces/7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "codexThreadId": null,
+      "lastError": null,
+      "createdAt": "2026-08-31T16:21:51.497Z",
+      "updatedAt": "2026-08-31T16:21:51.497Z"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# These files are a recording of what a tool emitted, so git must hand them back byte for byte.
+#
+# Without this, a checkout on a host with core.autocrlf=true (the Git for Windows default) rewrites
+# every line ending in them, and the fixture stops being the bytes that were captured. That is not
+# hypothetical here: the same transformation silently moved 178 benign turns between two rules in the
+# corpus while every gate still printed PASS, which is what commit 88a1517 fixed.
+#
+# -text means: never convert on checkout or on commit.
+*.jsonl -text

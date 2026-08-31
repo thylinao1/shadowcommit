@@ -1,0 +1,54 @@
+{
+  "per_source_requested": 400,
+  "sources": [
+    {
+      "repo": "kit",
+      "ref": "submission/main",
+      "head": "f6b14bba07d1889d24d3afad7d551b3ad4c24b8b",
+      "produced": 236,
+      "dropped": {
+        "no_parent": 0,
+        "empty_after_skip": 2,
+        "binary_only": 2,
+        "too_big": 0
+      }
+    },
+    {
+      "repo": "click",
+      "ref": "HEAD",
+      "head": "36baa15ff831b939a22bc527cd76ce653ef6f66d",
+      "produced": 396,
+      "dropped": {
+        "no_parent": 0,
+        "empty_after_skip": 4,
+        "binary_only": 0,
+        "too_big": 0
+      }
+    },
+    {
+      "repo": "cobra",
+      "ref": "HEAD",
+      "head": "adbc8813901bba65827259daa8e22ff94ec1f30e",
+      "produced": 399,
+      "dropped": {
+        "no_parent": 0,
+        "empty_after_skip": 1,
+        "binary_only": 0,
+        "too_big": 0
+      }
+    },
+    {
+      "repo": "express",
+      "ref": "HEAD",
+      "head": "023767fe9872e029271df1418f73401bff20ff40",
+      "produced": 400,
+      "dropped": {
+        "no_parent": 0,
+        "empty_after_skip": 0,
+        "binary_only": 0,
+        "too_big": 0
+      }
+    }
+  ],
+  "total": 1431
+}

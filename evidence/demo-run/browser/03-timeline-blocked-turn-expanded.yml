@@ -1,0 +1,127 @@
+- generic [ref=f8e3]:
+  - complementary [ref=f8e4]:
+    - generic [ref=f8e5]:
+      - generic [ref=f8e6]: A
+      - generic [ref=f8e7]:
+        - strong [ref=f8e8]: Agent Launchpad
+        - generic [ref=f8e9]: "Shadow Commit: preview and undo on every turn"
+    - button "＋ Create Agent" [ref=f8e10] [cursor=pointer]:
+      - generic [ref=f8e11]: ＋
+      - text: Create Agent
+    - button "Review queue Proposed changes waiting 1" [ref=f8e38] [cursor=pointer]:
+      - generic [ref=f8e13]:
+        - strong [ref=f8e14]: Review queue
+        - generic [ref=f8e15]: Proposed changes waiting
+      - generic [ref=f8e16]: "1"
+    - generic [ref=f8e17]:
+      - generic [ref=f8e18]: Your Agents
+      - generic [ref=f8e19]: "1"
+    - navigation [ref=f8e20]:
+      - 'button "R Release Helper Keeps the release tooling of this project in order. Transactions: ON (default) TX" [ref=f8e39] [cursor=pointer]':
+        - generic [ref=f8e40]: R
+        - generic [ref=f8e41]:
+          - strong [ref=f8e42]: Release Helper
+          - generic [ref=f8e43]: Keeps the release tooling of this project in order.
+        - 'generic "Transactions: ON (default)" [ref=f8e44]': TX
+    - generic [ref=f8e23]:
+      - text: Runtime
+      - strong [ref=f8e24]: Codex CLI in docker Runtime
+      - generic [ref=f8e25]: ep-mock-endpoint · docker · local container
+  - main [ref=f8e26]:
+    - generic [ref=f8e48]:
+      - generic [ref=f8e49]:
+        - generic [ref=f8e50]:
+          - heading "Release Helper" [level=1] [ref=f8e51]
+          - generic [ref=f8e52]: ready
+          - generic [ref=f8e54]: "Transactions: ON (default)"
+        - paragraph [ref=f8e56]: Keeps the release tooling of this project in order.
+      - generic [ref=f8e57]:
+        - button "Settings" [ref=f8e58] [cursor=pointer]
+        - button "Stop" [ref=f8e59] [cursor=pointer]
+        - button "Delete" [ref=f8e60] [cursor=pointer]
+    - navigation "Agent views" [ref=f8e61]:
+      - button "Playground" [ref=f8e62] [cursor=pointer]
+      - button "Run timeline 5" [ref=f8e63] [cursor=pointer]:
+        - text: Run timeline
+        - generic [ref=f8e64]: "5"
+    - generic [ref=f8e65]:
+      - generic [ref=f8e66]:
+        - generic [ref=f8e67]:
+          - text: Run timeline
+          - heading "Every turn, and what happened to it" [level=2] [ref=f8e68]
+          - paragraph [ref=f8e69]: One ordered list a person can act on. Each turn carries the verdict the boundary recorded, and opens into the changes it proposed and the journal records it wrote.
+        - generic [ref=f8e70]: Chain intact, 32 records
+      - list [ref=f8e72]:
+        - listitem [ref=f8e73]:
+          - 'button "#32 Held Held for review: 2 proposed changes" [ref=f8e74] [cursor=pointer]':
+            - generic [ref=f8e75]: "#32"
+            - generic [ref=f8e76]: Held
+            - generic [ref=f8e78]: "Held for review: 2 proposed changes"
+            - generic [ref=f8e79]: Open
+        - listitem [ref=f8e80]:
+          - button "#27 Rejected Rejected by operator, nothing was sent" [ref=f8e81] [cursor=pointer]:
+            - generic [ref=f8e82]: "#27"
+            - generic [ref=f8e83]: Rejected
+            - generic [ref=f8e85]: Rejected by operator, nothing was sent
+            - generic [ref=f8e86]: Open
+        - listitem [ref=f8e87]:
+          - 'button "#21 Approved Committed: 2 changes, approved by operator" [ref=f8e88] [cursor=pointer]':
+            - generic [ref=f8e89]: "#21"
+            - generic [ref=f8e90]: Approved
+            - generic [ref=f8e92]: "Committed: 2 changes, approved by operator"
+            - generic [ref=f8e93]: Open
+        - listitem [ref=f8e94]:
+          - 'button "#11 Blocked BLOCKED, nothing was sent: protected-asset-delete" [expanded] [active] [ref=f8e95] [cursor=pointer]':
+            - generic [ref=f8e96]: "#11"
+            - generic [ref=f8e97]: Blocked
+            - generic [ref=f8e99]: "BLOCKED, nothing was sent: protected-asset-delete"
+            - generic [ref=f8e100]: Hide
+          - generic [ref=f8e108]:
+            - generic [ref=f8e109]:
+              - generic [ref=f8e110]:
+                - term [ref=f8e111]: Run
+                - definition [ref=f8e112]:
+                  - code [ref=f8e113]: d46d0a47-2718-4a8b-a4ab-3391aed0919b
+              - generic [ref=f8e114]:
+                - term [ref=f8e115]: Seal
+                - definition [ref=f8e116]: copy
+              - generic [ref=f8e117]:
+                - term [ref=f8e118]: Rule
+                - definition [ref=f8e119]: protected-asset-delete
+            - list [ref=f8e120]:
+              - listitem [ref=f8e121]:
+                - generic [ref=f8e122]: creates
+                - generic [ref=f8e123]: .git/hooks/pre-commit
+                - generic [ref=f8e124]: config
+                - generic [ref=f8e125]: 58 B
+              - listitem [ref=f8e126]:
+                - generic [ref=f8e127]: deletes
+                - generic [ref=f8e128]: customers.jsonl
+                - generic [ref=f8e129]: protected
+            - list [ref=f8e130]:
+              - listitem [ref=f8e131]:
+                - generic [ref=f8e132]: "#7"
+                - generic [ref=f8e133]: turn.begin
+                - code [ref=f8e134]: 2e7409feabf3
+              - listitem [ref=f8e135]:
+                - generic [ref=f8e136]: "#8"
+                - generic [ref=f8e137]: turn.executed
+                - code [ref=f8e138]: aa3b266ca297
+              - listitem [ref=f8e139]:
+                - generic [ref=f8e140]: "#9"
+                - generic [ref=f8e141]: effects.captured
+                - code [ref=f8e142]: e0c7a5a27031
+              - listitem [ref=f8e143]:
+                - generic [ref=f8e144]: "#10"
+                - generic [ref=f8e145]: policy.decision
+                - code [ref=f8e146]: be13415b2a29
+              - listitem [ref=f8e147]:
+                - generic [ref=f8e148]: "#11"
+                - generic [ref=f8e149]: turn.discarded
+                - code [ref=f8e150]: 8d404f280be4
+        - listitem [ref=f8e101]:
+          - 'button "#6 Committed Committed: 3 changes" [ref=f8e102] [cursor=pointer]':
+            - generic [ref=f8e103]: "#6"
+            - generic [ref=f8e104]: Committed
+            - generic [ref=f8e106]: "Committed: 3 changes"
+            - generic [ref=f8e107]: Open

@@ -1,0 +1,35 @@
+{
+  "name": "shadow-commit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agent middleware for TikTok TechJam 2026 Track C, The Kill Switch: every agent turn runs as a transaction against a sealed copy of its workspace, and its complete effect set is judged before anything reaches the real one.",
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm run dev -w @launchpad/server\" \"npm run dev -w @launchpad/web\"",
+    "build": "npm run build -w @launchpad/web && npm run build -w @launchpad/server",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "pretest": "bash scripts/preflight-docker-mount.sh",
+    "test": "npm run test --workspaces --if-present",
+    "check": "npm run typecheck && npm run test && npm run build",
+    "evidence": "tsx scripts/evidence.ts",
+    "verify:journal": "tsx apps/server/src/verify-journal.ts",
+    "poc": "./scripts/start-local-poc.sh",
+    "poc:mock": "./scripts/start-mock-poc.sh",
+    "demo:drive": "node scripts/demo-drive.mjs",
+    "demo:after-browser": "node scripts/demo-drive.mjs --stage after-browser",
+    "demo:tamper": "node scripts/demo-tamper.mjs",
+    "corpus": "bash research/corpus/setup.sh && bash research/corpus/check.sh",
+    "measure:protected-fold": "node scripts/measure-protected-path-fold.mjs",
+    "start": "npm run start -w @launchpad/server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.3"
+  }
+}

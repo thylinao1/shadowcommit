@@ -1,0 +1,181 @@
+
+================================================================================================
+SHADOW COMMIT: BREAK THE LEDGER, SHOW THE REFUSAL, PUT IT BACK
+================================================================================================
+  journal   /tmp/shadow-syn2-s7aiC5/data/journal.jsonl
+  data dir  /tmp/shadow-syn2-s7aiC5/data
+  verifier  npm run verify:journal -- --journal <that> --data-dir <that>
+
+STEP 0  anything an earlier run left broken is fixed before this one starts
+  no ticket; nothing was left broken.
+
+================================================================================================
+STEP 1  the ledger as it stands, before anything is touched
+================================================================================================
+    | Shadow Commit journal verification
+    |   journal      /tmp/shadow-syn2-s7aiC5/data/journal.jsonl
+    |   records      11
+    |   head         a2f9628dab515c71a10a4d696a6279373a84ced359459487f8514770aee23a0c
+    |   last seq     11
+    |   keyed        yes, hmac verified on every record
+    |                hmac verified against /tmp/shadow-syn2-s7aiC5/home/journal.key
+    |   kinds        journal.checkpoint 2, effects.captured 1, journal.key-created 1, journal.signing-key-created 1, policy.decision 1, seal.fallback 1, seal.release 1, turn.begin 1, turn.discarded 1, turn.executed 1
+    |   principals   agent:demo 7, journal 4
+    | 
+    |   checkpoints  2
+    |     seq 7      tree 6      root af20409a5c37f728...  signature ok  root ok
+    |     seq 11     tree 10     root 2e3a8965ef0f8d31...  signature ok  root ok
+    | 
+    |   anchors      0 recorded
+    |     none; nothing external pins this chain yet, so deletion is undetectable
+    | 
+    |   last 10 of 11 records
+    |          2  2026-08-31T03:45:41.913Z  journal            journal.signing-key-created
+    |          3  2026-08-31T03:45:41.914Z  agent:demo         seal.fallback  9f2c1a44
+    |          4  2026-08-31T03:45:41.914Z  agent:demo         turn.begin  9f2c1a44
+    |          5  2026-08-31T03:45:41.914Z  agent:demo         turn.executed  9f2c1a44
+    |          6  2026-08-31T03:45:41.915Z  agent:demo         effects.captured  9f2c1a44
+    |          7  2026-08-31T03:45:41.915Z  journal            journal.checkpoint
+    |          8  2026-08-31T03:45:41.915Z  agent:demo         policy.decision  9f2c1a44
+    |          9  2026-08-31T03:45:41.915Z  agent:demo         turn.discarded  9f2c1a44
+    |         10  2026-08-31T03:45:41.916Z  agent:demo         seal.release  9f2c1a44
+    |         11  2026-08-31T03:45:41.916Z  journal            journal.checkpoint
+    | 
+    |   note         checkpoint signatures verified against /tmp/shadow-syn2-s7aiC5/data/journal.pub,
+    |                which is inside the directory being checked. Whoever wrote these records
+    |                could also have written that key. Point SHADOW_JOURNAL_PUBKEY_FILE at a
+    |                copy published elsewhere to make this layer mean something to a reader
+    |                who is not the operator.
+    | 
+    |   result       OK, the ledger verifies from record one
+    exit 0, the ledger verifies
+
+
+================================================================================================
+STEP 2  one character, one record
+================================================================================================
+  the undo is on disk before the change is
+    ticket    /tmp/shadow-syn2-s7aiC5/data/journal.jsonl.tamper-restore.json
+    digest    sha256 of the first 4712 bytes is 5f170be213c479eb019d79c8bda5a8b56c1393398d8685686f1d87b8674bc2c6
+
+  the record
+    line      8 of 11
+    seq       8
+    kind      policy.decision
+    field     verdict
+  the byte
+    offset    3383 in the file, character 1 of the value
+    before    0x64 'd'
+    after     0x65 'e'
+    was       ...:45:41.915Z","verdict":"discarded"}
+    now       ...:45:41.915Z","verdict":"eiscarded"}
+
+  Nothing else changes. The file is the same length, every other record is untouched, and
+  the record still parses as JSON. This is the quietest edit somebody could make.
+
+================================================================================================
+STEP 3  the same command a reviewer runs, against the same file
+================================================================================================
+    | Shadow Commit journal verification
+    |   journal      /tmp/shadow-syn2-s7aiC5/data/journal.jsonl
+    |   records      11
+    |   head         a2f9628dab515c71a10a4d696a6279373a84ced359459487f8514770aee23a0c
+    |   last seq     11
+    |   keyed        NO, see problems below
+    |                hmac checked against /tmp/shadow-syn2-s7aiC5/home/journal.key
+    |   kinds        journal.checkpoint 2, effects.captured 1, journal.key-created 1, journal.signing-key-created 1, policy.decision 1, seal.fallback 1, seal.release 1, turn.begin 1, turn.discarded 1, turn.executed 1
+    |   principals   agent:demo 7, journal 4
+    | 
+    |   checkpoints  2
+    |     seq 7      tree 6      root af20409a5c37f728...  signature ok  root ok
+    |     seq 11     tree 10     root 2e3a8965ef0f8d31...  signature ok  root bad
+    | 
+    |   anchors      0 recorded
+    |     none; nothing external pins this chain yet, so deletion is undetectable
+    | 
+    |   last 10 of 11 records
+    |          2  2026-08-31T03:45:41.913Z  journal            journal.signing-key-created
+    |          3  2026-08-31T03:45:41.914Z  agent:demo         seal.fallback  9f2c1a44
+    |          4  2026-08-31T03:45:41.914Z  agent:demo         turn.begin  9f2c1a44
+    |          5  2026-08-31T03:45:41.914Z  agent:demo         turn.executed  9f2c1a44
+    |          6  2026-08-31T03:45:41.915Z  agent:demo         effects.captured  9f2c1a44
+    |          7  2026-08-31T03:45:41.915Z  journal            journal.checkpoint
+    |          8  2026-08-31T03:45:41.915Z  agent:demo         policy.decision  9f2c1a44
+    |          9  2026-08-31T03:45:41.915Z  agent:demo         turn.discarded  9f2c1a44
+    |         10  2026-08-31T03:45:41.916Z  agent:demo         seal.release  9f2c1a44
+    |         11  2026-08-31T03:45:41.916Z  journal            journal.checkpoint
+    | 
+    |   note         checkpoint signatures verified against /tmp/shadow-syn2-s7aiC5/data/journal.pub,
+    |                which is inside the directory being checked. Whoever wrote these records
+    |                could also have written that key. Point SHADOW_JOURNAL_PUBKEY_FILE at a
+    |                copy published elsewhere to make this layer mean something to a reader
+    |                who is not the operator.
+    | 
+    |   first break  record 8 [hash] record 8 (seq 8) hash does not match its content
+    |   problems     3 in total:
+    |     [hmac] record 8 (seq 8) hmac does not verify under the journal key
+    |     [merkle] checkpoint at seq 11 claims a Merkle root that does not match the 10 records before it
+    |   result       BROKEN
+    exit 1, BROKEN
+
+  REFUSED. Exit 1 is the code CI gates on, and the report names the record rather than
+  saying the file is bad somewhere.
+
+================================================================================================
+STEP 4  the byte goes back
+================================================================================================
+  restored  yes
+  byte      0x64 'd' at offset 3383
+  digest    sha256 of the first 4712 bytes is 5f170be213c479eb019d79c8bda5a8b56c1393398d8685686f1d87b8674bc2c6
+  match     byte for byte the file it was before
+  ticket    removed
+
+================================================================================================
+STEP 5  and it verifies again
+================================================================================================
+    | Shadow Commit journal verification
+    |   journal      /tmp/shadow-syn2-s7aiC5/data/journal.jsonl
+    |   records      11
+    |   head         a2f9628dab515c71a10a4d696a6279373a84ced359459487f8514770aee23a0c
+    |   last seq     11
+    |   keyed        yes, hmac verified on every record
+    |                hmac verified against /tmp/shadow-syn2-s7aiC5/home/journal.key
+    |   kinds        journal.checkpoint 2, effects.captured 1, journal.key-created 1, journal.signing-key-created 1, policy.decision 1, seal.fallback 1, seal.release 1, turn.begin 1, turn.discarded 1, turn.executed 1
+    |   principals   agent:demo 7, journal 4
+    | 
+    |   checkpoints  2
+    |     seq 7      tree 6      root af20409a5c37f728...  signature ok  root ok
+    |     seq 11     tree 10     root 2e3a8965ef0f8d31...  signature ok  root ok
+    | 
+    |   anchors      0 recorded
+    |     none; nothing external pins this chain yet, so deletion is undetectable
+    | 
+    |   last 10 of 11 records
+    |          2  2026-08-31T03:45:41.913Z  journal            journal.signing-key-created
+    |          3  2026-08-31T03:45:41.914Z  agent:demo         seal.fallback  9f2c1a44
+    |          4  2026-08-31T03:45:41.914Z  agent:demo         turn.begin  9f2c1a44
+    |          5  2026-08-31T03:45:41.914Z  agent:demo         turn.executed  9f2c1a44
+    |          6  2026-08-31T03:45:41.915Z  agent:demo         effects.captured  9f2c1a44
+    |          7  2026-08-31T03:45:41.915Z  journal            journal.checkpoint
+    |          8  2026-08-31T03:45:41.915Z  agent:demo         policy.decision  9f2c1a44
+    |          9  2026-08-31T03:45:41.915Z  agent:demo         turn.discarded  9f2c1a44
+    |         10  2026-08-31T03:45:41.916Z  agent:demo         seal.release  9f2c1a44
+    |         11  2026-08-31T03:45:41.916Z  journal            journal.checkpoint
+    | 
+    |   note         checkpoint signatures verified against /tmp/shadow-syn2-s7aiC5/data/journal.pub,
+    |                which is inside the directory being checked. Whoever wrote these records
+    |                could also have written that key. Point SHADOW_JOURNAL_PUBKEY_FILE at a
+    |                copy published elsewhere to make this layer mean something to a reader
+    |                who is not the operator.
+    | 
+    |   result       OK, the ledger verifies from record one
+    exit 0, the ledger verifies
+
+SUMMARY
+  before    exit 0, the ledger verifies
+  tampered  exit 1, BROKEN
+  after     exit 0, the ledger verifies
+
+  One character changed inside one record and the shipped verifier refused the whole
+  ledger, naming the record. The character went back and it verifies again. The machine
+  is as it was found.

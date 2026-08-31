@@ -1,0 +1,74 @@
+{
+  "prompt": "Add a second maintenance entry point: a prepare script in the manifest and the tools/prepare.js behind it.",
+  "run": {
+    "id": "8d78d7b6-acb6-4ac9-be35-54e0a03419a7",
+    "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "status": "contained",
+    "prompt": "Add a second maintenance entry point: a prepare script in the manifest and the tools/prepare.js behind it.",
+    "output": "Added a prepare script to package.json and created tools/prepare.js.\n\n[held for review: manifest-script-change. 2 proposed change(s) are waiting for a human. Nothing has been applied.]",
+    "error": null,
+    "usage": {
+      "inputTokens": 768,
+      "cachedInputTokens": 0,
+      "outputTokens": 192
+    },
+    "containment": {
+      "runId": "8d78d7b6-acb6-4ac9-be35-54e0a03419a7",
+      "decision": "review",
+      "rule": "manifest-script-change",
+      "effects": 2,
+      "paths": [
+        "package.json",
+        "tools/prepare.js"
+      ]
+    },
+    "startedAt": "2026-08-31T16:21:59.300Z",
+    "completedAt": "2026-08-31T16:22:00.649Z",
+    "createdAt": "2026-08-31T16:21:59.296Z"
+  },
+  "review": {
+    "runId": "8d78d7b6-acb6-4ac9-be35-54e0a03419a7",
+    "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "rule": "manifest-script-change",
+    "hits": [
+      {
+        "rule": "manifest-script-change",
+        "decision": "review",
+        "path": "package.json",
+        "detail": "prepare"
+      }
+    ],
+    "effectSetHash": "e4f0b9d83a3e7328d9aeb667380404fed3b69c3eb499741ff317d916b85127dd",
+    "workspacePath": "~/.volc-agent-launchpad/workspaces/7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "heldAt": "2026-08-31T16:22:00.440Z",
+    "effects": [
+      {
+        "path": "package.json",
+        "kind": "modify",
+        "effectClass": "manifest",
+        "class": "dependency",
+        "bytes": 173,
+        "sha256": "c5a51df479fcf4076e62446f51ecf5aaee0f53b055216cad26acbd9b9835438b",
+        "before": "{\n  \"name\": \"hello-cli\",\n  \"version\": \"1.0.0\",\n  \"type\": \"module\",\n  \"scripts\": {\n    \"postinstall\": \"node ./tools/setup.js\"\n  }\n}\n",
+        "after": "{\n  \"name\": \"hello-cli\",\n  \"version\": \"1.0.0\",\n  \"type\": \"module\",\n  \"scripts\": {\n    \"postinstall\": \"node ./tools/setup.js\",\n    \"prepare\": \"node ./tools/prepare.js\"\n  }\n}\n",
+        "truncated": false,
+        "binary": false
+      },
+      {
+        "path": "tools/prepare.js",
+        "kind": "create",
+        "effectClass": "source",
+        "class": "source",
+        "bytes": 29,
+        "sha256": "5e37cf5b49d88d91b28eea09c19cc26d10d7af1b05b540a0c6860920d8721bc8",
+        "before": null,
+        "after": "console.log(\"prepare step\");\n",
+        "truncated": false,
+        "binary": false
+      }
+    ],
+    "effectCount": 2,
+    "effectsTruncated": 0,
+    "truncated": 0
+  }
+}

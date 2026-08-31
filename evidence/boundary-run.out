@@ -1,0 +1,39 @@
+
+=== host ===
+kernel  Linux 6.6.87.2-microsoft-standard-WSL2
+engine  docker 29.7.2
+cgroup  v2
+fs      ext4
+
+=== 1. a no-default-route bridge blocks egress, tested by attempting it ===
+network shadow-evidence-45963 on interface br-835f729e8c29
+tcpdump on br-835f729e8c29: yes
+  public tcp 443         1.1.1.1:443              rc=1      measured=true   verdict=refused
+  cloud metadata 80      169.254.169.254:80       rc=1      measured=true   verdict=refused
+  public tcp 9418        1.1.1.1:9418             rc=1      measured=true   verdict=refused
+  public tcp 22          1.1.1.1:22               rc=1      measured=true   verdict=refused
+  dns                    example.com              rc=1      measured=true   blocked=true
+
+=== 2. cgroup v2 limits are enforced, not silently no-op'd ===
+  memory.max seen by the container: 67108864 (64 MiB = 67108864)
+  same workload with --memory=64m : exit 137  (137 = SIGKILL from the OOM killer)
+  same workload with no limit     : exit 0  (0 = the limit is what killed it)
+  measured: true   enforced: true
+  pids.max seen by the container: 16
+
+=== 3. tcpdump captured the bridge, and what it saw ===
+  packets captured: 12
+  non-private destinations seen on the bridge: none
+
+=== 4. a container killed mid-write leaves a recoverable state ===
+  probe container started:     true
+  real workspace on the host:  /tmp/tmp.l6IuY56ZQW
+  shadow given to the probe:   /tmp/tmp.bUYWeSvR86
+  probe told to write to:      /tmp/tmp.l6IuY56ZQW  (first, before the shadow loop)
+  bytes written into shadow:   3145728 (of the 67108864 the probe was told to write, before the kill)
+  partial write in the shadow: true (recorded, not gated: a completed write is a race)
+  real workspace untouched:    true
+
+=== evidence ===
+wrote /home/subha/techjam/evb/evidence/boundary.json and pcap-egress-denied.pcapng, captured by this run
+every check ran, and every one of them held.

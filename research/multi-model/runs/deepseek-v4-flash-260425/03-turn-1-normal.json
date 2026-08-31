@@ -1,0 +1,2947 @@
+{
+  "prompt": "Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.",
+  "run": {
+    "id": "4116265b-837e-4f24-95a1-9ea30ae6afbd",
+    "agentId": "25809de4-59ad-44b8-b07d-981a4343a963",
+    "status": "contained",
+    "prompt": "Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.",
+    "output": "All done. Here's a summary of the files created:\n\n**`package.json`** — Project manifest with `\"type\": \"module\"`, a `bin` entry (`hello`), and `build`/`start`/`test` scripts. Dev dependencies: `typescript`, `@types/node`, `tsx`.\n\n**`tsconfig.json`** — TypeScript config targeting ES2022, outputting to `dist/`, with strict mode and source maps.\n\n**`src/cli.ts`** — The CLI entry point. Exports a `main()` function that accepts an optional name argument and prints `Hello, <name>!` (defaults to `\"World\"`). Runs automatically when executed directly.\n\n**`test/cli.test.ts`** — Three tests using Node's built-in `node:test` runner:\n- Greets \"World\" when no name is given\n- Greets a provided name (\"Codex\")\n- Greets a different name (\"Alice\")\n\nAll 3 tests pass. Run them again with:\n\n```\nnpm test\n```\n\n[held for review: dependency-added. 739 proposed change(s) are waiting for a human. Nothing has been applied.]",
+    "error": null,
+    "usage": {
+      "inputTokens": 163295,
+      "cachedInputTokens": 147456,
+      "outputTokens": 3070
+    },
+    "containment": {
+      "runId": "4116265b-837e-4f24-95a1-9ea30ae6afbd",
+      "decision": "review",
+      "rule": "dependency-added",
+      "effects": 739,
+      "paths": [
+        "node_modules/.bin/esbuild",
+        "node_modules/.bin/tsc",
+        "node_modules/.bin/tsx",
+        "node_modules/.package-lock.json",
+        "node_modules/@esbuild/linux-arm64/README.md",
+        "node_modules/@esbuild/linux-arm64/bin/esbuild",
+        "node_modules/@esbuild/linux-arm64/package.json",
+        "node_modules/@types/node/LICENSE",
+        "node_modules/@types/node/README.md",
+        "node_modules/@types/node/assert/strict.d.ts",
+        "node_modules/@types/node/assert.d.ts",
+        "node_modules/@types/node/async_hooks.d.ts",
+        "node_modules/@types/node/buffer.buffer.d.ts",
+        "node_modules/@types/node/buffer.d.ts",
+        "node_modules/@types/node/child_process.d.ts",
+        "node_modules/@types/node/cluster.d.ts",
+        "node_modules/@types/node/console.d.ts",
+        "node_modules/@types/node/constants.d.ts",
+        "node_modules/@types/node/crypto.d.ts",
+        "node_modules/@types/node/dgram.d.ts",
+        "node_modules/@types/node/diagnostics_channel.d.ts",
+        "node_modules/@types/node/dns/promises.d.ts",
+        "node_modules/@types/node/dns.d.ts",
+        "node_modules/@types/node/domain.d.ts",
+        "node_modules/@types/node/events.d.ts",
+        "node_modules/@types/node/ffi.d.ts",
+        "node_modules/@types/node/fs/promises.d.ts",
+        "node_modules/@types/node/fs.d.ts",
+        "node_modules/@types/node/globals.d.ts",
+        "node_modules/@types/node/globals.typedarray.d.ts",
+        "node_modules/@types/node/http.d.ts",
+        "node_modules/@types/node/http2.d.ts",
+        "node_modules/@types/node/https.d.ts",
+        "node_modules/@types/node/index.d.ts",
+        "node_modules/@types/node/inspector/promises.d.ts",
+        "node_modules/@types/node/inspector.d.ts",
+        "node_modules/@types/node/inspector.generated.d.ts",
+        "node_modules/@types/node/module.d.ts",
+        "node_modules/@types/node/net.d.ts",
+        "node_modules/@types/node/os.d.ts",
+        "node_modules/@types/node/package.json",
+        "node_modules/@types/node/path/posix.d.ts",
+        "node_modules/@types/node/path/win32.d.ts",
+        "node_modules/@types/node/path.d.ts",
+        "node_modules/@types/node/perf_hooks.d.ts",
+        "node_modules/@types/node/process.d.ts",
+        "node_modules/@types/node/punycode.d.ts",
+        "node_modules/@types/node/querystring.d.ts",
+        "node_modules/@types/node/quic.d.ts",
+        "node_modules/@types/node/readline/promises.d.ts",
+        "node_modules/@types/node/readline.d.ts",
+        "node_modules/@types/node/repl.d.ts",
+        "node_modules/@types/node/sea.d.ts",
+        "node_modules/@types/node/sqlite.d.ts",
+        "node_modules/@types/node/stream/consumers.d.ts",
+        "node_modules/@types/node/stream/iter.d.ts",
+        "node_modules/@types/node/stream/promises.d.ts",
+        "node_modules/@types/node/stream/web.d.ts",
+        "node_modules/@types/node/stream.d.ts",
+        "node_modules/@types/node/string_decoder.d.ts",
+        "node_modules/@types/node/test/reporters.d.ts",
+        "node_modules/@types/node/test.d.ts",
+        "node_modules/@types/node/timers/promises.d.ts",
+        "node_modules/@types/node/timers.d.ts",
+        "node_modules/@types/node/tls.d.ts",
+        "node_modules/@types/node/trace_events.d.ts",
+        "node_modules/@types/node/ts5.6/buffer.buffer.d.ts",
+        "node_modules/@types/node/ts5.6/compatibility/float16array.d.ts",
+        "node_modules/@types/node/ts5.6/globals.typedarray.d.ts",
+        "node_modules/@types/node/ts5.6/index.d.ts",
+        "node_modules/@types/node/ts5.7/compatibility/float16array.d.ts",
+        "node_modules/@types/node/ts5.7/index.d.ts",
+        "node_modules/@types/node/tty.d.ts",
+        "node_modules/@types/node/url.d.ts",
+        "node_modules/@types/node/util/types.d.ts",
+        "node_modules/@types/node/util.d.ts",
+        "node_modules/@types/node/v8.d.ts",
+        "node_modules/@types/node/vfs.d.ts",
+        "node_modules/@types/node/vm.d.ts",
+        "node_modules/@types/node/wasi.d.ts",
+        "node_modules/@types/node/web-globals/abortcontroller.d.ts",
+        "node_modules/@types/node/web-globals/blob.d.ts",
+        "node_modules/@types/node/web-globals/console.d.ts",
+        "node_modules/@types/node/web-globals/crypto.d.ts",
+        "node_modules/@types/node/web-globals/domexception.d.ts",
+        "node_modules/@types/node/web-globals/encoding.d.ts",
+        "node_modules/@types/node/web-globals/events.d.ts",
+        "node_modules/@types/node/web-globals/fetch.d.ts",
+        "node_modules/@types/node/web-globals/importmeta.d.ts",
+        "node_modules/@types/node/web-globals/messaging.d.ts",
+        "node_modules/@types/node/web-globals/navigator.d.ts",
+        "node_modules/@types/node/web-globals/performance.d.ts",
+        "node_modules/@types/node/web-globals/storage.d.ts",
+        "node_modules/@types/node/web-globals/streams.d.ts",
+        "node_modules/@types/node/web-globals/timers.d.ts",
+        "node_modules/@types/node/web-globals/url.d.ts",
+        "node_modules/@types/node/worker_threads.d.ts",
+        "node_modules/@types/node/zlib/iter.d.ts",
+        "node_modules/@types/node/zlib.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/LICENSE",
+        "node_modules/@typescript/typescript-linux-arm64/NOTICE.txt",
+        "node_modules/@typescript/typescript-linux-arm64/README.md",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.decorators.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.decorators.legacy.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.dom.asynciterable.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.dom.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.dom.iterable.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.collection.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.core.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.generator.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.iterable.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.promise.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.proxy.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.reflect.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.symbol.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.symbol.wellknown.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.array.include.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.full.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.intl.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.arraybuffer.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.date.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.full.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.intl.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.object.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.sharedmemory.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.string.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.typedarrays.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.asyncgenerator.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.asynciterable.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.full.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.intl.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.promise.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.regexp.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.array.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.full.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.intl.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.object.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.string.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.symbol.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.bigint.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.date.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.full.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.intl.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.number.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.promise.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.sharedmemory.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.string.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.symbol.wellknown.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.full.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.intl.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.promise.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.string.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.weakref.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.array.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.error.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.full.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.intl.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.object.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.regexp.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.string.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.array.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.collection.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.full.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.intl.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.arraybuffer.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.collection.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.full.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.object.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.promise.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.regexp.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.sharedmemory.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.string.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.collection.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.float16.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.full.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.intl.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.iterator.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.promise.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.regexp.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es5.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.es6.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.array.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.collection.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.date.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.decorators.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.disposable.d.ts",
+        "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.error.d.ts"
+      ],
+      "pathsTruncated": 539
+    },
+    "startedAt": "2026-08-31T10:12:09.403Z",
+    "completedAt": "2026-08-31T10:13:11.163Z",
+    "createdAt": "2026-08-31T10:12:09.400Z"
+  },
+  "elapsedMs": 61826,
+  "journalRecords": [
+    {
+      "hash": "5b6f7c45c4504bb069bee1258001134ac184b5a9ec319a97be0b15750d38f91f",
+      "hmac": "1ea053e6ffbb14ab2bc85e0be19cba8da39ea35f67de6c6086f974a0ce8bdab9",
+      "kind": "seal.fallback",
+      "mechanism": "copy",
+      "prev": "6eee218fa5efe4ab655dec9bed542c929a4cd2a3b0b613b189dc13417d7afb62",
+      "principal": "agent",
+      "reason": "not-linux",
+      "runId": "4116265b-837e-4f24-95a1-9ea30ae6afbd",
+      "seq": 210,
+      "ts": "2026-08-31T10:12:09.500Z"
+    },
+    {
+      "agentId": "25809de4-59ad-44b8-b07d-981a4343a963",
+      "at": "2026-08-31T10:12:10.445Z",
+      "codexHomeFiles": 1,
+      "confinement": "container+sealed-network",
+      "containerCodexHome": "/codex-home",
+      "containerWorkspacePath": "/workspace",
+      "decoyHost": "status.shadow-decoy.test",
+      "egressAllowlist": [
+        "registry.npmjs.org:443",
+        "registry.yarnpkg.com:443",
+        "pypi.org:443",
+        "files.pythonhosted.org:443",
+        "ark.ap-southeast.bytepluses.com:443"
+      ],
+      "hash": "582e222b0b4719185ebe406964dcafd373d435514beddc89b770005075de920b",
+      "hmac": "c6efa871cdbd6ac0cb6418c61265365f4f7633dc53ace7418515d914500265a8",
+      "kind": "turn.begin",
+      "mechanism": "copy",
+      "modelChannel": "terminated-at-broker",
+      "network": "shadow-4116265b-837e-4f24-95a1-9ea30ae6afbd",
+      "prev": "5b6f7c45c4504bb069bee1258001134ac184b5a9ec319a97be0b15750d38f91f",
+      "principal": "agent",
+      "runId": "4116265b-837e-4f24-95a1-9ea30ae6afbd",
+      "seq": 211,
+      "ts": "2026-08-31T10:12:10.445Z",
+      "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+      "workspaceFilesBefore": 3,
+      "workspaceUnreadableBefore": 0
+    },
+    {
+      "agentId": "25809de4-59ad-44b8-b07d-981a4343a963",
+      "at": "2026-08-31T10:13:10.428Z",
+      "commands": 11,
+      "commandsFailed": 0,
+      "exit": "ok",
+      "hash": "beed53d7c79d74abb6f78ab71d9857e84a88645a054a73a1c895683e585f39b2",
+      "hmac": "b2f2c251051c39f7705e3a0771e1bbdcb8a6f10c615cf2340795f1f6bb9ce5ee",
+      "kind": "turn.executed",
+      "prev": "582e222b0b4719185ebe406964dcafd373d435514beddc89b770005075de920b",
+      "principal": "agent",
+      "runId": "4116265b-837e-4f24-95a1-9ea30ae6afbd",
+      "seq": 212,
+      "ts": "2026-08-31T10:13:10.429Z"
+    },
+    {
+      "agentId": "25809de4-59ad-44b8-b07d-981a4343a963",
+      "at": "2026-08-31T10:13:10.729Z",
+      "bytes": 9702841,
+      "count": 739,
+      "hash": "46e869350b59fcb7387e53c8985231b9ea99c9f1389291db13966c441e6b7ba2",
+      "hmac": "2d863533d59721752ad8ccccf1dff8dcf21a124945729621fbfbec010b6ff4d2",
+      "kind": "effects.captured",
+      "oversize": 0,
+      "prev": "beed53d7c79d74abb6f78ab71d9857e84a88645a054a73a1c895683e585f39b2",
+      "principal": "agent",
+      "protectedReads": 0,
+      "readPaths": [
+        "AGENTS.md",
+        "README.md"
+      ],
+      "readSelectivity": 0.6667,
+      "readWitness": "armed",
+      "reads": 2,
+      "readsArmed": 3,
+      "readsBlind": 0,
+      "readsTampered": 0,
+      "runId": "4116265b-837e-4f24-95a1-9ea30ae6afbd",
+      "seq": 213,
+      "ts": "2026-08-31T10:13:10.729Z"
+    },
+    {
+      "agentId": "25809de4-59ad-44b8-b07d-981a4343a963",
+      "at": "2026-08-31T10:13:10.834Z",
+      "decision": "review",
+      "hash": "21b0396a7b8e3713ae8cc6d9de94a7dbd9b48e0b835c08529c8bdc21193824b8",
+      "hits": [
+        {
+          "decision": "review",
+          "detail": "devDependencies:@types/node ^22.0.0",
+          "path": "package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:tsx ^4.0.0",
+          "path": "package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:typescript ^5.0.0",
+          "path": "package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "build",
+          "path": "package.json",
+          "rule": "manifest-script-change"
+        },
+        {
+          "decision": "review",
+          "detail": "start",
+          "path": "package.json",
+          "rule": "manifest-script-change"
+        },
+        {
+          "decision": "review",
+          "detail": "test",
+          "path": "package.json",
+          "rule": "manifest-script-change"
+        }
+      ],
+      "hmac": "7da83015faa90ef7a8138e00f681e3af3fbac0ae0d2bb43781794a5cb0c87d95",
+      "kind": "policy.decision",
+      "prev": "46e869350b59fcb7387e53c8985231b9ea99c9f1389291db13966c441e6b7ba2",
+      "principal": "policy",
+      "rule": "dependency-added",
+      "runId": "4116265b-837e-4f24-95a1-9ea30ae6afbd",
+      "seq": 214,
+      "ts": "2026-08-31T10:13:10.834Z"
+    },
+    {
+      "agentId": "25809de4-59ad-44b8-b07d-981a4343a963",
+      "at": "2026-08-31T10:13:11.162Z",
+      "codexHome": {
+        "restored": false,
+        "verifiedUnchanged": true
+      },
+      "effectSetHash": "45efe57fee10c267ce32d048798732170e69c468b9b62b25f348839d3584d802",
+      "effects": [
+        {
+          "canonicalPath": "node_modules/.bin/esbuild",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "node_modules/.bin/esbuild",
+          "target": "../esbuild/bin/esbuild"
+        },
+        {
+          "canonicalPath": "node_modules/.bin/tsc",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "node_modules/.bin/tsc",
+          "target": "../typescript/bin/tsc"
+        },
+        {
+          "canonicalPath": "node_modules/.bin/tsx",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "node_modules/.bin/tsx",
+          "target": "../tsx/dist/cli.mjs"
+        },
+        {
+          "bytes": 5490,
+          "canonicalPath": "node_modules/.package-lock.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/.package-lock.json",
+          "sha256": "1472700a525f29847e267bfed6f8e190711e2d3f377ad0c0aa4107c9b0ba3168"
+        },
+        {
+          "bytes": 145,
+          "canonicalPath": "node_modules/@esbuild/linux-arm64/readme.md",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@esbuild/linux-arm64/README.md",
+          "sha256": "4fab48c3fa538df99460382c5b2d1790e558ec9d1912d4e9ace49e5a1502a168"
+        },
+        {
+          "bytes": 10289264,
+          "canonicalPath": "node_modules/@esbuild/linux-arm64/bin/esbuild",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 493,
+          "path": "node_modules/@esbuild/linux-arm64/bin/esbuild",
+          "sha256": "90bd269553d258e80b19e3ccab4f98f0831f87442a2f056510ce24fd1b425fc2"
+        },
+        {
+          "bytes": 380,
+          "canonicalPath": "node_modules/@esbuild/linux-arm64/package.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@esbuild/linux-arm64/package.json",
+          "sha256": "0ee05403f9b919e3ac6108bf555ec0fa3e04c4dd493aede4c72ac9bf57e95b75"
+        },
+        {
+          "bytes": 1141,
+          "canonicalPath": "node_modules/@types/node/license",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/LICENSE",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+        },
+        {
+          "bytes": 1582,
+          "canonicalPath": "node_modules/@types/node/readme.md",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/README.md",
+          "sha256": "650e9ab514a5c8fabdcb062b2b9bf239981353198c83c6df25dfcf43fca3416a"
+        },
+        {
+          "bytes": 1652,
+          "canonicalPath": "node_modules/@types/node/assert/strict.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/assert/strict.d.ts",
+          "sha256": "d1f333ade8ff35a409b4984e1f11956fe11c61855b0c7e9b59f0313e48b40c4a"
+        },
+        {
+          "bytes": 42891,
+          "canonicalPath": "node_modules/@types/node/assert.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/assert.d.ts",
+          "sha256": "594ae90cacd813fa392ff80d2e0a8eff4e41f4a136329a940e321399dd8895b4"
+        },
+        {
+          "bytes": 29929,
+          "canonicalPath": "node_modules/@types/node/async_hooks.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/async_hooks.d.ts",
+          "sha256": "0224aa4b3464895d69c413a640a19ac2166778a74eb5eb3b36b021c72d42b274"
+        },
+        {
+          "bytes": 22956,
+          "canonicalPath": "node_modules/@types/node/buffer.buffer.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/buffer.buffer.d.ts",
+          "sha256": "f9b68a1c3f8f45b4c199fa5b3ac09497230cb8f2f0cdcfebe5817b30b836a64a"
+        },
+        {
+          "bytes": 81152,
+          "canonicalPath": "node_modules/@types/node/buffer.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/buffer.d.ts",
+          "sha256": "2e6fca0024dd8a076a886d9ec031a936ea59ad878a25b944820495d92f8381dd"
+        },
+        {
+          "bytes": 59905,
+          "canonicalPath": "node_modules/@types/node/child_process.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/child_process.d.ts",
+          "sha256": "47d917e731d06acf182baa38ac2fbd720c3555fa9160e6a40d47994515f7f0ea"
+        },
+        {
+          "bytes": 19527,
+          "canonicalPath": "node_modules/@types/node/cluster.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/cluster.d.ts",
+          "sha256": "2fbf504c4791f9d32cd766cfe6b605bcda63289b925401953a7900db9af85348"
+        },
+        {
+          "bytes": 4250,
+          "canonicalPath": "node_modules/@types/node/console.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/console.d.ts",
+          "sha256": "ed0fb633cae35948d9e144004299a4bdf1ab912667c787b7fbffcd6d8c7b92a2"
+        },
+        {
+          "bytes": 491,
+          "canonicalPath": "node_modules/@types/node/constants.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/constants.d.ts",
+          "sha256": "1678b04557dca52feab73cc67610918a7f5e25bfdba3e7fa081acd625d93106d"
+        },
+        {
+          "bytes": 168236,
+          "canonicalPath": "node_modules/@types/node/crypto.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/crypto.d.ts",
+          "sha256": "4c8a22ece1ef9fb4659ec034e1131310ca188975f39948ab38f7e4485cb46d1f"
+        },
+        {
+          "bytes": 31107,
+          "canonicalPath": "node_modules/@types/node/dgram.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/dgram.d.ts",
+          "sha256": "9c90f502816bd0179556bb875e86c944af3f6b995cde63199edbe4e0b1219aba"
+        },
+        {
+          "bytes": 34577,
+          "canonicalPath": "node_modules/@types/node/diagnostics_channel.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/diagnostics_channel.d.ts",
+          "sha256": "98fc7231d6c846a8ed19bdef026ddffe5e2182cc818be74899287421ad370a87"
+        },
+        {
+          "bytes": 20815,
+          "canonicalPath": "node_modules/@types/node/dns/promises.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/dns/promises.d.ts",
+          "sha256": "f54f5f9e10bbceba7515dfad0ffc89dffdb8d749d0604594c57a725cf6d79c20"
+        },
+        {
+          "bytes": 34353,
+          "canonicalPath": "node_modules/@types/node/dns.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/dns.d.ts",
+          "sha256": "e494b286c8e27c52f8c7f945aa80ff223f2a3cd4f7a2619fa8991f1459e26f07"
+        },
+        {
+          "bytes": 6597,
+          "canonicalPath": "node_modules/@types/node/domain.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/domain.d.ts",
+          "sha256": "41d17e1ad9a002feb11c8cdd2777e5bbc0cdb1e3f595d237e4dded0b6949983b"
+        },
+        {
+          "bytes": 47375,
+          "canonicalPath": "node_modules/@types/node/events.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/events.d.ts",
+          "sha256": "8c7e618c2a91ea7f6b5cca272a295864e92c16413be8fc56a943e8c7d5320011"
+        },
+        {
+          "bytes": 20013,
+          "canonicalPath": "node_modules/@types/node/ffi.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/ffi.d.ts",
+          "sha256": "79a85c64bf083c5f4dd7074e804d1000c0c47301b84d48417a224decd681be30"
+        },
+        {
+          "bytes": 63652,
+          "canonicalPath": "node_modules/@types/node/fs/promises.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/fs/promises.d.ts",
+          "sha256": "a47a792b8cff71443be8dfb199f2b77e102a7bf9d4f90c18059f05d9af2d7413"
+        },
+        {
+          "bytes": 202247,
+          "canonicalPath": "node_modules/@types/node/fs.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/fs.d.ts",
+          "sha256": "9d37b8a9678efbcdf38238b59ce8e6f7db70aba1a516f3a4a671a301dbacfb3d"
+        },
+        {
+          "bytes": 5084,
+          "canonicalPath": "node_modules/@types/node/globals.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/globals.d.ts",
+          "sha256": "f53a7652392cf26ebbe4e29fd0672aa87c93bd6d0241289c13fab87b9ac35c8a"
+        },
+        {
+          "bytes": 4864,
+          "canonicalPath": "node_modules/@types/node/globals.typedarray.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/globals.typedarray.d.ts",
+          "sha256": "0ccdaa19852d25ecd84eec365c3bfa16e7859cadecf6e9ca6d0dbbbee439743f"
+        },
+        {
+          "bytes": 99275,
+          "canonicalPath": "node_modules/@types/node/http.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/http.d.ts",
+          "sha256": "77c33fa85a1485ccf0d7cd8e0f50677924045cc4086a39af564f608e21a46343"
+        },
+        {
+          "bytes": 119374,
+          "canonicalPath": "node_modules/@types/node/http2.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/http2.d.ts",
+          "sha256": "22e77cc53de19959fdb4c4876e7bafd2f2a8cf8ead059abf7b299efe85f76251"
+        },
+        {
+          "bytes": 16812,
+          "canonicalPath": "node_modules/@types/node/https.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/https.d.ts",
+          "sha256": "2c2bdaa1d8ead9f68628d6d9d250e46ee8e81aa4898b4769a36956ae15e060fe"
+        },
+        {
+          "bytes": 5053,
+          "canonicalPath": "node_modules/@types/node/index.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/index.d.ts",
+          "sha256": "c46f111af647c4134ae869653130610d62da321f90ebf19e186a3ea4bed79350"
+        },
+        {
+          "bytes": 1471,
+          "canonicalPath": "node_modules/@types/node/inspector/promises.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/inspector/promises.d.ts",
+          "sha256": "82b91e4e42e6c41bc7fc1b6c2dc5eba6a2ba98375eb1f210e6ff6bba2d54177e"
+        },
+        {
+          "bytes": 12276,
+          "canonicalPath": "node_modules/@types/node/inspector.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/inspector.d.ts",
+          "sha256": "ba389fd3d7fba6670e97bc82eb12469dcb371d22f24e63859c1df5a083c823ed"
+        },
+        {
+          "bytes": 228362,
+          "canonicalPath": "node_modules/@types/node/inspector.generated.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/inspector.generated.d.ts",
+          "sha256": "5ff4433a2deae4f85ab1377e90a7554ce6b47ae51c69a84ca30a6e22fae85834"
+        },
+        {
+          "bytes": 32983,
+          "canonicalPath": "node_modules/@types/node/module.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/module.d.ts",
+          "sha256": "97234c5303866576f913d0ccae7d58d6322d9e803c7bf1228a3fda46ab8087b2"
+        },
+        {
+          "bytes": 47292,
+          "canonicalPath": "node_modules/@types/node/net.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/net.d.ts",
+          "sha256": "5336674547d832b901f47d5602c61dd4ba91796a4711235aa4aead3386ce05a4"
+        },
+        {
+          "bytes": 19278,
+          "canonicalPath": "node_modules/@types/node/os.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/os.d.ts",
+          "sha256": "73eeb740dacc45adc607a4f59f90fa9dbe2717d93d82f115f45f34e18f8d644a"
+        },
+        {
+          "bytes": 4508,
+          "canonicalPath": "node_modules/@types/node/package.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/package.json",
+          "sha256": "f58c917650777974af45b964d36e0226de1d39578f367156122757b2e314e855"
+        },
+        {
+          "bytes": 194,
+          "canonicalPath": "node_modules/@types/node/path/posix.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/path/posix.d.ts",
+          "sha256": "b214ebcf76c51b115453f69729ee8aa7b7f8eccdae2a922b568a45c2d7ff52f7"
+        },
+        {
+          "bytes": 194,
+          "canonicalPath": "node_modules/@types/node/path/win32.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/path/win32.d.ts",
+          "sha256": "429c9cdfa7d126255779efd7e6d9057ced2d69c81859bbab32073bad52e9ba76"
+        },
+        {
+          "bytes": 7639,
+          "canonicalPath": "node_modules/@types/node/path.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/path.d.ts",
+          "sha256": "ec501101c2a96133a6c695f934c8f6642149cc728571b29cbb7b770984c1088e"
+        },
+        {
+          "bytes": 23015,
+          "canonicalPath": "node_modules/@types/node/perf_hooks.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/perf_hooks.d.ts",
+          "sha256": "b17f272f903d155b9ec21791b5889b638977bc1dee181efb2bc317ce006d8c9b"
+        },
+        {
+          "bytes": 115066,
+          "canonicalPath": "node_modules/@types/node/process.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/process.d.ts",
+          "sha256": "18b03a8395192811131170042d6af50c4292b0d708789dbf5bc805b6dd9f4c14"
+        },
+        {
+          "bytes": 3780,
+          "canonicalPath": "node_modules/@types/node/punycode.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/punycode.d.ts",
+          "sha256": "230763250f20449fa7b3c9273e1967adb0023dc890d4be1553faca658ee65971"
+        },
+        {
+          "bytes": 6642,
+          "canonicalPath": "node_modules/@types/node/querystring.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/querystring.d.ts",
+          "sha256": "c3e9078b60cb329d1221f5878e88cecfa3e74460550e605a58fcfb41a66029ff"
+        },
+        {
+          "bytes": 92303,
+          "canonicalPath": "node_modules/@types/node/quic.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/quic.d.ts",
+          "sha256": "cd2f3cdc3954c55199d688feebdc2aaa68670e86963e30b7fab2f27c0dc94553"
+        },
+        {
+          "bytes": 6418,
+          "canonicalPath": "node_modules/@types/node/readline/promises.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/readline/promises.d.ts",
+          "sha256": "bc18a1991ba681f03e13285fa1d7b99b03b67ee671b7bc936254467177543890"
+        },
+        {
+          "bytes": 21216,
+          "canonicalPath": "node_modules/@types/node/readline.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/readline.d.ts",
+          "sha256": "441b9bb09013654aa3d050e68b06464d8959b473e85868249d9d18f692acd35b"
+        },
+        {
+          "bytes": 19023,
+          "canonicalPath": "node_modules/@types/node/repl.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/repl.d.ts",
+          "sha256": "55246f15e33ff1e2e9e679b25fa9790a48db55dc63d567fe25fac8b6a0efe911"
+        },
+        {
+          "bytes": 2045,
+          "canonicalPath": "node_modules/@types/node/sea.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/sea.d.ts",
+          "sha256": "fa94bbf532b7af8f394b95fa310980d6e20bd2d4c871c6a6cb9f70f03750a44b"
+        },
+        {
+          "bytes": 55651,
+          "canonicalPath": "node_modules/@types/node/sqlite.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/sqlite.d.ts",
+          "sha256": "925734f303b7f0cc111d42aeb21781d38a79e6d5ac05b2b1400cd1861a75d27b"
+        },
+        {
+          "bytes": 4272,
+          "canonicalPath": "node_modules/@types/node/stream/consumers.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/stream/consumers.d.ts",
+          "sha256": "7fa2214bb0d64701bc6f9ce8cde2fd2ff8c571e0b23065fa04a8a5a6beb91511"
+        },
+        {
+          "bytes": 17428,
+          "canonicalPath": "node_modules/@types/node/stream/iter.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/stream/iter.d.ts",
+          "sha256": "b8e805bcd8cfb7986d2bcf5e785e34fdfe0cb2f31a89b585e2c9204513efa8cf"
+        },
+        {
+          "bytes": 7347,
+          "canonicalPath": "node_modules/@types/node/stream/promises.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/stream/promises.d.ts",
+          "sha256": "f12624a4a8d042b68914eac1b0a16571fc1c523173fcdf2517c65d191bd5a86c"
+        },
+        {
+          "bytes": 12122,
+          "canonicalPath": "node_modules/@types/node/stream/web.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/stream/web.d.ts",
+          "sha256": "b4769767f13a1692a66186e01c3aa186ff808d5ff72ed36eda8c37738fb2ac92"
+        },
+        {
+          "bytes": 90588,
+          "canonicalPath": "node_modules/@types/node/stream.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/stream.d.ts",
+          "sha256": "5b26c4dd672d88336bb929787c9bfb55119e80ba89ec6dc923da1c063892843e"
+        },
+        {
+          "bytes": 1318,
+          "canonicalPath": "node_modules/@types/node/string_decoder.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/string_decoder.d.ts",
+          "sha256": "841983e39bd4cbb463be385e92fda11057cab368bf27100a801c492f1d86cbaa"
+        },
+        {
+          "bytes": 2779,
+          "canonicalPath": "node_modules/@types/node/test/reporters.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/test/reporters.d.ts",
+          "sha256": "1ec3f3a5f04cc42df33274fbe5c0937d9a9e06f249a7a26288d7d54f0763ffd4"
+        },
+        {
+          "bytes": 117229,
+          "canonicalPath": "node_modules/@types/node/test.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/test.d.ts",
+          "sha256": "441a29b18cc64c37fb196172ec1e499f60d5792edc89648e6cb550180c81050f"
+        },
+        {
+          "bytes": 3383,
+          "canonicalPath": "node_modules/@types/node/timers/promises.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/timers/promises.d.ts",
+          "sha256": "cc1b433a84cae05ddc5672d4823170af78606ad21ecef60dbc4570190cbf1357"
+        },
+        {
+          "bytes": 7351,
+          "canonicalPath": "node_modules/@types/node/timers.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/timers.d.ts",
+          "sha256": "e4156ddb25aa0e3b5303d372f26957b36778f0f6bbd4326359269873295e3058"
+        },
+        {
+          "bytes": 59265,
+          "canonicalPath": "node_modules/@types/node/tls.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/tls.d.ts",
+          "sha256": "76619734a63492651c3467de6fd43d93d7bdd836aff49b86f0e83e2c1e17111a"
+        },
+        {
+          "bytes": 3842,
+          "canonicalPath": "node_modules/@types/node/trace_events.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/trace_events.d.ts",
+          "sha256": "7f78cfb2b343838612c192cb251746e3a7c62ac7675726a47e130d9b213f6580"
+        },
+        {
+          "bytes": 22092,
+          "canonicalPath": "node_modules/@types/node/ts5.6/buffer.buffer.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/ts5.6/buffer.buffer.d.ts",
+          "sha256": "697cf5ff22e25b78c1dcc108fb51838b335dbe8f2a024922bc93375d6c5d87a8"
+        },
+        {
+          "bytes": 3811,
+          "canonicalPath": "node_modules/@types/node/ts5.6/compatibility/float16array.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/ts5.6/compatibility/float16array.d.ts",
+          "sha256": "394fda71d5d6bd00a372437dff510feab37b92f345861e592f956d6995e9c1ce"
+        },
+        {
+          "bytes": 1238,
+          "canonicalPath": "node_modules/@types/node/ts5.6/globals.typedarray.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/ts5.6/globals.typedarray.d.ts",
+          "sha256": "6f2442c0ca5e7fcb9d51ebbd7d43079844bcbfd947bb679b9419900745f871d5"
+        },
+        {
+          "bytes": 5381,
+          "canonicalPath": "node_modules/@types/node/ts5.6/index.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/ts5.6/index.d.ts",
+          "sha256": "c06cc00bc72dc896b4f1cceff8f1a52ea199ce23f8a0f7ccd93420e5906b17bd"
+        },
+        {
+          "bytes": 3872,
+          "canonicalPath": "node_modules/@types/node/ts5.7/compatibility/float16array.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/ts5.7/compatibility/float16array.d.ts",
+          "sha256": "cebfeedf63623d54f7423d58cae1ec204c0d8d97a66d5fb17579e26a902085e1"
+        },
+        {
+          "bytes": 5380,
+          "canonicalPath": "node_modules/@types/node/ts5.7/index.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/ts5.7/index.d.ts",
+          "sha256": "62c781adc94b18f3f2982eb58a266cd48e118c3295adb7f1d51729215599c76b"
+        },
+        {
+          "bytes": 11270,
+          "canonicalPath": "node_modules/@types/node/tty.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/tty.d.ts",
+          "sha256": "aed8f3e5c7e53462565eedf34a9bcb700393cb2c1ab0c768602b929c3ed3145d"
+        },
+        {
+          "bytes": 25457,
+          "canonicalPath": "node_modules/@types/node/url.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/url.d.ts",
+          "sha256": "8e2577e7262051fd3c5bd6ca2b2056d358ff8853565720f92455860824c25188"
+        },
+        {
+          "bytes": 23832,
+          "canonicalPath": "node_modules/@types/node/util/types.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/util/types.d.ts",
+          "sha256": "bb9dbb4b2ad81e3e71ec5ba4314973718555b9d04ba2a17dfbf875efecb8e2c0"
+        },
+        {
+          "bytes": 65409,
+          "canonicalPath": "node_modules/@types/node/util.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/util.d.ts",
+          "sha256": "7ec8d7d483f7394f9da611b10d3a0e402f76ff5c991261e6ce43a15f81ca4258"
+        },
+        {
+          "bytes": 42889,
+          "canonicalPath": "node_modules/@types/node/v8.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/v8.d.ts",
+          "sha256": "9021dc5be8f3a87af5cede29221188a6497e2092b6889e0be212ef6b6b7153e9"
+        },
+        {
+          "bytes": 6533,
+          "canonicalPath": "node_modules/@types/node/vfs.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/vfs.d.ts",
+          "sha256": "db3939c70002734d9e344f35f33d151cf302d326ef08338e9beb8e7f9937d2a2"
+        },
+        {
+          "bytes": 53141,
+          "canonicalPath": "node_modules/@types/node/vm.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/vm.d.ts",
+          "sha256": "32eccc272f35e34ff1c3d33d2c8d05e6821a6e95f648e118a5f4a0f3512895ac"
+        },
+        {
+          "bytes": 6250,
+          "canonicalPath": "node_modules/@types/node/wasi.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/wasi.d.ts",
+          "sha256": "99ab6d0d660ce4d21efb52288a39fd35bb3f556980ec5463b1ae8f304a3bbc85"
+        },
+        {
+          "bytes": 1989,
+          "canonicalPath": "node_modules/@types/node/web-globals/abortcontroller.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/abortcontroller.d.ts",
+          "sha256": "e5e01375c9e124a83b52ee4b3244ed1a4d214a6cfb54ac73e164a823a4a7860a"
+        },
+        {
+          "bytes": 902,
+          "canonicalPath": "node_modules/@types/node/web-globals/blob.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/blob.d.ts",
+          "sha256": "f90ae2bbce1505e67f2f6502392e318f5714bae82d2d969185c4a6cecc8af2fc"
+        },
+        {
+          "bytes": 149,
+          "canonicalPath": "node_modules/@types/node/web-globals/console.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/console.d.ts",
+          "sha256": "4b58e207b93a8f1c88bbf2a95ddc686ac83962b13830fe8ad3f404ffc7051fb4"
+        },
+        {
+          "bytes": 1449,
+          "canonicalPath": "node_modules/@types/node/web-globals/crypto.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/crypto.d.ts",
+          "sha256": "1fefabcb2b06736a66d2904074d56268753654805e829989a46a0161cd8412c5"
+        },
+        {
+          "bytes": 3052,
+          "canonicalPath": "node_modules/@types/node/web-globals/domexception.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/domexception.d.ts",
+          "sha256": "b00a630557d1622ad312633bdbfbdb9c6b7220d948dca9f899db30679f160074"
+        },
+        {
+          "bytes": 414,
+          "canonicalPath": "node_modules/@types/node/web-globals/encoding.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/encoding.d.ts",
+          "sha256": "c18a99f01eb788d849ad032b31cafd49de0b19e083fe775370834c5675d7df8e"
+        },
+        {
+          "bytes": 3367,
+          "canonicalPath": "node_modules/@types/node/web-globals/events.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/events.d.ts",
+          "sha256": "5247874c2a23b9a62d178ae84f2db6a1d54e6c9a2e7e057e178cc5eea13757fc"
+        },
+        {
+          "bytes": 3524,
+          "canonicalPath": "node_modules/@types/node/web-globals/fetch.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/fetch.d.ts",
+          "sha256": "c3f5289820990ab66b70c7fb5b63cb674001009ff84b13de40619619a9c8175f"
+        },
+        {
+          "bytes": 259,
+          "canonicalPath": "node_modules/@types/node/web-globals/importmeta.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/importmeta.d.ts",
+          "sha256": "b3275d55fac10b799c9546804126239baf020d220136163f763b55a74e50e750"
+        },
+        {
+          "bytes": 1113,
+          "canonicalPath": "node_modules/@types/node/web-globals/messaging.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/messaging.d.ts",
+          "sha256": "fa68a0a3b7cb32c00e39ee3cd31f8f15b80cac97dce51b6ee7fc14a1e8deb30b"
+        },
+        {
+          "bytes": 891,
+          "canonicalPath": "node_modules/@types/node/web-globals/navigator.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/navigator.d.ts",
+          "sha256": "1cf059eaf468efcc649f8cf6075d3cb98e9a35a0fe9c44419ec3d2f5428d7123"
+        },
+        {
+          "bytes": 2551,
+          "canonicalPath": "node_modules/@types/node/web-globals/performance.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/performance.d.ts",
+          "sha256": "6c36e755bced82df7fb6ce8169265d0a7bb046ab4e2cb6d0da0cb72b22033e89"
+        },
+        {
+          "bytes": 724,
+          "canonicalPath": "node_modules/@types/node/web-globals/storage.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/storage.d.ts",
+          "sha256": "e7721c4f69f93c91360c26a0a84ee885997d748237ef78ef665b153e622b36c1"
+        },
+        {
+          "bytes": 6707,
+          "canonicalPath": "node_modules/@types/node/web-globals/streams.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/streams.d.ts",
+          "sha256": "7a93de4ff8a63bafe62ba86b89af1df0ccb5e40bb85b0c67d6bbcfdcf96bf3d4"
+        },
+        {
+          "bytes": 1557,
+          "canonicalPath": "node_modules/@types/node/web-globals/timers.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/timers.d.ts",
+          "sha256": "90e85f9bc549dfe2b5749b45fe734144e96cd5d04b38eae244028794e142a77e"
+        },
+        {
+          "bytes": 800,
+          "canonicalPath": "node_modules/@types/node/web-globals/url.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/web-globals/url.d.ts",
+          "sha256": "e0a5deeb610b2a50a6350bd23df6490036a1773a8a71d70f2f9549ab009e67ee"
+        },
+        {
+          "bytes": 29736,
+          "canonicalPath": "node_modules/@types/node/worker_threads.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/worker_threads.d.ts",
+          "sha256": "632c45ccb4cdc2c3a80c7a36a63dd7763016e59cac5e07bfb3e37e3548957028"
+        },
+        {
+          "bytes": 5077,
+          "canonicalPath": "node_modules/@types/node/zlib/iter.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/zlib/iter.d.ts",
+          "sha256": "afa1c49f8e559e413d57343339db857d2a8159435cf9cf7d4deb41718fff1b88"
+        },
+        {
+          "bytes": 22874,
+          "canonicalPath": "node_modules/@types/node/zlib.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@types/node/zlib.d.ts",
+          "sha256": "c9a2daf6cd1eb854cd5b9e424247c5e306692055738c2effd35f7871d942b76e"
+        },
+        {
+          "bytes": 9197,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/license",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/LICENSE",
+          "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47"
+        },
+        {
+          "bytes": 48860,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/notice.txt",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/NOTICE.txt",
+          "sha256": "f5c708b59114507b8b27b48181b6883d106bbca0c1634bbee45b5e344237b66b"
+        },
+        {
+          "bytes": 142,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/readme.md",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/README.md",
+          "sha256": "960fd7d625c4c1497d0699c562b099ccc7b5705772d149adb75837da54e71350"
+        },
+        {
+          "bytes": 953,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.d.ts",
+          "sha256": "0e6477e5049e579cc5de741a70ac91235252edc0468b2e569f22de9db3357786"
+        },
+        {
+          "bytes": 13153,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.decorators.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.decorators.d.ts",
+          "sha256": "1ce14b81c5cc821994aa8ec1d42b220dd41b27fcc06373bce3958af7421b77d4"
+        },
+        {
+          "bytes": 1287,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.decorators.legacy.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.decorators.legacy.d.ts",
+          "sha256": "b3a048b3e9302ef9a34ef4ebb9aecfb28b66abb3bce577206a79fee559c230da"
+        },
+        {
+          "bytes": 933,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.dom.asynciterable.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.dom.asynciterable.d.ts",
+          "sha256": "7f57fc4404ff020bc45b9c620aff2b40f700b95fe31164024c453a5e3c163c54"
+        },
+        {
+          "bytes": 2349483,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.dom.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.dom.d.ts",
+          "sha256": "d6b1eba8496bdd0eed6fc8a685768fe01b2da4a0388b5fe7df558290bffcf32f"
+        },
+        {
+          "bytes": 933,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.dom.iterable.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.dom.iterable.d.ts",
+          "sha256": "7f57fc4404ff020bc45b9c620aff2b40f700b95fe31164024c453a5e3c163c54"
+        },
+        {
+          "bytes": 5627,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.collection.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.collection.d.ts",
+          "sha256": "f0b6b1d3624fb143656dd86a8dd3e1950b7e65f218319b47bde52f65d47e2e4b"
+        },
+        {
+          "bytes": 22821,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.core.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.core.d.ts",
+          "sha256": "770011bd32a52f929fc98fbf9976c1fa9d80b6445171c02b08627fdba9778933"
+        },
+        {
+          "bytes": 1202,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.d.ts",
+          "sha256": "3f88bedbeb09c6f5a6645cb24c7c55f1aa22d19ae96c8e6959cbd8b85a707bc6"
+        },
+        {
+          "bytes": 2518,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.generator.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.generator.d.ts",
+          "sha256": "00343ca5b2e3d48fa5df1db6e32ea2a59afab09590274a6cccb1dbae82e60c7c"
+        },
+        {
+          "bytes": 18185,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.iterable.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.iterable.d.ts",
+          "sha256": "ebd9f816d4002697cb2864bea1f0b70a103124e18a8cd9645eeccc09bdf80ab4"
+        },
+        {
+          "bytes": 3161,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.promise.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.promise.d.ts",
+          "sha256": "2c1afac30a01772cd2a9a298a7ce7706b5892e447bb46bdbeef720f7b5da77ad"
+        },
+        {
+          "bytes": 5212,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.proxy.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.proxy.d.ts",
+          "sha256": "7b0225f483e4fa685625ebe43dd584bb7973bbd84e66a6ba7bbe175ee1048b4f"
+        },
+        {
+          "bytes": 6454,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.reflect.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.reflect.d.ts",
+          "sha256": "c0a4b8ac6ce74679c1da2b3795296f5896e31c38e888469a8e0f99dc3305de60"
+        },
+        {
+          "bytes": 1608,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.symbol.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.symbol.d.ts",
+          "sha256": "83e3871cda2abd4421970fa923cca51a9ce8cdbece6f898285643ab030cb80f3"
+        },
+        {
+          "bytes": 10971,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.symbol.wellknown.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2015.symbol.wellknown.d.ts",
+          "sha256": "c5079c53f0f141a0698faa903e76cb41cd664e3efb01cc17a5c46ec2eb0bef42"
+        },
+        {
+          "bytes": 5165,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.array.include.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.array.include.d.ts",
+          "sha256": "32cafbc484dea6b0ab62cf8473182bbcb23020d70845b406f80b7526f38ae862"
+        },
+        {
+          "bytes": 926,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.d.ts",
+          "sha256": "7fe93b39b810eadd916be8db880dd7f0f7012a5cc6ffb62de8f62a2117fa6f1f"
+        },
+        {
+          "bytes": 993,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.full.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.full.d.ts",
+          "sha256": "19adadff5144f8f89fef0a10b299d7a96206f4913d4c17d4864171320e9edbd6"
+        },
+        {
+          "bytes": 1445,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.intl.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2016.intl.d.ts",
+          "sha256": "fca4cdcb6d6c5ef18a869003d02c9f0fd95df8cfaf6eb431cd3376bc034cad36"
+        },
+        {
+          "bytes": 876,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.arraybuffer.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.arraybuffer.d.ts",
+          "sha256": "b93ec88115de9a9dc1b602291b85baf825c85666bf25985cc5f698073892b467"
+        },
+        {
+          "bytes": 1123,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.d.ts",
+          "sha256": "bb0074cc08b84a2374af33d8bf044b80851ccc9e719a5e202eacf40db2c31600"
+        },
+        {
+          "bytes": 1877,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.date.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.date.d.ts",
+          "sha256": "f5c06dcc3fe849fcb297c247865a161f995cc29de7aa823afdd75aaaddc1419b"
+        },
+        {
+          "bytes": 993,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.full.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.full.d.ts",
+          "sha256": "83635f912d414d0c5a855fba3e18418e9db7e73c2e0e170009c48275cc8c1a36"
+        },
+        {
+          "bytes": 1410,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.intl.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.intl.d.ts",
+          "sha256": "c7b3542146734342e440a84b213384bfa188835537ddbda50d30766f0593aff9"
+        },
+        {
+          "bytes": 2434,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.object.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.object.d.ts",
+          "sha256": "b77e16112127a4b169ef0b8c3a4d730edf459c5f25fe52d5e436a6919206c4d7"
+        },
+        {
+          "bytes": 7170,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.sharedmemory.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.sharedmemory.d.ts",
+          "sha256": "fbffd9337146eff822c7c00acbb78b01ea7ea23987f6c961eba689349e744f8c"
+        },
+        {
+          "bytes": 2540,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.string.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.string.d.ts",
+          "sha256": "6aaeba1e4f228fda4e9175e34d96807e2c6dc984d0b37a772b3af9365a456681"
+        },
+        {
+          "bytes": 1503,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.typedarrays.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2017.typedarrays.d.ts",
+          "sha256": "ce6180fa19b1cccd07ee7f7dbb9a367ac19c0ed160573e4686425060b6df7f57"
+        },
+        {
+          "bytes": 2653,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.asyncgenerator.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.asyncgenerator.d.ts",
+          "sha256": "3f02e2476bccb9dbe21280d6090f0df17d2f66b74711489415a8aa4df73c9675"
+        },
+        {
+          "bytes": 2218,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.asynciterable.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.asynciterable.d.ts",
+          "sha256": "45e3ab34c1c013c8ab2dc1ba4c80c780744b13b5676800ae2e3be27ae862c40c"
+        },
+        {
+          "bytes": 1049,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.d.ts",
+          "sha256": "1a7daebe4f45fb03d9ec53d60008fbf9ac45a697fdc89e4ce218bc94b94f94d6"
+        },
+        {
+          "bytes": 1035,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.full.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.full.d.ts",
+          "sha256": "63787dbe04141f5d3ebce2e08b64bc9bba589beb0a4d22e7994d3005af1e48a6"
+        },
+        {
+          "bytes": 2982,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.intl.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.intl.d.ts",
+          "sha256": "805c86f6cca8d7702a62a844856dbaa2a3fd2abef0536e65d48732441dde5b5b"
+        },
+        {
+          "bytes": 1314,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.promise.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.promise.d.ts",
+          "sha256": "e42e397f1a5a77994f0185fd1466520691456c772d06bf843e5084ceb879a0ad"
+        },
+        {
+          "bytes": 1193,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.regexp.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2018.regexp.d.ts",
+          "sha256": "f4c2b41f90c95b1c532ecc874bd3c111865793b23aebcc1c3cbbabcd5d76ffb0"
+        },
+        {
+          "bytes": 3124,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.array.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.array.d.ts",
+          "sha256": "ab26191cfad5b66afa11b8bf935ef1cd88fabfcb28d30b2dfa6fad877d050332"
+        },
+        {
+          "bytes": 1032,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.d.ts",
+          "sha256": "f94b133a3cb14a288803be545ac2683e0d0ff6661bcd37e31aaaec54fc382aed"
+        },
+        {
+          "bytes": 1035,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.full.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.full.d.ts",
+          "sha256": "e3de8409485b0c198a5a075bd4a1d06d8f42dc52b377709d33b131b97de56456"
+        },
+        {
+          "bytes": 919,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.intl.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.intl.d.ts",
+          "sha256": "689da16f46e647cef0d64b0def88910e818a5877ca5379ede156ca3afb780ac3"
+        },
+        {
+          "bytes": 1434,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.object.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.object.d.ts",
+          "sha256": "2088bc26531e38fb05eedac2951480db5309f6be3fa4a08d2221abb0f5b4200d"
+        },
+        {
+          "bytes": 1489,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.string.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.string.d.ts",
+          "sha256": "cb9d366c425fea79716a8fb3af0d78e6b22ebbab3bd64d25063b42dc9f531c1e"
+        },
+        {
+          "bytes": 967,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.symbol.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2019.symbol.d.ts",
+          "sha256": "500934a8089c26d57ebdb688fc9757389bb6207a3c8f0674d68efa900d2abb34"
+        },
+        {
+          "bytes": 38258,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.bigint.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.bigint.d.ts",
+          "sha256": "bc21cc8b6fee4f4c2440d08035b7ea3c06b3511314c8bab6bef7a92de58a2593"
+        },
+        {
+          "bytes": 1162,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.d.ts",
+          "sha256": "f59d0650799f8782fd74cf73c19223730c6d1b9198671b1c5b3a38e1188b5953"
+        },
+        {
+          "bytes": 2917,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.date.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.date.d.ts",
+          "sha256": "7ca53d13d2957003abb47922a71866ba7cb2068f8d154877c596d63c359fed25"
+        },
+        {
+          "bytes": 1035,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.full.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.full.d.ts",
+          "sha256": "577cc49be1979782a5a695b46049566d123e2a75382f10bb82f2e5c87e29059a"
+        },
+        {
+          "bytes": 22394,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.intl.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.intl.d.ts",
+          "sha256": "db839fa0625981ae6e20a55e079c3613184310ca246879245b294573e7cc6926"
+        },
+        {
+          "bytes": 1548,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.number.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.number.d.ts",
+          "sha256": "b7bf9377723203b5a6a4b920164df22d56a43f593269ba6ae1fdc97774b68855"
+        },
+        {
+          "bytes": 1764,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.promise.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.promise.d.ts",
+          "sha256": "54725f8c4df3d900cb4dac84b64689ce29548da0b4e9b7c2de61d41c79293611"
+        },
+        {
+          "bytes": 5089,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.sharedmemory.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.sharedmemory.d.ts",
+          "sha256": "e5594bc3076ac29e6c1ebda77939bc4c8833de72f654b6e376862c0473199323"
+        },
+        {
+          "bytes": 2451,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.string.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.string.d.ts",
+          "sha256": "2f3eb332c2d73e729f3364fcc0c2b375e72a121e8157d25a82d67a138c83a95c"
+        },
+        {
+          "bytes": 1566,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.symbol.wellknown.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2020.symbol.wellknown.d.ts",
+          "sha256": "6f4427f9642ce8d500970e4e69d1397f64072ab73b97e476b4002a646ac743b1"
+        },
+        {
+          "bytes": 997,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.d.ts",
+          "sha256": "8a15b4607d9a499e2dbeed9ec0d3c0d7372c850b2d5f1fb259e8f6d41d468a84"
+        },
+        {
+          "bytes": 1035,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.full.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.full.d.ts",
+          "sha256": "e4a70ead7fea07d9abe520cc9e30c04ac035ebceaab28f9e67211610006c65de"
+        },
+        {
+          "bytes": 8206,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.intl.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.intl.d.ts",
+          "sha256": "a917a49ac94cd26b754ab84e113369a75d1a47a710661d7cd25e961cc797065f"
+        },
+        {
+          "bytes": 2223,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.promise.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.promise.d.ts",
+          "sha256": "db9709688f82c9e5f65a119c64d835f906efe5f559d08b11642d56eb85b79357"
+        },
+        {
+          "bytes": 1553,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.string.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.string.d.ts",
+          "sha256": "4b25b8c874acd1a4cf8444c3617e037d444d19080ac9f634b405583fd10ce1f7"
+        },
+        {
+          "bytes": 3132,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.weakref.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2021.weakref.d.ts",
+          "sha256": "37be57d7c90cf1f8112ee2636a068d8fd181289f82b744160ec56a7dc158a9f5"
+        },
+        {
+          "bytes": 4637,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.array.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.array.d.ts",
+          "sha256": "6d3261badeb7843d157ef3e6f5d1427d0eeb0af0cf9df84a62cfd29fd47ac86e"
+        },
+        {
+          "bytes": 1069,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.d.ts",
+          "sha256": "26e0fe14baee4e127f4365d1ae0b276f400562e45e19e35fd2d4c296684715e6"
+        },
+        {
+          "bytes": 2340,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.error.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.error.d.ts",
+          "sha256": "195daca651dde22f2167ac0d0a05e215308119a3100f5e6268e8317d05a92526"
+        },
+        {
+          "bytes": 1035,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.full.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.full.d.ts",
+          "sha256": "01a30f9e8582b369075c0808df71121e6855cb06fd8d3d39511d9ebb66405205"
+        },
+        {
+          "bytes": 7653,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.intl.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.intl.d.ts",
+          "sha256": "8b11e4285cd2bb164a4dc09248bdec69e9842517db4ca47c1ba913011e44ff2f"
+        },
+        {
+          "bytes": 1046,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.object.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.object.d.ts",
+          "sha256": "0508571a52475e245b02bc50fa1394065a0a3d05277fbf5120c3784b85651799"
+        },
+        {
+          "bytes": 1304,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.regexp.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.regexp.d.ts",
+          "sha256": "fc611fea8d30ea72c6bbfb599c9b4d393ce22e2f5bfef2172534781e7d138104"
+        },
+        {
+          "bytes": 1116,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.string.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2022.string.d.ts",
+          "sha256": "8f9af488f510c3015af3cc8c267a9e9d96c4dd38a1fdff0e11dc5a544711415b"
+        },
+        {
+          "bytes": 40197,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.array.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.array.d.ts",
+          "sha256": "0bd714129fca875f7d4c477a1a392200b0bcd13fb2e80928cd334b63830ea047"
+        },
+        {
+          "bytes": 861,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.collection.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.collection.d.ts",
+          "sha256": "e2c9037ae6cd2c52d80ceef0b3c5ffdb488627d71529cf4f63776daf11161c9a"
+        },
+        {
+          "bytes": 960,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.d.ts",
+          "sha256": "1e9332c23e9a907175e0ffc6a49e236f97b48838cc8aec9ce7e4cec21e544b65"
+        },
+        {
+          "bytes": 1035,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.full.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.full.d.ts",
+          "sha256": "821bd6049b8f96b9d24c9fbc49b542dcf7a80d76f9efb330b5ef32c373af83d4"
+        },
+        {
+          "bytes": 2854,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.intl.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2023.intl.d.ts",
+          "sha256": "135d5cf4d345f59f1a9caadfafcd858d3d9cc68290db616cc85797224448cccc"
+        },
+        {
+          "bytes": 2598,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.arraybuffer.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.arraybuffer.d.ts",
+          "sha256": "bc238c3f81c2984751932b6aab223cd5b830e0ac6cad76389e5e9d2ffc03287d"
+        },
+        {
+          "bytes": 1185,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.collection.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.collection.d.ts",
+          "sha256": "4a07f9b76d361f572620927e5735b77d6d2101c23cdd94383eb5b706e7b36357"
+        },
+        {
+          "bytes": 1127,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.d.ts",
+          "sha256": "3753fbc1113dc511214802a2342280a8b284ab9094f6420e7aa171e868679f91"
+        },
+        {
+          "bytes": 1035,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.full.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.full.d.ts",
+          "sha256": "b9f65879de79a7647ad2e5b8089277c215911fa99d4b858d78014df6ba2852f3"
+        },
+        {
+          "bytes": 1220,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.object.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.object.d.ts",
+          "sha256": "7c4e8dc6ab834cc6baa0227e030606d29e3e8449a9f67cdf5605ea5493c4db29"
+        },
+        {
+          "bytes": 1350,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.promise.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.promise.d.ts",
+          "sha256": "de7ba0fd02e06cd9a5bd4ab441ed0e122735786e67dde1e849cced1cd8b46b78"
+        },
+        {
+          "bytes": 1034,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.regexp.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.regexp.d.ts",
+          "sha256": "6148e4e88d720a06855071c3db02069434142a8332cf9c182cda551adedf3156"
+        },
+        {
+          "bytes": 3038,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.sharedmemory.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.sharedmemory.d.ts",
+          "sha256": "d63dba625b108316a40c95a4425f8d4294e0deeccfd6c7e59d819efa19e23409"
+        },
+        {
+          "bytes": 1155,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.string.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2024.string.d.ts",
+          "sha256": "0568d6befee03dd435bed4fc25c4e46865b24bdcb8c563fdc21f580a2c301904"
+        },
+        {
+          "bytes": 3839,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.collection.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.collection.d.ts",
+          "sha256": "30d62269b05b584741f19a5369852d5d34895aa2ac4fd948956f886d15f9cc0d"
+        },
+        {
+          "bytes": 1079,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.d.ts",
+          "sha256": "999ca32883495a866aa5737fe1babc764a469e4cde6ee6b136a4b9ae68853e4b"
+        },
+        {
+          "bytes": 20489,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.float16.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.float16.d.ts",
+          "sha256": "f128dae7c44d8f35ee42e0a437000a57c9f06cc04f8b4fb42eebf44954d53dc8"
+        },
+        {
+          "bytes": 1035,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.full.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.full.d.ts",
+          "sha256": "e03da518b01b46a4c99a1f88cd727ee98ddf14492c43dae1ae7a63e992971bab"
+        },
+        {
+          "bytes": 9390,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.intl.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.intl.d.ts",
+          "sha256": "ffbe6d7b295306b2ba88030f65b74c107d8d99bdcf596ea99c62a02f606108b0"
+        },
+        {
+          "bytes": 8637,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.iterator.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.iterator.d.ts",
+          "sha256": "996fb27b15277369c68a4ba46ed138b4e9e839a02fb4ec756f7997629242fd9f"
+        },
+        {
+          "bytes": 1619,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.promise.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.promise.d.ts",
+          "sha256": "79b712591b270d4778c89706ca2cfc56ddb8c3f895840e477388f1710dc5eda9"
+        },
+        {
+          "bytes": 1255,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.regexp.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es2025.regexp.d.ts",
+          "sha256": "20884846cef428b992b9bd032e70a4ef88e349263f63aeddf04dda837a7dba26"
+        },
+        {
+          "bytes": 218947,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es5.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es5.d.ts",
+          "sha256": "6388847232654d7fcbed7fe89ea511a65ad1f5104b41e905c43f90910e1408b6"
+        },
+        {
+          "bytes": 993,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es6.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.es6.d.ts",
+          "sha256": "174a0fa01bb60bcb80e09b0b7bdcdddf688891433d6030244df5b44eb9ebd210"
+        },
+        {
+          "bytes": 1752,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.array.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.array.d.ts",
+          "sha256": "5fcab789c73a97cd43828ee3cc94a61264cf24d4c44472ce64ced0e0f148bdb2"
+        },
+        {
+          "bytes": 2598,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.collection.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.collection.d.ts",
+          "sha256": "db59a81f070c1880ad645b2c0275022baa6a0c4f0acdc58d29d349c6efcf0903"
+        },
+        {
+          "bytes": 1244,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.d.ts",
+          "sha256": "17f13ecb98cbc39243f2eee1f16d45cd8ec4706b03ee314f1915f1a8b42f6984"
+        },
+        {
+          "bytes": 917,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.date.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.date.d.ts",
+          "sha256": "673294292640f5722b700e7d814e17aaf7d93f83a48a2c9b38f33cbc940ad8b0"
+        },
+        {
+          "bytes": 1031,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.decorators.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.decorators.d.ts",
+          "sha256": "d786b48f934cbca483b3c6d0a798cb43bbb4ada283e76fb22c28e53ae05b9e69"
+        },
+        {
+          "bytes": 6767,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.disposable.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.disposable.d.ts",
+          "sha256": "1ecb8e347cb6b2a8927c09b86263663289418df375f5e68e11a0ae683776978f"
+        },
+        {
+          "bytes": 990,
+          "canonicalPath": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.error.d.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "node_modules/@typescript/typescript-linux-arm64/lib/lib.esnext.error.d.ts",
+          "sha256": "142efd4ce210576f777dc34df121777be89eda476942d6d6663b03dcb53be3ff"
+        }
+      ],
+      "effectsTruncated": 539,
+      "egress": {
+        "allow": 9,
+        "deny": 1,
+        "live": 18
+      },
+      "hash": "c8edc6941c222a15f19730933e2680761e5c19e2c791e2a71cf1f6da3fd5fbdc",
+      "hits": [
+        {
+          "decision": "review",
+          "detail": "devDependencies:@types/node ^22.0.0",
+          "path": "package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:tsx ^4.0.0",
+          "path": "package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:typescript ^5.0.0",
+          "path": "package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "build",
+          "path": "package.json",
+          "rule": "manifest-script-change"
+        },
+        {
+          "decision": "review",
+          "detail": "start",
+          "path": "package.json",
+          "rule": "manifest-script-change"
+        },
+        {
+          "decision": "review",
+          "detail": "test",
+          "path": "package.json",
+          "rule": "manifest-script-change"
+        }
+      ],
+      "hmac": "0d0c4e5ed571f748c805a8cc77d9cb921e6dcc0ff34de22e4bb06092feeca7f2",
+      "kind": "turn.held",
+      "mechanism": "copy",
+      "outboundHeldForReview": 0,
+      "prev": "21b0396a7b8e3713ae8cc6d9de94a7dbd9b48e0b835c08529c8bdc21193824b8",
+      "principal": "policy",
+      "rule": "dependency-added",
+      "runId": "4116265b-837e-4f24-95a1-9ea30ae6afbd",
+      "seq": 215,
+      "shadowDir": "~/.volc-agent-launchpad/data/shadows/4116265b-837e-4f24-95a1-9ea30ae6afbd",
+      "ts": "2026-08-31T10:13:11.162Z",
+      "workspaceDigestAfter": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+      "workspaceFilesAfter": 3,
+      "workspacePath": "~/.volc-agent-launchpad/workspaces/25809de4-59ad-44b8-b07d-981a4343a963",
+      "workspaceUnreadableAfter": 0
+    }
+  ],
+  "toolEvents": {
+    "recorded": true,
+    "reported": true,
+    "exit": "ok",
+    "commands": 11,
+    "commandsFailed": 0,
+    "failed": []
+  },
+  "modelUsage": {
+    "present": true,
+    "tokens": 313821,
+    "inputTokens": 163295,
+    "cachedInputTokens": 147456,
+    "outputTokens": 3070
+  },
+  "providerRequests": [],
+  "timeline": {
+    "runId": "4116265b-837e-4f24-95a1-9ea30ae6afbd",
+    "agentId": "25809de4-59ad-44b8-b07d-981a4343a963",
+    "verdict": "held",
+    "rule": "dependency-added",
+    "principal": null,
+    "seq": 215,
+    "at": "2026-08-31T10:13:11.162Z",
+    "mechanism": "copy",
+    "effectCount": 739,
+    "truncated": 639,
+    "effects": [
+      {
+        "path": "node_modules/.bin/esbuild",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../esbuild/bin/esbuild",
+        "escapes": false
+      },
+      {
+        "path": "node_modules/.bin/tsc",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../typescript/bin/tsc",
+        "escapes": false
+      },
+      {
+        "path": "node_modules/.bin/tsx",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../tsx/dist/cli.mjs",
+        "escapes": false
+      },
+      {
+        "path": "node_modules/.package-lock.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 5490
+      },
+      {
+        "path": "node_modules/@esbuild/linux-arm64/README.md",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 145
+      },
+      {
+        "path": "node_modules/@esbuild/linux-arm64/bin/esbuild",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 10289264
+      },
+      {
+        "path": "node_modules/@esbuild/linux-arm64/package.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 380
+      },
+      {
+        "path": "node_modules/@types/node/LICENSE",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1141
+      },
+      {
+        "path": "node_modules/@types/node/README.md",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1582
+      },
+      {
+        "path": "node_modules/@types/node/assert/strict.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1652
+      },
+      {
+        "path": "node_modules/@types/node/assert.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 42891
+      },
+      {
+        "path": "node_modules/@types/node/async_hooks.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 29929
+      },
+      {
+        "path": "node_modules/@types/node/buffer.buffer.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 22956
+      },
+      {
+        "path": "node_modules/@types/node/buffer.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 81152
+      },
+      {
+        "path": "node_modules/@types/node/child_process.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 59905
+      },
+      {
+        "path": "node_modules/@types/node/cluster.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 19527
+      },
+      {
+        "path": "node_modules/@types/node/console.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 4250
+      },
+      {
+        "path": "node_modules/@types/node/constants.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 491
+      },
+      {
+        "path": "node_modules/@types/node/crypto.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 168236
+      },
+      {
+        "path": "node_modules/@types/node/dgram.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 31107
+      },
+      {
+        "path": "node_modules/@types/node/diagnostics_channel.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 34577
+      },
+      {
+        "path": "node_modules/@types/node/dns/promises.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 20815
+      },
+      {
+        "path": "node_modules/@types/node/dns.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 34353
+      },
+      {
+        "path": "node_modules/@types/node/domain.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 6597
+      },
+      {
+        "path": "node_modules/@types/node/events.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 47375
+      },
+      {
+        "path": "node_modules/@types/node/ffi.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 20013
+      },
+      {
+        "path": "node_modules/@types/node/fs/promises.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 63652
+      },
+      {
+        "path": "node_modules/@types/node/fs.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 202247
+      },
+      {
+        "path": "node_modules/@types/node/globals.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 5084
+      },
+      {
+        "path": "node_modules/@types/node/globals.typedarray.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 4864
+      },
+      {
+        "path": "node_modules/@types/node/http.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 99275
+      },
+      {
+        "path": "node_modules/@types/node/http2.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 119374
+      },
+      {
+        "path": "node_modules/@types/node/https.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 16812
+      },
+      {
+        "path": "node_modules/@types/node/index.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 5053
+      },
+      {
+        "path": "node_modules/@types/node/inspector/promises.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1471
+      },
+      {
+        "path": "node_modules/@types/node/inspector.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 12276
+      },
+      {
+        "path": "node_modules/@types/node/inspector.generated.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 228362
+      },
+      {
+        "path": "node_modules/@types/node/module.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 32983
+      },
+      {
+        "path": "node_modules/@types/node/net.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 47292
+      },
+      {
+        "path": "node_modules/@types/node/os.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 19278
+      },
+      {
+        "path": "node_modules/@types/node/package.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 4508
+      },
+      {
+        "path": "node_modules/@types/node/path/posix.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 194
+      },
+      {
+        "path": "node_modules/@types/node/path/win32.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 194
+      },
+      {
+        "path": "node_modules/@types/node/path.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 7639
+      },
+      {
+        "path": "node_modules/@types/node/perf_hooks.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 23015
+      },
+      {
+        "path": "node_modules/@types/node/process.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 115066
+      },
+      {
+        "path": "node_modules/@types/node/punycode.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3780
+      },
+      {
+        "path": "node_modules/@types/node/querystring.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 6642
+      },
+      {
+        "path": "node_modules/@types/node/quic.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 92303
+      },
+      {
+        "path": "node_modules/@types/node/readline/promises.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 6418
+      },
+      {
+        "path": "node_modules/@types/node/readline.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 21216
+      },
+      {
+        "path": "node_modules/@types/node/repl.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 19023
+      },
+      {
+        "path": "node_modules/@types/node/sea.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 2045
+      },
+      {
+        "path": "node_modules/@types/node/sqlite.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 55651
+      },
+      {
+        "path": "node_modules/@types/node/stream/consumers.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 4272
+      },
+      {
+        "path": "node_modules/@types/node/stream/iter.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 17428
+      },
+      {
+        "path": "node_modules/@types/node/stream/promises.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 7347
+      },
+      {
+        "path": "node_modules/@types/node/stream/web.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 12122
+      },
+      {
+        "path": "node_modules/@types/node/stream.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 90588
+      },
+      {
+        "path": "node_modules/@types/node/string_decoder.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1318
+      },
+      {
+        "path": "node_modules/@types/node/test/reporters.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 2779
+      },
+      {
+        "path": "node_modules/@types/node/test.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 117229
+      },
+      {
+        "path": "node_modules/@types/node/timers/promises.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3383
+      },
+      {
+        "path": "node_modules/@types/node/timers.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 7351
+      },
+      {
+        "path": "node_modules/@types/node/tls.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 59265
+      },
+      {
+        "path": "node_modules/@types/node/trace_events.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3842
+      },
+      {
+        "path": "node_modules/@types/node/ts5.6/buffer.buffer.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 22092
+      },
+      {
+        "path": "node_modules/@types/node/ts5.6/compatibility/float16array.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3811
+      },
+      {
+        "path": "node_modules/@types/node/ts5.6/globals.typedarray.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1238
+      },
+      {
+        "path": "node_modules/@types/node/ts5.6/index.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 5381
+      },
+      {
+        "path": "node_modules/@types/node/ts5.7/compatibility/float16array.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3872
+      },
+      {
+        "path": "node_modules/@types/node/ts5.7/index.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 5380
+      },
+      {
+        "path": "node_modules/@types/node/tty.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 11270
+      },
+      {
+        "path": "node_modules/@types/node/url.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 25457
+      },
+      {
+        "path": "node_modules/@types/node/util/types.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 23832
+      },
+      {
+        "path": "node_modules/@types/node/util.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 65409
+      },
+      {
+        "path": "node_modules/@types/node/v8.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 42889
+      },
+      {
+        "path": "node_modules/@types/node/vfs.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 6533
+      },
+      {
+        "path": "node_modules/@types/node/vm.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 53141
+      },
+      {
+        "path": "node_modules/@types/node/wasi.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 6250
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/abortcontroller.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1989
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/blob.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 902
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/console.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 149
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/crypto.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1449
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/domexception.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3052
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/encoding.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 414
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/events.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3367
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/fetch.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3524
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/importmeta.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 259
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/messaging.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1113
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/navigator.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 891
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/performance.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 2551
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/storage.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 724
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/streams.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 6707
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/timers.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1557
+      },
+      {
+        "path": "node_modules/@types/node/web-globals/url.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 800
+      },
+      {
+        "path": "node_modules/@types/node/worker_threads.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 29736
+      },
+      {
+        "path": "node_modules/@types/node/zlib/iter.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 5077
+      },
+      {
+        "path": "node_modules/@types/node/zlib.d.ts",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 22874
+      },
+      {
+        "path": "node_modules/@typescript/typescript-linux-arm64/LICENSE",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 9197
+      }
+    ],
+    "conflictPaths": [],
+    "appliedPaths": [],
+    "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+    "workspaceDigestAfter": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+    "workspaceDigestReason": null,
+    "workspaceFilesBefore": 3,
+    "workspaceFilesAfter": 3,
+    "workspaceUnreadableBefore": 0,
+    "workspaceUnreadableAfter": 0,
+    "beginRecorded": true,
+    "confinement": "container+sealed-network",
+    "confinementReason": null,
+    "network": "shadow-4116265b-837e-4f24-95a1-9ea30ae6afbd",
+    "egressAllowlistSize": 5,
+    "modelChannel": "terminated-at-broker",
+    "codexHomeFiles": 1,
+    "egress": {
+      "allow": 9,
+      "deny": 1,
+      "live": 18
+    },
+    "outboundDropped": null,
+    "outboundReplayed": null,
+    "outboundFailed": null,
+    "outboundHeldForReview": 0,
+    "codexHomeRestored": false,
+    "codexHomeVerifiedUnchanged": true,
+    "codexHomeDroppedAfterReview": null,
+    "codexHomeChanged": null,
+    "networkLeaked": null,
+    "confinementStateLost": false,
+    "records": [
+      {
+        "seq": 210,
+        "kind": "seal.fallback",
+        "hash": "5b6f7c45c450"
+      },
+      {
+        "seq": 211,
+        "kind": "turn.begin",
+        "hash": "582e222b0b47"
+      },
+      {
+        "seq": 212,
+        "kind": "turn.executed",
+        "hash": "beed53d7c79d"
+      },
+      {
+        "seq": 213,
+        "kind": "effects.captured",
+        "hash": "46e869350b59"
+      },
+      {
+        "seq": 214,
+        "kind": "policy.decision",
+        "hash": "21b0396a7b8e"
+      },
+      {
+        "seq": 215,
+        "kind": "turn.held",
+        "hash": "c8edc6941c22"
+      }
+    ]
+  },
+  "workspace": [
+    {
+      "path": ".gitignore",
+      "bytes": 39
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 586
+    },
+    {
+      "path": "README.md",
+      "bytes": 150
+    }
+  ]
+}

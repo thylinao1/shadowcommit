@@ -1,0 +1,734 @@
+name: check
+
+# Every push and every pull request. A gate that only runs on one branch is a gate that discovers
+# problems after the merge that introduced them.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # The command the README tells a reviewer to run, run exactly as written. Not a subset, not a
+  # variant that avoids the parts we know are red: if `npm run check` fails for a person who clones
+  # this repository, it must fail here too. A CI job made green by excluding the failing suite is
+  # the same defect as a gate that prints PASS for checks it never ran.
+  check:
+    name: npm run check
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: docker and kernel facts, recorded before anything depends on them
+        run: |
+          echo "kernel:  $(uname -sr)"
+          echo "uid:     $(id -u)"
+          echo "docker:  $(docker --version 2>/dev/null || echo absent)"
+          echo "overlay: $(grep -c overlay /proc/filesystems || true) entries in /proc/filesystems"
+          echo "fs:      $(findmnt -no FSTYPE -T "$PWD")"
+      - name: check
+        id: check
+        run: npm run check
+
+      # The corpus drift gate lives in `npm run corpus`, which replays 8,190 scenarios and needs the
+      # four pinned source repositories, so it does not run here. This is its cheap half: it asks
+      # whether the shipped report names the policy that was just built. Three merges in one night
+      # left `npm run corpus` exiting 1 on main because a file in the policy's import closure changed
+      # without the report being republished, and every one was found by a person running it by hand.
+      # It runs after `npm run check` because that is what produces apps/server/dist.
+      - name: The shipped corpus report names the policy that is built
+        run: node research/corpus/check-stamp.mjs
+      - name: why it failed, in the summary rather than only in the log
+        if: failure()
+        run: |
+          # ASKED, NOT ASSERTED. This note has now rotted twice in the same way, and the second time
+          # was this lane's own doing. Version one said a failure here was issue #10, a teardown race
+          # in `network-docker.test.ts`: wrong, because it described a suite that runs. Version two
+          # replaced it with "every one of that file's 17 cases is skipped in this job, on every
+          # run", which is true today and is still a standing claim about runs that have not
+          # happened. Add an image build to this job and it becomes false, silently, in exactly the
+          # way version one became false. So the note reads the engine and reports THIS run.
+          if docker image inspect --format '{{.Id}}' volc-agent-runtime:local >/dev/null 2>&1; then
+            VERDICT="PRESENT in this run, so \`probeEngine()\` may have let that file execute here. Read its own result in the log before concluding anything from this note."
+          else
+            VERDICT="ABSENT in this run, so \`probeEngine()\` at network-docker.test.ts:45-63 turned every describe into \`describe.skip\` and all 17 of that file's cases skipped without measuring anything."
+          fi
+          {
+            echo "### \`npm run check\` failed"
+            echo
+            echo "\`volc-agent-runtime:local\` was $VERDICT"
+            echo
+            echo "This job builds no image. It does pull one: \`npm run check\` runs \`npm run"
+            echo "test\`, whose \`pretest\` is \`scripts/preflight-docker-mount.sh\`, and line 30 of"
+            echo "that script runs \`docker run --rm ... node:22-bookworm-slim true\`, which pulls"
+            echo "\`node:22-bookworm-slim\` on a fresh runner."
+            echo
+            echo "Do not read the CI banner as evidence about that second image. \`probeEngine()\`"
+            echo "loops over the two names and RETURNS on the first one it cannot inspect, and"
+            echo "\`volc-agent-runtime:local\` is first in that loop, so a banner naming it says"
+            echo "nothing at all about \`node:22-bookworm-slim\`. The pull is read off"
+            echo "\`scripts/preflight-docker-mount.sh\` directly."
+            echo
+            echo "The containment matrix runs in the \`sealed network, real kernel\` job, where a"
+            echo "gate fails the run if any of that file's cases is absent, skipped, or renamed."
+            echo "Read that job, not this one, for anything about egress."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # The fuzz suites get their own job so a fuzz failure is never mistaken for an ordinary test
+  # failure, and so CI can afford far more cases than a local run.
+  #
+  # The seed rotates with the run number. A fixed seed would explore the same cases forever, which is
+  # the failure mode that makes a fuzzer decorative; a rotating one keeps finding new ground, and any
+  # failure prints the seed that reproduces it exactly.
+  fuzz:
+    name: fuzz (${{ matrix.label }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: fixed seed
+            seed: "6201581"
+            cases: "400"
+          - label: rotating seed
+            seed: ""
+            cases: "400"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: settlement path and no-shell
+        env:
+          FUZZ_SEED: ${{ matrix.seed || github.run_id }}
+          FUZZ_CASES: ${{ matrix.cases }}
+        run: |
+          echo "FUZZ_SEED=$FUZZ_SEED FUZZ_CASES=$FUZZ_CASES" >> "$GITHUB_STEP_SUMMARY"
+          npx vitest run \
+            apps/server/src/settlement-path.fuzz.test.ts \
+            apps/server/src/no-shell.fuzz.test.ts
+      - name: the seed that reproduces this failure
+        if: failure()
+        run: |
+          {
+            echo "### fuzz failure"
+            echo
+            echo "Reproduce exactly:"
+            echo '```'
+            echo "FUZZ_SEED=${{ matrix.seed || github.run_id }} FUZZ_CASES=${{ matrix.cases }} \\"
+            echo "  npx vitest run apps/server/src/settlement-path.fuzz.test.ts apps/server/src/no-shell.fuzz.test.ts"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # The sealer's real-mount cases skip unless the process can both mount and clean up as one
+  # identity. Locally that means they almost never run. Here they do, as root, which is the same
+  # shape as the POC container the product actually ships in.
+  #
+  # This job exists because of a defect it would have caught: those cases were green and doing
+  # nothing, and the option string they never exercised was rejected outright by the kernel.
+  oracle-container:
+    name: immutable oracle, real container
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    # WHY THIS JOB EXISTS. `immutable-oracle.test.ts:84` reads
+    # `const dockerIt = process.env.RUN_DOCKER_ORACLE_TESTS === "1" ? it : it.skip`, and that
+    # variable was set NOWHERE in the repository. Two tests therefore skipped on every host, in CI
+    # and on every laptop, since the day they were written. The repo already knew: the comment at
+    # `readme-evidence-figures.test.ts:40` says so in as many words. Knowing is not running.
+    #
+    # The two are worth running. One proves the oracle isolates a second container with every escape
+    # channel denied. The other proves it FAILS CLOSED when the trusted assertion rejects the shadow
+    # code, which is the only case that shows the oracle can return a bad answer at all.
+    #
+    # Measured before this job was written, on a real engine (docker 29.5.2): both pass, in 227ms
+    # and 158ms. And with a `docker` on PATH that exits 1, both FAIL on
+    # `docker image inspect --format {{.Id}} volc-agent-runtime:local`, so they are calling the
+    # engine rather than passing on a stub. That second measurement is the one that made them worth
+    # wiring, because a test that passes whether or not the thing works is what this repository has
+    # been finding all week.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      # The oracle inspects this image by name before it runs anything, so a missing image is a
+      # failure of this step rather than a mysterious test error twenty lines later.
+      - name: build the runtime image the oracle runs against
+        run: |
+          set -euo pipefail
+          docker build --file Dockerfile.runtime --tag volc-agent-runtime:local .
+          docker image inspect --format '{{.Id}}' volc-agent-runtime:local
+
+      - name: the oracle tests, and prove they ran rather than skipped
+        env:
+          RUN_DOCKER_ORACLE_TESTS: "1"
+        run: |
+          set -o pipefail
+          REPORT="${RUNNER_TEMP:-/tmp}/oracle.json"
+          # Cleared FIRST, for the reason the sealer job states: a report left by an earlier run
+          # answers every question below about a run that is not this one, and answers them green.
+          rm -f "$REPORT"
+          VITEST_RC=0
+          npx vitest run apps/server/src/immutable-oracle.test.ts \
+            --reporter=default --reporter=json --outputFile="$REPORT" \
+            2>&1 | tee "${RUNNER_TEMP:-/tmp}/oracle.log" || VITEST_RC=$?
+
+          cat > "${RUNNER_TEMP:-/tmp}/assert-oracle.mjs" <<'JS'
+          import { existsSync, readFileSync } from "node:fs";
+
+          // Named, not counted, and for the same reason the sealer gate names its describes: a gate
+          // that counted skips would go quietly green if these two cases were deleted rather than
+          // skipped, which is the failure mode that put this job here in the first place.
+          const REQUIRED = [
+            // vitest's JSON `fullName` joins ancestors with a SPACE, not " > ". The sealer gate
+            // above has this right and the first draft of this one did not, which the local dry run
+            // caught: both patterns matched nothing and the gate failed on a run where both cases
+            // had in fact passed. A gate whose pattern cannot match is indistinguishable from a
+            // gate whose subject did not run, and it fails in the more alarming direction.
+            /^immutable oracle real container runs trusted tests against shadow code/,
+            /^immutable oracle real container fails closed when the trusted functional assertion/,
+          ];
+
+          const reportPath = process.argv[2];
+          const vitestRc = Number(process.argv[3] ?? "0");
+          const problems = [];
+          const ran = [];
+
+          // Before the report is opened. A green report beside a red vitest is either a leftover or
+          // a run that died after writing it, and neither is evidence this job may stand on.
+          if (vitestRc !== 0) {
+            problems.push(
+              "vitest exited " + vitestRc + ", so this run produced no result this job may read",
+            );
+          }
+
+          if (!existsSync(reportPath)) {
+            problems.push("vitest wrote no JSON report to " + reportPath + ", so nothing here knows what ran");
+          } else {
+            let report = null;
+            try {
+              report = JSON.parse(readFileSync(reportPath, "utf8"));
+            } catch (e) {
+              problems.push("the JSON report did not parse: " + e.message);
+            }
+            if (report) {
+              const cases = (report.testResults ?? []).flatMap((f) => f.assertionResults ?? []);
+              if (cases.length === 0) problems.push("the suite collected no tests at all");
+              if ((report.numFailedTests ?? 0) > 0) problems.push(report.numFailedTests + " tests failed");
+              for (const want of REQUIRED) {
+                const seen = cases.filter((c) => want.test(c.fullName));
+                if (seen.length === 0) {
+                  problems.push(
+                    "no case matching " + want + " was collected. If it moved, point this gate at " +
+                      "where it went; if it was deleted, say here what now proves the oracle isolates.",
+                  );
+                  continue;
+                }
+                for (const c of seen) {
+                  if (c.status === "passed") ran.push(c.fullName);
+                  else if (["skipped", "pending", "todo", "disabled"].includes(c.status)) {
+                    problems.push(
+                      "SKIPPED with RUN_DOCKER_ORACLE_TESTS=1 set, which is the exact state this " +
+                        "job exists to refuse: " + c.fullName,
+                    );
+                  } else problems.push(c.fullName + " did not pass: " + c.status);
+                }
+              }
+            }
+          }
+
+          if (problems.length) {
+            for (const p of problems) console.error("::error::" + p);
+            process.exit(1);
+          }
+          console.log("the container oracle ran for real:");
+          for (const name of ran) console.log("  " + name);
+          JS
+          node "${RUNNER_TEMP:-/tmp}/assert-oracle.mjs" "$REPORT" "$VITEST_RC"
+
+  sealer-root:
+    name: sealer, real mounts (root)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: overlay sealer as root, and prove the mount cases ran rather than skipped
+        run: |
+          set -o pipefail
+          REPORT="${RUNNER_TEMP:-/tmp}/sealer.json"
+          # Clear the path FIRST. A report left by an earlier run of this job answers every question
+          # below about a run that is not this one, and it answers them green.
+          rm -f "$REPORT"
+          VITEST_RC=0
+          sudo --preserve-env=PATH env "PATH=$PATH" \
+            npx vitest run apps/server/src/overlay-sealer.test.ts \
+            --reporter=default --reporter=json --outputFile="$REPORT" \
+            2>&1 | tee "${RUNNER_TEMP:-/tmp}/sealer.log" || VITEST_RC=$?
+          # Held, and handed to the assertion below, because a red vitest is a fact about this run
+          # that no report can overrule. GitHub runs this block as `bash -e`, so until now the shell
+          # aborted here and the step's own guard was never reached or exercised: the one thing this
+          # step must not do, read a report vitest did not stand behind, was prevented by an option
+          # set outside the step rather than by anything the step checks.
+
+          # A suite that goes green because it quietly did nothing is worse than a red one, and this
+          # job exists because that already happened once: the overlay cases were passing without
+          # executing, and the mount option they never exercised was rejected by the kernel.
+          #
+          # The first version of this gate grepped the log for the banner the suite prints when it
+          # decides to skip. That banner is a top-level console.log run during module collection and
+          # vitest's default reporter never surfaces it, so the grep could not match on any host and
+          # the job fell through to its success echo for a run where all three mount cases skipped:
+          # absence of evidence recorded as evidence of absence, which is the exact defect the job
+          # was written to catch. Read the machine-readable result instead, and name the cases that
+          # have to have run rather than trusting that nothing skipped.
+          cat > "${RUNNER_TEMP:-/tmp}/assert-sealer.mjs" <<'JS'
+          import { appendFileSync, existsSync, readFileSync } from "node:fs";
+
+          // Named, not counted. If one of these describes is renamed the gate goes red and whoever
+          // renamed it has to say here what now proves the mounts happened; a gate that only counts
+          // skips would go quietly green if the cases were deleted instead.
+          const REQUIRED = [
+            /^overlay on a host that can mount /,
+            /^the composition gate /,
+          ];
+
+          const reportPath = process.argv[2];
+          const vitestRc = Number(process.argv[3] ?? "0");
+          const problems = [];
+          const ran = [];
+
+          // Checked before the report is even opened. A green report next to a red vitest is either
+          // a leftover or a run that failed after writing it, and neither is evidence this job may
+          // stand on.
+          if (vitestRc !== 0) {
+            problems.push(
+              "vitest exited " + vitestRc + ", so this run produced no result this job may read; " +
+                "anything at " + reportPath + " is not what this run proved",
+            );
+          }
+
+          if (!existsSync(reportPath)) {
+            problems.push("vitest wrote no JSON report to " + reportPath + ", so nothing here knows what ran");
+          } else {
+            let report = null;
+            try {
+              report = JSON.parse(readFileSync(reportPath, "utf8"));
+            } catch (e) {
+              problems.push("the JSON report did not parse: " + e.message);
+            }
+            if (report) {
+              const cases = (report.testResults ?? []).flatMap((f) => f.assertionResults ?? []);
+              if (cases.length === 0) problems.push("the suite collected no tests at all");
+              for (const c of cases) {
+                if (["skipped", "pending", "todo", "disabled"].includes(c.status)) {
+                  problems.push("skipped as root, so this job proved nothing about it: " + c.fullName);
+                }
+              }
+              if ((report.numFailedTests ?? 0) > 0) problems.push(report.numFailedTests + " tests failed");
+              for (const want of REQUIRED) {
+                const seen = cases.filter((c) => want.test(c.fullName));
+                if (seen.length === 0) {
+                  problems.push("no case matching " + want + " was collected; if it moved, point this gate at where it went");
+                  continue;
+                }
+                for (const c of seen) {
+                  if (c.status === "passed") ran.push(c.fullName);
+                  else problems.push(c.fullName + " did not pass: " + c.status);
+                }
+              }
+            }
+          }
+
+          const unique = (xs) => [...new Set(xs)];
+          const summary = [];
+          if (problems.length > 0) {
+            for (const p of unique(problems)) console.log("::error::" + p);
+            summary.push("### the overlay mount cases did not run as root", "");
+            for (const p of unique(problems)) summary.push("- " + p);
+            process.exitCode = 1;
+          } else {
+            summary.push("### overlay mount cases executed as root", "");
+            for (const name of unique(ran)) summary.push("- passed: " + name);
+          }
+          const text = summary.join("\n") + "\n";
+          if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, text);
+          else console.log(text);
+          JS
+          node "${RUNNER_TEMP:-/tmp}/assert-sealer.mjs" "$REPORT" "$VITEST_RC"
+
+  # WHY THIS JOB EXISTS. `network-docker.test.ts` is the strongest containment evidence in this
+  # repository and it has never executed on a GitHub runner. Not once.
+  #
+  # `probeEngine()` at network-docker.test.ts:45-63 requires `volc-agent-runtime:local` and
+  # `node:22-bookworm-slim` to already be in the local image store, and line 70 turns all five
+  # describes into `describe.skip` when either is missing. The `check` job builds no image, so on
+  # every run of this workflow the file has reported `17 tests | 17 skipped`, printed a console.warn
+  # nobody reads, and let the job go green. Measured on run 33339824674 on `main`: green, with the
+  # banner naming `volc-agent-runtime:local` as the missing image.
+  #
+  # TWO DRAFTS OF THIS COMMENT WERE WRONG HERE, and both are recorded rather than quietly fixed,
+  # because a false mechanism inside a correction whose whole subject is a false mechanism is this
+  # repository's signature defect committed by the lane sent to fix it.
+  #
+  # Draft one said `check` "builds no image and pulls nothing". The second half is false: `npm run
+  # check` runs `npm run test`, whose `pretest` is `scripts/preflight-docker-mount.sh`, and line 30
+  # of that script runs `docker run --rm ... node:22-bookworm-slim true`, which pulls that image on a
+  # fresh runner. Read off that script, which is the only thing that establishes it.
+  #
+  # Draft two corrected the claim and then argued for it from the banner: "it names ONE missing
+  # image, which means the other was there". That inference does not hold, and the file it is about
+  # says so. `probeEngine()` at network-docker.test.ts:51-62 loops over
+  # ["volc-agent-runtime:local", "node:22-bookworm-slim"] and RETURNS on the first name it cannot
+  # inspect. `volc-agent-runtime:local` is first, so it is the only name that banner can ever carry
+  # when it is missing, whatever the state of the second image. A right conclusion resting on an
+  # inference its own subject refutes is worth no more than the wrong conclusion it replaced.
+  #
+  # The conclusion is untouched either way, and does not need the pull at all: `volc-agent-runtime:local`
+  # is the image nothing in `check` produces, and one missing image is enough to skip the whole file.
+  #
+  # Seventeen cases were not failing. They were absent, which is worse, because absence reads on the
+  # summary page exactly like success. What was absent: the whole negative matrix against a live
+  # kernel (plain HTTPS, literal IP, DNS, host.docker.internal, raw UDP, the route table, IPv6, and a
+  # redirect from an allowed host to an attacker host), the SL01 no-trace-of-the-seal invariant, the
+  # decoy oracle, the broker decision log, model-channel termination, memory rollback on real codex
+  # turns, and control-plane unreachability.
+  #
+  # This job is deliberately NOT a step inside `check`. `check` runs `npm run check` exactly as the
+  # README tells a reviewer to run it, and building an image into that job would make its green
+  # depend on a setup step no reviewer performs, which is the same defect as a job made green by
+  # excluding a suite. A separate job is also what makes the named-case gate below possible at all,
+  # since the gate needs `--reporter=json` pointed at this one file.
+  #
+  # Cost, measured rather than guessed. The identical `docker build` in `oracle-container` took 18.4
+  # seconds cold on run 33339824674. The 17 cases were run to completion on a developer machine
+  # while this job was being written, all 17 passing in 12.77 seconds wall clock (macOS, Colima,
+  # aarch64, docker 29.5.2, cgroup v2), with the matrix describe alone taking 5.16 s.
+  #
+  # That number is from a different kernel and a different architecture than ubuntu-latest, so it is
+  # a scale rather than a forecast, and the 17 cases have STILL never run on a GitHub runner. The
+  # first green run here replaces this paragraph with the runner's own number.
+  #
+  # THE CEILING DOES NOT BOUND THE SUITE, and an earlier draft of this comment claimed it did. Added
+  # up from the file rather than from memory: hooks allow 300 + 120 + 60 + 60 + 120 + 60 = 720 s
+  # (`beforeAll` at network-docker.test.ts:176 and the five `afterAll`s at 288, 423, 504, 579, 701),
+  # the five long `it`s allow 300 + 300 + 300 + 600 + 300 = 1,800 s (487, 498, 572, 695, 763), and
+  # the twelve matrix rows take vitest's 5 s default, for 2,580 s = 43 minutes before `npm ci` or the
+  # image build. No `timeout-minutes` worth setting is above that.
+  #
+  # So the suite is bounded INSIDE the step instead, with `timeout` on the vitest invocation. That
+  # matters for a specific reason: when the RUNNER kills a job at `timeout-minutes`, GitHub
+  # terminates it and the remaining steps do not execute, so the `if: !cancelled()` artifact upload
+  # below does not fire in precisely the hang it exists for. A step-level cap makes a hang exit 124,
+  # which the gate reads as a red vitest, and the cgroup step and the upload still run. The job
+  # ceiling is set above the sum of the capped steps so it is a backstop rather than the mechanism.
+  sealed-network:
+    name: sealed network, real kernel
+    runs-on: ubuntu-latest
+    # A backstop, not the mechanism. The two steps that can hang are capped inside themselves
+    # (`timeout 1500` on vitest, `timeout 420` on the cgroup script), so the worst honest path is
+    # about npm ci + image build + 25 + 7 minutes, and this sits above it. Set it BELOW the capped
+    # steps and the runner kills the job first, which skips the artifact upload and destroys the
+    # evidence of the hang.
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      # Both images, both asserted present by name, because these two names are exactly what
+      # `probeEngine()` inspects. A missing image has to fail HERE, loudly, rather than twenty lines
+      # later as a silent `describe.skip` that reads like a pass.
+      #
+      # `Dockerfile.runtime` currently derives from `node:22-bookworm-slim`, so building it happens
+      # to leave the second tag in the store too. That is a line in a file this lane does not own and
+      # could change without anyone here noticing, so the pull is explicit rather than inherited.
+      - name: build and prove present both images probeEngine() inspects
+        id: images
+        run: |
+          set -euo pipefail
+          docker build --file Dockerfile.runtime --tag volc-agent-runtime:local .
+          docker image inspect --format '{{.Id}}' volc-agent-runtime:local
+          docker image inspect --format '{{.Id}}' node:22-bookworm-slim >/dev/null 2>&1 \
+            || docker pull node:22-bookworm-slim
+          docker image inspect --format '{{.Id}}' node:22-bookworm-slim
+          echo "kernel:  $(uname -sr)"
+          echo "uid:     $(id -u)"
+          echo "docker:  $(docker --version)"
+          echo "cgroup:  v$(docker info --format '{{.CgroupVersion}}')"
+
+      - name: the containment suite, and prove it ran rather than skipped
+        id: matrix
+        env:
+          # Prints what the container actually saw, row by row, into the log this job uploads. The
+          # evidence is the readback, not a summary of it.
+          SHADOW_PRINT_MATRIX: "1"
+        run: |
+          set -o pipefail
+          REPORT="${RUNNER_TEMP:-/tmp}/sealed-network.json"
+          LOG="${RUNNER_TEMP:-/tmp}/sealed-network.log"
+          # Cleared FIRST, for the reason both gates above state: a report left by an earlier run
+          # answers every question below about a run that is not this one, and answers them green.
+          rm -f "$REPORT" "$LOG"
+          VITEST_RC=0
+          # `timeout` rather than the job ceiling, for the reason the header gives: the suite's own
+          # in-file budget adds to 43 minutes, so a slow-but-not-hung run would be killed by the
+          # RUNNER, and a runner-killed job executes none of its remaining steps. That would drop the
+          # cgroup measurement and the artifact upload in exactly the case they are wanted. Capped
+          # here, a hang is exit 124 from `timeout`, which the gate below reads as a red vitest and
+          # says so, and the rest of the job still runs. 1500 s is 117 times the 12.77 s this suite
+          # took on a developer machine and still under the ceiling above.
+          timeout 1500 npx vitest run apps/server/src/network-docker.test.ts \
+            --reporter=default --reporter=json --outputFile="$REPORT" \
+            2>&1 | tee "$LOG" || VITEST_RC=$?
+          # Held rather than allowed to abort the block. GitHub runs this as `bash -e`, and the
+          # sealer gate records what that cost: the shell died at the pipeline and the step's own
+          # guard was never reached, so the one thing the step must not do was prevented by an
+          # option set outside the step rather than by anything the step checks.
+
+          cat > "${RUNNER_TEMP:-/tmp}/assert-sealed-network.mjs" <<'JS'
+          import { appendFileSync, existsSync, readFileSync } from "node:fs";
+
+          // ALL SEVENTEEN CASES, named rather than counted.
+          //
+          // Counting is not enough here and the reason is specific: `describe.skip` is a legal state
+          // that produces a green vitest, so a gate that asked "did anything fail" would agree with
+          // every run this suite has ever had in CI. And a gate that only counted skips would go
+          // quietly green if these cases were DELETED instead of skipped, which is the failure mode
+          // that put the two gates above into this file.
+          //
+          // THE FIRST VERSION OF THIS LIST NAMED ONLY THE EIGHT MATRIX ROWS, and that was the same
+          // defect one layer in. The job header below lists SL01, the shadow-root env leak, the
+          // decoy oracle SL02, the broker decision log, the two exfiltration cases, model-channel
+          // termination, memory rollback on real codex turns, and control-plane unreachability as
+          // what was absent from CI and why this job exists. None of the nine was named, so all nine
+          // could be deleted and this gate would print "the containment matrix executed against a
+          // live kernel" over a file that had lost more than half of itself. Measured, not reasoned
+          // about: with the nine dropped from a report the asserter exits 0. A control correct in
+          // intent and unenforceable where it mattered is what this file was written to refuse, so
+          // the gate now claims exactly the scope the comment claims.
+          //
+          // vitest's JSON `fullName` joins ancestor names with a SPACE, not " > ". The oracle gate
+          // records that its first draft got this wrong, matched nothing, and failed a run where
+          // both cases had in fact passed: a gate whose pattern cannot match is indistinguishable
+          // from a gate whose subject did not run, and it fails in the more alarming direction. So
+          // each name below is a describe name followed by one space and the `it` name. Confirmed
+          // against vitest 4.1.10 by running a synthetic file carrying the real describe text, not
+          // from memory.
+          //
+          // The describes are flat. There is no nesting in this file, so `describe + " " + it` is
+          // the whole of `fullName`.
+          const SEALED = "the sealed network, on the real engine ";
+          const EXFIL = "a turn that exfiltrates and then looks clean (a34, a35) ";
+          const CHANNEL = "the model channel is terminated at the broker ";
+          const MEMORY = "the agent's memory rolls back with the turn (spike B, on real codex turns) ";
+          const CONTROL = "a turn cannot reach the control plane every other agent reads (a32, r08, r09) ";
+
+          // The eight rows of the negative egress matrix. These are the headline containment claim:
+          // code inside a turn cannot reach the network except through the broker.
+          const MATRIX = [
+            "plain HTTPS to an arbitrary host fails",
+            "connecting by literal IP instead of hostname fails",
+            "a DNS lookup of any name other than the broker resolves nothing",
+            "host.docker.internal is not a way back to the host",
+            "raw UDP to an arbitrary host and port gets no reply",
+            "has one route and no default gateway",
+            "has no IPv6 destination to prefer",
+            "a redirect from an allowed host to an attacker host fails at the second hop",
+          ].map((name) => SEALED + name);
+
+          // The other nine. Not the headline claim, and every one of them is named in the job header
+          // as something that had never executed on a runner.
+          const REST = [
+            SEALED + "shows the turn a workspace path with no trace of the seal (SL01)",
+            SEALED + "does not leak the shadow root through any environment variable",
+            SEALED + "answers a decoy destination, so a failed probe is not a watched-ness oracle (SL02)",
+            SEALED + "logged a decision for every attempt that reached the broker",
+            EXFIL + "holds the write: the destination's own log is empty while the agent reports success",
+            EXFIL + "sends it exactly once, and only after the turn committed",
+            CHANNEL + "swaps the one-turn token for the real key, which the container never holds",
+            MEMORY + "a discarded turn is gone from the model's own view of the conversation",
+            CONTROL + "plants nothing that survives its own discard, and nothing another agent will read",
+          ];
+
+          const REQUIRED = [...MATRIX, ...REST];
+
+          // A second, independent tripwire on the same defect. Naming all seventeen means a deletion
+          // goes red UNLESS whoever deletes also edits this list, and an edit to this list is a
+          // sentence somebody has to write. This number is the third place they would have to touch
+          // and the one that is hardest to change without noticing what it says.
+          //
+          // It is a floor, not an equality: a case ADDED to that file must not turn this job red for
+          // existing. Only shrinkage is the defect.
+          const EXPECTED_AT_LEAST = 17;
+
+          const reportPath = process.argv[2];
+          const vitestRc = Number(process.argv[3] ?? "0");
+          const problems = [];
+          const ran = [];
+
+          // Before the report is opened. A green report beside a red vitest is either a leftover or
+          // a run that died after writing it, and neither is evidence this job may stand on.
+          if (vitestRc !== 0) {
+            problems.push(
+              "vitest exited " + vitestRc + ", so this run produced no result this job may read; " +
+                "anything at " + reportPath + " is not what this run proved",
+            );
+          }
+
+          const SKIP_STATES = ["skipped", "pending", "todo", "disabled"];
+
+          if (!existsSync(reportPath)) {
+            problems.push("vitest wrote no JSON report to " + reportPath + ", so nothing here knows what ran");
+          } else {
+            let report = null;
+            try {
+              report = JSON.parse(readFileSync(reportPath, "utf8"));
+            } catch (e) {
+              problems.push("the JSON report did not parse: " + e.message);
+            }
+            if (report) {
+              const cases = (report.testResults ?? []).flatMap((f) => f.assertionResults ?? []);
+
+              // FAILURE ONE: nothing collected at all.
+              if (cases.length === 0) problems.push("the suite collected no tests at all");
+
+              // FAILURE ONE AND A HALF: the file got smaller. The named list below is the real
+              // guard; this one exists so that shrinking the file requires editing a number that
+              // states out loud what it is for.
+              if (cases.length > 0 && cases.length < EXPECTED_AT_LEAST) {
+                problems.push(
+                  "the file collected " + cases.length + " cases, fewer than the " +
+                    EXPECTED_AT_LEAST + " this gate names. Something was deleted. Say here what now " +
+                    "proves what the deleted case proved, then lower this number in the same edit.",
+                );
+              }
+
+              // FAILURE TWO: the whole file skipped, which is the exact state that has held on every
+              // run of this workflow so far and the state this job exists to refuse. It is called
+              // out on its own rather than left to the per-case loop because the cause is one thing
+              // (probeEngine() found no image) and the remedy is one thing (the build step above),
+              // and seventeen identical per-case errors bury that.
+              const skipped = cases.filter((c) => SKIP_STATES.includes(c.status));
+              if (cases.length > 0 && skipped.length === cases.length) {
+                problems.push(
+                  "ALL " + cases.length + " cases skipped, which is `probeEngine()` at " +
+                    "network-docker.test.ts:45-63 finding no `volc-agent-runtime:local` or no " +
+                    "`node:22-bookworm-slim` and line 70 turning every describe into describe.skip. " +
+                    "The build step above is what is supposed to make that impossible, so it did " +
+                    "not do its job. This is a green suite that measured nothing.",
+                );
+              } else {
+                // FAILURE THREE: any individual case skipped. Borrowed from the sealer gate, and it
+                // catches a case added later and gated, which the named list alone would miss.
+                for (const c of skipped) {
+                  problems.push("skipped, so this job proved nothing about it: " + c.fullName);
+                }
+              }
+
+              if ((report.numFailedTests ?? 0) > 0) problems.push(report.numFailedTests + " tests failed");
+
+              // FAILURE FOUR: a named row that is not there.
+              for (const want of REQUIRED) {
+                const seen = cases.filter((c) => c.fullName === want);
+                if (seen.length === 0) {
+                  problems.push(
+                    "no case named \"" + want + "\" was collected. If it moved, point this gate at " +
+                      "where it went; if it was renamed, rename it here too; if it was deleted, say " +
+                      "here what now proves what it proved. For the eight matrix rows that is the " +
+                      "claim that the container has no route out; for the other nine it is whatever " +
+                      "the job header credits them with.",
+                  );
+                  continue;
+                }
+                for (const c of seen) {
+                  if (c.status === "passed") ran.push(c.fullName);
+                  else if (SKIP_STATES.includes(c.status)) {
+                    problems.push("a required matrix row SKIPPED: " + c.fullName);
+                  } else problems.push(c.fullName + " did not pass: " + c.status);
+                }
+              }
+            }
+          }
+
+          const unique = (xs) => [...new Set(xs)];
+          const summary = [];
+          if (problems.length > 0) {
+            for (const p of unique(problems)) console.log("::error::" + p);
+            summary.push("### the containment matrix did not run", "");
+            for (const p of unique(problems)) summary.push("- " + p);
+            process.exitCode = 1;
+          } else {
+            summary.push("### the containment matrix executed against a live kernel", "");
+            for (const name of unique(ran)) summary.push("- passed: " + name);
+          }
+          const text = summary.join("\n") + "\n";
+          if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, text);
+          else console.log(text);
+          JS
+          node "${RUNNER_TEMP:-/tmp}/assert-sealed-network.mjs" "$REPORT" "$VITEST_RC"
+
+      # The gap is one notch wider than it looks. `container-confinement.test.ts:141` asserts that
+      # `--pids-limit` appears in the argv the product builds, and even that holds identically on a
+      # kernel that enforces the flag and on one that accepts it and ignores it. `--memory` has no
+      # assertion at all: `grep -rn '"--memory"' apps/server/src` returns three files that BUILD
+      # docker argv (container-codex-runner.ts:102, network-sealer.ts:181, immutable-oracle.ts:167)
+      # and not one test. The word "memory" elsewhere in container-confinement.test.ts is the
+      # agent's memory directory, which is a different thing.
+      #
+      # So nothing in the suite asks whether the kernel kills. This does, and its control is the
+      # load-bearing half: see the script's header for the version of this measurement that a broken
+      # control made meaningless.
+      #
+      # Run even when the suite above is red, because these are independent facts and a red one
+      # should not hide the other.
+      - name: cgroup memory limits are enforced by the kernel, with the control
+        if: ${{ !cancelled() && steps.images.outcome == 'success' }}
+        run: |
+          set -o pipefail
+          # Capped for the same reason as the suite above. The script's own work is two `dd` runs of
+          # 200 MiB, so 420 s is generous; what it guards against is a `docker run` that never
+          # returns, which would otherwise burn the job ceiling and take the artifact upload with it.
+          # A timeout here exits 124, which is none of the script's three contract codes and fails
+          # the step, which is correct: a run that hung measured nothing.
+          timeout 420 bash evidence/cgroup-enforcement.sh volc-agent-runtime:local \
+            "${RUNNER_TEMP:-/tmp}/cgroup-enforcement.json" \
+            2>&1 | tee "${RUNNER_TEMP:-/tmp}/cgroup-enforcement.log"
+
+      # The printed matrix is the evidence itself: the rows the container read back from its own
+      # namespace. The JSON report is what the gate above stood on. Both are uploaded so a reader can
+      # check the gate rather than take its word.
+      - name: upload the matrix readback and the vitest report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-network-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/sealed-network.log
+            ${{ runner.temp }}/sealed-network.json
+            ${{ runner.temp }}/cgroup-enforcement.log
+            ${{ runner.temp }}/cgroup-enforcement.json
+          if-no-files-found: warn
+          retention-days: 7

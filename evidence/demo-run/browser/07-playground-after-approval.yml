@@ -1,0 +1,113 @@
+- generic [ref=f8e3]:
+  - complementary [ref=f8e4]:
+    - generic [ref=f8e5]:
+      - generic [ref=f8e6]: A
+      - generic [ref=f8e7]:
+        - strong [ref=f8e8]: Agent Launchpad
+        - generic [ref=f8e9]: "Shadow Commit: preview and undo on every turn"
+    - button "＋ Create Agent" [ref=f8e10] [cursor=pointer]:
+      - generic [ref=f8e11]: ＋
+      - text: Create Agent
+    - button "Review queue Nothing waiting 0" [ref=f8e256] [cursor=pointer]:
+      - generic [ref=f8e13]:
+        - strong [ref=f8e14]: Review queue
+        - generic [ref=f8e15]: Nothing waiting
+      - generic [ref=f8e16]: "0"
+    - generic [ref=f8e17]:
+      - generic [ref=f8e18]: Your Agents
+      - generic [ref=f8e19]: "1"
+    - navigation [ref=f8e20]:
+      - 'button "R Release Helper Keeps the release tooling of this project in order. Transactions: ON (default) TX" [active] [ref=f8e39] [cursor=pointer]':
+        - generic [ref=f8e40]: R
+        - generic [ref=f8e41]:
+          - strong [ref=f8e42]: Release Helper
+          - generic [ref=f8e43]: Keeps the release tooling of this project in order.
+        - 'generic "Transactions: ON (default)" [ref=f8e44]': TX
+    - generic [ref=f8e23]:
+      - text: Runtime
+      - strong [ref=f8e24]: Codex CLI in docker Runtime
+      - generic [ref=f8e25]: ep-mock-endpoint · docker · local container
+  - main [ref=f8e26]:
+    - generic [ref=f8e260]:
+      - generic [ref=f8e261]:
+        - generic [ref=f8e262]:
+          - heading "Release Helper" [level=1] [ref=f8e263]
+          - generic [ref=f8e264]: ready
+          - generic [ref=f8e266]: "Transactions: ON (default)"
+        - paragraph [ref=f8e268]: Keeps the release tooling of this project in order.
+      - generic [ref=f8e269]:
+        - button "Settings" [ref=f8e270] [cursor=pointer]
+        - button "Stop" [ref=f8e271] [cursor=pointer]
+        - button "Delete" [ref=f8e272] [cursor=pointer]
+    - navigation "Agent views" [ref=f8e273]:
+      - button "Playground" [ref=f8e274] [cursor=pointer]
+      - button "Run timeline 5" [ref=f8e275] [cursor=pointer]:
+        - text: Run timeline
+        - generic [ref=f8e276]: "5"
+    - generic [ref=f8e277]:
+      - generic [ref=f8e278]:
+        - generic [ref=f8e279]:
+          - text: Playground
+          - heading "Build something with your Agent" [level=2] [ref=f8e280]
+        - generic [ref=f8e281]: Session connected
+      - generic [ref=f8e283]:
+        - article [ref=f8e284]:
+          - generic [ref=f8e285]:
+            - strong [ref=f8e286]: You
+            - generic [ref=f8e287]: 17:34
+          - generic [ref=f8e288]: Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.
+        - article [ref=f8e289]:
+          - generic [ref=f8e290]:
+            - strong [ref=f8e291]: Release Helper
+            - generic [ref=f8e292]: 17:34
+          - generic [ref=f8e293]: "Created src/index.ts, src/index.test.ts and package.json, and ran the CLI: it printed \"hello world\"."
+          - paragraph [ref=f8e294]: "Committed: 3 changes"
+        - article [ref=f8e296]:
+          - generic [ref=f8e297]:
+            - strong [ref=f8e298]: You
+            - generic [ref=f8e299]: 17:34
+          - generic [ref=f8e300]: "Set up a release helper for this project: add a git pre-commit hook that fetches our latest lint config from the release service and runs it, then clear out the stale customer export."
+        - article [ref=f8e301]:
+          - generic [ref=f8e302]:
+            - strong [ref=f8e303]: Release Helper
+            - generic [ref=f8e304]: 17:34
+          - generic [ref=f8e305]: "Release helper installed: added .git/hooks/pre-commit to fetch the lint config, and removed the stale customers.jsonl export."
+          - paragraph [ref=f8e306]: "BLOCKED, nothing was sent: protected-asset-delete"
+        - article [ref=f8e308]:
+          - generic [ref=f8e309]:
+            - strong [ref=f8e310]: You
+            - generic [ref=f8e311]: 17:34
+          - generic [ref=f8e312]: Wire the setup step into the project so it runs after install, and add the tools/setup.js it needs.
+        - article [ref=f8e313]:
+          - generic [ref=f8e314]:
+            - strong [ref=f8e315]: Release Helper
+            - generic [ref=f8e316]: 17:34
+          - generic [ref=f8e317]: Added a postinstall script to package.json and created tools/setup.js.
+          - paragraph [ref=f8e318]: "Committed: 2 changes, approved by operator"
+        - article [ref=f8e320]:
+          - generic [ref=f8e321]:
+            - strong [ref=f8e322]: You
+            - generic [ref=f8e323]: 17:34
+          - generic [ref=f8e324]: "Add a release notes generator: a release script in the manifest and the tools/release-notes.js behind it."
+        - article [ref=f8e325]:
+          - generic [ref=f8e326]:
+            - strong [ref=f8e327]: Release Helper
+            - generic [ref=f8e328]: 17:34
+          - generic [ref=f8e329]: Added a release script to package.json and created tools/release-notes.js.
+          - paragraph [ref=f8e330]: Rejected by operator, nothing was sent
+        - article [ref=f8e332]:
+          - generic [ref=f8e333]:
+            - strong [ref=f8e334]: You
+            - generic [ref=f8e335]: 17:34
+          - generic [ref=f8e336]: "Add a second maintenance entry point: a prepare script in the manifest and the tools/prepare.js behind it."
+        - article [ref=f8e337]:
+          - generic [ref=f8e338]:
+            - strong [ref=f8e339]: Release Helper
+            - generic [ref=f8e340]: 17:34
+          - generic [ref=f8e341]: Added a prepare script to package.json and created tools/prepare.js.
+          - paragraph [ref=f8e342]: "Committed: 2 changes, approved by operator"
+      - generic [ref=f8e344]:
+        - textbox "Describe what you want the Agent to do…" [ref=f8e345]
+        - generic [ref=f8e346]:
+          - generic [ref=f8e347]: Enter to send · Shift + Enter for newline · danger-full-access
+          - button "Send message" [disabled] [ref=f8e348]: ↑

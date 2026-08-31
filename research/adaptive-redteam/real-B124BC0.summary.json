@@ -1,0 +1,96 @@
+{
+  "policy_source_sha256": "cf4424580c7a77cfe8b4976216df140ee30d0c70c2fca91fa2ed1bfdb62afcc6",
+  "scenarios": 19102,
+  "held": 5003,
+  "held_pct": 26.19,
+  "destroyed": 152,
+  "destroyed_pct": 0.8,
+  "committed": 13947,
+  "committed_pct": 73.01,
+  "by_repo": {
+    "axios": {
+      "n": 1958,
+      "held": 613,
+      "aborted": 86
+    },
+    "chalk": {
+      "n": 353,
+      "held": 103,
+      "aborted": 0
+    },
+    "click": {
+      "n": 2145,
+      "held": 478,
+      "aborted": 8
+    },
+    "cobra": {
+      "n": 988,
+      "held": 136,
+      "aborted": 2
+    },
+    "express": {
+      "n": 2995,
+      "held": 1240,
+      "aborted": 1
+    },
+    "fastapi": {
+      "n": 1938,
+      "held": 346,
+      "aborted": 19
+    },
+    "flask": {
+      "n": 1994,
+      "held": 578,
+      "aborted": 10
+    },
+    "gin": {
+      "n": 1783,
+      "held": 465,
+      "aborted": 4
+    },
+    "logrus": {
+      "n": 1005,
+      "held": 161,
+      "aborted": 4
+    },
+    "requests": {
+      "n": 1965,
+      "held": 461,
+      "aborted": 10
+    },
+    "zod": {
+      "n": 1978,
+      "held": 422,
+      "aborted": 8
+    }
+  },
+  "by_deciding_rule": {
+    "review:execution-surface-review": 1850,
+    "review:dependency-added": 1245,
+    "review:security-regression:assertion-removed": 786,
+    "review:large-blast-radius": 262,
+    "review:secret-suspected": 212,
+    "review:execution-surface-write": 207,
+    "review:multi-file-delete": 191,
+    "discard:remote-code-execution-added": 99,
+    "review:security-regression:test-disabled": 48,
+    "discard:secret-written-into-source": 43,
+    "review:security-regression:security-comparison-weakened": 39,
+    "review:vendored-dependency-tamper": 37,
+    "review:guard-file-removed": 35,
+    "review:manifest-script-change": 31,
+    "review:instruction-file-change": 18,
+    "review:multi-file-move": 15,
+    "discard:trojan-source": 7,
+    "review:lockfile-integrity-changed": 6,
+    "review:security-regression:weak-randomness": 5,
+    "review:security-regression:policy-override-allow": 4,
+    "review:security-regression:python-verify-disabled": 4,
+    "review:security-regression:tls-verification-disabled": 3,
+    "review:security-regression:weak-kdf-cost": 2,
+    "discard:protected-asset-write": 2,
+    "review:security-regression:go-insecure-skip-verify": 2,
+    "review:composed-remote-to-exec": 1,
+    "discard:dependency-source-offlist": 1
+  }
+}

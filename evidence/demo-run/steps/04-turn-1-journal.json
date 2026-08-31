@@ -1,0 +1,104 @@
+{
+  "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+  "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+  "verdict": "committed",
+  "rule": null,
+  "principal": null,
+  "seq": 347,
+  "at": "2026-08-31T16:21:53.210Z",
+  "mechanism": "copy",
+  "effectCount": 3,
+  "truncated": 0,
+  "effects": [
+    {
+      "path": "package.json",
+      "kind": "create",
+      "class": "dependency",
+      "bytes": 68
+    },
+    {
+      "path": "src/index.test.ts",
+      "kind": "create",
+      "class": "source",
+      "bytes": 43
+    },
+    {
+      "path": "src/index.ts",
+      "kind": "create",
+      "class": "source",
+      "bytes": 63
+    }
+  ],
+  "conflictPaths": [],
+  "appliedPaths": [],
+  "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+  "workspaceDigestAfter": "0fa3323800d4f9224e80554f201b61574bddf9287ab515084b086a1b5f86c769",
+  "workspaceDigestReason": null,
+  "workspaceFilesBefore": 3,
+  "workspaceFilesAfter": 7,
+  "workspaceUnreadableBefore": 0,
+  "workspaceUnreadableAfter": 0,
+  "beginRecorded": true,
+  "confinement": "container+sealed-network",
+  "confinementReason": null,
+  "network": "shadow-153d7db5-c61e-494f-953b-13b29fdfbdf6",
+  "egressAllowlistSize": 5,
+  "modelChannel": "terminated-at-broker",
+  "codexHomeFiles": 1,
+  "egress": {
+    "deny": 1,
+    "live": 2
+  },
+  "outboundDropped": null,
+  "outboundReplayed": 0,
+  "outboundFailed": 0,
+  "outboundHeldForReview": null,
+  "codexHomeRestored": null,
+  "codexHomeVerifiedUnchanged": null,
+  "codexHomeDroppedAfterReview": null,
+  "codexHomeChanged": 30,
+  "networkLeaked": null,
+  "confinementStateLost": false,
+  "records": [
+    {
+      "seq": 340,
+      "kind": "seal.fallback",
+      "hash": "4a611e01722b"
+    },
+    {
+      "seq": 341,
+      "kind": "turn.begin",
+      "hash": "1469df210cb2"
+    },
+    {
+      "seq": 342,
+      "kind": "turn.executed",
+      "hash": "8d91f10d1ef5"
+    },
+    {
+      "seq": 343,
+      "kind": "effects.captured",
+      "hash": "6b6394c03c9b"
+    },
+    {
+      "seq": 344,
+      "kind": "policy.decision",
+      "hash": "3590ffbc1f4c"
+    },
+    {
+      "seq": 345,
+      "kind": "turn.committing",
+      "hash": "d5ff34cd7c0f"
+    },
+    {
+      "seq": 346,
+      "kind": "turn.committed",
+      "hash": "019832c7e9e7"
+    },
+    {
+      "seq": 347,
+      "kind": "seal.release",
+      "hash": "16db3d0b8a4f"
+    }
+  ]
+}

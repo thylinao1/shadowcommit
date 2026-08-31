@@ -1,0 +1,208 @@
+{
+  "prompt": "Wire the setup step into the project so it runs after install, and add the tools/setup.js it needs.",
+  "run": {
+    "id": "3ce3c248-1619-45e9-bb1f-b751f905e43a",
+    "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "status": "contained",
+    "prompt": "Wire the setup step into the project so it runs after install, and add the tools/setup.js it needs.",
+    "output": "Added a postinstall script to package.json and created tools/setup.js.\n\n[held for review: manifest-script-change. 2 proposed change(s) are waiting for a human. Nothing has been applied.]",
+    "error": null,
+    "usage": {
+      "inputTokens": 512,
+      "cachedInputTokens": 0,
+      "outputTokens": 128
+    },
+    "containment": {
+      "runId": "3ce3c248-1619-45e9-bb1f-b751f905e43a",
+      "decision": "review",
+      "rule": "manifest-script-change",
+      "effects": 2,
+      "paths": [
+        "package.json",
+        "tools/setup.js"
+      ]
+    },
+    "startedAt": "2026-08-31T16:21:55.183Z",
+    "completedAt": "2026-08-31T16:21:56.683Z",
+    "createdAt": "2026-08-31T16:21:55.179Z"
+  },
+  "review": {
+    "runId": "3ce3c248-1619-45e9-bb1f-b751f905e43a",
+    "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "rule": "manifest-script-change",
+    "hits": [
+      {
+        "rule": "manifest-script-change",
+        "decision": "review",
+        "path": "package.json",
+        "detail": "postinstall"
+      }
+    ],
+    "effectSetHash": "ec0a1568aaaaea04ad9fbc40c3d13a5b4605dd70138f66b5440054964ef92a8f",
+    "workspacePath": "~/.volc-agent-launchpad/workspaces/7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "heldAt": "2026-08-31T16:21:56.254Z",
+    "effects": [
+      {
+        "path": "package.json",
+        "kind": "modify",
+        "effectClass": "manifest",
+        "class": "dependency",
+        "bytes": 131,
+        "sha256": "128e6f6d5e12d180436cbf5c809c7d14bd4e344a63634be572dd87de85ad0fa7",
+        "before": "{\n  \"name\": \"hello-cli\",\n  \"version\": \"1.0.0\",\n  \"type\": \"module\"\n}\n",
+        "after": "{\n  \"name\": \"hello-cli\",\n  \"version\": \"1.0.0\",\n  \"type\": \"module\",\n  \"scripts\": {\n    \"postinstall\": \"node ./tools/setup.js\"\n  }\n}\n",
+        "truncated": false,
+        "binary": false
+      },
+      {
+        "path": "tools/setup.js",
+        "kind": "create",
+        "effectClass": "source",
+        "class": "source",
+        "bytes": 39,
+        "sha256": "e36121a4b0caa6e426bb4d6655b8b27c1704422bf60356e880df42c3c8cbe450",
+        "before": null,
+        "after": "console.log(\"project setup complete\");\n",
+        "truncated": false,
+        "binary": false
+      }
+    ],
+    "effectCount": 2,
+    "effectsTruncated": 0,
+    "truncated": 0
+  },
+  "refused": {
+    "status": 409,
+    "body": {
+      "error": "The changes moved since you looked at them; reload the review: the approval names a different set of changes than the held turn"
+    }
+  },
+  "approved": {
+    "runId": "3ce3c248-1619-45e9-bb1f-b751f905e43a",
+    "decision": "approved",
+    "actor": "operator"
+  },
+  "manifestAfter": {
+    "name": "hello-cli",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+      "postinstall": "node ./tools/setup.js"
+    }
+  },
+  "timeline": {
+    "runId": "3ce3c248-1619-45e9-bb1f-b751f905e43a",
+    "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "verdict": "approved",
+    "rule": null,
+    "principal": "operator",
+    "seq": 366,
+    "at": "2026-08-31T16:21:57.663Z",
+    "mechanism": "copy",
+    "effectCount": 2,
+    "truncated": 0,
+    "effects": [
+      {
+        "path": "package.json",
+        "kind": "modify",
+        "class": "dependency",
+        "bytes": 131
+      },
+      {
+        "path": "tools/setup.js",
+        "kind": "create",
+        "class": "source",
+        "bytes": 39
+      }
+    ],
+    "conflictPaths": [],
+    "appliedPaths": [],
+    "workspaceDigestBefore": "e9095934d7646d473fc2cca1dad98ae882bf391b445719c689fef3b1c965b189",
+    "workspaceDigestAfter": "dd9edbb01fcc9965e365cfc669e35dc7ae94da8877fa859a9c74ddb2c9b62449",
+    "workspaceDigestReason": null,
+    "workspaceFilesBefore": 8,
+    "workspaceFilesAfter": 10,
+    "workspaceUnreadableBefore": 0,
+    "workspaceUnreadableAfter": 0,
+    "beginRecorded": true,
+    "confinement": "container+sealed-network",
+    "confinementReason": null,
+    "network": "shadow-3ce3c248-1619-45e9-bb1f-b751f905e43a",
+    "egressAllowlistSize": 5,
+    "modelChannel": "terminated-at-broker",
+    "codexHomeFiles": 31,
+    "egress": null,
+    "outboundDropped": null,
+    "outboundReplayed": 0,
+    "outboundFailed": 0,
+    "outboundHeldForReview": null,
+    "codexHomeRestored": null,
+    "codexHomeVerifiedUnchanged": null,
+    "codexHomeDroppedAfterReview": null,
+    "codexHomeChanged": 2,
+    "networkLeaked": null,
+    "confinementStateLost": false,
+    "records": [
+      {
+        "seq": 355,
+        "kind": "seal.fallback",
+        "hash": "00646305e4cf"
+      },
+      {
+        "seq": 356,
+        "kind": "turn.begin",
+        "hash": "2f94164226c4"
+      },
+      {
+        "seq": 357,
+        "kind": "turn.executed",
+        "hash": "d84426e9b228"
+      },
+      {
+        "seq": 358,
+        "kind": "effects.captured",
+        "hash": "c51378c1b2a3"
+      },
+      {
+        "seq": 359,
+        "kind": "policy.decision",
+        "hash": "51d0aee15ae4"
+      },
+      {
+        "seq": 360,
+        "kind": "turn.held",
+        "hash": "88197ce0e648"
+      },
+      {
+        "seq": 361,
+        "kind": "settle.refused",
+        "hash": "938d1a8e15cd"
+      },
+      {
+        "seq": 362,
+        "kind": "policy.decision",
+        "hash": "8e8f94ee1418"
+      },
+      {
+        "seq": 363,
+        "kind": "turn.approved",
+        "hash": "14cf01596351"
+      },
+      {
+        "seq": 364,
+        "kind": "turn.committing",
+        "hash": "2901c8d413f0"
+      },
+      {
+        "seq": 365,
+        "kind": "turn.committed",
+        "hash": "e6342f3a238e"
+      },
+      {
+        "seq": 366,
+        "kind": "seal.release",
+        "hash": "20265123eeb8"
+      }
+    ]
+  }
+}

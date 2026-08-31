@@ -1,0 +1,139 @@
+- generic [ref=f8e3]:
+  - complementary [ref=f8e4]:
+    - generic [ref=f8e5]:
+      - generic [ref=f8e6]: A
+      - generic [ref=f8e7]:
+        - strong [ref=f8e8]: Agent Launchpad
+        - generic [ref=f8e9]: "Shadow Commit: preview and undo on every turn"
+    - button "＋ Create Agent" [ref=f8e10] [cursor=pointer]:
+      - generic [ref=f8e11]: ＋
+      - text: Create Agent
+    - button "Review queue Proposed changes waiting 1" [ref=f8e38] [cursor=pointer]:
+      - generic [ref=f8e13]:
+        - strong [ref=f8e14]: Review queue
+        - generic [ref=f8e15]: Proposed changes waiting
+      - generic [ref=f8e16]: "1"
+    - generic [ref=f8e17]:
+      - generic [ref=f8e18]: Your Agents
+      - generic [ref=f8e19]: "1"
+    - navigation [ref=f8e20]:
+      - 'button "R Release Helper Keeps the release tooling of this project in order. Transactions: ON (default) TX" [ref=f8e39] [cursor=pointer]':
+        - generic [ref=f8e40]: R
+        - generic [ref=f8e41]:
+          - strong [ref=f8e42]: Release Helper
+          - generic [ref=f8e43]: Keeps the release tooling of this project in order.
+        - 'generic "Transactions: ON (default)" [ref=f8e44]': TX
+    - generic [ref=f8e23]:
+      - text: Runtime
+      - strong [ref=f8e24]: Codex CLI in docker Runtime
+      - generic [ref=f8e25]: ep-mock-endpoint · docker · local container
+  - main [ref=f8e26]:
+    - generic [ref=f8e151]:
+      - generic [ref=f8e152]:
+        - generic [ref=f8e153]:
+          - text: Review queue
+          - heading "Proposed changes waiting for a human" [level=2] [ref=f8e154]
+          - paragraph [ref=f8e155]: Each of these turns has already run against a sealed copy of its workspace. Nothing below has touched the real workspace, and nothing will until it is approved here.
+        - generic [ref=f8e156]:
+          - generic [ref=f8e157]:
+            - text: "1"
+            - generic [ref=f8e158]: waiting
+          - paragraph [ref=f8e159]:
+            - text: Decisions are recorded against the principal the server authenticated, not a name typed here. On loopback that is
+            - code [ref=f8e160]: operator
+            - text: ; behind a token it is a stable name derived from the token that was actually presented.
+      - generic [ref=f8e162]:
+        - article [ref=f8e163]:
+          - generic [ref=f8e164]:
+            - generic [ref=f8e165]:
+              - text: Held for review
+              - heading "Release Helper" [level=3] [ref=f8e166]
+              - paragraph [ref=f8e167]:
+                - text: 2 proposed changes against
+                - code [ref=f8e168]: .../workspaces/774bd7d9-d17d-43b9-9000-1de1e6f1e8a6
+            - generic "2026-08-29T09:34:57.272Z" [ref=f8e169]: 17:34:57
+          - list [ref=f8e170]:
+            - listitem [ref=f8e171]:
+              - generic [ref=f8e172]: manifest-script-change
+              - generic [ref=f8e173]: asks a human
+              - code [ref=f8e174]: package.json
+              - generic [ref=f8e175]: prepare
+          - generic [ref=f8e176]:
+            - generic [ref=f8e177]:
+              - generic [ref=f8e178]: Proposed changes
+              - generic [ref=f8e179]: 2 paths
+            - list [ref=f8e180]:
+              - listitem [ref=f8e181]:
+                - button "modifies package.json dependency 173 B" [expanded] [active] [ref=f8e182] [cursor=pointer]:
+                  - generic [ref=f8e183]: modifies
+                  - generic [ref=f8e184]: package.json
+                  - generic [ref=f8e185]: dependency
+                  - generic [ref=f8e186]: 173 B
+                  - generic [ref=f8e187]: Hide
+                - generic [ref=f8e203]:
+                  - generic [ref=f8e204]:
+                    - generic [ref=f8e205]: "+2"
+                    - generic [ref=f8e206]: "-1"
+                  - table [ref=f8e208]:
+                    - rowgroup [ref=f8e209]:
+                      - row [ref=f8e210]:
+                        - cell [ref=f8e211]
+                        - cell [ref=f8e212]
+                        - cell [ref=f8e213]
+                        - cell "2 unchanged lines" [ref=f8e214]
+                      - row [ref=f8e216]:
+                        - cell "3" [ref=f8e217]
+                        - cell "3" [ref=f8e218]
+                        - cell [ref=f8e219]
+                        - 'cell "\"version\": \"1.0.0\"," [ref=f8e220]'
+                      - row [ref=f8e221]:
+                        - cell "4" [ref=f8e222]
+                        - cell "4" [ref=f8e223]
+                        - cell [ref=f8e224]
+                        - 'cell "\"type\": \"module\"," [ref=f8e225]'
+                      - row [ref=f8e226]:
+                        - cell "5" [ref=f8e227]
+                        - cell "5" [ref=f8e228]
+                        - cell [ref=f8e229]
+                        - 'cell "\"scripts\": {" [ref=f8e230]'
+                      - row [ref=f8e231]:
+                        - cell "6" [ref=f8e232]
+                        - cell [ref=f8e233]
+                        - cell [ref=f8e234]: "-"
+                        - 'cell "\"postinstall\": \"node ./tools/setup.js\"" [ref=f8e235]'
+                      - row [ref=f8e236]:
+                        - cell [ref=f8e237]
+                        - cell "6" [ref=f8e238]
+                        - cell [ref=f8e239]: +
+                        - 'cell "\"postinstall\": \"node ./tools/setup.js\"," [ref=f8e240]'
+                      - row [ref=f8e241]:
+                        - cell [ref=f8e242]
+                        - cell "7" [ref=f8e243]
+                        - cell [ref=f8e244]: +
+                        - 'cell "\"prepare\": \"node ./tools/prepare.js\"" [ref=f8e245]'
+                      - row [ref=f8e246]:
+                        - cell "7" [ref=f8e247]
+                        - cell "8" [ref=f8e248]
+                        - cell [ref=f8e249]
+                        - 'cell "}" [ref=f8e250]'
+                      - row [ref=f8e251]:
+                        - cell "8" [ref=f8e252]
+                        - cell "9" [ref=f8e253]
+                        - cell [ref=f8e254]
+                        - 'cell "}" [ref=f8e255]'
+              - listitem [ref=f8e188]:
+                - button "creates tools/prepare.js source 29 B" [ref=f8e189] [cursor=pointer]:
+                  - generic [ref=f8e190]: creates
+                  - generic [ref=f8e191]: tools/prepare.js
+                  - generic [ref=f8e192]: source
+                  - generic [ref=f8e193]: 29 B
+                  - generic [ref=f8e194]: Diff
+          - generic [ref=f8e195]:
+            - paragraph [ref=f8e196]:
+              - text: Approving effect set
+              - code [ref=f8e197]: e4f0b9d83a3e
+              - text: . If it changes before you decide, the approval is refused rather than applied.
+            - generic [ref=f8e198]:
+              - button "Reject" [ref=f8e199] [cursor=pointer]
+              - button "Approve and commit" [ref=f8e200] [cursor=pointer]
+        - button "Open Release Helper and its run timeline" [ref=f8e201] [cursor=pointer]

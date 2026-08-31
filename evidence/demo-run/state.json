@@ -1,0 +1,8 @@
+{
+  "base": "http://127.0.0.1:3000",
+  "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+  "workspace": "~/.volc-agent-launchpad/workspaces/7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+  "pendingReviewRunId": "8d78d7b6-acb6-4ac9-be35-54e0a03419a7",
+  "pendingEffectSetHash": "e4f0b9d83a3e7328d9aeb667380404fed3b69c3eb499741ff317d916b85127dd",
+  "startedAt": "2026-08-31T16:21:51.156Z"
+}

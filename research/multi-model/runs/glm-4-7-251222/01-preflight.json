@@ -1,0 +1,20 @@
+{
+  "health": {
+    "ok": true,
+    "service": "volc-agent-launchpad"
+  },
+  "system": {
+    "arkConfigured": true,
+    "arkBaseUrl": "https://ark.ap-southeast.bytepluses.com/api/v3",
+    "arkModel": "glm-4-7-251222",
+    "codexAvailable": true,
+    "codexSandboxMode": "danger-full-access",
+    "runtimeProvider": "container",
+    "containerEngine": "docker",
+    "runtime": "Codex CLI in docker Runtime"
+  },
+  "auth": {
+    "required": false
+  },
+  "base": "http://127.0.0.1:3000"
+}

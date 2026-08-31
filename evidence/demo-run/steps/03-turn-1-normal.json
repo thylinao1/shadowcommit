@@ -1,0 +1,414 @@
+{
+  "prompt": "Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.",
+  "run": {
+    "id": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+    "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "status": "completed",
+    "prompt": "Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.",
+    "output": "Created src/index.ts, src/index.test.ts and package.json, and ran the CLI: it printed \"hello world\".",
+    "error": null,
+    "usage": {
+      "inputTokens": 256,
+      "cachedInputTokens": 0,
+      "outputTokens": 64
+    },
+    "containment": {
+      "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "decision": "commit",
+      "rule": "none",
+      "effects": 3,
+      "paths": [
+        "package.json",
+        "src/index.test.ts",
+        "src/index.ts"
+      ]
+    },
+    "startedAt": "2026-08-31T16:21:51.535Z",
+    "completedAt": "2026-08-31T16:21:53.209Z",
+    "createdAt": "2026-08-31T16:21:51.527Z"
+  },
+  "elapsedMs": 1787,
+  "journalRecords": [
+    {
+      "hash": "4a611e01722b71811d566185ab95b83aa3387f0240eaeef2fe1f8bbb7690b5a3",
+      "hmac": "179c72925a1050e9cfc530af7db6f329446cb4d496337572380f46255d145a5b",
+      "kind": "seal.fallback",
+      "mechanism": "copy",
+      "prev": "ba9def1fce59e43dabfd4bb1eaf87943e9c3eb7953535868de4d457ea64b5c9f",
+      "principal": "agent",
+      "reason": "not-linux",
+      "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "seq": 340,
+      "ts": "2026-08-31T16:21:51.627Z"
+    },
+    {
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "at": "2026-08-31T16:21:52.273Z",
+      "codexHomeFiles": 1,
+      "confinement": "container+sealed-network",
+      "containerCodexHome": "/codex-home",
+      "containerEngineVerified": true,
+      "containerWorkspacePath": "/workspace",
+      "decoyHost": "status.shadow-decoy.test",
+      "egressAllowlist": [
+        "registry.npmjs.org:443",
+        "registry.yarnpkg.com:443",
+        "pypi.org:443",
+        "files.pythonhosted.org:443",
+        "172.19.0.2:8398"
+      ],
+      "hash": "1469df210cb2ea5758dd771cf615a639912f4cdaf15da4529d9cda2c2bb25621",
+      "hmac": "dce1d5d7cf45a4af1921b6a52988f0f40cd23b0c815917972cc01c3237722678",
+      "kind": "turn.begin",
+      "mechanism": "copy",
+      "modelChannel": "terminated-at-broker",
+      "network": "shadow-153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "prev": "4a611e01722b71811d566185ab95b83aa3387f0240eaeef2fe1f8bbb7690b5a3",
+      "principal": "agent",
+      "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "seq": 341,
+      "ts": "2026-08-31T16:21:52.273Z",
+      "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+      "workspaceFilesBefore": 3,
+      "workspaceUnreadableBefore": 0
+    },
+    {
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "at": "2026-08-31T16:21:52.930Z",
+      "commands": 1,
+      "commandsFailed": 0,
+      "exit": "ok",
+      "hash": "8d91f10d1ef5b6b10bae166b54b4b84abf00bbf2d68f9bab18299fd73d01b83c",
+      "hmac": "aeb6d211fb6edfbf6a133280c348799c7fd4507d21c57340c237b32c9c4fe790",
+      "kind": "turn.executed",
+      "prev": "1469df210cb2ea5758dd771cf615a639912f4cdaf15da4529d9cda2c2bb25621",
+      "principal": "agent",
+      "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "seq": 342,
+      "ts": "2026-08-31T16:21:52.930Z"
+    },
+    {
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "at": "2026-08-31T16:21:52.936Z",
+      "bytes": 174,
+      "count": 3,
+      "hash": "6b6394c03c9ba3eba1411d4bbaf5ef868ff6a936ab77afc13ae1cd0d90cfeb71",
+      "hmac": "eaf8da872537215615da515bda6fd4cc6985c37089cfb1e255d49a620c7aa9c0",
+      "kind": "effects.captured",
+      "oversize": 0,
+      "prev": "8d91f10d1ef5b6b10bae166b54b4b84abf00bbf2d68f9bab18299fd73d01b83c",
+      "principal": "agent",
+      "protectedReads": 0,
+      "readPaths": [
+        "AGENTS.md"
+      ],
+      "readSelectivity": 0.3333,
+      "readWitness": "armed",
+      "reads": 1,
+      "readsArmed": 3,
+      "readsBlind": 0,
+      "readsTampered": 0,
+      "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "seq": 343,
+      "ts": "2026-08-31T16:21:52.937Z"
+    },
+    {
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "at": "2026-08-31T16:21:52.966Z",
+      "decision": "commit",
+      "hash": "3590ffbc1f4cc9d3f1b68557fd487127e8ae89e74fc58530e665e6a6816b2c75",
+      "hits": [],
+      "hmac": "f8ad43d1b98c78017c16e0397eeba0475e929d26a9745e3acd25a9c822caeb4c",
+      "kind": "policy.decision",
+      "prev": "6b6394c03c9ba3eba1411d4bbaf5ef868ff6a936ab77afc13ae1cd0d90cfeb71",
+      "principal": "policy",
+      "rule": "none",
+      "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "seq": 344,
+      "ts": "2026-08-31T16:21:52.966Z"
+    },
+    {
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "at": "2026-08-31T16:21:52.968Z",
+      "effects": [
+        {
+          "bytes": 68,
+          "canonicalPath": "package.json",
+          "effectClass": "manifest",
+          "kind": "create",
+          "mode": 420,
+          "path": "package.json",
+          "sha256": "280922103a7131dadecaa1a1ff4510c5d39ac6accdff8c1b2abe41dc8868d862"
+        },
+        {
+          "bytes": 43,
+          "canonicalPath": "src/index.test.ts",
+          "effectClass": "test",
+          "kind": "create",
+          "mode": 420,
+          "path": "src/index.test.ts",
+          "sha256": "e4b96d74a96998bc0cc852ca608d81d7e7152fbe863153840aefda1dcd79f369"
+        },
+        {
+          "bytes": 63,
+          "canonicalPath": "src/index.ts",
+          "effectClass": "source",
+          "kind": "create",
+          "mode": 420,
+          "path": "src/index.ts",
+          "sha256": "a7e6cd854943bf9c31565f74d0643f6af126e2b881958ca646c7d60824988332"
+        }
+      ],
+      "hash": "d5ff34cd7c0ff7d12f1aa55a1f21f5a5bff1f4571d54c8b9fc11c9eb2fc0ee90",
+      "hmac": "266534743882ddfc3e4f1c6af416297d76a33d2571fa15a3798b666abc4b93d8",
+      "kind": "turn.committing",
+      "prev": "3590ffbc1f4cc9d3f1b68557fd487127e8ae89e74fc58530e665e6a6816b2c75",
+      "principal": "agent",
+      "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "seq": 345,
+      "ts": "2026-08-31T16:21:52.968Z"
+    },
+    {
+      "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+      "applied": 3,
+      "at": "2026-08-31T16:21:53.198Z",
+      "codexHome": {
+        "added": [
+          "sessions/2026/08/31/rollout-2026-08-31T16-21-52-01a058a0-8f0b-7782-8e4c-5f21918323e5.jsonl",
+          "skills/.system/.codex-system-skills.marker",
+          "skills/.system/skill-creator/SKILL.md",
+          "skills/.system/skill-creator/agents/openai.yaml",
+          "skills/.system/skill-creator/assets/skill-creator-small.svg",
+          "skills/.system/skill-creator/assets/skill-creator.png",
+          "skills/.system/skill-creator/license.txt",
+          "skills/.system/skill-creator/references/openai_yaml.md",
+          "skills/.system/skill-creator/scripts/generate_openai_yaml.py",
+          "skills/.system/skill-creator/scripts/init_skill.py",
+          "skills/.system/skill-creator/scripts/quick_validate.py",
+          "skills/.system/skill-installer/LICENSE.txt",
+          "skills/.system/skill-installer/SKILL.md",
+          "skills/.system/skill-installer/agents/openai.yaml",
+          "skills/.system/skill-installer/assets/skill-installer-small.svg",
+          "skills/.system/skill-installer/assets/skill-installer.png",
+          "skills/.system/skill-installer/scripts/github_utils.py",
+          "skills/.system/skill-installer/scripts/install-skill-from-github.py",
+          "skills/.system/skill-installer/scripts/list-skills.py",
+          "skills/.system/slides/SKILL.md",
+          "skills/.system/slides/agents/openai.yaml",
+          "skills/.system/slides/references/auto-layout.md",
+          "skills/.system/slides/references/presentation.md",
+          "skills/.system/spreadsheets/SKILL.md",
+          "skills/.system/spreadsheets/agents/openai.yaml",
+          "skills/.system/spreadsheets/references/ranges.md",
+          "skills/.system/spreadsheets/references/workbook.md",
+          "state_5.sqlite",
+          "state_5.sqlite-shm",
+          "state_5.sqlite-wal"
+        ],
+        "changed": 30,
+        "modified": [],
+        "removed": [],
+        "truncated": false
+      },
+      "egress": {
+        "deny": 1,
+        "live": 2
+      },
+      "hash": "019832c7e9e73c192136315a34a72e6f7bf0610aa7b36cccdd6bd8b5bb2b0a85",
+      "hmac": "47c37166c1c70705df6f3a86f65803997d3a5560e858929e21e3d7c99b6d6a78",
+      "kind": "turn.committed",
+      "outboundFailed": 0,
+      "outboundReplayed": 0,
+      "prev": "d5ff34cd7c0ff7d12f1aa55a1f21f5a5bff1f4571d54c8b9fc11c9eb2fc0ee90",
+      "principal": "agent",
+      "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "seq": 346,
+      "ts": "2026-08-31T16:21:53.198Z",
+      "workspaceDigestAfter": "0fa3323800d4f9224e80554f201b61574bddf9287ab515084b086a1b5f86c769",
+      "workspaceFilesAfter": 7,
+      "workspaceUnreadableAfter": 0
+    },
+    {
+      "hash": "16db3d0b8a4fb7ac65f587326e3648b9609230b123f6b5d47dbb43c5df39c522",
+      "hmac": "9acb439c2ec3126d9984465fc2f2244561ce19d7c2d99a9bedec37487c145834",
+      "kind": "seal.release",
+      "prev": "019832c7e9e73c192136315a34a72e6f7bf0610aa7b36cccdd6bd8b5bb2b0a85",
+      "principal": "agent",
+      "removed": true,
+      "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+      "seq": 347,
+      "ts": "2026-08-31T16:21:53.210Z"
+    }
+  ],
+  "toolEvents": {
+    "recorded": true,
+    "reported": true,
+    "exit": "ok",
+    "commands": 1,
+    "commandsFailed": 0,
+    "failed": []
+  },
+  "modelUsage": {
+    "present": true,
+    "tokens": 320,
+    "inputTokens": 256,
+    "cachedInputTokens": 0,
+    "outputTokens": 64
+  },
+  "providerRequests": [
+    {
+      "n": 1,
+      "url": "/api/v3/responses",
+      "keyMatches": true,
+      "promptTail": "Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.",
+      "matched": "hello-world cli",
+      "stepIndex": 0,
+      "emitted": "function_call",
+      "cmd": "mkdir -p src && printf 'export function main(): void {\\n  console.log(\"hello world\");\\n}\\n' > src/index.ts && printf 'import { main } from \"./index.js\";\\nmain();\\n' > src/index.test.ts && printf '{\\n  \"name\": \"hello-cli\",\\n  \"version\": \"1.0.0\",\\n  \"type\": \"module\"\\n}\\n' > package.json && node --input-type=module -e 'console.log(\"hello world\")' && ls -R src package.json",
+      "toolOutput": null,
+      "requestBytes": 31482
+    },
+    {
+      "n": 2,
+      "url": "/api/v3/responses",
+      "keyMatches": true,
+      "promptTail": "Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.",
+      "matched": "hello-world cli",
+      "stepIndex": 1,
+      "emitted": "message",
+      "text": "Created src/index.ts, src/index.test.ts and package.json, and ran the CLI: it printed \"hello world\".",
+      "toolOutput": "Chunk ID: 93db57\nWall time: 0.0565 seconds\nProcess exited with code 0\nOriginal token count: 14\nOutput:\nhello world\npackage.json\n\nsrc:\nindex.test.ts\nindex.ts\n",
+      "requestBytes": 32263
+    }
+  ],
+  "timeline": {
+    "runId": "153d7db5-c61e-494f-953b-13b29fdfbdf6",
+    "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "verdict": "committed",
+    "rule": null,
+    "principal": null,
+    "seq": 347,
+    "at": "2026-08-31T16:21:53.210Z",
+    "mechanism": "copy",
+    "effectCount": 3,
+    "truncated": 0,
+    "effects": [
+      {
+        "path": "package.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 68
+      },
+      {
+        "path": "src/index.test.ts",
+        "kind": "create",
+        "class": "source",
+        "bytes": 43
+      },
+      {
+        "path": "src/index.ts",
+        "kind": "create",
+        "class": "source",
+        "bytes": 63
+      }
+    ],
+    "conflictPaths": [],
+    "appliedPaths": [],
+    "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+    "workspaceDigestAfter": "0fa3323800d4f9224e80554f201b61574bddf9287ab515084b086a1b5f86c769",
+    "workspaceDigestReason": null,
+    "workspaceFilesBefore": 3,
+    "workspaceFilesAfter": 7,
+    "workspaceUnreadableBefore": 0,
+    "workspaceUnreadableAfter": 0,
+    "beginRecorded": true,
+    "confinement": "container+sealed-network",
+    "confinementReason": null,
+    "network": "shadow-153d7db5-c61e-494f-953b-13b29fdfbdf6",
+    "egressAllowlistSize": 5,
+    "modelChannel": "terminated-at-broker",
+    "codexHomeFiles": 1,
+    "egress": {
+      "deny": 1,
+      "live": 2
+    },
+    "outboundDropped": null,
+    "outboundReplayed": 0,
+    "outboundFailed": 0,
+    "outboundHeldForReview": null,
+    "codexHomeRestored": null,
+    "codexHomeVerifiedUnchanged": null,
+    "codexHomeDroppedAfterReview": null,
+    "codexHomeChanged": 30,
+    "networkLeaked": null,
+    "confinementStateLost": false,
+    "records": [
+      {
+        "seq": 340,
+        "kind": "seal.fallback",
+        "hash": "4a611e01722b"
+      },
+      {
+        "seq": 341,
+        "kind": "turn.begin",
+        "hash": "1469df210cb2"
+      },
+      {
+        "seq": 342,
+        "kind": "turn.executed",
+        "hash": "8d91f10d1ef5"
+      },
+      {
+        "seq": 343,
+        "kind": "effects.captured",
+        "hash": "6b6394c03c9b"
+      },
+      {
+        "seq": 344,
+        "kind": "policy.decision",
+        "hash": "3590ffbc1f4c"
+      },
+      {
+        "seq": 345,
+        "kind": "turn.committing",
+        "hash": "d5ff34cd7c0f"
+      },
+      {
+        "seq": 346,
+        "kind": "turn.committed",
+        "hash": "019832c7e9e7"
+      },
+      {
+        "seq": 347,
+        "kind": "seal.release",
+        "hash": "16db3d0b8a4f"
+      }
+    ]
+  },
+  "workspace": [
+    {
+      "path": ".gitignore",
+      "bytes": 39
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 586
+    },
+    {
+      "path": "README.md",
+      "bytes": 150
+    },
+    {
+      "path": "package.json",
+      "bytes": 68
+    },
+    {
+      "path": "src/index.test.ts",
+      "bytes": 43
+    },
+    {
+      "path": "src/index.ts",
+      "bytes": 63
+    }
+  ]
+}

@@ -1,0 +1,3056 @@
+{
+  "prompt": "Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.",
+  "run": {
+    "id": "9b1c6770-653f-4528-864b-a36c3620f9fe",
+    "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+    "status": "contained",
+    "prompt": "Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.",
+    "output": "All steps complete!\n\n✅ **TypeScript hello-world CLI created successfully**\n\n**Results:**\n- Jest tests passed ✅  2/2 tests passed\n- Tests validate both default and custom name greetings\n- Project configured correctly with TypeScript 6, jest, ts-jest\n\n**Created files at `/workspace/hello-ts-cli/`:**\n| File | Purpose |\n|------|---------|\n| `cli.ts` | Main CLI script with `greet()` function, executable |\n| `cli.test.ts` | Jest test cases |\n| `package.json` | Npm project manifest with test script |\n| `jest.config.js` | ts-jest configuration |\n| `tsconfig.json` | TypeScript compiler config |\n\n**To run:**\n```\ncd hello-ts-cli\nnpx ts-node cli.ts\nnpm test\n```\n\n[held for review: execution-surface-review. 6677 proposed change(s) are waiting for a human. Nothing has been applied.]",
+    "error": null,
+    "usage": {
+      "inputTokens": 156444,
+      "cachedInputTokens": 111576,
+      "outputTokens": 1988
+    },
+    "containment": {
+      "runId": "9b1c6770-653f-4528-864b-a36c3620f9fe",
+      "decision": "review",
+      "rule": "execution-surface-review",
+      "effects": 6677,
+      "paths": [
+        "hello-ts-cli/cli.test.ts",
+        "hello-ts-cli/cli.ts",
+        "hello-ts-cli/jest.config.js",
+        "hello-ts-cli/node_modules/.bin/acorn",
+        "hello-ts-cli/node_modules/.bin/baseline-browser-mapping",
+        "hello-ts-cli/node_modules/.bin/browserslist",
+        "hello-ts-cli/node_modules/.bin/esparse",
+        "hello-ts-cli/node_modules/.bin/esvalidate",
+        "hello-ts-cli/node_modules/.bin/handlebars",
+        "hello-ts-cli/node_modules/.bin/import-local-fixture",
+        "hello-ts-cli/node_modules/.bin/jest",
+        "hello-ts-cli/node_modules/.bin/js-yaml",
+        "hello-ts-cli/node_modules/.bin/jsesc",
+        "hello-ts-cli/node_modules/.bin/json5",
+        "hello-ts-cli/node_modules/.bin/napi-postinstall",
+        "hello-ts-cli/node_modules/.bin/node-which",
+        "hello-ts-cli/node_modules/.bin/parser",
+        "hello-ts-cli/node_modules/.bin/semver",
+        "hello-ts-cli/node_modules/.bin/ts-jest",
+        "hello-ts-cli/node_modules/.bin/ts-node",
+        "hello-ts-cli/node_modules/.bin/ts-node-cwd",
+        "hello-ts-cli/node_modules/.bin/ts-node-esm",
+        "hello-ts-cli/node_modules/.bin/ts-node-script",
+        "hello-ts-cli/node_modules/.bin/ts-node-transpile-only",
+        "hello-ts-cli/node_modules/.bin/ts-script",
+        "hello-ts-cli/node_modules/.bin/tsc",
+        "hello-ts-cli/node_modules/.bin/tsserver",
+        "hello-ts-cli/node_modules/.bin/uglifyjs",
+        "hello-ts-cli/node_modules/.bin/update-browserslist-db",
+        "hello-ts-cli/node_modules/.package-lock.json",
+        "hello-ts-cli/node_modules/@babel/code-frame/LICENSE",
+        "hello-ts-cli/node_modules/@babel/code-frame/README.md",
+        "hello-ts-cli/node_modules/@babel/code-frame/lib/index.js",
+        "hello-ts-cli/node_modules/@babel/code-frame/lib/index.js.map",
+        "hello-ts-cli/node_modules/@babel/code-frame/package.json",
+        "hello-ts-cli/node_modules/@babel/compat-data/LICENSE",
+        "hello-ts-cli/node_modules/@babel/compat-data/README.md",
+        "hello-ts-cli/node_modules/@babel/compat-data/corejs2-built-ins.js",
+        "hello-ts-cli/node_modules/@babel/compat-data/corejs3-shipped-proposals.js",
+        "hello-ts-cli/node_modules/@babel/compat-data/data/corejs2-built-ins.json",
+        "hello-ts-cli/node_modules/@babel/compat-data/data/corejs3-shipped-proposals.json",
+        "hello-ts-cli/node_modules/@babel/compat-data/data/native-modules.json",
+        "hello-ts-cli/node_modules/@babel/compat-data/data/overlapping-plugins.json",
+        "hello-ts-cli/node_modules/@babel/compat-data/data/plugin-bugfixes.json",
+        "hello-ts-cli/node_modules/@babel/compat-data/data/plugins.json",
+        "hello-ts-cli/node_modules/@babel/compat-data/native-modules.js",
+        "hello-ts-cli/node_modules/@babel/compat-data/overlapping-plugins.js",
+        "hello-ts-cli/node_modules/@babel/compat-data/package.json",
+        "hello-ts-cli/node_modules/@babel/compat-data/plugin-bugfixes.js",
+        "hello-ts-cli/node_modules/@babel/compat-data/plugins.js",
+        "hello-ts-cli/node_modules/@babel/core/LICENSE",
+        "hello-ts-cli/node_modules/@babel/core/README.md",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/cache-contexts.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/cache-contexts.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/caching.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/caching.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/config-chain.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/config-chain.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/config-descriptors.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/config-descriptors.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/configuration.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/configuration.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/import.cjs",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/import.cjs.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/index-browser.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/index-browser.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/index.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/index.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/module-types.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/module-types.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/package.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/package.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/plugins.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/plugins.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/types.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/types.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/utils.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/files/utils.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/full.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/full.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/config-api.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/config-api.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/deep-array.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/deep-array.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/environment.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/environment.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/index.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/index.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/item.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/item.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/partial.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/partial.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/pattern-to-regex.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/pattern-to-regex.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/plugin.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/plugin.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/printer.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/printer.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets-browser.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets-browser.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/util.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/util.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/validation/option-assertions.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/validation/option-assertions.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/validation/options.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/validation/options.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/validation/plugins.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/validation/plugins.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/validation/removed.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/config/validation/removed.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/errors/config-error.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/errors/config-error.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/errors/rewrite-stack-trace.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/errors/rewrite-stack-trace.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/async.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/async.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/fs.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/fs.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/functional.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/functional.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/index.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/index.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/parse.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/parse.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/parser/index.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/parser/index.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/parser/util/missing-plugin-helper.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/parser/util/missing-plugin-helper.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/tools/build-external-helpers.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/tools/build-external-helpers.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transform-ast.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transform-ast.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transform-file-browser.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transform-file-browser.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transform-file.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transform-file.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transform.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transform.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/block-hoist-plugin.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/block-hoist-plugin.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/babel-7-helpers.cjs",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/babel-7-helpers.cjs.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/file.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/file.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/generate.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/generate.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/merge-map.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/merge-map.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/index.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/index.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-file.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-file.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-opts.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-opts.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/plugin-pass.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/plugin-pass.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file-browser.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file-browser.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/util/clone-deep.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/transformation/util/clone-deep.js.map",
+        "hello-ts-cli/node_modules/@babel/core/lib/vendor/import-meta-resolve.js",
+        "hello-ts-cli/node_modules/@babel/core/lib/vendor/import-meta-resolve.js.map",
+        "hello-ts-cli/node_modules/@babel/core/package.json",
+        "hello-ts-cli/node_modules/@babel/core/src/config/files/index-browser.ts",
+        "hello-ts-cli/node_modules/@babel/core/src/config/files/index.ts",
+        "hello-ts-cli/node_modules/@babel/core/src/config/resolve-targets-browser.ts",
+        "hello-ts-cli/node_modules/@babel/core/src/config/resolve-targets.ts",
+        "hello-ts-cli/node_modules/@babel/core/src/transform-file-browser.ts",
+        "hello-ts-cli/node_modules/@babel/core/src/transform-file.ts",
+        "hello-ts-cli/node_modules/@babel/core/src/transformation/read-input-source-map-file-browser.ts",
+        "hello-ts-cli/node_modules/@babel/core/src/transformation/read-input-source-map-file.ts",
+        "hello-ts-cli/node_modules/@babel/generator/LICENSE",
+        "hello-ts-cli/node_modules/@babel/generator/README.md",
+        "hello-ts-cli/node_modules/@babel/generator/lib/buffer.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/buffer.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/base.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/base.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/classes.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/classes.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/deprecated.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/deprecated.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/expressions.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/expressions.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/flow.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/flow.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/index.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/index.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/jsx.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/jsx.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/methods.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/methods.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/modules.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/modules.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/statements.js",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/statements.js.map",
+        "hello-ts-cli/node_modules/@babel/generator/lib/generators/template-literals.js"
+      ],
+      "pathsTruncated": 6477
+    },
+    "startedAt": "2026-08-31T08:45:55.493Z",
+    "completedAt": "2026-08-31T08:47:15.941Z",
+    "createdAt": "2026-08-31T08:45:55.491Z"
+  },
+  "elapsedMs": 80567,
+  "journalRecords": [
+    {
+      "hash": "5e3410b2f944b9977a4e99bf25d68da3aa0cc50d9a2319a20e19ca2b3afdb208",
+      "hmac": "aea10599aa05e78f7821234a3c690ff54bc85ceb6e28a863cc0568d79906b6d6",
+      "kind": "seal.fallback",
+      "mechanism": "copy",
+      "prev": "43a7fc43ca34a5c02ca0feccf279cb8811a6b98f23fd8862cae9d3f9920271b9",
+      "principal": "agent",
+      "reason": "not-linux",
+      "runId": "9b1c6770-653f-4528-864b-a36c3620f9fe",
+      "seq": 173,
+      "ts": "2026-08-31T08:45:55.543Z"
+    },
+    {
+      "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "at": "2026-08-31T08:45:56.079Z",
+      "codexHomeFiles": 1,
+      "confinement": "container+sealed-network",
+      "containerCodexHome": "/codex-home",
+      "containerWorkspacePath": "/workspace",
+      "decoyHost": "status.shadow-decoy.test",
+      "egressAllowlist": [
+        "registry.npmjs.org:443",
+        "registry.yarnpkg.com:443",
+        "pypi.org:443",
+        "files.pythonhosted.org:443",
+        "ark.ap-southeast.bytepluses.com:443"
+      ],
+      "hash": "ab556c7ba263198386fcb8bc73199fd34dd8b918fa758ae06d85219f276d40a8",
+      "hmac": "df5c71bcccd082825f2e0ba9b3ad777ea27447b84f9c23e03721e632f0099e8e",
+      "kind": "turn.begin",
+      "mechanism": "copy",
+      "modelChannel": "terminated-at-broker",
+      "network": "shadow-9b1c6770-653f-4528-864b-a36c3620f9fe",
+      "prev": "5e3410b2f944b9977a4e99bf25d68da3aa0cc50d9a2319a20e19ca2b3afdb208",
+      "principal": "agent",
+      "runId": "9b1c6770-653f-4528-864b-a36c3620f9fe",
+      "seq": 174,
+      "ts": "2026-08-31T08:45:56.079Z",
+      "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+      "workspaceFilesBefore": 3,
+      "workspaceUnreadableBefore": 0
+    },
+    {
+      "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "at": "2026-08-31T08:47:13.369Z",
+      "commands": 9,
+      "commandsFailed": 6,
+      "exit": "ok",
+      "failed": [
+        {
+          "command": "/usr/bin/bash -lc \"cd hello-ts-cli && npx ts-jest config:init\ncat > cli.test.ts << 'EOF'\nimport { greet } from \\\"./cli\\\";\n\ntest(\\\"greet returns default message\\\", () => {\n  expect(greet()).toBe(\\\"Hello, World\"'!\");\n});\n\ntest(\"greet returns ",
+          "exitCode": 1,
+          "status": "failed"
+        },
+        {
+          "command": "/usr/bin/bash -lc \"cd hello-ts-cli && npm test && echo -e \\\"\\\\n--- Testing CLI directly ---\\\" && ./cli.ts && ./cli.ts Bob\"",
+          "exitCode": 1,
+          "status": "failed"
+        },
+        {
+          "command": "/usr/bin/bash -lc \"cd hello-ts-cli && sed -i 's/\\\"test\\\": \\\"echo.*\\\"/\\\"test\\\": \\\"jest\\\"/' package.json && npm test && ./cli.ts && ./cli.ts Bob\"",
+          "exitCode": 127,
+          "status": "failed"
+        },
+        {
+          "command": "/usr/bin/bash -lc \"cd hello-ts-cli && npx jest && echo -e \\\"\\\\n--- CLI output ---\\\" && npx ts-node cli.ts && npx ts-node cli.ts Bob\"",
+          "exitCode": 1,
+          "status": "failed"
+        },
+        {
+          "command": "/usr/bin/bash -lc 'cd hello-ts-cli && npm install -D typescript@''^6 && npx jest && npx ts-node cli.ts && npx ts-node cli.ts Bob'",
+          "exitCode": 1,
+          "status": "failed"
+        },
+        {
+          "command": "/usr/bin/bash -lc \"cd hello-ts-cli && grep -v '\\\"verbatimModuleSyntax\\\"' tsconfig.json > tmp.json && mv tmp.json tsconfig.json && npx ts-node cli.ts && npx ts-node cli.ts Bob\"",
+          "exitCode": 1,
+          "status": "failed"
+        }
+      ],
+      "hash": "e06a7c525d13e8c1bc75baa26e959b64ab34377bf420a5c02d6ff217b5ca27b8",
+      "hmac": "2023f65cd3a1612021e66bdce8ed89f4feb2f630df7e4be4656e34a43f114fb7",
+      "kind": "turn.executed",
+      "prev": "ab556c7ba263198386fcb8bc73199fd34dd8b918fa758ae06d85219f276d40a8",
+      "principal": "agent",
+      "runId": "9b1c6770-653f-4528-864b-a36c3620f9fe",
+      "seq": 175,
+      "ts": "2026-08-31T08:47:13.369Z"
+    },
+    {
+      "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "at": "2026-08-31T08:47:15.065Z",
+      "bytes": 61493872,
+      "count": 6677,
+      "hash": "cc05ee48d88430178745e5108a5d51e3c273f8cbc97675b0fefdd109afb761ea",
+      "hmac": "159a62a736cc685a1fc63ffeb264c7331966f3e4f27ab031df1ce69c91032eef",
+      "kind": "effects.captured",
+      "oversize": 0,
+      "prev": "e06a7c525d13e8c1bc75baa26e959b64ab34377bf420a5c02d6ff217b5ca27b8",
+      "principal": "agent",
+      "protectedReads": 0,
+      "readPaths": [
+        "AGENTS.md"
+      ],
+      "readSelectivity": 0.3333,
+      "readWitness": "armed",
+      "reads": 1,
+      "readsArmed": 3,
+      "readsBlind": 0,
+      "readsTampered": 0,
+      "runId": "9b1c6770-653f-4528-864b-a36c3620f9fe",
+      "seq": 176,
+      "ts": "2026-08-31T08:47:15.065Z"
+    },
+    {
+      "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "at": "2026-08-31T08:47:15.527Z",
+      "decision": "review",
+      "hash": "ab88a86ff04d1e1593edc34dd2e9bd3445a75c3c8a219af1872f4c6f28cefff3",
+      "hits": [
+        {
+          "decision": "review",
+          "detail": "exec-surface:js-config",
+          "path": "hello-ts-cli/jest.config.js",
+          "rule": "execution-surface-review"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:@types/jest ^30.0.0",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:@types/node ^26.4.0",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:jest ^30.5.0",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:ts-jest ^29.4.12",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:ts-node ^10.9.2",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:typescript ^6.0.3",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "test",
+          "path": "hello-ts-cli/package.json",
+          "rule": "manifest-script-change"
+        }
+      ],
+      "hmac": "98e0795a64f25b444a61681810a399efcda0e5ff60843322ab11295da95fc801",
+      "kind": "policy.decision",
+      "prev": "cc05ee48d88430178745e5108a5d51e3c273f8cbc97675b0fefdd109afb761ea",
+      "principal": "policy",
+      "rule": "execution-surface-review",
+      "runId": "9b1c6770-653f-4528-864b-a36c3620f9fe",
+      "seq": 177,
+      "ts": "2026-08-31T08:47:15.528Z"
+    },
+    {
+      "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "at": "2026-08-31T08:47:15.939Z",
+      "codexHome": {
+        "restored": false,
+        "verifiedUnchanged": true
+      },
+      "effectSetHash": "d0bc57e50213b289138d29c6e99ad3d3796506ba3cf11cb3a2bb361b3a124fe0",
+      "effects": [
+        {
+          "bytes": 226,
+          "canonicalPath": "hello-ts-cli/cli.test.ts",
+          "effectClass": "test",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/cli.test.ts",
+          "sha256": "ae1523d10621362ca54f9a1d07ceb32c06ec52347e438074128eccd6dd88db9f"
+        },
+        {
+          "bytes": 223,
+          "canonicalPath": "hello-ts-cli/cli.ts",
+          "effectClass": "source",
+          "kind": "create",
+          "mode": 493,
+          "path": "hello-ts-cli/cli.ts",
+          "sha256": "0c6a74a4ac4e91f69da5582489ad910cdbf38c7f7ab30e6f900fc9a9eaa44fa9"
+        },
+        {
+          "bytes": 247,
+          "canonicalPath": "hello-ts-cli/jest.config.js",
+          "effectClass": "exec-surface:js-config",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/jest.config.js",
+          "sha256": "1de4e4f9ae83453b542a9b2ac54663bc783f3bc66283b44981cbb3f376e5f829"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/acorn",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/acorn",
+          "target": "../acorn/bin/acorn"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/baseline-browser-mapping",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/baseline-browser-mapping",
+          "target": "../baseline-browser-mapping/dist/cli.cjs"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/browserslist",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/browserslist",
+          "target": "../browserslist/cli.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/esparse",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/esparse",
+          "target": "../esprima/bin/esparse.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/esvalidate",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/esvalidate",
+          "target": "../esprima/bin/esvalidate.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/handlebars",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/handlebars",
+          "target": "../handlebars/bin/handlebars"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/import-local-fixture",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/import-local-fixture",
+          "target": "../import-local/fixtures/cli.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/jest",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/jest",
+          "target": "../jest/bin/jest.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/js-yaml",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/js-yaml",
+          "target": "../js-yaml/bin/js-yaml.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/jsesc",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/jsesc",
+          "target": "../jsesc/bin/jsesc"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/json5",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/json5",
+          "target": "../json5/lib/cli.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/napi-postinstall",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/napi-postinstall",
+          "target": "../napi-postinstall/lib/cli.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/node-which",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/node-which",
+          "target": "../which/bin/node-which"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/parser",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/parser",
+          "target": "../@babel/parser/bin/babel-parser.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/semver",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/semver",
+          "target": "../semver/bin/semver.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/ts-jest",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/ts-jest",
+          "target": "../ts-jest/cli.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/ts-node",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/ts-node",
+          "target": "../ts-node/dist/bin.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/ts-node-cwd",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/ts-node-cwd",
+          "target": "../ts-node/dist/bin-cwd.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/ts-node-esm",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/ts-node-esm",
+          "target": "../ts-node/dist/bin-esm.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/ts-node-script",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/ts-node-script",
+          "target": "../ts-node/dist/bin-script.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/ts-node-transpile-only",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/ts-node-transpile-only",
+          "target": "../ts-node/dist/bin-transpile.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/ts-script",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/ts-script",
+          "target": "../ts-node/dist/bin-script-deprecated.js"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/tsc",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/tsc",
+          "target": "../typescript/bin/tsc"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/tsserver",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/tsserver",
+          "target": "../typescript/bin/tsserver"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/uglifyjs",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/uglifyjs",
+          "target": "../uglify-js/bin/uglifyjs"
+        },
+        {
+          "canonicalPath": "hello-ts-cli/node_modules/.bin/update-browserslist-db",
+          "effectClass": "dependency-tree",
+          "escapes": false,
+          "kind": "symlink",
+          "path": "hello-ts-cli/node_modules/.bin/update-browserslist-db",
+          "target": "../update-browserslist-db/cli.js"
+        },
+        {
+          "bytes": 155784,
+          "canonicalPath": "hello-ts-cli/node_modules/.package-lock.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/.package-lock.json",
+          "sha256": "fd1c20b6fa2389d54a625ec337464ae3347f2d5853ae03e5169535e740f6f0dc"
+        },
+        {
+          "bytes": 1106,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/code-frame/license",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/code-frame/LICENSE",
+          "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76"
+        },
+        {
+          "bytes": 334,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/code-frame/readme.md",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/code-frame/README.md",
+          "sha256": "c8695ddb503d13b5a671b01f855c8badef445b250105c2d84e7fff502db59c27"
+        },
+        {
+          "bytes": 7193,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/code-frame/lib/index.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/code-frame/lib/index.js",
+          "sha256": "313711c78293dfc83beb2ce5d6846a539235fc48fdd507361b59db8aaba2b186"
+        },
+        {
+          "bytes": 25092,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/code-frame/lib/index.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/code-frame/lib/index.js.map",
+          "sha256": "1694cdf5e607583c1628d9317e0456d36837972615dad351599a05eafcb14576"
+        },
+        {
+          "bytes": 907,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/code-frame/package.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/code-frame/package.json",
+          "sha256": "f9cccb2e601db93851f10935b4e723c95a730c467f187462eb54b16bb353b036"
+        },
+        {
+          "bytes": 1106,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/license",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/LICENSE",
+          "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76"
+        },
+        {
+          "bytes": 307,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/readme.md",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/README.md",
+          "sha256": "21e051ee3c6f9b83ce6a902b7c39de789f935e684f1cc7412c43d2ce2d3d2492"
+        },
+        {
+          "bytes": 132,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/corejs2-built-ins.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/corejs2-built-ins.js",
+          "sha256": "650aa556daf6e89ae6d19f03f97ed1f8e821df5202a6247f5276034d156eb40c"
+        },
+        {
+          "bytes": 160,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/corejs3-shipped-proposals.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/corejs3-shipped-proposals.js",
+          "sha256": "7273863740420fc763944537a51b261e1ee30b5b8806e2096098301ffdbd1782"
+        },
+        {
+          "bytes": 41279,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/data/corejs2-built-ins.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/data/corejs2-built-ins.json",
+          "sha256": "45ee08687581b6cc13b029cfe42ef87078f0e0fa406a4cdd12bf0d8dc97f1ca5"
+        },
+        {
+          "bytes": 88,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/data/corejs3-shipped-proposals.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/data/corejs3-shipped-proposals.json",
+          "sha256": "7fde46e5fa6c338cc101fc8607aece6b367514b2bcf7c3e2317131b5b5a31e63"
+        },
+        {
+          "bytes": 316,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/data/native-modules.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/data/native-modules.json",
+          "sha256": "1b14cf74b090ffe8def9013ca4bb448b4c76e98fbfe20c58a06e439b9e4e6438"
+        },
+        {
+          "bytes": 1293,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/data/overlapping-plugins.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/data/overlapping-plugins.json",
+          "sha256": "54e5c458e997fc29d81102dbd9ab94d06592e63d5298963d7deaf297eb5d8572"
+        },
+        {
+          "bytes": 4733,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/data/plugin-bugfixes.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/data/plugin-bugfixes.json",
+          "sha256": "c24955f310c54985039a6573ac19b2f45073f64d889b16a9e1ec77cac1e22fd4"
+        },
+        {
+          "bytes": 17058,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/data/plugins.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/data/plugins.json",
+          "sha256": "574be4d30480fa3b7efb4fd6462a3921c7a8190fe169215cb94ad02f4cc11657"
+        },
+        {
+          "bytes": 136,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/native-modules.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/native-modules.js",
+          "sha256": "d65a57a748b4b9fd2666d7ddda77c799e236b62e0f4c9cd489121295d9cbc9fe"
+        },
+        {
+          "bytes": 141,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/overlapping-plugins.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/overlapping-plugins.js",
+          "sha256": "8d1105e69afdd9ba8a89826d3b83061951cc72c5f69c43d693711ea1de38eafa"
+        },
+        {
+          "bytes": 1192,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/package.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/package.json",
+          "sha256": "a871a1f7397a91d00f877751ab2da88904ff1dd30c5bb4ab2e5badd9f3adf6d4"
+        },
+        {
+          "bytes": 137,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/plugin-bugfixes.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/plugin-bugfixes.js",
+          "sha256": "f5a0606adac04a0a4c60b3691612a2cf319e00c0b51a5ea1c0a42c987797f241"
+        },
+        {
+          "bytes": 129,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/compat-data/plugins.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/compat-data/plugins.js",
+          "sha256": "66ac3f8a8c710de59754e76f5f092aac6386bcc837ad467d81691a4c6d885a3c"
+        },
+        {
+          "bytes": 1106,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/license",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/LICENSE",
+          "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76"
+        },
+        {
+          "bytes": 401,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/readme.md",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/README.md",
+          "sha256": "b14762ad1c9a0e6fa0e41b2351b1d100985689426100408bc97bf2b9e31f5f60"
+        },
+        {
+          "bytes": 67,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/cache-contexts.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/cache-contexts.js",
+          "sha256": "e36155a5f33f1bf8ff0199622613d171c022ba1809b0aad4e8f9911c34359af4"
+        },
+        {
+          "bytes": 897,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/cache-contexts.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/cache-contexts.js.map",
+          "sha256": "133ae746be7d593d02dcf9f059ec5cd5eca09742ec77fa6a9bf243c11f65c57e"
+        },
+        {
+          "bytes": 7290,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/caching.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/caching.js",
+          "sha256": "21597245d8095abef82ba76135fb13ba083f9460d836296c3b46953870ba1ab6"
+        },
+        {
+          "bytes": 20635,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/caching.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/caching.js.map",
+          "sha256": "7987e7aa52433670ff907924e019021fbed260ac71f2b6eda158bf5488bdd0de"
+        },
+        {
+          "bytes": 18644,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/config-chain.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/config-chain.js",
+          "sha256": "7dedcac829299f6488a3a9a0dcb2d8987c5b779292a666846fc8bd99f1d41175"
+        },
+        {
+          "bytes": 47322,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/config-chain.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/config-chain.js.map",
+          "sha256": "31b50db4af63cbed62dc061b42d2b3b54f4848c9f09b1899441912c7c968f152"
+        },
+        {
+          "bytes": 6856,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/config-descriptors.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/config-descriptors.js",
+          "sha256": "111925e6dfc98cc8b741e7cb4afa4eb8f73568f140541bfa688e46b57cec317b"
+        },
+        {
+          "bytes": 20122,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/config-descriptors.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/config-descriptors.js.map",
+          "sha256": "9cb3c1d6f85eda07baac4bda1f9841722ef9ce68a3c5e106ccbfefd7fea42f85"
+        },
+        {
+          "bytes": 10887,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/configuration.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/configuration.js",
+          "sha256": "0a2a67b52516a84217aaaabd61112609241a7b320a6a4a79de9615da33da65bc"
+        },
+        {
+          "bytes": 22612,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/configuration.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/configuration.js.map",
+          "sha256": "e3aa43b5b891c289758c37144b69f830c8f9912dd7de2b689d7b8d20a5644635"
+        },
+        {
+          "bytes": 121,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/import.cjs",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/import.cjs",
+          "sha256": "af662c2dd5c40dca278b1042e0b3bf233094066d20732c9a62a31f22528e2861"
+        },
+        {
+          "bytes": 519,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/import.cjs.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/import.cjs.map",
+          "sha256": "4d474b13c370dd8ed26756f7280dc67dddc81d1e61b37150d19ab06731e52dc6"
+        },
+        {
+          "bytes": 1568,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index-browser.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index-browser.js",
+          "sha256": "da66e738f094221ea985418ac54f6e6c24ea02b115cda8c1ea882d290cd62539"
+        },
+        {
+          "bytes": 4607,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index-browser.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index-browser.js.map",
+          "sha256": "86b9ffb4a858e7f2311f7d3194df8874b73fdc4bbab4d8836e3dbbed27cee96b"
+        },
+        {
+          "bytes": 1809,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index.js",
+          "sha256": "d637cd7e8a77af5f45b27e6e5ba6625cef14ad880752f4b566c9107692c40a8c"
+        },
+        {
+          "bytes": 1209,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index.js.map",
+          "sha256": "3dc20d199d57993830f2d04b3a5624a38a00cb31c6b67d231cd9c7c126c2f9c6"
+        },
+        {
+          "bytes": 7144,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/module-types.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/module-types.js",
+          "sha256": "faacf19e8f9c2a76995db416a494150c3c08c823b3c4c24b2aefa89ec3ef78b1"
+        },
+        {
+          "bytes": 17470,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/module-types.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/module-types.js.map",
+          "sha256": "09e63c15be0cf4b976119c82b4935d19007802d666e143e2bd782712f32ad6a5"
+        },
+        {
+          "bytes": 1624,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/package.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/package.js",
+          "sha256": "81561b31e3488c0d82655a6e8a80f3c6ca490ccea5274eaf5b2b2ddb4fe9bfcb"
+        },
+        {
+          "bytes": 3757,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/package.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/package.js.map",
+          "sha256": "2d1f5c8fc8d44c1fba4642600c8e8fcdbc60262388908009bde2640a3d1a5175"
+        },
+        {
+          "bytes": 7613,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/plugins.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/plugins.js",
+          "sha256": "513322a7370310e0d3eba5cb0eb2bbaafb1847cc4352bf73efa3485c4f77fefb"
+        },
+        {
+          "bytes": 17357,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/plugins.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/plugins.js.map",
+          "sha256": "b3f70f8873fee4237f2ed52c1c50bd2fc35176eb15b86db7c9b40420483e11a5"
+        },
+        {
+          "bytes": 58,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/types.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/types.js",
+          "sha256": "98ffb98d4cbc335721c365162430e774bd236158a61f8863b39d7d4ce82c4f52"
+        },
+        {
+          "bytes": 1132,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/types.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/types.js.map",
+          "sha256": "95030c243dd32e15ca400961724d4ab2c9fda7e2a298699d2cb442425603a7bc"
+        },
+        {
+          "bytes": 895,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/utils.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/utils.js",
+          "sha256": "aa96789e469c230d78c99b6a91011062b07d611b556e02493b7b8abbf2214627"
+        },
+        {
+          "bytes": 2088,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/files/utils.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/utils.js.map",
+          "sha256": "dd9e11b63bea376c33d935e823a51e0d356aaabfca556034a046e09d6e1d064e"
+        },
+        {
+          "bytes": 11245,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/full.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/full.js",
+          "sha256": "1137fa61f113c82bc016c601c8286cb5967eb477819bdc2fd88f81e71f4cfd3d"
+        },
+        {
+          "bytes": 27988,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/full.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/full.js.map",
+          "sha256": "e6204becc4abf78f598a6e84ec2ef4344b4a25a4466841bbe7cc5496ec3df983"
+        },
+        {
+          "bytes": 2807,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/config-api.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/config-api.js",
+          "sha256": "18546964f96c9aeb19b3a694e987e594163f941e78f9b83da97e9d2a0b6024b1"
+        },
+        {
+          "bytes": 8765,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/config-api.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/config-api.js.map",
+          "sha256": "9a706b18c26339f38abb60af152589e5cb7d55411b6722fe3a13b104e6abce43"
+        },
+        {
+          "bytes": 497,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/deep-array.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/deep-array.js",
+          "sha256": "6dd7d03d5a6b990947f5ff5f7ce3afec5d96bfd34432313ff09e0a90f201c981"
+        },
+        {
+          "bytes": 1515,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/deep-array.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/deep-array.js.map",
+          "sha256": "00385f3fc8e0fc767d9e56e9704cdeabe56e9da19de04d6b12efa34f8b10a1be"
+        },
+        {
+          "bytes": 276,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/environment.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/environment.js",
+          "sha256": "c74e0591757ada808596e7068aeac12bf2898ed6857f395c07f5fcaddedaca20"
+        },
+        {
+          "bytes": 488,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/environment.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/environment.js.map",
+          "sha256": "5eed1b6bd8e1a75b69e9872c3627ff008603c2358683a544b559b3e661925b27"
+        },
+        {
+          "bytes": 3339,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/index.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/index.js",
+          "sha256": "0db68e510e209917c9c405dcf86b1863c82ed7e580d3c461b20e785665673f02"
+        },
+        {
+          "bytes": 8154,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/index.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/index.js.map",
+          "sha256": "d68c9c62e190a795a55e17d9bf18580957c977eac2fb5aefa44da7bca7cd5c72"
+        },
+        {
+          "bytes": 1836,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/item.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/item.js",
+          "sha256": "0be364cf4291c92bf7d7666caae973a59655b11d8c7957232b62c699a7a5425e"
+        },
+        {
+          "bytes": 6088,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/item.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/item.js.map",
+          "sha256": "67a23b0f03a83e3a087c80ab8e7069fae884d97b623e97c2755512962b32145e"
+        },
+        {
+          "bytes": 5400,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/partial.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/partial.js",
+          "sha256": "710d24af0c1eaf04b648b856eca97371533dc58c5043e0ab92a23d327cb68ccf"
+        },
+        {
+          "bytes": 12845,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/partial.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/partial.js.map",
+          "sha256": "2a4c0fb978800f27fcf93cfe975668329aff32acf9840e2a072f2fadf2fc20e1"
+        },
+        {
+          "bytes": 1186,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/pattern-to-regex.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/pattern-to-regex.js",
+          "sha256": "16c889664261530c3cd3dfeffe7bb6f88237608d479628d0f0cd2493835635dd"
+        },
+        {
+          "bytes": 3222,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/pattern-to-regex.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/pattern-to-regex.js.map",
+          "sha256": "3e483977ce18124344b7522309696664c7b3bb41893401eb554e416e10be5e4e"
+        },
+        {
+          "bytes": 986,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/plugin.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/plugin.js",
+          "sha256": "b59ccee3e4e417e3d2c3dcc621f9708df9dd140ceb3fdad313dc874a82558ec4"
+        },
+        {
+          "bytes": 2263,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/plugin.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/plugin.js.map",
+          "sha256": "c0f33cd68fcbc24f10d29d01706ddcd5f8327f07093019c9bbdcba4ff70d5e39"
+        },
+        {
+          "bytes": 2894,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/printer.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/printer.js",
+          "sha256": "558c215fecd52681b0e4d4f0e473df122a9f8487335f6a9351828c6198c106cf"
+        },
+        {
+          "bytes": 8061,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/printer.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/printer.js.map",
+          "sha256": "02856a4015d92bf12e7b1213302eff4f08789b56297ba621be465898b45e76db"
+        },
+        {
+          "bytes": 1106,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets-browser.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets-browser.js",
+          "sha256": "e12ed032a41bab203e1524f185cc898b07481ee3c078248c198361aef3b4a656"
+        },
+        {
+          "bytes": 2420,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets-browser.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets-browser.js.map",
+          "sha256": "0b3bad68102daf8e99b298b8ef9e1565f7722270ff7db4ac60c5c4ee52242ed1"
+        },
+        {
+          "bytes": 1577,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets.js",
+          "sha256": "c46e3fe1595fe9c7a3218aa4d2b9b04a5a970202618eb5e7edc7dec6ea41144e"
+        },
+        {
+          "bytes": 3458,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets.js.map",
+          "sha256": "7c89e13668468172234ef80270cd7a34452efcbdd621e8ff6a2215c9ccc77a3a"
+        },
+        {
+          "bytes": 927,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/util.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/util.js",
+          "sha256": "8b7c7379f1c20145b0ac73224f6883e8147f8794e7b96bb8db7ae702f43e8f85"
+        },
+        {
+          "bytes": 2365,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/util.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/util.js.map",
+          "sha256": "341535d98aa032861b936fca50740196a77f04b062fd693c9433ae31c3110c87"
+        },
+        {
+          "bytes": 10009,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/option-assertions.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/option-assertions.js",
+          "sha256": "ea3089e69e6c9a210b4a714d0726b34d3cb214d8278ce0791c907dc7caa21e0e"
+        },
+        {
+          "bytes": 24874,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/option-assertions.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/option-assertions.js.map",
+          "sha256": "12edbcb16b91ccf1a9c72818890197b9b2723466e2046587c94253170d85423e"
+        },
+        {
+          "bytes": 8017,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/options.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/options.js",
+          "sha256": "4d7ff3edafcca7153d4a2629f58a9cfcf48da8b049feb7f5124f766011205b4c"
+        },
+        {
+          "bytes": 26051,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/options.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/options.js.map",
+          "sha256": "347520352cfa9ccb53c0b21e7cf2ec5b6c782490d18306e55f51090611458a55"
+        },
+        {
+          "bytes": 2088,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/plugins.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/plugins.js",
+          "sha256": "1c9c55893ffda1d11a829f4a69e8e2ad26dd60309a5fc57ab49ead12af165a75"
+        },
+        {
+          "bytes": 6415,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/plugins.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/plugins.js.map",
+          "sha256": "7d8a10abc841129bc3faf736c03573ce2eba069069d0d2a50f6177bf8233d3df"
+        },
+        {
+          "bytes": 2410,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/removed.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/removed.js",
+          "sha256": "744c81346f2327767b11d61e1a0bbc6e7af565c43010eae53c94763379d35451"
+        },
+        {
+          "bytes": 3886,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/removed.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/config/validation/removed.js.map",
+          "sha256": "753143ff04ae4690208e188d7fed3012c8018dfa292133d95baa07c781fa6219"
+        },
+        {
+          "bytes": 476,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/errors/config-error.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/errors/config-error.js",
+          "sha256": "8557b579ab2647581f4ad571ee4a84ed2e66247f4d6b9fa0f56869cb85c0c0ec"
+        },
+        {
+          "bytes": 861,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/errors/config-error.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/errors/config-error.js.map",
+          "sha256": "359cf849e05ca1eb2833e300adf8e415fa5e35ea68154f398be1a7519c4827e8"
+        },
+        {
+          "bytes": 3221,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/errors/rewrite-stack-trace.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/errors/rewrite-stack-trace.js",
+          "sha256": "e201e122cafddc929abc2accd053b7933bc8cb01180f4a7f6382937080c88676"
+        },
+        {
+          "bytes": 10381,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/errors/rewrite-stack-trace.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/errors/rewrite-stack-trace.js.map",
+          "sha256": "f858f9e742f13eb9bdd2d5aab4f07dd2b1386833ee50df209114793374a4989f"
+        },
+        {
+          "bytes": 2594,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/async.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/async.js",
+          "sha256": "043296a02d18004c7f1b85e25f19db3fd5a875331230beded4530c5f7baf224b"
+        },
+        {
+          "bytes": 7334,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/async.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/async.js.map",
+          "sha256": "280ba7eea1cffbcdcad39f0cf898390e86e5a4ab3703dd0228e35dba0e48eac1"
+        },
+        {
+          "bytes": 591,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/fs.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/fs.js",
+          "sha256": "b3a132785272be443b5298772299b11dfa016251bd097794915c34b447ce1dfe"
+        },
+        {
+          "bytes": 1049,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/fs.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/fs.js.map",
+          "sha256": "69414f10565010f4c637d0d536f8f068c033348d6ad9f9c2ac8182122fe89d49"
+        },
+        {
+          "bytes": 1300,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/functional.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/functional.js",
+          "sha256": "df82f6980855ff7315ee420c6fcf7f6fc00ad1ce63ecbd92dce427151a974547"
+        },
+        {
+          "bytes": 3006,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/functional.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/gensync-utils/functional.js.map",
+          "sha256": "50772b224d8d60eefcc3cf841dfdafcdd61dd2acc4606b4402ddf210cf97fba6"
+        },
+        {
+          "bytes": 5853,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/index.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/index.js",
+          "sha256": "dba868255b447218cd421b30fb5289c118f265817088e7106053cf962057dd26"
+        },
+        {
+          "bytes": 6087,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/index.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/index.js.map",
+          "sha256": "03da690259df4e153c4a30335d6bc0e53f882762e719030c7637c26e738abe55"
+        },
+        {
+          "bytes": 1415,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/parse.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/parse.js",
+          "sha256": "6b53bf3c11fabec8967401ab96fb4c8bd9f54f70ae142cbf5903c349a8d70b41"
+        },
+        {
+          "bytes": 3684,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/parse.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/parse.js.map",
+          "sha256": "a113efb373a9a6a50f433a1f1e887f17f048414df5d88f0ddc16444056249a89"
+        },
+        {
+          "bytes": 2551,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/parser/index.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/parser/index.js",
+          "sha256": "0020f61256384f275fb4b30db2b4f41951bd2c053363b301f06cc256b337d048"
+        },
+        {
+          "bytes": 5359,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/parser/index.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/parser/index.js.map",
+          "sha256": "c8e1ab2d5906b84b7fe9baa1c679976f5aa60e6cc823bef2ea1a63fe53a7ab52"
+        },
+        {
+          "bytes": 12683,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/parser/util/missing-plugin-helper.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/parser/util/missing-plugin-helper.js",
+          "sha256": "a429a257a445bd02cd6245c2fdcf15f5cd1aa3c65ccb679aad70b8a87bb258bc"
+        },
+        {
+          "bytes": 20752,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/parser/util/missing-plugin-helper.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/parser/util/missing-plugin-helper.js.map",
+          "sha256": "9d375887244992214e3146467715071fbeeb91d12263f6d4a71eb179c18c0028"
+        },
+        {
+          "bytes": 4558,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/tools/build-external-helpers.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/tools/build-external-helpers.js",
+          "sha256": "0880c2a635627eed182a060b334914fd9299bff18a481ba2c0c8f260492ff7a0"
+        },
+        {
+          "bytes": 11257,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/tools/build-external-helpers.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/tools/build-external-helpers.js.map",
+          "sha256": "50071a4f45e8e6b56e5e4fc92d070eaf2229501e875dc66cedded10d255c1976"
+        },
+        {
+          "bytes": 1666,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transform-ast.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transform-ast.js",
+          "sha256": "ed2ef4a519152a52768d7d98ecbe90e674a8c744545068d348c96b7131d8f5c7"
+        },
+        {
+          "bytes": 4468,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transform-ast.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transform-ast.js.map",
+          "sha256": "c654d78181362ad510c4b913ca49acbc3243c5e63886435b8014d93a4afe96e6"
+        },
+        {
+          "bytes": 733,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transform-file-browser.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transform-file-browser.js",
+          "sha256": "f9019fae36678e4e13ce805bdd00dda9caad6dc7a12d9d403c85374728fdc068"
+        },
+        {
+          "bytes": 1550,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transform-file-browser.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transform-file-browser.js.map",
+          "sha256": "5abdca42fc1d993dd0bde2a387ad778608be456c14106935268704b5227ea9d1"
+        },
+        {
+          "bytes": 1106,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transform-file.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transform-file.js",
+          "sha256": "7c34b7adfc3ea8e7abf637a1c4f5d06caa5eabfaf79365101a14516fb952f474"
+        },
+        {
+          "bytes": 3240,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transform-file.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transform-file.js.map",
+          "sha256": "a8bc871372ad6ede7862df51727668ad4470e27916659ac1d1ca44ecdf008b16"
+        },
+        {
+          "bytes": 1496,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transform.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transform.js",
+          "sha256": "daf9c1faa6ad77c36ee0ba00e1aa989a23b1e010deec4362a7155f14e37651db"
+        },
+        {
+          "bytes": 3991,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transform.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transform.js.map",
+          "sha256": "a759b30b485a97cb2c45ebeed8f31b6b7a1eeb2dceb20a4804a1bf948daed289"
+        },
+        {
+          "bytes": 1928,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/block-hoist-plugin.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/block-hoist-plugin.js",
+          "sha256": "397651e68092230193a61e93e62423169958af2aab853cbcef86a9e94e20abcd"
+        },
+        {
+          "bytes": 5703,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/block-hoist-plugin.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/block-hoist-plugin.js.map",
+          "sha256": "f0b092fdad2ea03d3198ba7a823cd8ff35267c9c763470b999285558294c8897"
+        },
+        {
+          "bytes": 142,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/babel-7-helpers.cjs",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/babel-7-helpers.cjs",
+          "sha256": "4b5e82955f8f1edac8ee43c8e5ec32b9ee6e5afdd97f7fd298a169e6dcd2a5af"
+        },
+        {
+          "bytes": 565,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/babel-7-helpers.cjs.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/babel-7-helpers.cjs.map",
+          "sha256": "09044180e4bbe7cc535613c69395f12743ace27da0af4993d1394efb4ffd2c4f"
+        },
+        {
+          "bytes": 5881,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/file.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/file.js",
+          "sha256": "529eaf6e795a10158badabefa982b2a932a3fcb4edd0c78688726288776b662c"
+        },
+        {
+          "bytes": 15947,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/file.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/file.js.map",
+          "sha256": "18d69f3c4819464398a0daf7ac666155a64c7494bb21a3f2e0f67ca269512f89"
+        },
+        {
+          "bytes": 2260,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/generate.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/generate.js",
+          "sha256": "cf80e8aaaa7f4e54eb174069712a7dc3a46e425b8404fbed6a3e1384006a3452"
+        },
+        {
+          "bytes": 5367,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/generate.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/generate.js.map",
+          "sha256": "ff2422a1abaad125072bbcd5adb992834538332e984ec85d0be95cb6d4075cb6"
+        },
+        {
+          "bytes": 855,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/merge-map.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/merge-map.js",
+          "sha256": "568360313a672ce0f575fcd3535899bc88f9df43a5f7a459f8e25093f85d8116"
+        },
+        {
+          "bytes": 3483,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/merge-map.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/file/merge-map.js.map",
+          "sha256": "b172e3179bb166ce0488cc5bd0357d2c765604ae5958f44da90a0bcbc9a366a5"
+        },
+        {
+          "bytes": 3064,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/index.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/index.js",
+          "sha256": "8b2f87e60d41f057e42a3728bf68e6e7548b26620f82edee54ea1eda39b4071e"
+        },
+        {
+          "bytes": 7760,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/index.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/index.js.map",
+          "sha256": "bdfae07dff2a9a3549068ab7978d610dda8ff9b5312a0ae03b27960263b2594c"
+        },
+        {
+          "bytes": 3400,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-file.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-file.js",
+          "sha256": "406006b6ce5669dc6376c7237ccbb8a6ed31d83065732688aa87a5392a75991d"
+        },
+        {
+          "bytes": 8066,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-file.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-file.js.map",
+          "sha256": "134eb9e209ceb23f27a57f3d1e316a1278a3512bb4663b4f4d50a0211c17b256"
+        },
+        {
+          "bytes": 1604,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-opts.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-opts.js",
+          "sha256": "baae9e12bb85a18c9fa1f4ee80c1ec41c307013c157e4628c95796048e0e7f49"
+        },
+        {
+          "bytes": 4053,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-opts.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/normalize-opts.js.map",
+          "sha256": "24da96a6723c7d6e99ef0efb8ce5aeff8765fe829cff87301790cad37d0f714f"
+        },
+        {
+          "bytes": 1160,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/plugin-pass.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/plugin-pass.js",
+          "sha256": "46716c9dfd034abdd1cbe1fdaeec928f167847bca764c93857b89e314bf1d48d"
+        },
+        {
+          "bytes": 3550,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/plugin-pass.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/plugin-pass.js.map",
+          "sha256": "283bc51b75393b4725f53eeca8cbc19f90a6b347b13c65d6e56591b196de3813"
+        },
+        {
+          "bytes": 314,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file-browser.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file-browser.js",
+          "sha256": "9a80870d9a1cae7a1aaf234c01b365878450562bb4231ab98796638632205088"
+        },
+        {
+          "bytes": 425,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file-browser.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file-browser.js.map",
+          "sha256": "6338c19bd34d337a794622ec4b521720abf8205b99c43cbccf9c83071af51cb3"
+        },
+        {
+          "bytes": 2529,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file.js",
+          "sha256": "d6688c58230bba99c9fe935a3fa421692752d28e2ad2c10628cad190a910d45b"
+        },
+        {
+          "bytes": 5612,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/read-input-source-map-file.js.map",
+          "sha256": "963faa2a3e8d565778cb49f39b4deb4585effd778d0d034ca56fedaf4bb94704"
+        },
+        {
+          "bytes": 1603,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/util/clone-deep.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/util/clone-deep.js",
+          "sha256": "101f894d0a834318e0b65d4d8a1cd34bd306fcac968551e46c219c955db0b2c0"
+        },
+        {
+          "bytes": 4326,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/transformation/util/clone-deep.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/transformation/util/clone-deep.js.map",
+          "sha256": "91fa01fe74ec29295a009e280ea8a477e3dc24800e1fe789b16db2f7ed61f302"
+        },
+        {
+          "bytes": 41549,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/vendor/import-meta-resolve.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/vendor/import-meta-resolve.js",
+          "sha256": "8d357d211f43738bfe51ef8c1ca094ae45b62b3e58563584072d35be1e7007f1"
+        },
+        {
+          "bytes": 109982,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/lib/vendor/import-meta-resolve.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/lib/vendor/import-meta-resolve.js.map",
+          "sha256": "f5792e1aba64ab940c9ede91730bb672d8c3732e31bc14e2a8895068b321cf4d"
+        },
+        {
+          "bytes": 2744,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/package.json",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/package.json",
+          "sha256": "6c2893db41b54a1c03ba68e676aa3ea987db9a5c9b9a3a3aa2e8d0d9a63066c4"
+        },
+        {
+          "bytes": 3009,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/src/config/files/index-browser.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/src/config/files/index-browser.ts",
+          "sha256": "6d5ba714a9a251e5ee0a606cc562a6d9c6eda373de0dc2aaf4a46043c59d0836"
+        },
+        {
+          "bytes": 816,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/src/config/files/index.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/src/config/files/index.ts",
+          "sha256": "66b14086e2689d71b379377e0b7945460e2f68c863e4f277f7909dcedc78bea3"
+        },
+        {
+          "bytes": 1216,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/src/config/resolve-targets-browser.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/src/config/resolve-targets-browser.ts",
+          "sha256": "55ac4a91285e6670838f380d599e30ae25eb3e9977a7d056ce4c2353c055f112"
+        },
+        {
+          "bytes": 1798,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/src/config/resolve-targets.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/src/config/resolve-targets.ts",
+          "sha256": "ece014dc8d80b953517e9caa53e3d3e8ed22bbb66e47be5e54f5f579c06379f9"
+        },
+        {
+          "bytes": 844,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/src/transform-file-browser.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/src/transform-file-browser.ts",
+          "sha256": "95cdb9273f707e2e5b7d92a144d9968ac7c1768168672e6d230880a23f1a8ac2"
+        },
+        {
+          "bytes": 1901,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/src/transform-file.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/src/transform-file.ts",
+          "sha256": "b2ce2963eacffd257e02d992a85ee92ce8d7b4bdd5f754ddb5125b9c81b2ea49"
+        },
+        {
+          "bytes": 151,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/src/transformation/read-input-source-map-file-browser.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/src/transformation/read-input-source-map-file-browser.ts",
+          "sha256": "b58455f135dcc0a9ebb6398cf49327fe3267dceb110333071fb256d7bb8ec9a1"
+        },
+        {
+          "bytes": 2414,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/core/src/transformation/read-input-source-map-file.ts",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/core/src/transformation/read-input-source-map-file.ts",
+          "sha256": "5b362973706a6a30d968411bc4c56c0ace1067e7daa96f518b642507274ad20e"
+        },
+        {
+          "bytes": 1106,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/license",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/LICENSE",
+          "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76"
+        },
+        {
+          "bytes": 434,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/readme.md",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/README.md",
+          "sha256": "f74b61cf836f8eeb1e63e23fc550257d77d2b6a19da179ab5a2884aaf90d33d6"
+        },
+        {
+          "bytes": 6473,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/buffer.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/buffer.js",
+          "sha256": "88636e1c3be7d84bf0c28a57e778c969d79ee6925ae8f89eb3ac14ecbfa9b46f"
+        },
+        {
+          "bytes": 19994,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/buffer.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/buffer.js.map",
+          "sha256": "27972dea7f1094ae16adedce58afe33c4324e81c6263107c1119645927b257b9"
+        },
+        {
+          "bytes": 2726,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/base.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/base.js",
+          "sha256": "39d132506cb25608242ded36f365f693c3242baf84c2bc0c0099f3b5179746a8"
+        },
+        {
+          "bytes": 6314,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/base.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/base.js.map",
+          "sha256": "dabbad3bb3ba2030e86f09993bd52efbe22eab0bf885ec507398bdf0f50d781d"
+        },
+        {
+          "bytes": 6049,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/classes.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/classes.js",
+          "sha256": "ef1d48011af7fd1d62517ad84f8a7bb2cb47c09e255e3b819a96e04fdcd0f158"
+        },
+        {
+          "bytes": 15659,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/classes.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/classes.js.map",
+          "sha256": "29afd9e997294171fd2be11a14aedc340987e69f374e38b0283bdca904b7ddfe"
+        },
+        {
+          "bytes": 2166,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/deprecated.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/deprecated.js",
+          "sha256": "4959bedaa1128a52a1288b81e387bd5e8b8c0b8e478f6184db4c702f9c8565d7"
+        },
+        {
+          "bytes": 5473,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/deprecated.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/deprecated.js.map",
+          "sha256": "661089a16781293178bd08c8cdfaf00b39b99cbfa65928cf6c0355d0854f4eef"
+        },
+        {
+          "bytes": 8457,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/expressions.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/expressions.js",
+          "sha256": "d956a15125e3cf45ea7c03ec659260ba12d3cb42a63968b4469642dae2541af1"
+        },
+        {
+          "bytes": 20695,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/expressions.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/expressions.js.map",
+          "sha256": "bb043440a207d60acd75495ece96097b44af8c6149500276c3d87b342e7a8d38"
+        },
+        {
+          "bytes": 16660,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/flow.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/flow.js",
+          "sha256": "5f317726aa77fefed4595ba60760157b3c029af32f088415027474c2c10f2078"
+        },
+        {
+          "bytes": 38630,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/flow.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/flow.js.map",
+          "sha256": "9a79764c5c0806d27f8b5d8e5b9174230eda5fb6f887687b1f4ffa0509877e69"
+        },
+        {
+          "bytes": 3858,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/index.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/index.js",
+          "sha256": "e86e6e2f58829b30d9e5d4232404a2925cefe09c2345a4abc83072c7b1f2fb34"
+        },
+        {
+          "bytes": 4018,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/index.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/index.js.map",
+          "sha256": "d2e59a2f3b2eb5cba8fab3957ec3427ff6bd604cc09a7f9ee81653a112eeaa28"
+        },
+        {
+          "bytes": 3014,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/jsx.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/jsx.js",
+          "sha256": "ba2dc7c800ba8722ca2e5ded86374d08c4286a118100a14647f34d18f6e2d146"
+        },
+        {
+          "bytes": 7391,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/jsx.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/jsx.js.map",
+          "sha256": "b8983022b8cfc762dc62a4daf238cccb05581e8053686c76149f2a48a1c4fc31"
+        },
+        {
+          "bytes": 6303,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/methods.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/methods.js",
+          "sha256": "acaae0a027cde72695f57e306fd91f0c1bb29b0e5c3a2a17fb6aec2547618a7d"
+        },
+        {
+          "bytes": 17004,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/methods.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/methods.js.map",
+          "sha256": "1a3c4b702c8164a3c31407db2a27f4b48716b38d4855c64d95ede72846baef9f"
+        },
+        {
+          "bytes": 8713,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/modules.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/modules.js",
+          "sha256": "18ad8f0a9fde735d160a6213db8dfe08831bce11d8a34aeba8ba9a2ed106146b"
+        },
+        {
+          "bytes": 20840,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/modules.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/modules.js.map",
+          "sha256": "e38f97f27be3fb5a125a18a269c4c1646c25b9dc333f68da379511394269b4dd"
+        },
+        {
+          "bytes": 7054,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/statements.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/statements.js",
+          "sha256": "5ba93927534a005b2e77645de2205ef27bdcc42691c4afdc9b3dceba9ce6b401"
+        },
+        {
+          "bytes": 18401,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/statements.js.map",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/statements.js.map",
+          "sha256": "db86ad61beb068501205da4bd8c8830a36fe73c03198f13cd6a56e9f888d4edb"
+        },
+        {
+          "bytes": 1148,
+          "canonicalPath": "hello-ts-cli/node_modules/@babel/generator/lib/generators/template-literals.js",
+          "effectClass": "dependency-tree",
+          "kind": "create",
+          "mode": 420,
+          "path": "hello-ts-cli/node_modules/@babel/generator/lib/generators/template-literals.js",
+          "sha256": "8791a02ffac04f2c82e729ba792fba1bfab1ce56186efda99dcaa3a9f7ec0e34"
+        }
+      ],
+      "effectsTruncated": 6477,
+      "egress": {
+        "allow": 34,
+        "deny": 2,
+        "live": 17
+      },
+      "hash": "1b1e4df28caeff68819e5d92fb1222b96f3985bbcdaa93222abc654778e953bb",
+      "hits": [
+        {
+          "decision": "review",
+          "detail": "exec-surface:js-config",
+          "path": "hello-ts-cli/jest.config.js",
+          "rule": "execution-surface-review"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:@types/jest ^30.0.0",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:@types/node ^26.4.0",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:jest ^30.5.0",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:ts-jest ^29.4.12",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:ts-node ^10.9.2",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "devDependencies:typescript ^6.0.3",
+          "path": "hello-ts-cli/package.json",
+          "rule": "dependency-added"
+        },
+        {
+          "decision": "review",
+          "detail": "test",
+          "path": "hello-ts-cli/package.json",
+          "rule": "manifest-script-change"
+        }
+      ],
+      "hmac": "24e95da5781b159c33778f8eeaa18e52dc1bbb35f57b0be82a380e8a077587b0",
+      "kind": "turn.held",
+      "mechanism": "copy",
+      "outboundHeldForReview": 0,
+      "prev": "ab88a86ff04d1e1593edc34dd2e9bd3445a75c3c8a219af1872f4c6f28cefff3",
+      "principal": "policy",
+      "rule": "execution-surface-review",
+      "runId": "9b1c6770-653f-4528-864b-a36c3620f9fe",
+      "seq": 178,
+      "shadowDir": "~/.volc-agent-launchpad/data/shadows/9b1c6770-653f-4528-864b-a36c3620f9fe",
+      "ts": "2026-08-31T08:47:15.939Z",
+      "workspaceDigestAfter": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+      "workspaceFilesAfter": 3,
+      "workspacePath": "~/.volc-agent-launchpad/workspaces/d9ba6423-b417-43ac-b27b-80a5615ed6de",
+      "workspaceUnreadableAfter": 0
+    }
+  ],
+  "toolEvents": {
+    "recorded": true,
+    "reported": true,
+    "exit": "ok",
+    "commands": 9,
+    "commandsFailed": 6,
+    "failed": [
+      {
+        "command": "/usr/bin/bash -lc \"cd hello-ts-cli && npx ts-jest config:init\ncat > cli.test.ts << 'EOF'\nimport { greet } from \\\"./cli\\\";\n\ntest(\\\"greet returns default message\\\", () => {\n  expect(greet()).toBe(\\\"Hello, World\"'!\");\n});\n\ntest(\"greet returns ",
+        "exitCode": 1,
+        "status": "failed"
+      },
+      {
+        "command": "/usr/bin/bash -lc \"cd hello-ts-cli && npm test && echo -e \\\"\\\\n--- Testing CLI directly ---\\\" && ./cli.ts && ./cli.ts Bob\"",
+        "exitCode": 1,
+        "status": "failed"
+      },
+      {
+        "command": "/usr/bin/bash -lc \"cd hello-ts-cli && sed -i 's/\\\"test\\\": \\\"echo.*\\\"/\\\"test\\\": \\\"jest\\\"/' package.json && npm test && ./cli.ts && ./cli.ts Bob\"",
+        "exitCode": 127,
+        "status": "failed"
+      },
+      {
+        "command": "/usr/bin/bash -lc \"cd hello-ts-cli && npx jest && echo -e \\\"\\\\n--- CLI output ---\\\" && npx ts-node cli.ts && npx ts-node cli.ts Bob\"",
+        "exitCode": 1,
+        "status": "failed"
+      },
+      {
+        "command": "/usr/bin/bash -lc 'cd hello-ts-cli && npm install -D typescript@''^6 && npx jest && npx ts-node cli.ts && npx ts-node cli.ts Bob'",
+        "exitCode": 1,
+        "status": "failed"
+      },
+      {
+        "command": "/usr/bin/bash -lc \"cd hello-ts-cli && grep -v '\\\"verbatimModuleSyntax\\\"' tsconfig.json > tmp.json && mv tmp.json tsconfig.json && npx ts-node cli.ts && npx ts-node cli.ts Bob\"",
+        "exitCode": 1,
+        "status": "failed"
+      }
+    ]
+  },
+  "modelUsage": {
+    "present": true,
+    "tokens": 270008,
+    "inputTokens": 156444,
+    "cachedInputTokens": 111576,
+    "outputTokens": 1988
+  },
+  "providerRequests": [],
+  "timeline": {
+    "runId": "9b1c6770-653f-4528-864b-a36c3620f9fe",
+    "agentId": "d9ba6423-b417-43ac-b27b-80a5615ed6de",
+    "verdict": "held",
+    "rule": "execution-surface-review",
+    "principal": null,
+    "seq": 178,
+    "at": "2026-08-31T08:47:15.939Z",
+    "mechanism": "copy",
+    "effectCount": 6677,
+    "truncated": 6577,
+    "effects": [
+      {
+        "path": "hello-ts-cli/cli.test.ts",
+        "kind": "create",
+        "class": "source",
+        "bytes": 226
+      },
+      {
+        "path": "hello-ts-cli/cli.ts",
+        "kind": "create",
+        "class": "source",
+        "bytes": 223
+      },
+      {
+        "path": "hello-ts-cli/jest.config.js",
+        "kind": "create",
+        "class": "config",
+        "bytes": 247
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/acorn",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../acorn/bin/acorn",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/baseline-browser-mapping",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../baseline-browser-mapping/dist/cli.cjs",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/browserslist",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../browserslist/cli.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/esparse",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../esprima/bin/esparse.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/esvalidate",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../esprima/bin/esvalidate.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/handlebars",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../handlebars/bin/handlebars",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/import-local-fixture",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../import-local/fixtures/cli.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/jest",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../jest/bin/jest.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/js-yaml",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../js-yaml/bin/js-yaml.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/jsesc",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../jsesc/bin/jsesc",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/json5",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../json5/lib/cli.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/napi-postinstall",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../napi-postinstall/lib/cli.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/node-which",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../which/bin/node-which",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/parser",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../@babel/parser/bin/babel-parser.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/semver",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../semver/bin/semver.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/ts-jest",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../ts-jest/cli.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/ts-node",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../ts-node/dist/bin.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/ts-node-cwd",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../ts-node/dist/bin-cwd.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/ts-node-esm",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../ts-node/dist/bin-esm.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/ts-node-script",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../ts-node/dist/bin-script.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/ts-node-transpile-only",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../ts-node/dist/bin-transpile.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/ts-script",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../ts-node/dist/bin-script-deprecated.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/tsc",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../typescript/bin/tsc",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/tsserver",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../typescript/bin/tsserver",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/uglifyjs",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../uglify-js/bin/uglifyjs",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.bin/update-browserslist-db",
+        "kind": "symlink",
+        "class": "dependency",
+        "bytes": 0,
+        "target": "../update-browserslist-db/cli.js",
+        "escapes": false
+      },
+      {
+        "path": "hello-ts-cli/node_modules/.package-lock.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 155784
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/code-frame/LICENSE",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1106
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/code-frame/README.md",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 334
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/code-frame/lib/index.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 7193
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/code-frame/lib/index.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 25092
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/code-frame/package.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 907
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/LICENSE",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1106
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/README.md",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 307
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/corejs2-built-ins.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 132
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/corejs3-shipped-proposals.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 160
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/data/corejs2-built-ins.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 41279
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/data/corejs3-shipped-proposals.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 88
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/data/native-modules.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 316
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/data/overlapping-plugins.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1293
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/data/plugin-bugfixes.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 4733
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/data/plugins.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 17058
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/native-modules.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 136
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/overlapping-plugins.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 141
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/package.json",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1192
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/plugin-bugfixes.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 137
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/compat-data/plugins.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 129
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/LICENSE",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1106
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/README.md",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 401
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/cache-contexts.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 67
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/cache-contexts.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 897
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/caching.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 7290
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/caching.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 20635
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/config-chain.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 18644
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/config-chain.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 47322
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/config-descriptors.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 6856
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/config-descriptors.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 20122
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/configuration.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 10887
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/configuration.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 22612
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/import.cjs",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 121
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/import.cjs.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 519
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index-browser.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1568
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index-browser.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 4607
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1809
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/index.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1209
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/module-types.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 7144
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/module-types.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 17470
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/package.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1624
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/package.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3757
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/plugins.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 7613
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/plugins.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 17357
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/types.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 58
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/types.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1132
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/utils.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 895
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/files/utils.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 2088
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/full.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 11245
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/full.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 27988
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/config-api.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 2807
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/config-api.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 8765
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/deep-array.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 497
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/deep-array.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1515
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/environment.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 276
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/helpers/environment.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 488
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/index.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3339
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/index.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 8154
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/item.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1836
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/item.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 6088
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/partial.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 5400
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/partial.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 12845
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/pattern-to-regex.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1186
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/pattern-to-regex.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 3222
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/plugin.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 986
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/plugin.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 2263
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/printer.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 2894
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/printer.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 8061
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets-browser.js",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 1106
+      },
+      {
+        "path": "hello-ts-cli/node_modules/@babel/core/lib/config/resolve-targets-browser.js.map",
+        "kind": "create",
+        "class": "dependency",
+        "bytes": 2420
+      }
+    ],
+    "conflictPaths": [],
+    "appliedPaths": [],
+    "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+    "workspaceDigestAfter": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+    "workspaceDigestReason": null,
+    "workspaceFilesBefore": 3,
+    "workspaceFilesAfter": 3,
+    "workspaceUnreadableBefore": 0,
+    "workspaceUnreadableAfter": 0,
+    "beginRecorded": true,
+    "confinement": "container+sealed-network",
+    "confinementReason": null,
+    "network": "shadow-9b1c6770-653f-4528-864b-a36c3620f9fe",
+    "egressAllowlistSize": 5,
+    "modelChannel": "terminated-at-broker",
+    "codexHomeFiles": 1,
+    "egress": {
+      "allow": 34,
+      "deny": 2,
+      "live": 17
+    },
+    "outboundDropped": null,
+    "outboundReplayed": null,
+    "outboundFailed": null,
+    "outboundHeldForReview": 0,
+    "codexHomeRestored": false,
+    "codexHomeVerifiedUnchanged": true,
+    "codexHomeDroppedAfterReview": null,
+    "codexHomeChanged": null,
+    "networkLeaked": null,
+    "confinementStateLost": false,
+    "records": [
+      {
+        "seq": 173,
+        "kind": "seal.fallback",
+        "hash": "5e3410b2f944"
+      },
+      {
+        "seq": 174,
+        "kind": "turn.begin",
+        "hash": "ab556c7ba263"
+      },
+      {
+        "seq": 175,
+        "kind": "turn.executed",
+        "hash": "e06a7c525d13"
+      },
+      {
+        "seq": 176,
+        "kind": "effects.captured",
+        "hash": "cc05ee48d884"
+      },
+      {
+        "seq": 177,
+        "kind": "policy.decision",
+        "hash": "ab88a86ff04d"
+      },
+      {
+        "seq": 178,
+        "kind": "turn.held",
+        "hash": "1b1e4df28cae"
+      }
+    ]
+  },
+  "workspace": [
+    {
+      "path": ".gitignore",
+      "bytes": 39
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 586
+    },
+    {
+      "path": "README.md",
+      "bytes": 150
+    }
+  ]
+}

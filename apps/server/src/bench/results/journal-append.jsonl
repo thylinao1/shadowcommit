@@ -1,0 +1,7 @@
+{"kind":"host","host":"Maksims-MacBook-Air.local","platform":"darwin","release":"23.6.0","arch":"arm64","cpus":8,"cpuModel":"Apple M2","memMb":8192,"fs":"unknown","engine":"none (scripted inner runner, no Docker/Colima)","node":"v22.21.0","at":"2026-08-29T09:23:59.445Z"}
+{"kind":"config","name":"small-record","effectsPerRecord":5,"n":2000,"checkpointEvery":64}
+{"kind":"summary","name":"small-record","bucket":"append-includes-periodic-checkpoints","n":2000,"min":0.080208,"p50":0.11,"p95":0.24,"p99":0.36,"max":0.892083,"mean":0.13}
+{"kind":"summary","name":"small-record","bucket":"checkpoint-alone","n":30,"min":0.112875,"p50":0.14,"p95":0.22,"p99":0.24,"max":0.238792,"mean":0.15}
+{"kind":"config","name":"bounded-record","effectsPerRecord":200,"n":2000,"checkpointEvery":64}
+{"kind":"summary","name":"bounded-record","bucket":"append-includes-periodic-checkpoints","n":2000,"min":0.63875,"p50":0.77,"p95":1.26,"p99":1.75,"max":2.791875,"mean":0.84}
+{"kind":"summary","name":"bounded-record","bucket":"checkpoint-alone","n":30,"min":0.142209,"p50":0.21,"p95":0.29,"p99":0.36,"max":0.388792,"mean":0.22}

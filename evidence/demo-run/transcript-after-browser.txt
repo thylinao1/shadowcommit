@@ -1,0 +1,28 @@
+SHADOW COMMIT: WHAT THE BROWSER DID
+read back from http://127.0.0.1:3000 at 2026-08-31T16:27:33.122Z
+
+================================================================================================
+BEAT 9  the held turn a person settled in the browser
+================================================================================================
+  ok   the turn that was waiting is no longer in the queue
+  ok   the settled turn is in the run timeline
+  verdict   approved
+  principal operator
+  ok   the timeline records the human decision, not the mechanics that followed it
+  ok   and the principal is the authenticated operator
+  ok   approving in the browser applied the held files to the real workspace
+  ok   and the manifest change landed with them, running tools/prepare.js
+
+================================================================================================
+BEAT 10  the final timeline
+================================================================================================
+    approved  -                           2 effects   operator
+    rejected  manifest-script-change      2 effects   operator
+    approved  -                           2 effects   operator
+    discarded protected-asset-delete      2 effects   -
+    committed -                           3 effects   -
+  ok   the hash chain still verifies
+
+STAGE 2 COMPLETE.
+
+elapsed 0.2s

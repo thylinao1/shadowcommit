@@ -1,0 +1,198 @@
+{
+  "prompt": "Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.",
+  "run": {
+    "id": "b8af9b92-28b1-4442-9354-20667b6cb82a",
+    "agentId": "e32a7db3-7edd-4443-b97d-ca5b88288ec3",
+    "status": "failed",
+    "prompt": "Create a TypeScript hello-world CLI, add a test, run it, and summarize the files you created.",
+    "output": null,
+    "error": "docker Runtime exited with code 1: {\"error\":{\"code\":\"InvalidParameter\",\"message\":\"Invalid JSON in tool call arguments: {\\\"plan\\\" Request id: 021788171407216651bcb683a664fec8e1b815c68d8e2de6bd12d\",\"param\":\"\",\"type\":\"BadRequest\"}}",
+    "usage": null,
+    "containment": null,
+    "startedAt": "2026-08-31T10:15:32.791Z",
+    "completedAt": "2026-08-31T10:16:49.573Z",
+    "createdAt": "2026-08-31T10:15:32.788Z"
+  },
+  "elapsedMs": 76987,
+  "journalRecords": [
+    {
+      "hash": "73f0cf7f94ff019a68ba3115e0767b39a6bcd2ff7581d38bcfad550cdbcacf5d",
+      "hmac": "5045ec3b02e4c8c5cfc25229a00b526e1e3e985b9f4930057f0c18244d7c1b3a",
+      "kind": "seal.fallback",
+      "mechanism": "copy",
+      "prev": "24485df99d37dea2e2786164a75824975198d6c97657fd3560c9bc19888dd956",
+      "principal": "agent",
+      "reason": "not-linux",
+      "runId": "b8af9b92-28b1-4442-9354-20667b6cb82a",
+      "seq": 224,
+      "ts": "2026-08-31T10:15:32.864Z"
+    },
+    {
+      "agentId": "e32a7db3-7edd-4443-b97d-ca5b88288ec3",
+      "at": "2026-08-31T10:15:33.831Z",
+      "codexHomeFiles": 1,
+      "confinement": "container+sealed-network",
+      "containerCodexHome": "/codex-home",
+      "containerWorkspacePath": "/workspace",
+      "decoyHost": "status.shadow-decoy.test",
+      "egressAllowlist": [
+        "registry.npmjs.org:443",
+        "registry.yarnpkg.com:443",
+        "pypi.org:443",
+        "files.pythonhosted.org:443",
+        "ark.ap-southeast.bytepluses.com:443"
+      ],
+      "hash": "2cba1b54ab2e11c920590a405668503c19ee8f92e6336572623aa88e678e5aec",
+      "hmac": "da019d8550c72fc5dae39a070dc911a4271fcbeacfabbcba904717f80cf79e89",
+      "kind": "turn.begin",
+      "mechanism": "copy",
+      "modelChannel": "terminated-at-broker",
+      "network": "shadow-b8af9b92-28b1-4442-9354-20667b6cb82a",
+      "prev": "73f0cf7f94ff019a68ba3115e0767b39a6bcd2ff7581d38bcfad550cdbcacf5d",
+      "principal": "agent",
+      "runId": "b8af9b92-28b1-4442-9354-20667b6cb82a",
+      "seq": 225,
+      "ts": "2026-08-31T10:15:33.831Z",
+      "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+      "workspaceFilesBefore": 3,
+      "workspaceUnreadableBefore": 0
+    },
+    {
+      "agentId": "e32a7db3-7edd-4443-b97d-ca5b88288ec3",
+      "at": "2026-08-31T10:16:48.309Z",
+      "exit": "failed",
+      "hash": "8db20aa97d0ac8591aff535c8b5b305e1be16093ebce10e623c36d822ac7aa2e",
+      "hmac": "a729bbb6826bdfd8ca14d248673b060a5193c661341fb2a3d34e7e302342d417",
+      "kind": "turn.executed",
+      "prev": "2cba1b54ab2e11c920590a405668503c19ee8f92e6336572623aa88e678e5aec",
+      "principal": "agent",
+      "runId": "b8af9b92-28b1-4442-9354-20667b6cb82a",
+      "seq": 226,
+      "ts": "2026-08-31T10:16:48.310Z"
+    },
+    {
+      "hash": "b3580a34bd312ead92e6a9cb1e2ff2bd71c9e1c58e1c8cd28d2e48b2316ebb3f",
+      "hmac": "4205ef9b01e0870dd594c160aba4f7f1c4bf210797c06e33ee90bfe787a80fb7",
+      "kind": "seal.release",
+      "prev": "8db20aa97d0ac8591aff535c8b5b305e1be16093ebce10e623c36d822ac7aa2e",
+      "principal": "agent",
+      "removed": true,
+      "runId": "b8af9b92-28b1-4442-9354-20667b6cb82a",
+      "seq": 227,
+      "ts": "2026-08-31T10:16:49.572Z"
+    },
+    {
+      "agentId": "e32a7db3-7edd-4443-b97d-ca5b88288ec3",
+      "at": "2026-08-31T10:16:49.573Z",
+      "hash": "47b58c47e5cb49349ca69286155d96196bf12e3f04dafb2634cf4c1a178b028c",
+      "hmac": "c77f6ef048c0454f22fadf53209aca9b521f3f60f71a506af1925e8c67c0be24",
+      "kind": "turn.discarded",
+      "prev": "b3580a34bd312ead92e6a9cb1e2ff2bd71c9e1c58e1c8cd28d2e48b2316ebb3f",
+      "principal": "policy",
+      "rule": "turn-failed",
+      "runId": "b8af9b92-28b1-4442-9354-20667b6cb82a",
+      "seq": 228,
+      "ts": "2026-08-31T10:16:49.573Z",
+      "workspaceDigestAfter": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+      "workspaceFilesAfter": 3,
+      "workspaceUnreadableAfter": 0
+    }
+  ],
+  "toolEvents": {
+    "recorded": true,
+    "reported": false,
+    "exit": "failed",
+    "commands": null,
+    "commandsFailed": null,
+    "failed": []
+  },
+  "modelUsage": {
+    "present": false,
+    "tokens": 0,
+    "inputTokens": null,
+    "cachedInputTokens": null,
+    "outputTokens": null
+  },
+  "providerRequests": [],
+  "timeline": {
+    "runId": "b8af9b92-28b1-4442-9354-20667b6cb82a",
+    "agentId": "e32a7db3-7edd-4443-b97d-ca5b88288ec3",
+    "verdict": "discarded",
+    "rule": "turn-failed",
+    "principal": null,
+    "seq": 228,
+    "at": "2026-08-31T10:16:49.573Z",
+    "mechanism": "copy",
+    "effectCount": 0,
+    "truncated": 0,
+    "effects": [],
+    "conflictPaths": [],
+    "appliedPaths": [],
+    "workspaceDigestBefore": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+    "workspaceDigestAfter": "686d966f5586ae18a9c27c697efc9ec4b4b83bf3a74f248b1f9c656fa1335b69",
+    "workspaceDigestReason": null,
+    "workspaceFilesBefore": 3,
+    "workspaceFilesAfter": 3,
+    "workspaceUnreadableBefore": 0,
+    "workspaceUnreadableAfter": 0,
+    "beginRecorded": true,
+    "confinement": "container+sealed-network",
+    "confinementReason": null,
+    "network": "shadow-b8af9b92-28b1-4442-9354-20667b6cb82a",
+    "egressAllowlistSize": 5,
+    "modelChannel": "terminated-at-broker",
+    "codexHomeFiles": 1,
+    "egress": null,
+    "outboundDropped": null,
+    "outboundReplayed": null,
+    "outboundFailed": null,
+    "outboundHeldForReview": null,
+    "codexHomeRestored": null,
+    "codexHomeVerifiedUnchanged": null,
+    "codexHomeDroppedAfterReview": null,
+    "codexHomeChanged": null,
+    "networkLeaked": null,
+    "confinementStateLost": false,
+    "records": [
+      {
+        "seq": 224,
+        "kind": "seal.fallback",
+        "hash": "73f0cf7f94ff"
+      },
+      {
+        "seq": 225,
+        "kind": "turn.begin",
+        "hash": "2cba1b54ab2e"
+      },
+      {
+        "seq": 226,
+        "kind": "turn.executed",
+        "hash": "8db20aa97d0a"
+      },
+      {
+        "seq": 227,
+        "kind": "seal.release",
+        "hash": "b3580a34bd31"
+      },
+      {
+        "seq": 228,
+        "kind": "turn.discarded",
+        "hash": "47b58c47e5cb"
+      }
+    ]
+  },
+  "workspace": [
+    {
+      "path": ".gitignore",
+      "bytes": 39
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 586
+    },
+    {
+      "path": "README.md",
+      "bytes": 150
+    }
+  ]
+}

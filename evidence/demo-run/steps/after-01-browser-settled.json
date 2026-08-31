@@ -1,0 +1,122 @@
+{
+  "turn": {
+    "runId": "8d78d7b6-acb6-4ac9-be35-54e0a03419a7",
+    "agentId": "7e835b5a-5940-4d1f-b611-0d8dc488d78b",
+    "verdict": "approved",
+    "rule": null,
+    "principal": "operator",
+    "seq": 385,
+    "at": "2026-08-31T16:27:14.777Z",
+    "mechanism": "copy",
+    "effectCount": 2,
+    "truncated": 0,
+    "effects": [
+      {
+        "path": "package.json",
+        "kind": "modify",
+        "class": "dependency",
+        "bytes": 173
+      },
+      {
+        "path": "tools/prepare.js",
+        "kind": "create",
+        "class": "source",
+        "bytes": 29
+      }
+    ],
+    "conflictPaths": [],
+    "appliedPaths": [],
+    "workspaceDigestBefore": "dd9edbb01fcc9965e365cfc669e35dc7ae94da8877fa859a9c74ddb2c9b62449",
+    "workspaceDigestAfter": "f61869b9c072c6999a3414ee12b4b4d7ca03b5d8f47fbdc46bf9fb9a54c47fda",
+    "workspaceDigestReason": null,
+    "workspaceFilesBefore": 10,
+    "workspaceFilesAfter": 11,
+    "workspaceUnreadableBefore": 0,
+    "workspaceUnreadableAfter": 0,
+    "beginRecorded": true,
+    "confinement": "container+sealed-network",
+    "confinementReason": null,
+    "network": "shadow-8d78d7b6-acb6-4ac9-be35-54e0a03419a7",
+    "egressAllowlistSize": 5,
+    "modelChannel": "terminated-at-broker",
+    "codexHomeFiles": 31,
+    "egress": null,
+    "outboundDropped": null,
+    "outboundReplayed": 0,
+    "outboundFailed": 0,
+    "outboundHeldForReview": null,
+    "codexHomeRestored": null,
+    "codexHomeVerifiedUnchanged": null,
+    "codexHomeDroppedAfterReview": null,
+    "codexHomeChanged": 2,
+    "networkLeaked": null,
+    "confinementStateLost": false,
+    "records": [
+      {
+        "seq": 375,
+        "kind": "seal.fallback",
+        "hash": "fcc7aacfe298"
+      },
+      {
+        "seq": 376,
+        "kind": "turn.begin",
+        "hash": "61178d4a26d5"
+      },
+      {
+        "seq": 377,
+        "kind": "turn.executed",
+        "hash": "de3265154993"
+      },
+      {
+        "seq": 378,
+        "kind": "effects.captured",
+        "hash": "ae7a0e8b03cb"
+      },
+      {
+        "seq": 379,
+        "kind": "policy.decision",
+        "hash": "8fa222d842b6"
+      },
+      {
+        "seq": 380,
+        "kind": "turn.held",
+        "hash": "0902555b3856"
+      },
+      {
+        "seq": 381,
+        "kind": "policy.decision",
+        "hash": "0b215f67b50e"
+      },
+      {
+        "seq": 382,
+        "kind": "turn.approved",
+        "hash": "548f6aceb299"
+      },
+      {
+        "seq": 383,
+        "kind": "turn.committing",
+        "hash": "a02d2ef445a5"
+      },
+      {
+        "seq": 384,
+        "kind": "turn.committed",
+        "hash": "fb3272d74a52"
+      },
+      {
+        "seq": 385,
+        "kind": "seal.release",
+        "hash": "b327019ee3b3"
+      }
+    ]
+  },
+  "manifest": {
+    "name": "hello-cli",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+      "postinstall": "node ./tools/setup.js",
+      "prepare": "node ./tools/prepare.js"
+    }
+  },
+  "prepareFilePresent": true
+}

@@ -1,0 +1,20 @@
+{
+  "health": {
+    "ok": true,
+    "service": "volc-agent-launchpad"
+  },
+  "system": {
+    "arkConfigured": true,
+    "arkBaseUrl": "http://172.19.0.2:8398/api/v3",
+    "arkModel": "ep-mock-endpoint",
+    "codexAvailable": true,
+    "codexSandboxMode": "danger-full-access",
+    "runtimeProvider": "container",
+    "containerEngine": "docker",
+    "runtime": "Codex CLI in docker Runtime"
+  },
+  "auth": {
+    "required": false
+  },
+  "base": "http://127.0.0.1:3000"
+}

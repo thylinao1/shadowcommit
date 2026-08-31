@@ -1,0 +1,16 @@
+{"kind":"host","host":"Maksims-MacBook-Air.local","platform":"darwin","release":"23.6.0","arch":"arm64","cpus":8,"cpuModel":"Apple M2","memMb":8192,"fs":"unknown","engine":"none (scripted inner runner, no Docker/Colima)","node":"v22.21.0","at":"2026-08-29T09:32:50.892Z"}
+{"kind":"measure","files":50,"metric":"template-bytes","templateBytes":3250,"templateFiles":50}
+{"kind":"measure","files":50,"metric":"storage-per-turn-apparent-bytes","n":8,"min":3250,"p50":3250,"p95":3250,"p99":3250,"max":3250,"mean":3250}
+{"kind":"measure","files":50,"metric":"storage-per-turn-du-bytes","n":8,"min":204800,"p50":204800,"p95":204800,"p99":204800,"max":204800,"mean":204800}
+{"kind":"measure","files":50,"metric":"discard-teardown-ms","n":8,"min":2.475792,"p50":3.04,"p95":3.27,"p99":3.27,"max":3.271667,"mean":2.98}
+{"kind":"measure","files":50,"metric":"discard-end-to-end-ms","n":8,"min":42.442666,"p50":43.48,"p95":51.29,"p99":54.39,"max":55.170375,"mean":44.81}
+{"kind":"measure","files":400,"metric":"template-bytes","templateBytes":26000,"templateFiles":400}
+{"kind":"measure","files":400,"metric":"storage-per-turn-apparent-bytes","n":5,"min":26000,"p50":26000,"p95":26000,"p99":26000,"max":26000,"mean":26000}
+{"kind":"measure","files":400,"metric":"storage-per-turn-du-bytes","n":5,"min":1638400,"p50":1638400,"p95":1638400,"p99":1638400,"max":1638400,"mean":1638400}
+{"kind":"measure","files":400,"metric":"discard-teardown-ms","n":5,"min":11.990291,"p50":12.52,"p95":13.63,"p99":13.68,"max":13.698291,"mean":12.72}
+{"kind":"measure","files":400,"metric":"discard-end-to-end-ms","n":5,"min":194.598667,"p50":203.3,"p95":213.6,"p99":214.43,"max":214.632291,"mean":205.03}
+{"kind":"measure","files":8886,"metric":"template-bytes","templateBytes":577590,"templateFiles":8886}
+{"kind":"measure","files":8886,"metric":"storage-per-turn-apparent-bytes","n":4,"min":577590,"p50":577590,"p95":577590,"p99":577590,"max":577590,"mean":577590}
+{"kind":"measure","files":8886,"metric":"storage-per-turn-du-bytes","n":4,"min":36397056,"p50":36397056,"p95":36397056,"p99":36397056,"max":36397056,"mean":36397056}
+{"kind":"measure","files":8886,"metric":"discard-teardown-ms","n":4,"min":326.057584,"p50":384.98,"p95":407.98,"p99":410.33,"max":410.911625,"mean":376.73}
+{"kind":"measure","files":8886,"metric":"discard-end-to-end-ms","n":4,"min":6019.11725,"p50":10838.85,"p95":16700.81,"p99":17183.34,"max":17303.970041,"mean":11250.2}

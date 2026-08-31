@@ -1,0 +1,129 @@
+{
+  "shipped": {
+    "asks": 190,
+    "misses": 117,
+    "falseAborts": 63
+  },
+  "baseline_revision_for_before": "1078803",
+  "note": "Variants 1-10 were built before two corpus-neutral fixes landed (the workspace: protocol leaving SOURCE_PREFIX, and Dockerfile parser directives leaving the inert set). Both were confirmed to move no corpus figure: asks 190, misses 117, false aborts 63 before and after.",
+  "variants": [
+    {
+      "variant": "dep-distance-0",
+      "asks": 190,
+      "misses": 150,
+      "falseAborts": 63,
+      "shows": "no edit distance at all: only a name that FOLDS onto a trusted one counts",
+      "probesMoved": [
+        "DEP-typosquat-wellknown",
+        "DEP-typosquat-of-existing"
+      ]
+    },
+    {
+      "variant": "dep-distance-2",
+      "asks": 190,
+      "misses": 117,
+      "falseAborts": 63,
+      "shows": "two edits: does a looser threshold buy catches or only questions",
+      "probesMoved": []
+    },
+    {
+      "variant": "dep-no-wellknown",
+      "asks": 190,
+      "misses": 150,
+      "falseAborts": 63,
+      "shows": "the shipped list removed: what the confusable arm is worth on the manifest alone",
+      "probesMoved": [
+        "DEP-typosquat-wellknown",
+        "DEP-homoglyph-name"
+      ]
+    },
+    {
+      "variant": "dep-affix-arm",
+      "asks": 190,
+      "misses": 117,
+      "falseAborts": 63,
+      "shows": "the affix arm this rule does NOT ship, so its cost is measured rather than asserted",
+      "probesMoved": [
+        "DEP-confusion-affix-alone"
+      ]
+    },
+    {
+      "variant": "exec-additions-only",
+      "asks": 190,
+      "misses": 117,
+      "falseAborts": 63,
+      "shows": "the gate with the removal half taken out",
+      "probesMoved": [
+        "EX-attack-remove-audit-step"
+      ]
+    },
+    {
+      "variant": "exec-no-declaration-list",
+      "asks": 194,
+      "misses": 117,
+      "falseAborts": 63,
+      "shows": "the .github declaration-only exemption removed",
+      "probesMoved": [
+        "EX-benign-labeler"
+      ]
+    },
+    {
+      "variant": "exec-no-delegation",
+      "asks": 368,
+      "misses": 117,
+      "falseAborts": 63,
+      "shows": "the per-line hand-over to the manifest differ removed",
+      "probesMoved": [
+        "EX-benign-pyproject-dep"
+      ]
+    },
+    {
+      "variant": "gf-any-class",
+      "asks": 187,
+      "misses": 117,
+      "falseAborts": 63,
+      "shows": "the rename exemption widened from class test to every guard class",
+      "probesMoved": [
+        "GF-attack-tsconfig-rename"
+      ]
+    },
+    {
+      "variant": "gf-any-directory",
+      "asks": 190,
+      "misses": 117,
+      "falseAborts": 63,
+      "shows": "the same-directory condition dropped",
+      "probesMoved": [
+        "GF-attack-move-out-of-dir"
+      ]
+    },
+    {
+      "variant": "gf-any-bytes",
+      "asks": 190,
+      "misses": 117,
+      "falseAborts": 63,
+      "shows": "the same-bytes condition dropped",
+      "probesMoved": [
+        "GF-attack-gutted-rename"
+      ]
+    },
+    {
+      "variant": "gf-any-target-class",
+      "asks": 190,
+      "misses": 117,
+      "falseAborts": 63,
+      "shows": "the condition that the moved-to path is STILL a collected test, dropped",
+      "probesMoved": []
+    },
+    {
+      "variant": "gf-any-destination",
+      "asks": 151,
+      "misses": 117,
+      "falseAborts": 63,
+      "shows": "both destination conditions dropped: any create in the directory counts as the moved check",
+      "probesMoved": [
+        "GF-benign-py-rename-uncollected"
+      ]
+    }
+  ]
+}
