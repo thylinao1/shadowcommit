@@ -2,15 +2,14 @@
 
 Shadow Commit makes every agent turn a transaction. The agent works on a sealed copy of its
 workspace, the complete set of effects it produced is judged after it runs, and nothing reaches
-the real workspace until a policy or a person says so.
+the real workspace until a policy or a person approves it.
 
 - **Submission:** TikTok TechJam 2026, Track 1. Middleware story: threat modeling and safety.
 - **Showcase site:** https://thylinao1.github.io/shadowcommit-site-zff3/
 - **Built on:** the [CodeJam Agent Launchpad](https://github.com/RrankPyramid/CodeJam) starter kit.
   Its agent CRUD, playground, control plane and runtime are kept unchanged. The transaction layer
   around them is this project.
-- **The property the design rests on:** a turn that is held has not happened. Its writes are real,
-  but they exist only in the sealed copy until a policy or a person settles them.
+- **The property the design rests on:** a held turn has no effect the rest of the system can observe. Its writes are real, but they exist only in the sealed copy until a policy or a person settles them.
 
 ## The problem, recorded
 
@@ -22,12 +21,11 @@ In our recorded run against a real model, the agent said this:
 > Results: Jest tests passed, 2/2 tests passed
 
 The journal for that same turn recorded 9 commands and 6 failures, including `npx jest` at exit 1.
-The agent reported the tests passed while the test command failed. Nobody scripted that. It is run
+The agent reported the tests passed while the test command failed. This behavior was not scripted. It is run
 `9b1c6770` against seed-2-0-pro through BytePlus Ark, and the capture is in the tree at
 `research/multi-model/runs/seed-2-0-pro-260328/`.
 
-That is the difference between reading a summary and counting the effects. Shadow Commit counts
-the effects.
+Shadow Commit decides from the counted effects of a turn rather than from the summary the agent reports.
 
 ## Review this in ten minutes
 
@@ -523,8 +521,7 @@ The destroy rate across those eleven projects runs from 0.20% to 8.78%, a factor
 figure for a false abort rate is an average over a distribution far wider than itself, and that is
 true of every published figure in this area, not only ours.
 
-The project's own rule, which cost the most to learn: a number measured on data the thing was
-built from is not a result. Publish the blind one.
+The project reports a figure measured on the same data the policy was tuned on as a floor, and reports the held-out figure alongside it.
 
 ### The receipt
 

@@ -363,7 +363,7 @@ relationships between effects rather than effects one at a time. It also collaps
 into one: files, the agent's memory and held network writes arrive in the same array
 (`transactional-runner.ts:342`), so a turn gets one verdict rather than three that have to be
 reconciled. And the composition rule in `shadow-policy.ts` is that nothing short-circuits, all hits
-are collected and the worst wins, so a `review` hit can never hide a `discard` hit behind it. That
+are collected and the worst decision applies, so a `review` hit can never hide a `discard` hit behind it. That
 was a real defect: the starter kit's policy returned on the first rule that fired, so whichever rule
 happened to be listed first decided the turn.
 

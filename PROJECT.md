@@ -1,8 +1,7 @@
 # Shadow Commit
 
 An agent runtime where every turn is a transaction. The agent works on a sealed copy, the effects
-it produced are judged as a set, and nothing reaches the real workspace until a policy or a person
-says so.
+it produced are judged as a set, and nothing reaches the real workspace until a policy or a person approves it.
 
 This document is the whole project: what it is, how it works, what was built and in what order,
 what has been measured, and what it cannot do. Every figure names the command that reproduces it.
@@ -45,8 +44,7 @@ writes. A human reading the agent's summary sees "added a health check".
 Every stage writes a record into a hash-chained journal that an independent program can verify
 without trusting the server that wrote it.
 
-The property that follows: **a turn that is held has not happened.** Its writes are real, they are
-just not anywhere the world can see. That is what makes it a kill switch rather than an alarm.
+The property that follows is that a held turn has no effect the rest of the system can observe. Its writes are real, but they exist only in the sealed copy. A held turn therefore contains the change rather than only flagging it.
 
 ---
 
@@ -794,6 +792,4 @@ classes are closed. The gap between those two lines is the model and nothing els
 gap than it was and is stated rather than closed. They are narrowed, not closed. Backdoor-logic remains about two thirds missed on
 data the rules have never seen.
 
-The project's own rule, which cost the most to learn and is worth more than any figure above:
-
-**A number measured on data the thing was built from is not a result. Publish the blind one.**
+The project follows one rule for reporting figures: a figure measured on the same data the policy was tuned on is reported as a floor, and the held-out figure is reported alongside it.
